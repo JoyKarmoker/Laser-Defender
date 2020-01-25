@@ -63,8 +63,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scriptes\Player.cs" />
-    <None Include="Assets\Space Shooter Visual Assets\license.txt" />
-    <None Include="Assets\Space Shooter Visual Assets\Spritesheet\sheet.xml" />
+    <None Include="Assets\Z.Space Shooter Visual Assets\license.txt" />
+    <None Include="Assets\Z.Space Shooter Visual Assets\Spritesheet\sheet.xml" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>F:/Joy/Joy18_Game_project/Laser Defender/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

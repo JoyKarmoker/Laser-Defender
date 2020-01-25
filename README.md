@@ -12,3 +12,6 @@ on press of up, down, left and right key.
 
 Commit-4: Moving Boundary Added For The Player - Boundary Added for the player space ship,
 so it can not go out of the of the screen(Out of Boundary).
+
+Commit-5: Player Shooting mechanism added - Now Player Space ship can shoot laser 
+when the space bar is pressed. one press of the space bars shoots one laser 
