@@ -9,3 +9,6 @@ and added player and enemy sprite in the scene
 
 commit-3: Player Moving Script Added - Added Player Script in the player Object so it can move
 on press of up, down, left and right key.
+
+Commit-4: Moving Boundary Added For The Player - Boundary Added for the player space ship,
+so it can not go out of the of the screen(Out of Boundary).
