@@ -62,6 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scriptes\EnemyPathing.cs" />
     <Compile Include="Assets\Scriptes\Player.cs" />
     <Compile Include="Assets\Scriptes\Shredder.cs" />
     <None Include="Assets\Z.Space Shooter Visual Assets\license.txt" />

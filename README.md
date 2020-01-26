@@ -23,3 +23,6 @@ Commit-7: Bullets Destroyed After They Exit Play Area - The Laser Bullets were m
 the hiarchy amd they were present the world for infinite time. Now they will be destroyed after
 collidng with the Shredder.
 
+Commit-8: Enemy Moving Mechanism added - Now The Single Enemy present in the game
+Can move following a path.
+
