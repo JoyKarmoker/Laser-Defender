@@ -19,3 +19,7 @@ when the space bar is pressed. one press of the space bars shoots one laser
 Commit-6: Continuos Shotting enabled - Now player can shoot continuosly while keep pressing the
 space buton down, and after relasing the space key the shotting will stop
 
+Commit-7: Bullets Destroyed After They Exit Play Area - The Laser Bullets were making a mess in
+the hiarchy amd they were present the world for infinite time. Now they will be destroyed after
+collidng with the Shredder.
+
