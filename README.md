@@ -32,5 +32,7 @@ depends on which wave has been assigned to it
 
 Commit-10: Multiple Enemies Spawning in the same wave once - Multiple Emenies can create themselves
 in a particular wave, they follow a path and destroy themselves. Only one wave can be done by the enemies
- 
+
+Commit-11: Enemy Can be assigned any Path - Now the enemy can follow any path assigned from the Enemy
+Spawner Script still there is one spawn of the enemies.
 
