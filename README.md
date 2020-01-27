@@ -26,3 +26,7 @@ collidng with the Shredder.
 Commit-8: Enemy Moving Mechanism added - Now The Single Enemy present in the game
 Can move following a path.
 
+Commit-9: Enemy moving in various path Mechanism added - Now There are two waves(two wave objects)
+now the enemy can move in two wave either in the first wave or in the second wave.
+depends on which wave has been assigned to it
+
