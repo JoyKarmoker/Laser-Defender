@@ -30,3 +30,7 @@ Commit-9: Enemy moving in various path Mechanism added - Now There are two waves
 now the enemy can move in two wave either in the first wave or in the second wave.
 depends on which wave has been assigned to it
 
+Commit-10: Multiple Enemies Spawning in the same wave once - Multiple Emenies can create themselves
+in a particular wave, they follow a path and destroy themselves. Only one wave can be done by the enemies
+ 
+
