@@ -36,3 +36,6 @@ in a particular wave, they follow a path and destroy themselves. Only one wave c
 Commit-11: Enemy Can be assigned any Path - Now the enemy can follow any path assigned from the Enemy
 Spawner Script still there is one spawn of the enemies.
 
+Commit-12: Multiple Enemies coming from multiple wavws - There are two enemies any and two 
+waves now. Each enemy follow a specific wave.
+

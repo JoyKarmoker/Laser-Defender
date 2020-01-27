@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2997137626593217470}
   - component: {fileID: -3256562138334536297}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Rogger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,5 +93,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c360fa6374ed9d4486662469beec18e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveConfig: {fileID: 11400000, guid: ff2bf5f6b2223ef44973c87f8670af17, type: 2}
-  moveSpeed: 5
