@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 2997137626593217469}
   - component: {fileID: 2997137626593217470}
   - component: {fileID: -3256562138334536297}
+  - component: {fileID: 8706444878381397999}
+  - component: {fileID: -4385369826579042657}
   m_Layer: 0
   m_Name: Panther
   m_TagString: Untagged
@@ -93,3 +95,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c360fa6374ed9d4486662469beec18e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8706444878381397999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2997137626593217471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e272105b3430d549afd190744d1549b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  shotCounter: 0
+  minTimeBetweenShots: 0.2
+  maxTimeBetweenShots: 3
+  projectile: {fileID: 5179212724898402520, guid: 2acd2c93825cd1145a33d5062efe42f0,
+    type: 3}
+  projectileSpeed: 10
+--- !u!58 &-4385369826579042657
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2997137626593217471}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.4526422

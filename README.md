@@ -54,4 +54,7 @@ is 0 or less, it only works with two enemies Roger and Bernered
 
 Commit-18: Enemy Shotting Mechansim added - Now the Enemy can shoot , Only Roger and bernerred
 
+Commit-19: Shotting and damage mechanism added to all enemy - All the enemies can now shoot,
+the have a health and when health is 0 then they destroy.
+
 
