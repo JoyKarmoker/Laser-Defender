@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 5125787239712288472}
   - component: {fileID: 7767659844458992000}
   - component: {fileID: -7882306371740457953}
+  - component: {fileID: 3268185840924390053}
+  - component: {fileID: 7880459883400207571}
   m_Layer: 0
   m_Name: Bernerred
   m_TagString: Untagged
@@ -93,3 +95,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c360fa6374ed9d4486662469beec18e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3268185840924390053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2662148599247167712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e272105b3430d549afd190744d1549b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 200
+--- !u!70 &7880459883400207571
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2662148599247167712}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.82, y: 0.84}
+  m_Direction: 0

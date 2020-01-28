@@ -46,4 +46,6 @@ Commit-14: Many New Waves Created- New Paths and new enemies have been added in 
 
 Commit-15: More Waves added - There are 32 different waves with 20 paths and moro enenmy prefabs
 
+Commit-16: Health added to roger and bernerred - Roger abd bernerred are two types of enemies
+they have health and the health dicrease whrn bulltes hit the collider of the two enemies.
 
