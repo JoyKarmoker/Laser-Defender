@@ -52,3 +52,6 @@ they have health and the health dicrease whrn bulltes hit the collider of the tw
 Commit-17: Enemy Destroy Mechanism added - Now The enemy is destroyed when the health of the enemy
 is 0 or less, it only works with two enemies Roger and Bernered
 
+Commit-18: Enemy Shotting Mechansim added - Now the Enemy can shoot , Only Roger and bernerred
+
+

@@ -108,6 +108,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 200
+  shotCounter: 0
+  minTimeBetweenShots: 1
+  maxTimeBetweenShots: 3
+  projectile: {fileID: 5179212724898402520, guid: 2acd2c93825cd1145a33d5062efe42f0,
+    type: 3}
+  projectileSpeed: 10
 --- !u!70 &7880459883400207571
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
