@@ -49,3 +49,6 @@ Commit-15: More Waves added - There are 32 different waves with 20 paths and mor
 Commit-16: Health added to roger and bernerred - Roger abd bernerred are two types of enemies
 they have health and the health dicrease whrn bulltes hit the collider of the two enemies.
 
+Commit-17: Enemy Destroy Mechanism added - Now The enemy is destroyed when the health of the enemy
+is 0 or less, it only works with two enemies Roger and Bernered
+
