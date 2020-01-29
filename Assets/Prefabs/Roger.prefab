@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2997137626593217469}
   - component: {fileID: 2997137626593217470}
   - component: {fileID: -3256562138334536297}
-  - component: {fileID: -2755652739347464753}
   - component: {fileID: 1690005794641383536}
+  - component: {fileID: 2546566701613870930}
   m_Layer: 0
   m_Name: Roger
   m_TagString: Untagged
@@ -95,22 +95,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c360fa6374ed9d4486662469beec18e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!58 &-2755652739347464753
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2997137626593217471}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0050768256, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.36446196
 --- !u!114 &1690005794641383536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,10 +107,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e272105b3430d549afd190744d1549b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 500
+  health: 200
   shotCounter: 0
   minTimeBetweenShots: 0.2
   maxTimeBetweenShots: 3
   projectile: {fileID: 5179212724898402520, guid: 2acd2c93825cd1145a33d5062efe42f0,
     type: 3}
   projectileSpeed: 10
+--- !u!58 &2546566701613870930
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2997137626593217471}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.016311198, y: 0.193016}
+  serializedVersion: 2
+  m_Radius: 0.28829524

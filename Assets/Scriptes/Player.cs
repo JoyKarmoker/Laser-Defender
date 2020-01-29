@@ -6,8 +6,12 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     //Configuration Parameters
+    [Header("Player")]
     [SerializeField] float playerSpeed = 10f;
     [SerializeField] float padding = 1f;
+    [SerializeField] float health = 300;
+
+    [Header("Projectile")]
     [SerializeField] GameObject laserPrefab;
     [SerializeField] float projectileSpeed = 10f;
     [SerializeField] float projectileFiringPeriod = 0.05f;
@@ -84,5 +88,22 @@ public class Player : MonoBehaviour
 
         yMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + padding;
         yMax = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - padding;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
+
+        ProcessHit(damageDealer);
+    }
+
+    private void ProcessHit(DamageDealer damageDealer)
+    {
+        health = health - damageDealer.GetDamage();
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

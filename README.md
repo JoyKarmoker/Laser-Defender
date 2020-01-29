@@ -57,4 +57,7 @@ Commit-18: Enemy Shotting Mechansim added - Now the Enemy can shoot , Only Roger
 Commit-19: Shotting and damage mechanism added to all enemy - All the enemies can now shoot,
 the have a health and when health is 0 then they destroy.
 
+Commit-19: Player Hit and destroy mechanism added - Now The player have a health and it recieves
+the bullet from enemy. When health is below 0 it destroyes itself
+
 

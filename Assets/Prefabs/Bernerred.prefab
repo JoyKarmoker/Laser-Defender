@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e272105b3430d549afd190744d1549b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 200
+  health: 150
   shotCounter: 0
   minTimeBetweenShots: 1
   maxTimeBetweenShots: 3
@@ -127,6 +127,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.01753974, y: -0.0043849945}
-  m_Size: {x: 0.7147622, y: 0.7147622}
+  m_Offset: {x: -0.02774331, y: -0.0043849945}
+  m_Size: {x: 0.6943551, y: 0.7147622}
   m_Direction: 0
