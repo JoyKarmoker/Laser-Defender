@@ -60,4 +60,7 @@ the have a health and when health is 0 then they destroy.
 Commit-19: Player Hit and destroy mechanism added - Now The player have a health and it recieves
 the bullet from enemy. When health is below 0 it destroyes itself
 
+Commit-20: Player and enemy destroying themselves problem solved - Previously player was killed
+by its own bullet and was also killing itself by his own bullets. Now layers have been added
+so that the player bullet only hits the enemy and enemy bullets only hit the player
 

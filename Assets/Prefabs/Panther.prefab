@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -3256562138334536297}
   - component: {fileID: 8706444878381397999}
   - component: {fileID: -4385369826579042657}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Panther
   m_TagString: Untagged
   m_Icon: {fileID: 0}

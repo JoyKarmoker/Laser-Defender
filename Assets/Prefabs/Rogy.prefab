@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -3256562138334536297}
   - component: {fileID: 8872730571726895588}
   - component: {fileID: 2568151411759721235}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rogy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
