@@ -66,4 +66,6 @@ so that the player bullet only hits the enemy and enemy bullets only hit the pla
 
 Commit-21: Scrolling Background added - Now the game scene has a scrolling background so i feels like
 
+Commit-22: Particle effect added - Two particle effects have been added so it looks like stars are falling
+from background.
 
