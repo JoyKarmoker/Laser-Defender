@@ -72,5 +72,6 @@ from background.
 Commit-23: Tried to change the background - I have tried dto change the background of the game scene
 but the background is not finale yet
 
+Commit-24: Enemy Destroy animation added - When the enemy is destoyed a explotion is added
 
 
