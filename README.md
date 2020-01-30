@@ -69,3 +69,8 @@ Commit-21: Scrolling Background added - Now the game scene has a scrolling backg
 Commit-22: Particle effect added - Two particle effects have been added so it looks like stars are falling
 from background.
 
+Commit-23: Tried to change the background - I have tried dto change the background of the game scene
+but the background is not finale yet
+
+
+
