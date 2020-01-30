@@ -64,3 +64,6 @@ Commit-20: Player and enemy destroying themselves problem solved - Previously pl
 by its own bullet and was also killing itself by his own bullets. Now layers have been added
 so that the player bullet only hits the enemy and enemy bullets only hit the player
 
+Commit-21: Scrolling Background added - Now the game scene has a scrolling background so i feels like
+
+

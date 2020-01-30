@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scriptes\BackgroundScroller.cs" />
     <Compile Include="Assets\Scriptes\DamageDealer.cs" />
     <Compile Include="Assets\Scriptes\Enemy.cs" />
     <Compile Include="Assets\Scriptes\EnemyPathing.cs" />
