@@ -115,6 +115,8 @@ MonoBehaviour:
     type: 3}
   deathVFX: {fileID: 4277923085502997696, guid: cefb4068bb28b8d4eaed5020747315ef,
     type: 3}
+  deathSFX: {fileID: 8300000, guid: 10295f94441b93d469c84845cda51fe6, type: 3}
+  shootSFX: {fileID: 8300000, guid: 6eda315463f84d4439b399d507532e85, type: 3}
   projectileSpeed: 10
   durationofExplotion: 1
 --- !u!58 &1897609296402781375

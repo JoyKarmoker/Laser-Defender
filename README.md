@@ -74,4 +74,6 @@ but the background is not finale yet
 
 Commit-24: Enemy Destroy animation added - When the enemy is destoyed a explotion is added
 
+Commit-25: SFX added to all elements - When the and enemy shhots SFX have been added, when the player
+enemy die SFX added
 
