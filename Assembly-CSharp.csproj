@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scriptes\EnemyPathing.cs" />
     <Compile Include="Assets\Scriptes\EnemySpawner.cs" />
     <Compile Include="Assets\Scriptes\LevelLoader.cs" />
+    <Compile Include="Assets\Scriptes\MusicManager.cs" />
     <Compile Include="Assets\Scriptes\Player.cs" />
     <Compile Include="Assets\Scriptes\Shredder.cs" />
     <Compile Include="Assets\Scriptes\WaveConfig.cs" />
