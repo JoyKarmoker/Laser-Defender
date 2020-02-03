@@ -5,15 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
-    [SerializeField] float delayInSeconds = 2f;
+     float delayInSeconds = 2f;
     public void LoadStartMenu()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void LoadGame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     public void LoadGameOver()
@@ -22,15 +22,22 @@ public class LevelLoader : MonoBehaviour
         
     }
 
+
+    public void LoadWinScene()
+    {
+        SceneManager.LoadScene("win");
+    }
     IEnumerator WaitAndLoad()
     {
         yield return new WaitForSeconds(delayInSeconds);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
     public void QuitGame()
     {
         Application.Quit();
     }
+
+
 
 
 }

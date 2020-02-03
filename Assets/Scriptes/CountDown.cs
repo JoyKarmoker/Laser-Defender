@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+
 public class CountDown : MonoBehaviour
 {
-    public float timeStart = 120;
+    public float timeStart = 12;
     public Text timerText;
     public LevelLoader levelLoder;
+
   
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,7 @@ public class CountDown : MonoBehaviour
         timerText.text = "time :" + Mathf.Round(timeStart).ToString();
         if(timeStart <= 0)
         {
-            SceneManager.LoadScene("win");
+            levelLoder.LoadWinScene();
         }
 
     }

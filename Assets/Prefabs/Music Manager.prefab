@@ -46,7 +46,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicChangeArray:
   - {fileID: 8300000, guid: e2213d421b38ced44b5e552d2be8e088, type: 3}
+  - {fileID: 8300000, guid: e2213d421b38ced44b5e552d2be8e088, type: 3}
   - {fileID: 8300000, guid: 8c5a88c72d397cb439f16fac8128b078, type: 3}
+  - {fileID: 8300000, guid: e2213d421b38ced44b5e552d2be8e088, type: 3}
+  - {fileID: 8300000, guid: e2213d421b38ced44b5e552d2be8e088, type: 3}
   - {fileID: 8300000, guid: e2213d421b38ced44b5e552d2be8e088, type: 3}
 --- !u!82 &1571234982660789019
 AudioSource:
