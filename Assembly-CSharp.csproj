@@ -64,13 +64,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scriptes\BackgroundScroller.cs" />
+    <Compile Include="Assets\Scriptes\CountDown.cs" />
     <Compile Include="Assets\Scriptes\DamageDealer.cs" />
     <Compile Include="Assets\Scriptes\Enemy.cs" />
     <Compile Include="Assets\Scriptes\EnemyPathing.cs" />
     <Compile Include="Assets\Scriptes\EnemySpawner.cs" />
+    <Compile Include="Assets\Scriptes\GameSession.cs" />
     <Compile Include="Assets\Scriptes\LevelLoader.cs" />
     <Compile Include="Assets\Scriptes\MusicManager.cs" />
     <Compile Include="Assets\Scriptes\Player.cs" />
+    <Compile Include="Assets\Scriptes\ScoreDisplay.cs" />
     <Compile Include="Assets\Scriptes\Shredder.cs" />
     <Compile Include="Assets\Scriptes\WaveConfig.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
