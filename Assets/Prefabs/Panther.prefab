@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 2997137626593217470}
   - component: {fileID: -3256562138334536297}
   - component: {fileID: 8706444878381397999}
-  - component: {fileID: -4385369826579042657}
   - component: {fileID: -2624825669423681105}
   - component: {fileID: -6457318543160877014}
+  - component: {fileID: 5275519933696749715}
   m_Layer: 9
   m_Name: Panther
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 2997137626593217471}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 4.41, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -75,7 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 46e117ad326b64140a4c1716b3ab9452, type: 3}
+  m_Sprite: {fileID: 6187788156252989193, guid: a3ed001bdd540d549a2adf0fce00c9a7,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -122,24 +123,8 @@ MonoBehaviour:
   durationofExplotion: 1
   deathSFX: {fileID: 8300000, guid: 10295f94441b93d469c84845cda51fe6, type: 3}
   deathSFXVolume: 0.4
-  shootSFX: {fileID: 0}
+  shootSFX: {fileID: 8300000, guid: 6eda315463f84d4439b399d507532e85, type: 3}
   shootSFXVolume: 0.7
---- !u!58 &-4385369826579042657
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2997137626593217471}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.4526422
 --- !u!50 &-2624825669423681105
 Rigidbody2D:
   serializedVersion: 4
@@ -174,3 +159,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 300
+--- !u!58 &5275519933696749715
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2997137626593217471}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.000000059604645, y: -0.15200484}
+  serializedVersion: 2
+  m_Radius: 0.87932837

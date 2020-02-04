@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 2997137626593217471}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 4.41, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -75,7 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3d0a8e4417c1e36469299b390e1cea10, type: 3}
+  m_Sprite: {fileID: 4964448264799869824, guid: 2c68484dba0e4c74094f34623ba01b56,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -122,7 +123,7 @@ MonoBehaviour:
   durationofExplotion: 1
   deathSFX: {fileID: 8300000, guid: 10295f94441b93d469c84845cda51fe6, type: 3}
   deathSFXVolume: 0.4
-  shootSFX: {fileID: 0}
+  shootSFX: {fileID: 8300000, guid: 6eda315463f84d4439b399d507532e85, type: 3}
   shootSFXVolume: 0.7
 --- !u!58 &-8305646779761984863
 CircleCollider2D:
@@ -137,9 +138,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.09699649, y: -0.04243638}
   serializedVersion: 2
-  m_Radius: 0.38492072
+  m_Radius: 0.8032167
 --- !u!50 &-6155802115682033583
 Rigidbody2D:
   serializedVersion: 4
