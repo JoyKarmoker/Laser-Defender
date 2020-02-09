@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.990566, g: 0.9672036, b: 0.9672036, a: 1}
+  m_Color: {r: 1, g: 0.39440322, b: 0.015686274, a: 0.78431374}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 108792d97463da74bbece1abd461b003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeStart: 120
+  timeStart: 12
   timerText: {fileID: 930702253}
   levelLoder: {fileID: 0}
 --- !u!1 &936728211
@@ -231,6 +231,7 @@ GameObject:
   - component: {fileID: 936728212}
   - component: {fileID: 936728215}
   - component: {fileID: 936728214}
+  - component: {fileID: 936728213}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -257,6 +258,19 @@ RectTransform:
   m_AnchoredPosition: {x: 4, y: 840}
   m_SizeDelta: {x: 1071.7, y: 107.3}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &936728213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936728211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc4c345bd4112ef4d9e35ae6e1d3a30e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 936728214}
 --- !u!114 &936728214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,7 +284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.097232126, g: 0.8962264, b: 0.82808095, a: 1}
+  m_Color: {r: 1, g: 0.39440322, b: 0.015686274, a: 0.78431374}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -353,7 +367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.097232126, g: 0.8962264, b: 0.82808095, a: 1}
+  m_Color: {r: 1, g: 0.39440322, b: 0.015686274, a: 0.78431374}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

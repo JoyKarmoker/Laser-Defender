@@ -13,6 +13,7 @@ public class CountDown : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         levelLoder = FindObjectOfType<LevelLoader>();
         timerText.text = "time: " + timeStart.ToString();
     }
@@ -20,7 +21,7 @@ public class CountDown : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        timeStart = timeStart - Time.deltaTime;
         timeStart = timeStart - Time.deltaTime;
         timerText.text = "time :" + Mathf.Round(timeStart).ToString();
         if(timeStart <= 0)

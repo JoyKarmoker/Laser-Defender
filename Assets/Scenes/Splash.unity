@@ -1273,7 +1273,7 @@ GameObject:
   - component: {fileID: 5465004663760870553}
   - component: {fileID: 5465004663760870552}
   m_Layer: 5
-  m_Name: Win Canvas
+  m_Name: Splash Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

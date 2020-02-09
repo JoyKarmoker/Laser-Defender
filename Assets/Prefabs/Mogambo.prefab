@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  scoreValue: 115
   projectile: {fileID: 5179212724898402520, guid: 2acd2c93825cd1145a33d5062efe42f0,
     type: 3}
   shotCounter: 0
