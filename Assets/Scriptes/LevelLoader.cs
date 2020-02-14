@@ -17,21 +17,27 @@ public class LevelLoader : MonoBehaviour
         FindObjectOfType<GameSession>().ResetGame();
     }
 
-    public void LoadGameOver()
+    public void LoadLooseScene()
     {
-        StartCoroutine(WaitAndLoad());
+        StartCoroutine(WaitAndLoadLoose());
         
     }
 
 
     public void LoadWinScene()
     {
-        SceneManager.LoadScene("win");
+        StartCoroutine(WaitAndLoadWin());
     }
-    IEnumerator WaitAndLoad()
+    IEnumerator WaitAndLoadLoose()
     {
         yield return new WaitForSeconds(delayInSeconds);
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene("Loose");
+    }
+
+    IEnumerator WaitAndLoadWin()
+    {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("win");
     }
     public void QuitGame()
     {

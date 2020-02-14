@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     [Header("Player")]
     [SerializeField] float playerSpeed = 10f;
     [SerializeField] float padding = 1f;
-    [SerializeField] float health = 300;
+    [SerializeField] int health;
     [SerializeField] AudioClip deathSEX;
     [SerializeField] [Range(0, 1)] float deathSFXVolume = 0.75f;
     [SerializeField] AudioClip shootSFX;
@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
 
 
     Coroutine fireCouritine;
+    GameSession gameSession;
     float xMin;
     float xMax;
     float yMin;
@@ -32,6 +33,8 @@ public class Player : MonoBehaviour
     void Start()
     {
         SetUpMoveBoundaries();
+        gameSession = FindObjectOfType<GameSession>();
+        health = gameSession.GetHealth();
       
     }
 
@@ -106,7 +109,8 @@ public class Player : MonoBehaviour
     {
         health = health - damageDealer.GetDamage();
         damageDealer.Hit();
-
+        gameSession.DecreaseHealth();
+        health = gameSession.GetHealth();
         if (health <= 0)
         {
             Die();
@@ -115,7 +119,7 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
-        FindObjectOfType<LevelLoader>().LoadGameOver();
+        FindObjectOfType<LevelLoader>().LoadLooseScene();
         Destroy(gameObject);
         AudioSource.PlayClipAtPoint(deathSEX, Camera.main.transform.position, deathSFXVolume);
     }

@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scriptes\EnemySpawner.cs" />
     <Compile Include="Assets\Scriptes\FinalScore.cs" />
     <Compile Include="Assets\Scriptes\GameSession.cs" />
+    <Compile Include="Assets\Scriptes\HealthDisplay.cs" />
     <Compile Include="Assets\Scriptes\LevelLoader.cs" />
     <Compile Include="Assets\Scriptes\MusicManager.cs" />
     <Compile Include="Assets\Scriptes\Player.cs" />

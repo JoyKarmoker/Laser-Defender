@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1773669676426438618, guid: a3ed001bdd540d549a2adf0fce00c9a7,
+  m_Sprite: {fileID: -9094930883666032799, guid: a3ed001bdd540d549a2adf0fce00c9a7,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 10
   padding: 1
-  health: 300
+  health: 0
   deathSEX: {fileID: 8300000, guid: 27859b94093d3db47b26cf9f031f0f72, type: 3}
   deathSFXVolume: 1
   shootSFX: {fileID: 8300000, guid: 346d06abb93ef314dbeab03863a617bb, type: 3}

@@ -26,6 +26,7 @@ public class CountDown : MonoBehaviour
         timerText.text = "time :" + Mathf.Round(timeStart).ToString();
         if(timeStart <= 0)
         {
+            timerText.text = "time : 0";
             levelLoder.LoadWinScene();
         }
 
