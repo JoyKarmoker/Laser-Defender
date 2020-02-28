@@ -108,6 +108,7 @@ MonoBehaviour:
     type: 3}
   projectileSpeed: 10
   projectileFiringPeriod: 0.05
+  offsetFromY: 1.1
 --- !u!70 &3246927973365137833
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
