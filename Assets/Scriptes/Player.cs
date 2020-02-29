@@ -11,9 +11,11 @@ public class Player : MonoBehaviour
     [SerializeField] float padding = 1f;
     [SerializeField] int health;
     [SerializeField] AudioClip deathSEX;
-    [SerializeField] [Range(0, 1)] float deathSFXVolume = 0.75f;
+    [SerializeField] [Range(0, 1)] float deathSFXVolume = 1f;
     [SerializeField] AudioClip shootSFX;
     [SerializeField] [Range(0, 1)] float shootSFXVolume = 0.1f;
+    [SerializeField] GameObject deathVFX;
+    [SerializeField] float durationOfExplosion = 1f;
 
     [Header("Projectile")]
     [SerializeField] GameObject laserPrefab;
@@ -109,6 +111,8 @@ public class Player : MonoBehaviour
     {
         FindObjectOfType<LevelLoader>().LoadLooseScene();
         Destroy(gameObject);
+        GameObject explsion = Instantiate(deathVFX, transform.position, transform.rotation);
+        Destroy(explsion, durationOfExplosion);
         AudioSource.PlayClipAtPoint(deathSEX, Camera.main.transform.position, deathSFXVolume);
     }
 
