@@ -22,7 +22,7 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator SpawnAllWaves()
     {
-        for(int waveIndex = startingWave; waveIndex <waveConfigs.Count ; waveIndex++)
+        for(int waveIndex = startingWave; waveIndex <wavesInthisLevel ; waveIndex++)
         {
             int randomIndex = Random.Range(0, waveConfigs.Count);
             var currentWave = waveConfigs[randomIndex]; //Selects any of the wave randomly

@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     [Header("Enemy")]
     [SerializeField] float health = 100;
-    [SerializeField] int scoreValue = 150;
+     int scoreValue = 20;
 
     [Header("Projectile")]
     [SerializeField] GameObject projectile;
@@ -19,14 +19,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] GameObject deathVFX;
     [SerializeField] float durationofExplotion = 1f;
 
-    [Header("SFX")]
-    [SerializeField] AudioClip deathSFX;
-    [SerializeField] [Range(0, 1)] float deathSFXVolume = 0.4f;
-    [SerializeField] AudioClip shootSFX;
-    [SerializeField] [Range(0, 1)] float shootSFXVolume = 0.7f;
+    
 
     //Cached Ref
     GameSession gameSession;
+    audio_Manager myAudioManager;
   
  
     // Start is called before the first frame update
@@ -34,6 +31,7 @@ public class Enemy : MonoBehaviour
     {
         shotCounter = Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
         gameSession = FindObjectOfType<GameSession>();
+        myAudioManager = FindObjectOfType<audio_Manager>();
     }
 
     // Update is called once per frame
@@ -57,7 +55,7 @@ public class Enemy : MonoBehaviour
 
         GameObject laser = Instantiate(projectile, transform.position, Quaternion.identity) as GameObject;
         laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -projectileSpeed);
-        AudioSource.PlayClipAtPoint(shootSFX, Camera.main.transform.position, shootSFXVolume);
+        myAudioManager.play("EnemyShootSFX");
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -84,6 +82,6 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
         GameObject explosion = Instantiate(deathVFX, transform.position, transform.rotation);
         Destroy(explosion, durationofExplotion);
-        AudioSource.PlayClipAtPoint(deathSFX, Camera.main.transform.position, deathSFXVolume);
+        myAudioManager.play("EnemyDeathSFX");
     }
 }

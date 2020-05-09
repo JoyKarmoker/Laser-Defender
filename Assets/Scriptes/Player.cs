@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -9,13 +10,15 @@ public class Player : MonoBehaviour
     [Header("Player")]
     [SerializeField] float playerSpeed = 10f;
     [SerializeField] float padding = 1f;
-    [SerializeField] int health;
-    [SerializeField] AudioClip deathSEX;
+     int health;
     [SerializeField] [Range(0, 1)] float deathSFXVolume = 1f;
-    [SerializeField] AudioClip shootSFX;
     [SerializeField] [Range(0, 1)] float shootSFXVolume = 0.1f;
     [SerializeField] GameObject deathVFX;
     [SerializeField] float durationOfExplosion = 1f;
+    float rateOfFire = 0.3f;
+    float rateOfFirePointer;
+
+
 
     [Header("Projectile")]
     [SerializeField] GameObject laserPrefab;
@@ -23,7 +26,11 @@ public class Player : MonoBehaviour
     [SerializeField] float projectileFiringPeriod = 0.05f;
     [SerializeField] float offsetFromY = 1.1f;
 
+    [Header("Panels")]
+    [SerializeField] GameObject GameOverPanel;
 
+
+    audio_Manager myAudioManager;
     Coroutine fireCouritine;
     GameSession gameSession;
     float xMin;
@@ -36,8 +43,11 @@ public class Player : MonoBehaviour
     void Start()
     {
         SetUpMoveBoundaries();
+        FindObjectOfType<HealthBar>().setMaxHealth(3);
         gameSession = FindObjectOfType<GameSession>();
+        myAudioManager = FindObjectOfType<audio_Manager>();
         health = gameSession.GetHealth();
+        
       
     }
 
@@ -51,27 +61,15 @@ public class Player : MonoBehaviour
 
     private void Fire()
     {
-        if(Input.GetButtonDown("Fire1"))
+        if (Time.time > rateOfFirePointer)
         {
-           fireCouritine = StartCoroutine(FireContinously());   
-        }
-
-        if(Input.GetButtonUp("Fire1"))
-        {
-            StopCoroutine(fireCouritine);
-        }
-    }
-
-    IEnumerator FireContinously()
-    {
-        while(true)
-        {
-            GameObject laser = Instantiate(laserPrefab, new Vector3(transform.position.x, transform.position.y+offsetFromY, 0), Quaternion.identity) as GameObject;
+            GameObject laser = Instantiate(laserPrefab, new Vector3(transform.position.x, transform.position.y + offsetFromY, 0), Quaternion.identity) as GameObject;
             laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
-            AudioSource.PlayClipAtPoint(shootSFX, Camera.main.transform.position, shootSFXVolume);
-            yield return new WaitForSeconds(projectileFiringPeriod);
+            myAudioManager.play("PlayerShootSFX");
+            rateOfFirePointer = Time.time + rateOfFire;
         }
     }
+
 
     private void Move()
     {
@@ -109,11 +107,12 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
-        FindObjectOfType<LevelLoader>().LoadLooseScene();
+        //FindObjectOfType<LevelLoader>().LoadLooseScene();
         Destroy(gameObject);
         GameObject explsion = Instantiate(deathVFX, transform.position, transform.rotation);
         Destroy(explsion, durationOfExplosion);
-        AudioSource.PlayClipAtPoint(deathSEX, Camera.main.transform.position, deathSFXVolume);
+        myAudioManager.play("PlayerDeathSFX");
+        GameOverPanel.SetActive(true);
     }
 
     private void SetUpMoveBoundaries()

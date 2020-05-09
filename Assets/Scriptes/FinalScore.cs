@@ -2,17 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class FinalScore : MonoBehaviour
 {
-    Text finalScore;
+    [SerializeField]TextMeshProUGUI finalScore;
     GameSession gameSession;
-    // Start is called before the first frame update
     void Start()
     {
         gameSession = FindObjectOfType<GameSession>();
-        finalScore = FindObjectOfType<Text>();
         finalScore.text = gameSession.GetScore().ToString();
+    }
+
+    public void setScore(int score)
+    {
+        finalScore.text = score.ToString();
     }
 
 }

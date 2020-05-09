@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class GameSession : MonoBehaviour
 {
-    int score = 0;
-    int health = 3;
-    
+
+
+    public int score = 0;
+    public int health = 3;
+
 
     private void Awake()
     {
+       
         SetUpSingleTon();
+        
     }
 
     private void SetUpSingleTon()
@@ -22,6 +26,7 @@ public class GameSession : MonoBehaviour
         }
         else
         {
+            
             DontDestroyOnLoad(gameObject);
         }
     }
@@ -34,16 +39,21 @@ public class GameSession : MonoBehaviour
     public void AddToScore(int scoreValue)
     {
         score = score + scoreValue;
+
+        FindObjectOfType<FinalScore>().setScore(score);
+
     }
 
     public int GetHealth()
     {
+        FindObjectOfType<HealthBar>().setHealth(health);
         return health;
     }
 
     public void DecreaseHealth()
     {
         health = health - 1;
+       
     }
     public void ResetGame()
     {
