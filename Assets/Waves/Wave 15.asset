@@ -1,22 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b72e9854103393340b0d81fac401aa78, type: 3}
-  m_Name: Wave 15
-  m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 2997137626593217471, guid: 24f4f38f85c3d9c4aad7505d81030b67,
-    type: 3}
-  pathPrefab: {fileID: 7650559741810501855, guid: 438b2c3c039e4534d844323ed633e4db,
-    type: 3}
-  timeBetweenSpwans: 0.4
-  spawnRandomFactor: 0.3
-  numberOfEnemies: 2
-  moveSpeed: 5
+version https://git-lfs.github.com/spec/v1
+oid sha256:201f30cd122d53851808d961ba13b0883dfd606a43c066e944cfce705395d1e5
+size 699

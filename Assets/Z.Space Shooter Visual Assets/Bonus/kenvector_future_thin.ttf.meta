@@ -1,22 +1,3 @@
-fileFormatVersion: 2
-guid: 338b59da9d2d6a14eb47c5f87ab95df1
-TrueTypeFontImporter:
-  externalObjects: {}
-  serializedVersion: 4
-  fontSize: 16
-  forceTextureCase: -2
-  characterSpacing: 0
-  characterPadding: 1
-  includeFontData: 1
-  fontName: KenVector Future Thin
-  fontNames:
-  - KenVector Future Thin
-  fallbackFontReferences: []
-  customCharacters: 
-  fontRenderingMode: 0
-  ascentCalculationMode: 1
-  useLegacyBoundsCalculation: 0
-  shouldRoundAdvanceValue: 1
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+version https://git-lfs.github.com/spec/v1
+oid sha256:1f02226977eba8fcff0087bdf7936fe5d5673b8431ae38c04a9ffe580c1d9f44
+size 542

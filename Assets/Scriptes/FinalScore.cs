@@ -1,22 +1,3 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
-
-public class FinalScore : MonoBehaviour
-{
-    [SerializeField]TextMeshProUGUI finalScore;
-    GameSession gameSession;
-    void Start()
-    {
-        gameSession = FindObjectOfType<GameSession>();
-        finalScore.text = gameSession.GetScore().ToString();
-    }
-
-    public void setScore(int score)
-    {
-        finalScore.text = score.ToString();
-    }
-
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:ab9cac5f9d9eedcea5184c48b1bd84f788fe0f2aa3e34b8cdcf113fcae860578
+size 500

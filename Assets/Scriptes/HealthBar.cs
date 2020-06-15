@@ -1,23 +1,3 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-
-public class HealthBar : MonoBehaviour
-{
-    public Slider healthBar;
-    public Gradient gradient;
-    public Image fill;
-    public void setMaxHealth(int value)
-    {
-        healthBar.maxValue = value;
-        healthBar.value = value;
-        fill.color = gradient.Evaluate(healthBar.normalizedValue);
-    }
-    public void setHealth(int value)
-    {
-        healthBar.value = value;
-        Debug.Log(healthBar.normalizedValue);
-        fill.color = gradient.Evaluate(healthBar.normalizedValue);
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:d8f69262f88cf7174e3f16d22941ac7a85062e98878657022e1039d3e9ee8f57
+size 589

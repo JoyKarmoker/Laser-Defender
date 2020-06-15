@@ -1,25 +1,3 @@
-﻿using UnityEngine.Audio;
-using System;
-using UnityEngine;
-
-[System.Serializable]
-public class Sounds
-{
-    
-    public string name;
-
-    public AudioClip clip;
-    public AudioMixerGroup masterMixtureGroup;
-
-    [Range(0f,1f)]
-    public float volume;
-
-    [Range(.1f, 3f)]
-    public float pinch;
-
-    public bool loop;
-
-    [HideInInspector]
-    public AudioSource source;
-
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:fb1d9dd303a69d9b0560434ce12647d840934c919904d0210ff55ef3b9a7e933
+size 406

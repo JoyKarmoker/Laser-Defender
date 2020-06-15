@@ -1,22 +1,3 @@
-fileFormatVersion: 2
-guid: 7992b280285165f4180f15cc32caec27
-TrueTypeFontImporter:
-  externalObjects: {}
-  serializedVersion: 4
-  fontSize: 16
-  forceTextureCase: -2
-  characterSpacing: 0
-  characterPadding: 1
-  includeFontData: 1
-  fontName: spaceman
-  fontNames:
-  - spaceman
-  fallbackFontReferences: []
-  customCharacters: 
-  fontRenderingMode: 0
-  ascentCalculationMode: 1
-  useLegacyBoundsCalculation: 0
-  shouldRoundAdvanceValue: 1
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+version https://git-lfs.github.com/spec/v1
+oid sha256:cc95ac7ddda47f795683db70e8bec2c436fd0ad989a4d2638729dc61ad4838e4
+size 516

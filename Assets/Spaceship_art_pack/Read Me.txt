@@ -1,4 +1,3 @@
-Created By UnLuckY Studio
-
-You are free to use it in your commercial projects. If you have any suggestions or questions, you can log on to www.unluckystudio.com
-
+version https://git-lfs.github.com/spec/v1
+oid sha256:d21b056839214d85c9c83b633a7491adf2656302cfa5eb76d208ef5bdf7ce693
+size 166

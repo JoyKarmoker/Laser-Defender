@@ -1,30 +1,3 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-using UnityEngine;
-using TMPro;
-
-public class game_Over : MonoBehaviour
-{
-    public GameObject gameOver_Panel;
-   
-
-    public void gameOverPanelTweek()
-    {
-        gameOver_Panel.SetActive(true);
-    }
-    public void restart()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        FindObjectOfType<GameSession>().score = 0;
-        FindObjectOfType<GameSession>().health = 3;
-
-
-    } public void main_menu()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-1);
-       
-
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:0fca76ede9dc2989437cf5ad76c473a6c9b2026114e87a6d24bc8c4136c81d93
+size 742
