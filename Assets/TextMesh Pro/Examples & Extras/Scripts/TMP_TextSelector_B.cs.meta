@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:416a600727e67f87066fc3dec35eaac1117509bc11206070d3ed170d35917cb2
-size 374
+fileFormatVersion: 2
+guid: a05dcd8be7ec4ccbb35c26219884aa37
+timeCreated: 1435531209
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - TextPopup_Prefab_01: {fileID: 22450954, guid: b06f0e6c1dfa4356ac918da1bb32c603,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

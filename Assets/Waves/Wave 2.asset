@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:59d38164d60693c932d03e689bfb34ff27d3fe082e0b97683d7f78cda86e5d6a
-size 698
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b72e9854103393340b0d81fac401aa78, type: 3}
+  m_Name: Wave 2
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 2997137626593217471, guid: 6c933505067f6814692ca5cffb578879,
+    type: 3}
+  pathPrefab: {fileID: 3056061422412195120, guid: eec10cdfd9a85ca4fbbf40df2446eb1f,
+    type: 3}
+  timeBetweenSpwans: 0.5
+  spawnRandomFactor: 0.3
+  numberOfEnemies: 4
+  moveSpeed: 4

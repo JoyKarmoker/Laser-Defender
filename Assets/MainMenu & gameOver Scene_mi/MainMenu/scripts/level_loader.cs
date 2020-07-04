@@ -1,3 +1,40 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:560dda3397b4a78aa12acb94994eaee4cf1870157ff06997eedd3f9c2ea6a6e3
-size 1013
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class level_loader : MonoBehaviour
+{
+    public Animator my_animator;
+    public float transitionTime = 1f;
+
+    [SerializeField] private float Audio_delay = 1f;
+
+
+    public void loadNextLevel()
+    {
+        StartCoroutine(Load_Level(SceneManager.GetActiveScene().buildIndex + 1));
+    }
+
+    IEnumerator Load_Level(int sceneIndex)
+    {
+        float elapsedTime = 0;
+        float currentVolume = AudioListener.volume;
+        
+        my_animator.SetTrigger("fade");
+
+        while (elapsedTime < Audio_delay)
+        {
+            elapsedTime += Time.deltaTime;
+            AudioListener.volume = Mathf.Lerp(currentVolume, 0, elapsedTime / Audio_delay);
+        }
+        
+
+        yield return new WaitForSeconds(Audio_delay);
+
+        SceneManager.LoadScene(sceneIndex);
+        AudioListener.volume = currentVolume;
+
+    }
+}

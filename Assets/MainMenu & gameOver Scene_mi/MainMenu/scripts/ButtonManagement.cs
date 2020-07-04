@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:090e2bc0b07ad6e4442481ab5a3430a343d8818c4f3e9ce9541e0949bacc70a4
-size 472
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class ButtonManagement : MonoBehaviour
+{
+  
+    public void ExitButton()
+    {
+        Application.Quit();
+    }
+
+    public void normalButton()
+    {
+        FindObjectOfType<level_loader>().loadNextLevel();
+    }
+    public void reverseButton()
+    {
+        FindObjectOfType<level_loader>().loadNextLevel();
+    }
+    
+}
