@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 10
-  padding: 1
+  padding: 2
   deathSFXVolume: 1
   shootSFXVolume: 0.1
   deathVFX: {fileID: 6870171607667941814, guid: d3b5b6ff156117248acff1308cc00150,

@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     //Configuration Parameters
     [Header("Player")]
     [SerializeField] float playerSpeed = 10f;
-    [SerializeField] float padding = 1f;
+    [SerializeField] float padding = 2f;
      int health;
     [SerializeField] [Range(0, 1)] float deathSFXVolume = 1f;
     [SerializeField] [Range(0, 1)] float shootSFXVolume = 0.1f;
