@@ -24,6 +24,8 @@ public class Enemy : MonoBehaviour
     //Cached Ref
     GameSession gameSession;
     audio_Manager myAudioManager;
+
+    ObjectPooler objectPooler;
   
  
     // Start is called before the first frame update
@@ -32,6 +34,7 @@ public class Enemy : MonoBehaviour
         shotCounter = Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
         gameSession = FindObjectOfType<GameSession>();
         myAudioManager = FindObjectOfType<audio_Manager>();
+        objectPooler = ObjectPooler.Instance;
     }
 
     // Update is called once per frame
@@ -53,7 +56,8 @@ public class Enemy : MonoBehaviour
     private void Fire()
     {
 
-        GameObject laser = Instantiate(projectile, transform.position, Quaternion.identity) as GameObject;
+        //GameObject laser = Instantiate(projectile, transform.position, Quaternion.identity) as GameObject;
+        GameObject laser = objectPooler.SpawnFromPool(projectile.ToString(), transform.position, Quaternion.identity);
         laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -projectileSpeed);
         //myAudioManager.play("EnemyShootSFX");
     }

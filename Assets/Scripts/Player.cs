@@ -15,21 +15,22 @@ public class Player : MonoBehaviour
     [SerializeField] [Range(0, 1)] float shootSFXVolume = 0.1f;
     [SerializeField] GameObject deathVFX;
     [SerializeField] float durationOfExplosion = 1f;
-    float rateOfFire = 0.3f;
-    float rateOfFirePointer;
+    //float rateOfFire = 0.3f;
+    //float rateOfFirePointer;
 
 
 
     [Header("Projectile")]
     [SerializeField] GameObject laserPrefab;
     [SerializeField] float projectileSpeed = 10f;
-    [SerializeField] float projectileFiringPeriod = 0.05f;
+    [SerializeField] float projectileFiringPeriod = 0.1f;
     [SerializeField] float offsetFromY = 1.1f;
 
     [Header("Panels")]
     [SerializeField] GameObject GameOverPanel;
 
 
+    ObjectPooler objectPooler;
     audio_Manager myAudioManager;
     Coroutine fireCouritine;
     GameSession gameSession;
@@ -47,6 +48,7 @@ public class Player : MonoBehaviour
         gameSession = FindObjectOfType<GameSession>();
         myAudioManager = FindObjectOfType<audio_Manager>();
         health = gameSession.GetHealth();
+        objectPooler = ObjectPooler.Instance;
         
       
     }
@@ -61,13 +63,29 @@ public class Player : MonoBehaviour
 
     private void Fire()
     {
-        if (Time.time > rateOfFirePointer)
+        if(Input.GetButtonDown("Fire1"))
         {
-            GameObject laser = Instantiate(laserPrefab, new Vector3(transform.position.x, transform.position.y + offsetFromY, 0), Quaternion.identity) as GameObject;
+            fireCouritine = StartCoroutine(FireCountinously());
+        }
+
+        if(Input.GetButtonUp("Fire1"))
+        {
+            StopCoroutine(fireCouritine);
+        }
+
+    }
+
+    IEnumerator FireCountinously()
+    {
+        while(true)
+        {
+            //GameObject laser = Instantiate(laserPrefab, new Vector3(transform.position.x, transform.position.y + offsetFromY, 0), Quaternion.identity) as GameObject;
+            GameObject laser = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(transform.position.x, transform.position.y+offsetFromY), Quaternion.identity);
             laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
             myAudioManager.play("PlayerShootSFX");
-            rateOfFirePointer = Time.time + rateOfFire;
+            yield return new WaitForSeconds(projectileFiringPeriod);
         }
+        
     }
 
 
