@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8790579505340433080}
   - component: {fileID: 8790579505340433081}
-  - component: {fileID: 8790579505340433082}
   - component: {fileID: 3246927973365137833}
+  - component: {fileID: 8790579505340433082}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -72,8 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9094930883666032799, guid: a3ed001bdd540d549a2adf0fce00c9a7,
-    type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -81,34 +80,9 @@ SpriteRenderer:
   m_Size: {x: 0.99, y: 0.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8790579505340433082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8790579505340433223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50fffdbb83cb3d440b9cadb9458fe30a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerSpeed: 10
-  padding: 2
-  deathSFXVolume: 1
-  shootSFXVolume: 0.1
-  deathVFX: {fileID: 6870171607667941814, guid: d3b5b6ff156117248acff1308cc00150,
-    type: 3}
-  durationOfExplosion: 1
-  laserPrefab: {fileID: 1563411393893841052, guid: 4f5beb4a4a2fcde43a678bdd6ead8c0b,
-    type: 3}
-  projectileSpeed: 10
-  projectileFiringPeriod: 0.1
-  offsetFromY: 1.1
-  GameOverPanel: {fileID: 0}
 --- !u!70 &3246927973365137833
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -125,3 +99,32 @@ CapsuleCollider2D:
   m_Offset: {x: 0.000000059604645, y: 0.15313172}
   m_Size: {x: 0.87537944, y: 2.1191163}
   m_Direction: 0
+--- !u!114 &8790579505340433082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8790579505340433223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50fffdbb83cb3d440b9cadb9458fe30a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSpriteArray:
+  - {fileID: -9094930883666032799, guid: a3ed001bdd540d549a2adf0fce00c9a7, type: 3}
+  - {fileID: -1773669676426438618, guid: a3ed001bdd540d549a2adf0fce00c9a7, type: 3}
+  - {fileID: -2138170820025726050, guid: a3ed001bdd540d549a2adf0fce00c9a7, type: 3}
+  playerSpeed: 10
+  padding: 2
+  deathSFXVolume: 1
+  shootSFXVolume: 0.1
+  deathVFX: {fileID: 6870171607667941814, guid: d3b5b6ff156117248acff1308cc00150,
+    type: 3}
+  durationOfExplosion: 1
+  laserPrefab: {fileID: 1563411393893841052, guid: 4f5beb4a4a2fcde43a678bdd6ead8c0b,
+    type: 3}
+  projectileSpeed: 10
+  projectileFiringPeriod: 0.1
+  offsetFromY: 1.1
+  GameOverPanel: {fileID: 0}

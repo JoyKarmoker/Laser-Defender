@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 {
     //Configuration Parameters
     [Header("Player")]
+    public Sprite[] playerSpriteArray;
     [SerializeField] float playerSpeed = 10f;
     [SerializeField] float padding = 2f;
      int health;
@@ -38,7 +39,9 @@ public class Player : MonoBehaviour
     float xMax;
     float yMin;
     float yMax;
-
+    private SpriteRenderer spriteRenderer;
+    int currentSpriteIndex = 0;
+    int playerSpriteArraySize = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -49,7 +52,9 @@ public class Player : MonoBehaviour
         myAudioManager = FindObjectOfType<audio_Manager>();
         health = gameSession.GetHealth();
         objectPooler = ObjectPooler.Instance;
-        
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        playerSpriteArraySize = playerSpriteArray.Length;
+        spriteRenderer.sprite = playerSpriteArray[currentSpriteIndex];
       
     }
 
@@ -141,5 +146,25 @@ public class Player : MonoBehaviour
 
         yMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + padding;
         yMax = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - padding;
+    }
+
+
+    public bool HasNextSprite()
+    {
+        if(currentSpriteIndex < (playerSpriteArraySize-1))
+        {
+            return true;
+        }
+
+        else
+        {
+            return false;
+        }
+    }
+
+    public void MoveToNextSprite()
+    {
+        currentSpriteIndex = currentSpriteIndex+1;
+        spriteRenderer.sprite  = playerSpriteArray[currentSpriteIndex];
     }
 }
