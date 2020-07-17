@@ -8,16 +8,21 @@ public class Player : MonoBehaviour
 {
     //Configuration Parameters
     [Header("Player")]
-    public Sprite[] playerSpriteArray;
+    
     [SerializeField] float playerSpeed = 10f;
-    [SerializeField] float padding = 2f;
-     int health;
+    [SerializeField] float padding = 2f;    
     [SerializeField] [Range(0, 1)] float deathSFXVolume = 1f;
     [SerializeField] [Range(0, 1)] float shootSFXVolume = 0.1f;
     [SerializeField] GameObject deathVFX;
     [SerializeField] float durationOfExplosion = 1f;
+    int health;
+
+    [Header("Capsule Requirements")]
+    public Sprite[] playerSpriteArray;
     [SerializeField] int xpCapsuleToNextLevel = 2; //Numbers of Xp Capsule Needed for the player to go next level 
     private int XpCapsuleEatenByPlayer = 0;
+    private bool protectionCapsuleEaten = false; // This is will be true if player eats protection capsule and after protection capsule effect is finished it will be false again
+    
     //float rateOfFire = 0.3f;
     //float rateOfFirePointer;
 
@@ -59,6 +64,7 @@ public class Player : MonoBehaviour
         playerSpriteArraySize = playerSpriteArray.Length;
         spriteRenderer.sprite = playerSpriteArray[currentSpriteIndex];
         XpCapsuleEatenByPlayer = 0;
+        protectionCapsuleEaten = false;
       
     }
 
@@ -122,14 +128,17 @@ public class Player : MonoBehaviour
 
     private void ProcessHit(DamageDealer damageDealer)
     {
-        health = health - damageDealer.GetDamage();
-        damageDealer.Hit();
-        gameSession.DecreaseHealth();
-        health = gameSession.GetHealth();
-        if (health <= 0)
+        if(!protectionCapsuleEaten) //If there is no effect of protection capsule
         {
-            Die();
-        }
+            health = health - damageDealer.GetDamage();
+            gameSession.DecreaseHealth();
+            health = gameSession.GetHealth();
+            if (health <= 0)
+            {
+                Die();
+            }
+        }       
+        damageDealer.Hit();
     }
 
     private void Die()
@@ -143,7 +152,7 @@ public class Player : MonoBehaviour
     }
     
     /*
-    This Method is called by  the Xp Capsule When it hits the player
+    This Method is called by  the Xp Capsule When it hits the player.
      if the number of xp capule eaten by player is more than the numbers of capsule needed to go to next level
      Player goes to next level
      */
@@ -159,6 +168,29 @@ public class Player : MonoBehaviour
                 MoveToNextSprite();
             }
         }
+    }
+
+    /*
+    This Method is called by protection Capsule;
+    When this method is called Player will be safe and wont take any damage for time passed
+    in the argument    
+    */
+    public void SafeForSeconds(float time)
+    {
+        //Have to turn off taking damage for the given time in argument
+        protectionCapsuleEaten = true;
+       Coroutine protectionCoroutine = StartCoroutine(ProtectionOnForPlayer(time));
+      // StopCoroutine(protectionCoroutine);
+       
+
+    }
+
+    IEnumerator ProtectionOnForPlayer(float time)
+    {
+       
+        yield return new WaitForSeconds(time);
+        protectionCapsuleEaten = false;
+        
     }
 
     public bool HasNextSprite()
