@@ -6,11 +6,15 @@ public class LevelUpPlayerCapsule : MonoBehaviour
 {   
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Player player = other.gameObject.GetComponent<Player>();
-        if(player.HasNextSprite())
+        Player player = other.gameObject.GetComponent<Player>(); //Finds The Player script from the object
+        if(player)
         {
-            player.MoveToNextSprite();
+            if(player.HasNextSprite()) //If there is a next level of player
+            {
+                player.MoveToNextSprite(); //Move to Next Sprite
+            }
         }
+
         gameObject.SetActive(false);
     }
 }

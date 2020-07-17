@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
     [SerializeField] [Range(0, 1)] float shootSFXVolume = 0.1f;
     [SerializeField] GameObject deathVFX;
     [SerializeField] float durationOfExplosion = 1f;
+    [SerializeField] int xpCapsuleToNextLevel = 2; //Numbers of Xp Capsule Needed for the player to go next level 
+    private int XpCapsuleEatenByPlayer = 0;
     //float rateOfFire = 0.3f;
     //float rateOfFirePointer;
 
@@ -43,6 +45,7 @@ public class Player : MonoBehaviour
     int currentSpriteIndex = 0;
     int playerSpriteArraySize = 0;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +58,7 @@ public class Player : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerSpriteArraySize = playerSpriteArray.Length;
         spriteRenderer.sprite = playerSpriteArray[currentSpriteIndex];
+        XpCapsuleEatenByPlayer = 0;
       
     }
 
@@ -137,6 +141,26 @@ public class Player : MonoBehaviour
         myAudioManager.play("PlayerDeathSFX");
         GameOverPanel.SetActive(true);
     }
+    
+    /*
+    This Method is called by  the Xp Capsule When it hits the player
+     if the number of xp capule eaten by player is more than the numbers of capsule needed to go to next level
+     Player goes to next level
+     */
+    public void XpCapsuleEaten()
+    {
+        XpCapsuleEatenByPlayer = XpCapsuleEatenByPlayer + 1;
+        if(XpCapsuleEatenByPlayer >= xpCapsuleToNextLevel)
+        {
+            
+            if(HasNextSprite())
+            {
+                XpCapsuleEatenByPlayer = 0; //Now the capsule is eaten by player is 0, so it can restrat to calute when to go next level
+                MoveToNextSprite();
+            }
+        }
+    }
+
     public bool HasNextSprite()
     {
         if(currentSpriteIndex < (playerSpriteArraySize-1))
