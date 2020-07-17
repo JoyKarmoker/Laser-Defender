@@ -137,18 +137,6 @@ public class Player : MonoBehaviour
         myAudioManager.play("PlayerDeathSFX");
         GameOverPanel.SetActive(true);
     }
-
-    private void SetUpMoveBoundaries()
-    {
-        Camera gameCamera = Camera.main;
-        xMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x + padding;
-        xMax = gameCamera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - padding;
-
-        yMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + padding;
-        yMax = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - padding;
-    }
-
-
     public bool HasNextSprite()
     {
         if(currentSpriteIndex < (playerSpriteArraySize-1))
@@ -166,5 +154,15 @@ public class Player : MonoBehaviour
     {
         currentSpriteIndex = currentSpriteIndex+1;
         spriteRenderer.sprite  = playerSpriteArray[currentSpriteIndex];
+    }
+
+    private void SetUpMoveBoundaries()
+    {
+        Camera gameCamera = Camera.main;
+        xMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x + padding;
+        xMax = gameCamera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - padding;
+
+        yMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + padding;
+        yMax = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - padding;
     }
 }
