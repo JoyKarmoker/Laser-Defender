@@ -13,10 +13,9 @@ GameObject:
   - component: {fileID: -6990325873782724821}
   - component: {fileID: -1012973979405853784}
   - component: {fileID: -7991167644242535384}
-  - component: {fileID: 7333504069568437012}
   m_Layer: 12
   m_Name: Level Up Player Capsule
-  m_TagString: Untagged
+  m_TagString: LevelUpPlayerCapsule
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,16 +133,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60dac47d21f5b544bac9aee763a55caf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seenEverySeconds: 80
---- !u!114 &7333504069568437012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7982817188714518382}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d318f0462a221064f86a2fa7328a16b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  seenEverySeconds: 3

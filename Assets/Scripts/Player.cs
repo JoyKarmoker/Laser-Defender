@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,7 +18,10 @@ public class Player : MonoBehaviour
 
     [Header("Capsule Requirements")]
     public Sprite[] playerSpriteArray;
-    [SerializeField] int xpCapsuleToNextLevel = 2; //Numbers of Xp Capsule Needed for the player to go next level 
+    [SerializeField] int xpCapsuleToNextLevel = 2;    //Numbers of Xp Capsule Needed for the player to go next level 
+    [SerializeField] float minSecProtectionCapsuleLasts = 1f;   //Minimum time that the player will be protected after eating this Protection Capsule
+    [SerializeField] float maxSecProtectionCapsuleLasts = 10f;  //Maximum time that the player will be protected after eating this Protection Capsule
+     
     private int XpCapsuleEatenByPlayer = 0;
     private bool protectionCapsuleEaten = false; // This is will be true if player eats protection capsule and after protection capsule effect is finished it will be false again
     
@@ -122,8 +124,45 @@ public class Player : MonoBehaviour
     {
         DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
 
-        if (!damageDealer) return;
-        ProcessHit(damageDealer);
+        if (damageDealer) //If player collides with anything that has damageDealer on it like enemy, laser or damage capsule
+        {
+            ProcessHit(damageDealer);
+        }
+
+        else if (other.tag == "LaserBeamCapsule") //If player Collides with Laser Beam Capsule
+        {
+            Capsule capsule = other.gameObject.GetComponent< Capsule> ();
+            capsule.LaserBeamCapuleHitProcess(other.gameObject);
+        }
+
+        else if(other.tag == "XPCapsule") //If player Collides with Xp Cpsule
+        {
+            //Debug.Log("XP capsule eaten by player");
+            XpCapsuleEaten();
+            other.gameObject.SetActive(false);
+        }
+
+        else if(other.tag == "ProtectionCapsule") //If player Collides with Protection Cpsule
+        {
+            float secProtectionCapsuleLasts;
+            Debug.Log("Protection capsule eaten by player");
+            secProtectionCapsuleLasts = Random.Range(minSecProtectionCapsuleLasts, maxSecProtectionCapsuleLasts);
+            Debug.Log("Protected for " + secProtectionCapsuleLasts.ToString());
+            SafeForSeconds(secProtectionCapsuleLasts);
+            other.gameObject.SetActive(false);
+        }
+
+        else if (other.tag == "LevelUpPlayerCapsule") //If player Collides with Level Up Player Cpsule
+        {
+            if(HasNextSprite()) //If there is any next level
+            {
+                MoveToNextSprite();
+            }
+            other.gameObject.SetActive(false);
+        }
+
+        return;
+        
     }
 
     private void ProcessHit(DamageDealer damageDealer)
@@ -152,9 +191,9 @@ public class Player : MonoBehaviour
     }
     
     /*
-    This Method is called by  the Xp Capsule When it hits the player.
-     if the number of xp capule eaten by player is more than the numbers of capsule needed to go to next level
-     Player goes to next level
+        This Method is called when Xp Capsule hits the player.
+        if the number of xp capule eaten by player is more than the numbers of capsule needed to go to next level
+        Player goes to next level
      */
     public void XpCapsuleEaten()
     {
@@ -171,9 +210,10 @@ public class Player : MonoBehaviour
     }
 
     /*
-    This Method is called by protection Capsule;
+    This Method is when  protection Capsule hits the player;
     When this method is called Player will be safe and wont take any damage for time passed
-    in the argument    
+    in the argument   
+    Here some vfx should be added to show that it is safe
     */
     public void SafeForSeconds(float time)
     {
