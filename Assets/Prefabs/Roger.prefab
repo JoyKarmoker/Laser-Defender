@@ -112,7 +112,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 200
-  scoreValue: 55
   projectile: {fileID: 5179212724898402520, guid: 2acd2c93825cd1145a33d5062efe42f0,
     type: 3}
   shotCounter: 0
@@ -122,10 +121,8 @@ MonoBehaviour:
   deathVFX: {fileID: 4277923085502997696, guid: cefb4068bb28b8d4eaed5020747315ef,
     type: 3}
   durationofExplotion: 1
-  deathSFX: {fileID: 8300000, guid: 10295f94441b93d469c84845cda51fe6, type: 3}
-  deathSFXVolume: 0.4
-  shootSFX: {fileID: 8300000, guid: 6eda315463f84d4439b399d507532e85, type: 3}
-  shootSFXVolume: 0.7
+  capsuleSpawner: {fileID: 8426152823969385139, guid: 8e461857aeab73e489244b7d1c9a96de,
+    type: 3}
 --- !u!58 &2546566701613870930
 CircleCollider2D:
   m_ObjectHideFlags: 0

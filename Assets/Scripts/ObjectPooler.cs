@@ -24,11 +24,11 @@ public class ObjectPooler : MonoBehaviour
         }
     }
 
-    public static ObjectPooler Instance;
+    public static ObjectPooler ObjectPullerInstance;
     private void Awake()
     {
-        if (Instance == null)
-            Instance = this;
+        if (ObjectPullerInstance == null)
+            ObjectPullerInstance = this;
         else
         {
             Destroy(gameObject);

@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5125787239712288472}
   - component: {fileID: 7767659844458992000}
+  - component: {fileID: -3972348129955703740}
+  - component: {fileID: -1988457908076473771}
   - component: {fileID: -7882306371740457953}
   - component: {fileID: 3268185840924390053}
-  - component: {fileID: -3972348129955703740}
   - component: {fileID: 6113571227346548777}
-  - component: {fileID: -1988457908076473771}
   m_Layer: 9
   m_Name: Bernerred
   m_TagString: Untagged
@@ -87,6 +87,43 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &-3972348129955703740
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2662148599247167712}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &-1988457908076473771
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2662148599247167712}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.995
 --- !u!114 &-7882306371740457953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,7 +149,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 150
-  scoreValue: 75
   projectile: {fileID: 5179212724898402520, guid: 2acd2c93825cd1145a33d5062efe42f0,
     type: 3}
   shotCounter: 0
@@ -122,31 +158,8 @@ MonoBehaviour:
   deathVFX: {fileID: 4277923085502997696, guid: cefb4068bb28b8d4eaed5020747315ef,
     type: 3}
   durationofExplotion: 1
-  deathSFX: {fileID: 8300000, guid: 10295f94441b93d469c84845cda51fe6, type: 3}
-  deathSFXVolume: 0.4
-  shootSFX: {fileID: 8300000, guid: 6eda315463f84d4439b399d507532e85, type: 3}
-  shootSFXVolume: 0.7
---- !u!50 &-3972348129955703740
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2662148599247167712}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  capsuleSpawner: {fileID: 8426152823969385139, guid: 8e461857aeab73e489244b7d1c9a96de,
+    type: 3}
 --- !u!114 &6113571227346548777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,19 +173,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 300
---- !u!58 &-1988457908076473771
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2662148599247167712}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.995

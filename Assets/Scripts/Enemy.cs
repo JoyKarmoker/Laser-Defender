@@ -19,6 +19,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] GameObject deathVFX;
     [SerializeField] float durationofExplotion = 1f;
 
+
+   
+
     
 
     //Cached Ref
@@ -26,15 +29,19 @@ public class Enemy : MonoBehaviour
     audio_Manager myAudioManager;
 
     ObjectPooler objectPooler;
-  
- 
+    CapsuleSpawner capsuleSpawner;
+
+
     // Start is called before the first frame update
     void Start()
     {
         shotCounter = Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
         gameSession = FindObjectOfType<GameSession>();
         myAudioManager = FindObjectOfType<audio_Manager>();
-        objectPooler = ObjectPooler.Instance;
+        objectPooler = ObjectPooler.ObjectPullerInstance;
+        //capsuleSpawnerScript = capsuleSpawner.GetComponent<CapsuleSpawner>();
+        capsuleSpawner = CapsuleSpawner.CapsuleSpawnerInstance;
+        
     }
 
     // Update is called once per frame
@@ -83,9 +90,11 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         gameSession.AddToScore(scoreValue);
+        capsuleSpawner.SpawnCapsule(gameObject);
         Destroy(gameObject);
         GameObject explosion = Instantiate(deathVFX, transform.position, transform.rotation);
         Destroy(explosion, durationofExplotion);
         myAudioManager.play("EnemyDeathSFX");
+        
     }
 }

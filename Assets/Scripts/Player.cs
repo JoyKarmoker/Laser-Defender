@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
         gameSession = FindObjectOfType<GameSession>();
         myAudioManager = FindObjectOfType<audio_Manager>();
         health = gameSession.GetHealth();
-        objectPooler = ObjectPooler.Instance;
+        objectPooler = ObjectPooler.ObjectPullerInstance;
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerSpriteArraySize = playerSpriteArray.Length;
         spriteRenderer.sprite = playerSpriteArray[currentSpriteIndex];
