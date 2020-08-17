@@ -16,10 +16,44 @@ public class Formation : MonoBehaviour
     //Formation Movement
     [Header("Movement")]
     public float maxMoveOffsetX = 2f;
-    public float spped = 2f;
+    public float speed = 2f;
     int direction = -1;
     Vector2 startPos;
     float currentPosX;
+
+    //Formation Spreading
+    bool canSpread;
+    bool spreadStarted;
+    float spreadAmount = 1.5f;
+    float spreadSpeed = 1f;
+    float curSpread;
+    int spreadDir = 1;
+  
+    [System.Serializable]
+    public class FormationSpread
+    {
+        public int index;
+        public float xPos;
+        public float yPos;
+        public GameObject enemy;
+
+        public Vector2 target;
+        public Vector2 start;       
+        public FormationSpread(int _index, float _xPos,  float _yPos, GameObject _enemy)
+        {
+            index = _index;
+            xPos = _xPos;
+            yPos = _yPos;
+            enemy = _enemy;
+
+            start = new Vector2(_xPos, _yPos);
+            target = new Vector2(_xPos + (+xPos * 0.3f), _yPos);
+        }
+
+    }
+
+    [Header("Formation Spreading")]
+    public List<FormationSpread> enemyInThisFormation = new List<FormationSpread>();
 
     private void Start()
     {
@@ -30,22 +64,71 @@ public class Formation : MonoBehaviour
 
     private void Update()
     {
-        currentPosX = currentPosX + Time.deltaTime * spped * direction;
-        if(currentPosX >= maxMoveOffsetX)
+        if(!canSpread && !spreadStarted)
         {
-            direction = direction * (-1);
-            currentPosX = maxMoveOffsetX;
+            currentPosX = currentPosX + Time.deltaTime * speed * direction;
+            if (currentPosX >= maxMoveOffsetX)
+            {
+                direction = direction * (-1);
+                currentPosX = maxMoveOffsetX;
+            }
+
+            else if (currentPosX <= (-maxMoveOffsetX))
+            {
+                direction = direction * (-1);
+                currentPosX = (-maxMoveOffsetX);
+            }
+
+            transform.position = new Vector2(currentPosX, startPos.y);
         }
 
-        else if(currentPosX <= (-maxMoveOffsetX))
+        if(canSpread)
         {
-            direction = direction * (-1);
-            currentPosX = (-maxMoveOffsetX);
+            Debug.Log("Inside can spread");
+            curSpread += Time.deltaTime * spreadDir * spreadSpeed;
+            if(curSpread >= spreadAmount || curSpread<=0)
+            {
+                spreadDir *= -1;
+                Debug.Log("Changed dir");
+            }
+
+            int totalEnemy = enemyInThisFormation.Count;
+            for (int i =0; i< totalEnemy; i++)
+            {
+                Debug.Log("Inside Spread for loop");
+                var thisEnemy = enemyInThisFormation[i].enemy;
+                if(Vector2.Distance(enemyInThisFormation[i].enemy.transform.position, enemyInThisFormation[i].target) >= 0.001f)
+                {
+                    Debug.Log("Inside Spread if");
+                    enemyInThisFormation[i].enemy.transform.position = Vector2.Lerp((Vector2)transform.position + (Vector2)enemyInThisFormation[i].start, (Vector2)transform.position + enemyInThisFormation[i].target, curSpread);
+                }
+            }
         }
 
-        transform.position = new Vector2(currentPosX, startPos.y);
+        if(Input.GetKeyDown(KeyCode.T))
+        {
+            StartCoroutine(ActivateSpread());
+        }
+
     }
 
+    public IEnumerator ActivateSpread()
+    {
+        Debug.Log("T Pressed");
+        if(spreadStarted)
+        {
+            yield break;
+        }
+
+        spreadStarted = true;
+
+        while(transform.position.x != startPos.x)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, startPos, speed*Time.deltaTime);
+            yield return null;
+        }
+        canSpread = true;
+    }
     private void OnDrawGizmos()
     {
         int num = 0;

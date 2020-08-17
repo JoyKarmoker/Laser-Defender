@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6852262424116385649}
   - component: {fileID: 6852262424116385650}
   - component: {fileID: 6852262424116385648}
+  - component: {fileID: 1619180899}
   m_Layer: 9
   m_Name: Enemy(0)
   m_TagString: Untagged
@@ -99,3 +100,28 @@ MonoBehaviour:
   rotationOffsetInFormation: -90
   useCurvedPath: 1
   health: 100
+  projectile: {fileID: 5179212724898402520, guid: 2acd2c93825cd1145a33d5062efe42f0,
+    type: 3}
+  shotCounter: 0
+  minTimeBetweenShots: 0.2
+  maxTimeBetweenShots: 10
+  projectileSpeed: 10
+  deathVFX: {fileID: 4277923085502997696, guid: cefb4068bb28b8d4eaed5020747315ef,
+    type: 3}
+  durationofExplotion: 1
+--- !u!58 &1619180899
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6852262424116385651}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.465

@@ -28,23 +28,22 @@ public class Enemy : MonoBehaviour
         IDLE
     }
    
-    EnemyStates enemyStates;
+    public EnemyStates enemyStates;
     int posInFormation;
     Formation formation;
-    /*
+    
     [Header("Projectile")]
     [SerializeField] GameObject projectile;
     [SerializeField] float shotCounter;
     [SerializeField] float minTimeBetweenShots = 0.2f;
     [SerializeField] float maxTimeBetweenShots = 10f; 
     [SerializeField] float projectileSpeed = 10f;
-    */
-    /*
+    
+    
     [Header("VFX")]
     [SerializeField] GameObject deathVFX;
     [SerializeField] float durationofExplotion = 1f;
     
-    */
     //Cached Ref
     GameSession gameSession;
     audio_Manager myAudioManager;
@@ -56,14 +55,12 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /*
+        
         shotCounter = Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
         gameSession = FindObjectOfType<GameSession>();
         myAudioManager = FindObjectOfType<audio_Manager>();
         objectPooler = ObjectPooler.ObjectPullerInstance;
-        //capsuleSpawnerScript = capsuleSpawner.GetComponent<CapsuleSpawner>();
-        */
-        //capsuleSpawner = CapsuleSpawner.CapsuleSpawnerInstance;
+        capsuleSpawner = CapsuleSpawner.CapsuleSpawnerInstance;
     }
 
     // Update is called once per frame
@@ -81,9 +78,6 @@ public class Enemy : MonoBehaviour
             case EnemyStates.IDLE:
                 break;
         }
-        
-        //MoveOnPath(pathToFollow);
-
 
     }
      void MoveToFormation()
@@ -103,8 +97,11 @@ public class Enemy : MonoBehaviour
         //
         if (Vector2.Distance(transform.position, formation.GetVector(posInFormation)) <= 0.0001f)
          {
-             transform.SetParent(formation.gameObject.gameObject.GetComponentInParent<Transform>());
+            transform.SetParent(formation.gameObject.GetComponentInParent<Transform>());
             transform.eulerAngles = Vector2.zero; //Set rotation
+            //Setting the spreading configs
+            formation.enemyInThisFormation.Add(new Formation.FormationSpread(posInFormation, transform.localPosition.x, transform.localPosition.y, this.gameObject));
+
              enemyStates = EnemyStates.IDLE;
          }
      }
@@ -178,9 +175,10 @@ public class Enemy : MonoBehaviour
         this.formation = formation;
         this.speed = speed;
         this.rotationSpeed = rotationSpeed;
+        enemyStates = EnemyStates.FLY_IN;
     }
     
-    /*private void CountDownAndShoot()
+    private void CountDownAndShoot()
     {
         shotCounter = shotCounter - Time.deltaTime;
         if(shotCounter <= 0f)
@@ -202,7 +200,6 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
-
         if (!damageDealer) return;
         ProcessHit(damageDealer);
     }
@@ -219,6 +216,14 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        //Report to formation to tell it that this enemy is dead
+        for(int i=0; i<formation.enemyInThisFormation.Count; i++)
+        {
+            if(formation.enemyInThisFormation[i].index == posInFormation)
+            {
+                formation.enemyInThisFormation.Remove(formation.enemyInThisFormation[i]);
+            }
+        }
         gameSession.AddToScore(scoreValue);
         capsuleSpawner.SpawnCapsule(gameObject);
         Destroy(gameObject);
@@ -226,5 +231,5 @@ public class Enemy : MonoBehaviour
         Destroy(explosion, durationofExplotion);
         myAudioManager.play("EnemyDeathSFX");
         
-    }*/
+    }
 }

@@ -45,6 +45,7 @@ public class EnemySpawner : MonoBehaviour
     int posInSmallEnemyFormation = 0;
     int posInMediumEnemyFormation = 0;
     int posInBossEnemyFormation = 0;
+    public List<GameObject> enemyFormationList = new List<GameObject>();
     [System.Serializable]
     public class Wave
     {
@@ -64,7 +65,8 @@ public class EnemySpawner : MonoBehaviour
     }
 
     public List<Wave> waveList = new List<Wave>();
-
+    [HideInInspector] public List<GameObject> spawnedEnemys = new List<GameObject>();
+    
     IEnumerator Start()
     {
         totalWaves = waveList.Count;
@@ -119,7 +121,8 @@ public class EnemySpawner : MonoBehaviour
                 GameObject newEnemy = Instantiate(currentWave.EnemyPrefab, transform.position, Quaternion.identity) as GameObject; //Instantiating the Enemy Game Object
                 Enemy enemyBehaviour = newEnemy.GetComponent<Enemy>(); //Getting the Enemy Script from Enemy Game Object               
                 enemyBehaviour.SpawnSetup(currentWave.pathPrefab.GetComponent<Path>(), posInFormation, currentWave.enemyFormationPrefab.GetComponent<Formation>(), currentWave.enemySpeed, currentWave.enemyRotationSpeed);
-                posInFormation++; 
+                posInFormation++;
+                spawnedEnemys.Add(newEnemy);
                 yield return new WaitForSeconds(currentWave.enemySpawnInterval);
             }
         }
@@ -138,5 +141,31 @@ public class EnemySpawner : MonoBehaviour
            posInBossEnemyFormation = posInFormation;
         }
         yield return new WaitForSeconds(currentWave.secToWaitForNextWave);
+    }
+
+    void CheckEnemyStates()
+    {
+        bool information = false;
+        int totalSpawnedEnemys = spawnedEnemys.Count;
+        for (int i = (totalSpawnedEnemys-1); i >=0; i--)
+        {
+            if(spawnedEnemys[i].GetComponent<Enemy>().enemyStates != Enemy.EnemyStates.IDLE)
+            {
+                information = false;
+                break;
+            }
+        }
+        information = true;
+
+        if(information)
+        {
+            //Start the active spreading coroutine in the spawner scripts for all the formation object present in the scene
+            int totalFormatationInThisScene = enemyFormationList.Count;
+            for (int i = 0; i <totalFormatationInThisScene; i++)
+            {
+                //enemyFormationList[i].StartCoroutine(ActivateSpread());
+            }
+            //StartCoroutine(ene)
+        }    
     }
 }
