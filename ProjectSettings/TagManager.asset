@@ -8,6 +8,9 @@ TagManager:
   - XPCapsule
   - ProtectionCapsule
   - LevelUpPlayerCapsule
+  - SmallEnemyFormation
+  - MediumEnemyFormation
+  - BossEnemyFormation
   layers:
   - Default
   - TransparentFX
