@@ -1488,6 +1488,16 @@ PrefabInstance:
       propertyPath: gridList.Array.data[11].y
       value: 1.4
       objectReference: {fileID: 0}
+    - target: {fileID: 7761680994834747457, guid: 5abd8cd872a58af419b077a822631eb9,
+        type: 3}
+      propertyPath: minTimeBetweenEnemyDive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761680994834747457, guid: 5abd8cd872a58af419b077a822631eb9,
+        type: 3}
+      propertyPath: maxTimeBetweenEnemyDive
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7761680994834747458, guid: 5abd8cd872a58af419b077a822631eb9,
         type: 3}
       propertyPath: m_LocalPosition.x

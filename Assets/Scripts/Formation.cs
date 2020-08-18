@@ -180,8 +180,9 @@ public class Formation : MonoBehaviour
             int choosenDivePathIndex = Random.Range(0, divePathList.Count);
             int choosenEnemyPathIndex = Random.Range(0, enemyInThisFormation.Count);
 
-            GameObject newDivePath = Instantiate(divePathList[choosenDivePathIndex], enemyInThisFormation[choosenEnemyPathIndex].start + (Vector2)transform.position, Quaternion.identity) as GameObject;
-            enemyInThisFormation[choosenEnemyPathIndex].enemy.GetComponent<Enemy>().DiveSetup(newDivePath.GetComponent<Path>());
+            //GameObject newDivePath = Instantiate(divePathList[choosenDivePathIndex], enemyInThisFormation[choosenEnemyPathIndex].start + (Vector2)transform.position, Quaternion.identity) as GameObject;
+            enemyInThisFormation[choosenEnemyPathIndex].enemy.GetComponent<Enemy>().DiveSetup(divePathList[choosenDivePathIndex].GetComponent<Path>());
+            enemyInThisFormation.RemoveAt(choosenEnemyPathIndex);
             Invoke("SetDiving", Random.Range(minTimeBetweenEnemyDive, maxTimeBetweenEnemyDive));
         }
         else

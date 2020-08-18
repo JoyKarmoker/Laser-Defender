@@ -245,11 +245,10 @@ public class Enemy : MonoBehaviour
             enemySpawner.spawnedEnemys.Remove(this.gameObject);
         }
 
-        //Set back Transform to  parrent to self if it is a child of 
+        //Set back Transform to  parrent to world if it the transform is a child of formation
         if(transform.parent != null)
         {
-            Debug.Log("Enemy Has parrent");
-            transform.parent = null;
+            transform.SetParent(transform.parent.parent);
         }   
 
         gameSession.AddToScore(scoreValue);
