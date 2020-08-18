@@ -25,7 +25,8 @@ public class Enemy : MonoBehaviour
     {
         FLY_IN, //First State
         TO_FORMATION,//Second State
-        IDLE
+        IDLE,
+        DIVE
     }
    
     public EnemyStates enemyStates;
@@ -47,6 +48,7 @@ public class Enemy : MonoBehaviour
     //Cached Ref
     GameSession gameSession;
     audio_Manager myAudioManager;
+    EnemySpawner enemySpawner;
 
     ObjectPooler objectPooler;
     CapsuleSpawner capsuleSpawner;
@@ -61,6 +63,7 @@ public class Enemy : MonoBehaviour
         myAudioManager = FindObjectOfType<audio_Manager>();
         objectPooler = ObjectPooler.ObjectPullerInstance;
         capsuleSpawner = CapsuleSpawner.CapsuleSpawnerInstance;
+        enemySpawner = FindObjectOfType<EnemySpawner>();
     }
 
     // Update is called once per frame
@@ -76,6 +79,10 @@ public class Enemy : MonoBehaviour
                 MoveToFormation();
                 break;
             case EnemyStates.IDLE:
+                break;
+
+            case EnemyStates.DIVE:
+                MoveOnPath(pathToFollow);
                 break;
         }
 
@@ -177,6 +184,13 @@ public class Enemy : MonoBehaviour
         this.rotationSpeed = rotationSpeed;
         enemyStates = EnemyStates.FLY_IN;
     }
+
+    public void DiveSetup(Path path)
+    {
+        pathToFollow = path;
+        transform.SetParent(transform.parent.parent);
+        enemyStates = EnemyStates.DIVE;
+    }
     
     private void CountDownAndShoot()
     {
@@ -224,6 +238,20 @@ public class Enemy : MonoBehaviour
                 formation.enemyInThisFormation.Remove(formation.enemyInThisFormation[i]);
             }
         }
+
+        //Report to spawn Manager to tell that this enemy is dead
+        for (int i = 0; i <enemySpawner.spawnedEnemys.Count; i++)
+        {
+            enemySpawner.spawnedEnemys.Remove(this.gameObject);
+        }
+
+        //Set back Transform to  parrent to self if it is a child of 
+        if(transform.parent != null)
+        {
+            Debug.Log("Enemy Has parrent");
+            transform.parent = null;
+        }   
+
         gameSession.AddToScore(scoreValue);
         capsuleSpawner.SpawnCapsule(gameObject);
         Destroy(gameObject);

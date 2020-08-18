@@ -4,40 +4,6 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    /*
-    [SerializeField] List<WaveConfig> waveConfigs;
-    [SerializeField] int startingWave = 0;
-    bool looping = true; //If this is true then the waves will keep repating like if we have 4 waves in this level 4 waves will keep repating
-
-    // Start is called before the first frame update
-    IEnumerator Start()
-    {
-        do
-        {
-            yield return StartCoroutine(SpawnAllWaves());
-        } while (looping);
-    }
-
-    private IEnumerator SpawnAllWaves()
-    {
-        for(int waveIndex = startingWave; waveIndex <waveConfigs.Count ; waveIndex++)
-        {
-            int randomIndex = Random.Range(0, waveConfigs.Count);
-            var currentWave = waveConfigs[randomIndex]; //Selects any of the wave randomly
-            yield return StartCoroutine(SpawnAllEnemiesInCurrentWave(currentWave));
-        }
-    }
-
-    private IEnumerator SpawnAllEnemiesInCurrentWave(WaveConfig waveConfig)
-    {
-        for (int enemyCount = 0; enemyCount < waveConfig.GetNumberOfEnemies(); enemyCount++)
-        {
-            var newEnemy = Instantiate(waveConfig.GetEnemyPrefab(), waveConfig.GetWayPoints()[0].transform.position, Quaternion.identity);
-            newEnemy.GetComponent<EnemyPathing>().SetWaveConfig(waveConfig);
-            yield return new WaitForSeconds(waveConfig.GetTimeBetweenSpawns());
-        }
-    }*/
-
     [SerializeField] float secAfterEnemyStartSpawn = 3f;
     int currentWave = 0;
     int totalWaves;
@@ -45,7 +11,7 @@ public class EnemySpawner : MonoBehaviour
     int posInSmallEnemyFormation = 0;
     int posInMediumEnemyFormation = 0;
     int posInBossEnemyFormation = 0;
-    public List<GameObject> enemyFormationList = new List<GameObject>();
+    [HideInInspector]public static List<GameObject> enemyFormationList = new List<GameObject>();
     [System.Serializable]
     public class Wave
     {
@@ -72,6 +38,7 @@ public class EnemySpawner : MonoBehaviour
         totalWaves = waveList.Count;
         yield return new WaitForSeconds(secAfterEnemyStartSpawn);
         yield return StartCoroutine(SpawnAllWaves());
+        Invoke("CheckEnemyStates", 1f);
     }
 
 
@@ -83,6 +50,7 @@ public class EnemySpawner : MonoBehaviour
             yield return StartCoroutine(SpawnAllEnemiesInCurrentWave(waveList[currentWave]));
             currentWave++;
         }
+
     }
 
     private IEnumerator SpawnAllEnemiesInCurrentWave(Wave currentWave)
@@ -145,27 +113,28 @@ public class EnemySpawner : MonoBehaviour
 
     void CheckEnemyStates()
     {
-        bool information = false;
+        bool inFormation = false;
         int totalSpawnedEnemys = spawnedEnemys.Count;
         for (int i = (totalSpawnedEnemys-1); i >=0; i--)
         {
             if(spawnedEnemys[i].GetComponent<Enemy>().enemyStates != Enemy.EnemyStates.IDLE)
             {
-                information = false;
-                break;
+                inFormation = false;
+                Invoke("CheckEnemyStates", 1f);
+                return;
             }
         }
-        information = true;
+        inFormation = true;
 
-        if(information)
+        if(inFormation)
         {
             //Start the active spreading coroutine in the spawner scripts for all the formation object present in the scene
             int totalFormatationInThisScene = enemyFormationList.Count;
             for (int i = 0; i <totalFormatationInThisScene; i++)
             {
-                //enemyFormationList[i].StartCoroutine(ActivateSpread());
+                enemyFormationList[i].GetComponent<Formation>().StartActivateSpread();
             }
-            //StartCoroutine(ene)
+            CancelInvoke("CheckEnemyStates");
         }    
     }
 }

@@ -54,4 +54,10 @@ MonoBehaviour:
   - {x: -4.5, y: 0}
   - {x: 4.5, y: 0}
   maxMoveOffsetX: 2
-  spped: 2
+  speed: 2
+  divePathList:
+  - {fileID: 6944559870432817141, guid: 448fe0afb6dad2c4593abc6f8714292f, type: 3}
+  - {fileID: 8265452628296846293, guid: 4b0ff58a0c361dd419be2941bf7f2ead, type: 3}
+  minTimeBetweenEnemyDive: 3
+  maxTimeBetweenEnemyDive: 10
+  enemyInThisFormation: []

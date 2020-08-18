@@ -21,6 +21,15 @@ public class Formation : MonoBehaviour
     Vector2 startPos;
     float currentPosX;
 
+    [Header("Enemy Diving")]
+    //Diving
+    bool canDive;
+    public List<GameObject> divePathList = new List<GameObject>();
+    public float minTimeBetweenEnemyDive = 3f;
+    public float maxTimeBetweenEnemyDive = 10f;
+
+
+
     //Formation Spreading
     bool canSpread;
     bool spreadStarted;
@@ -28,7 +37,8 @@ public class Formation : MonoBehaviour
     float spreadSpeed = 1f;
     float curSpread;
     int spreadDir = 1;
-  
+
+    [HideInInspector] public List<FormationSpread> enemyInThisFormation = new List<FormationSpread>();
     [System.Serializable]
     public class FormationSpread
     {
@@ -50,15 +60,14 @@ public class Formation : MonoBehaviour
             target = new Vector2(_xPos + (+xPos * 0.3f), _yPos);
         }
 
-    }
-
-    [Header("Formation Spreading")]
-    public List<FormationSpread> enemyInThisFormation = new List<FormationSpread>();
+    }  
+    
 
     private void Start()
     {
         startPos = transform.position;
         currentPosX = transform.position.x;
+        EnemySpawner.enemyFormationList.Add(this.gameObject);
         //CreateFormation();
     }
 
@@ -84,37 +93,36 @@ public class Formation : MonoBehaviour
 
         if(canSpread)
         {
-            Debug.Log("Inside can spread");
             curSpread += Time.deltaTime * spreadDir * spreadSpeed;
-            if(curSpread >= spreadAmount || curSpread<=0)
+            if(curSpread >= spreadAmount || curSpread<=0f)
             {
                 spreadDir *= -1;
-                Debug.Log("Changed dir");
             }
 
             int totalEnemy = enemyInThisFormation.Count;
             for (int i =0; i< totalEnemy; i++)
             {
-                Debug.Log("Inside Spread for loop");
-                var thisEnemy = enemyInThisFormation[i].enemy;
-                if(Vector2.Distance(enemyInThisFormation[i].enemy.transform.position, enemyInThisFormation[i].target) >= 0.001f)
+                if(Vector2.Distance(enemyInThisFormation[i].enemy.transform.position, enemyInThisFormation[i].target) >= 0.0001f)
                 {
-                    Debug.Log("Inside Spread if");
                     enemyInThisFormation[i].enemy.transform.position = Vector2.Lerp((Vector2)transform.position + (Vector2)enemyInThisFormation[i].start, (Vector2)transform.position + enemyInThisFormation[i].target, curSpread);
                 }
             }
         }
 
-        if(Input.GetKeyDown(KeyCode.T))
+        /*if(canDive)
         {
-            StartCoroutine(ActivateSpread());
-        }
+            Invoke("SetDiving", Random.Range(minTimeBetweenEnemyDive, maxTimeBetweenEnemyDive));
+            canDive = false;
+        }*/
 
     }
-
-    public IEnumerator ActivateSpread()
+    public void StartActivateSpread()
     {
-        Debug.Log("T Pressed");
+        StartCoroutine(ActivateSpread());
+    }
+
+    IEnumerator ActivateSpread()
+    { 
         if(spreadStarted)
         {
             yield break;
@@ -128,6 +136,8 @@ public class Formation : MonoBehaviour
             yield return null;
         }
         canSpread = true;
+        //canDive = true;
+        Invoke("SetDiving", Random.Range(minTimeBetweenEnemyDive, maxTimeBetweenEnemyDive));
     }
     private void OnDrawGizmos()
     {
@@ -161,5 +171,23 @@ public class Formation : MonoBehaviour
     public Vector2 GetVector(int posInFormation)
     {
         return (Vector2)gameObject.transform.position + (Vector2)gridList[posInFormation];
+    }
+
+    void SetDiving()
+    {
+        if(enemyInThisFormation.Count > 0)
+        {
+            int choosenDivePathIndex = Random.Range(0, divePathList.Count);
+            int choosenEnemyPathIndex = Random.Range(0, enemyInThisFormation.Count);
+
+            GameObject newDivePath = Instantiate(divePathList[choosenDivePathIndex], enemyInThisFormation[choosenEnemyPathIndex].start + (Vector2)transform.position, Quaternion.identity) as GameObject;
+            enemyInThisFormation[choosenEnemyPathIndex].enemy.GetComponent<Enemy>().DiveSetup(newDivePath.GetComponent<Path>());
+            Invoke("SetDiving", Random.Range(minTimeBetweenEnemyDive, maxTimeBetweenEnemyDive));
+        }
+        else
+        {
+            CancelInvoke("SetDiving");
+            return;
+        }
     }
 }
