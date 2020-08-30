@@ -5,9 +5,10 @@ using UnityEngine;
 public class GameSession : MonoBehaviour
 {
 
-
+    [SerializeField] GameObject[] healthBars;
+    [SerializeField] FinalScore finalScore;
     public int score = 0;
-    public int health = 3;
+    int health = 5;
 
 
     private void Awake()
@@ -17,6 +18,13 @@ public class GameSession : MonoBehaviour
         
     }
 
+    private void Start()
+    {
+        foreach (var item in healthBars)
+        {
+            item.SetActive(true);
+        }
+    }
     private void SetUpSingleTon()
     {
         int numberOfGameSessions = FindObjectsOfType<GameSession>().Length;
@@ -40,19 +48,30 @@ public class GameSession : MonoBehaviour
     {
         score = score + scoreValue;
 
-        FindObjectOfType<FinalScore>().setScore(score);
+        finalScore.setScore(score);
 
     }
 
     public int GetHealth()
     {
-        FindObjectOfType<HealthBar>().setHealth(health);
         return health;
+    }
+
+    public void SetHealth(int health)
+    {
+        this.health = health;
+        for (int i = 0; i < health; i++)
+        {
+            healthBars[i].SetActive(true);
+        }
     }
 
     public void DecreaseHealth()
     {
-        health = health - 1;
+        if(health > 0 )
+            healthBars[--health].SetActive(false);     
+        else
+            healthBars[health].SetActive(false);
        
     }
     public void ResetGame()

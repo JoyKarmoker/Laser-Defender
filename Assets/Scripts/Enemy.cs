@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -17,7 +18,9 @@ public class Enemy : MonoBehaviour
     Path pathToFollow;
 
     [Header("Enemy")]
+    [SerializeField] Color flashColor;
     [SerializeField] float health = 100;
+    Animator animator;
     int scoreValue = 20;
 
     //Enemy  State
@@ -40,8 +43,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] float maxTimeBetweenShots = 10f; 
     [SerializeField] float projectileSpeed = 10f;
     
-    
     [Header("VFX")]
+    SpriteFlash spriteFlash;
     [SerializeField] GameObject deathVFX;
     [SerializeField] float durationofExplotion = 1f;
     
@@ -57,7 +60,9 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
+
+        spriteFlash = GetComponent<SpriteFlash>();
         shotCounter = Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
         gameSession = FindObjectOfType<GameSession>();
         myAudioManager = FindObjectOfType<audio_Manager>();
@@ -83,6 +88,7 @@ public class Enemy : MonoBehaviour
 
             case EnemyStates.DIVE:
                 MoveOnPath(pathToFollow);
+                CountDownAndShoot();
                 break;
         }
 
@@ -197,7 +203,7 @@ public class Enemy : MonoBehaviour
         shotCounter = shotCounter - Time.deltaTime;
         if(shotCounter <= 0f)
         {
-            Fire();
+           //Fire();
             shotCounter = Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
         }
     }
@@ -220,10 +226,15 @@ public class Enemy : MonoBehaviour
 
     private void ProcessHit(DamageDealer damageDealer)
     {
+        //flash sprite
+        spriteFlash.Flash(flashColor);
         health = health - damageDealer.GetDamage();
         damageDealer.Hit();
         if (health <= 0)
         {
+            //shake screen
+            //CinemachineShake.Instance.ShakeCamera(3f, 0.2f);
+
             Die();
         }
     }
@@ -251,12 +262,14 @@ public class Enemy : MonoBehaviour
             transform.SetParent(transform.parent.parent);
         }   
 
-        gameSession.AddToScore(scoreValue);
+        //gameSession.AddToScore(scoreValue);
         capsuleSpawner.SpawnCapsule(gameObject);
-        Destroy(gameObject);
+
+        //Destroy(gameObject);
         GameObject explosion = Instantiate(deathVFX, transform.position, transform.rotation);
         Destroy(explosion, durationofExplotion);
-        myAudioManager.play("EnemyDeathSFX");
+        this.gameObject.SetActive(false); //Setting this gameObject flase (Object Pooler Mechanism)
+        //myAudioManager.play("EnemyDeathSFX");
         
     }
 }

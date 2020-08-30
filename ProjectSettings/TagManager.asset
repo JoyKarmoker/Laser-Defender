@@ -4,13 +4,18 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - LaserBeamCapsule
   - XPCapsule
   - ProtectionCapsule
   - LevelUpPlayerCapsule
   - SmallEnemyFormation
   - MediumEnemyFormation
   - BossEnemyFormation
+  - LaserCapsule
+  - LaserBeamCapsule
+  - XPDecreasingCapsule
+  - LevelDownCapsule
+  - PlayerShootingOffCapsule
+  - HomingMissileCapsule
   layers:
   - Default
   - TransparentFX

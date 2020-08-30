@@ -14,17 +14,5 @@ public class game_Over : MonoBehaviour
     {
         gameOver_Panel.SetActive(true);
     }
-    public void restart()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        FindObjectOfType<GameSession>().score = 0;
-        FindObjectOfType<GameSession>().health = 3;
 
-
-    } public void main_menu()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-1);
-       
-
-    }
 }

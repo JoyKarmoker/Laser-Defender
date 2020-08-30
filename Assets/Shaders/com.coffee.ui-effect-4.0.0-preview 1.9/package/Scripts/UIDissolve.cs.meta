@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: df5610851b2206245a15f245d20f99cd
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_TransitionTexture: {fileID: 2800000, guid: 3e04c247fb2604af186173fce0bc62de,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

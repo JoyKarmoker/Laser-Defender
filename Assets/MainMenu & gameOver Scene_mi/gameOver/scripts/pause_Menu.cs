@@ -9,23 +9,8 @@ public class pause_Menu : MonoBehaviour
 {
     public static bool gameIsPaused = false;
     public GameObject paseMenuUI;
-    
-    
+    [SerializeField] GameSession gameSession;
 
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            if(gameIsPaused)
-            {
-                resume();
-            }
-            else
-            {
-                Pause();
-            }
-        }
-    }
 
      public void Pause()
     {
@@ -43,14 +28,14 @@ public class pause_Menu : MonoBehaviour
     }
     public void loadMainMenu()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-1);
+        SceneManager.LoadScene(1);
         Time.timeScale = 1f;
     }
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        FindObjectOfType<GameSession>().score = 0;
-        FindObjectOfType<GameSession>().health = 3;
+        gameSession.score = 0;
+        gameSession.SetHealth(5);
         Time.timeScale = 1f;
     }
 }

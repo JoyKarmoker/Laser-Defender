@@ -5,19 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class ButtonManagement : MonoBehaviour
 {
-  
+    [SerializeField] GameObject map;
     public void ExitButton()
     {
         Application.Quit();
     }
 
-    public void normalButton()
+    public void Mapclose()
     {
-        FindObjectOfType<level_loader>().loadNextLevel();
+        gameObject.SetActive(false);
     }
-    public void reverseButton()
-    {
-        FindObjectOfType<level_loader>().loadNextLevel();
-    }
-    
+
 }

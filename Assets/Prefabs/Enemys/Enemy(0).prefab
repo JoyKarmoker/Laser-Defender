@@ -100,11 +100,12 @@ MonoBehaviour:
   rotationOffsetInFormation: -90
   useCurvedPath: 1
   health: 100
+  enemyStates: 0
   projectile: {fileID: 5179212724898402520, guid: 2acd2c93825cd1145a33d5062efe42f0,
     type: 3}
   shotCounter: 0
   minTimeBetweenShots: 0.2
-  maxTimeBetweenShots: 10
+  maxTimeBetweenShots: 1
   projectileSpeed: 10
   deathVFX: {fileID: 4277923085502997696, guid: cefb4068bb28b8d4eaed5020747315ef,
     type: 3}

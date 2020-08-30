@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2842503470322777704}
   - component: {fileID: -1400775550301756744}
   - component: {fileID: 3642199834566224597}
-  - component: {fileID: 4611811918139610802}
   - component: {fileID: -6150407344722174231}
   m_Layer: 12
   m_Name: Health Decreasing Capsule
@@ -74,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f006b5438b3e74a49bff12b43cb3440f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d570ced439ecb9e45acc6eba2443e85f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -121,20 +120,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.28
---- !u!114 &4611811918139610802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2842503470322777703}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60dac47d21f5b544bac9aee763a55caf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  seenEverySeconds: 170
+  m_Radius: 0.3
 --- !u!114 &-6150407344722174231
 MonoBehaviour:
   m_ObjectHideFlags: 0

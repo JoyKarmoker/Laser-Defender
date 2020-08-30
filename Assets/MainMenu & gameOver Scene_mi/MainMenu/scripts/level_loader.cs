@@ -37,4 +37,12 @@ public class level_loader : MonoBehaviour
         AudioListener.volume = currentVolume;
 
     }
+    public  void LevelToLoad(int index)
+    {
+        string lvlName = "Lvl" + index;
+        if(index == 1 && PlayerPrefs.GetInt(lvlName,0) == 0)
+            StartCoroutine(Load_Level(index + 1));
+        else
+            StartCoroutine(Load_Level(index+2));
+    }
 }

@@ -11,6 +11,8 @@ public class EnemySpawner : MonoBehaviour
     int posInSmallEnemyFormation = 0;
     int posInMediumEnemyFormation = 0;
     int posInBossEnemyFormation = 0;
+    ObjectPooler objectPooler;
+
     [HideInInspector]public static List<GameObject> enemyFormationList = new List<GameObject>();
     [System.Serializable]
     public class Wave
@@ -35,6 +37,7 @@ public class EnemySpawner : MonoBehaviour
     
     IEnumerator Start()
     {
+        objectPooler = ObjectPooler.ObjectPullerInstance;
         totalWaves = waveList.Count;
         yield return new WaitForSeconds(secAfterEnemyStartSpawn);
         yield return StartCoroutine(SpawnAllWaves());
@@ -86,7 +89,8 @@ public class EnemySpawner : MonoBehaviour
             //If there is enough space for enemy in the formation then spawing the enemy
             else
             {
-                GameObject newEnemy = Instantiate(currentWave.EnemyPrefab, transform.position, Quaternion.identity) as GameObject; //Instantiating the Enemy Game Object
+                //GameObject newEnemy = Instantiate(currentWave.EnemyPrefab, transform.position, Quaternion.identity) as GameObject; //Instantiating the Enemy Game Object
+                GameObject newEnemy = objectPooler.SpawnFromPool(currentWave.EnemyPrefab.ToString(), transform.position, Quaternion.identity); //Instantiatiating The Game Object from Object Pooler
                 Enemy enemyBehaviour = newEnemy.GetComponent<Enemy>(); //Getting the Enemy Script from Enemy Game Object               
                 enemyBehaviour.SpawnSetup(currentWave.pathPrefab.GetComponent<Path>(), posInFormation, currentWave.enemyFormationPrefab.GetComponent<Formation>(), currentWave.enemySpeed, currentWave.enemyRotationSpeed);
                 posInFormation++;

@@ -12,6 +12,7 @@ public class optionMenu : MonoBehaviour
 
     [SerializeField] GameObject ToggleMusic;
     [SerializeField] GameObject ToggleSFX;
+    [SerializeField] GameObject ToggleVBR;
 
 
     float previousVolume;
@@ -69,6 +70,18 @@ public class optionMenu : MonoBehaviour
         {
             my_SFX_AudioMixer.SetFloat("sfxVolume", -80f);
         }
+    } 
+    public void VBRToggle()
+    {
+        bool isVBRToggleon = ToggleVBR.GetComponent<Toggle>().isOn;
+       /* if(isVBRToggleon)
+        {
+            my_SFX_AudioMixer.SetFloat("sfxVolume", 0f);
+        }
+        else
+        {
+            my_SFX_AudioMixer.SetFloat("sfxVolume", -80f);
+        }*/
     }
 
 

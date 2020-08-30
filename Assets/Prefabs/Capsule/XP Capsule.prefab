@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 105853899814922328}
   - component: {fileID: 5937595597070685060}
   - component: {fileID: 5378154664570330941}
-  - component: {fileID: -1123590651762863217}
   m_Layer: 12
   m_Name: XP Capsule
   m_TagString: XPCapsule
@@ -73,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5b40ff482f0810044bc19b878621e159, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d570ced439ecb9e45acc6eba2443e85f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -120,17 +119,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.28
---- !u!114 &-1123590651762863217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 105853899814922335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60dac47d21f5b544bac9aee763a55caf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  seenEverySeconds: 200
+  m_Radius: 0.3

@@ -102,7 +102,7 @@ public class Formation : MonoBehaviour
             int totalEnemy = enemyInThisFormation.Count;
             for (int i =0; i< totalEnemy; i++)
             {
-                if(Vector2.Distance(enemyInThisFormation[i].enemy.transform.position, enemyInThisFormation[i].target) >= 0.0001f)
+                if(Vector2.Distance(enemyInThisFormation[i].enemy.transform.position, enemyInThisFormation[i].target) >= 0.001f)
                 {
                     enemyInThisFormation[i].enemy.transform.position = Vector2.Lerp((Vector2)transform.position + (Vector2)enemyInThisFormation[i].start, (Vector2)transform.position + enemyInThisFormation[i].target, curSpread);
                 }

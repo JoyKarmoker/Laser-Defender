@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(AudioSource))]
 public class SplashCounter : MonoBehaviour
 {
-    public float timeStart = 11;
+    public int timeStart = 10;
+    [SerializeField] Animator animator;
     public TextMeshProUGUI timerText;
     [SerializeField] float playerSpeed = 10f;
     public GameObject player;
@@ -17,43 +18,49 @@ public class SplashCounter : MonoBehaviour
     bool isLaunched = false;
 
 
-    // Start is called before the first frame update
-
-    IEnumerator Start()
+   
+    private void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        audioSource.clip = Counter;
-        audioSource.Play();
+
         timerText.text = timeStart.ToString();
-
-        yield return new WaitForSeconds(audioSource.clip.length - 1);
-        //audioSource.clip = launchSound;
-        audioSource.PlayOneShot(launchSound);
-        player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, playerSpeed);
-        StartCoroutine(Launch());
+        StartCoroutine(count());
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (!isLaunched){
-            timeStart = timeStart - Time.deltaTime;
-            timerText.text = Mathf.Round(timeStart).ToString();
-            if (timeStart <= 0)
-            {
-                timerText.text = "0";
-                
-                isLaunched = true;
-
-            }
-        }
-
+        if (isLaunched)
+            StartCoroutine(Launch());
     }
+    IEnumerator count()
+    {
+
+        yield return new WaitForSeconds(1);
+        timeStart = timeStart - 1;
+        timerText.text = Mathf.Round(timeStart).ToString();
+        audioSource.PlayOneShot(Counter, 1F);
+
+        if (timeStart <= 0)
+        {
+            timerText.text = "0";
+
+            isLaunched = true;
+            animator.SetTrigger("Blast");
+
+        }
+        else
+            StartCoroutine(count());
+     
+    }
+
 
     IEnumerator Launch()
-    {        
+    {
+        isLaunched = false;
+        audioSource.PlayOneShot(launchSound, 0.2f);
+        player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, playerSpeed);
         yield return new WaitForSeconds(3);
 
         SceneManager.LoadScene(1);
     }
+
 }

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3377392449552496853}
   - component: {fileID: 2871662621341670563}
   - component: {fileID: -8808694554281904248}
-  - component: {fileID: -3756413877452790670}
   m_Layer: 12
   m_Name: Protection Capsule
   m_TagString: ProtectionCapsule
@@ -73,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5b40ff482f0810044bc19b878621e159, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2292184e519aff47a2d17546403fcab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -120,17 +119,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.28
---- !u!114 &-3756413877452790670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3377392449552496858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60dac47d21f5b544bac9aee763a55caf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  seenEverySeconds: 180
+  m_Radius: 0.3
