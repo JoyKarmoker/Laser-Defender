@@ -424,7 +424,7 @@ public class Player : MonoBehaviour
     void StartHomingMissile()
     {
         normalFiringOff = true;
-        Debug.Log("Homing Firing Started");
+        //Debug.Log("Homing Firing Started");
         StartCoroutine(FireHomingMissile()); //Start Homing Missile
         StartCoroutine(StopNormalFiring()); //Stop Normal Firing
 
@@ -433,21 +433,21 @@ public class Player : MonoBehaviour
     IEnumerator StopNormalFiring()
     {
         float homingMissileLasts = Random.Range(minTimeHomingMissileLasts, maxTimeHomingMissileLasts);
-        Debug.Log("Homing Missile Lasts for " + homingMissileLasts + " second");
+        //Debug.Log("Homing Missile Lasts for " + homingMissileLasts + " second");
         StopCoroutine(fireCouritine);
         yield return new WaitForSeconds(homingMissileLasts);
         StopCoroutine(FireHomingMissile());
         normalFiringOff = false;
-        Debug.Log("Homing Fire Off");
+        //Debug.Log("Homing Fire Off");
     }
 
     IEnumerator FireHomingMissile()
     {
         while(normalFiringOff)
         {
-            Debug.Log("Fire");
+            //Debug.Log("Fire");
             GameObject homingMissile = Instantiate(homingMissilePrefab, new Vector2(transform.position.x, transform.position.y + homingMissileOffsetFromY), Quaternion.identity);
-            homingMissile.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+           // homingMissile.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
             myAudioManager.play("PlayerShootSFX");
             yield return new WaitForSeconds(homingMissileFiringPeriod);
         }

@@ -54,8 +54,8 @@ public class CapsuleSpawner : MonoBehaviour
                 }
                 
             }
-            //GameObject randomCapsule = capsulePrefabArray[capsuleToSpwanIndex];
-          GameObject randomCapsule = capsulePrefabArray[8]; //This line is for checking individual capsules
+            GameObject randomCapsule = capsulePrefabArray[capsuleToSpwanIndex];
+            // GameObject randomCapsule = capsulePrefabArray[8]; //This line is for checking individual capsules
             GameObject capsule = objectPooler.SpawnFromPool(randomCapsule.ToString(), enemy.transform.position, Quaternion.identity);
             Rigidbody2D rigidbody = capsule.GetComponent<Rigidbody2D>();
             rigidbody.velocity = new Vector2(0, -capsuleSpeed);

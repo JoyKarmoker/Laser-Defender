@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 8309706811505338470}
   - component: {fileID: 2069407555}
   - component: {fileID: 2069407556}
+  - component: {fileID: 539112195559290613}
   m_Layer: 10
-  m_Name: homingMissilePrefab
+  m_Name: Homing Missile Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,3 +135,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
+--- !u!114 &539112195559290613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8309706811505338475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecfb2b86314f8324283d3ba18d56001e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  rotateSpeed: 200
+  targetList:
+  - {fileID: 3365746075404859208, guid: 50ddbeb6a5b14da4f886324ccab81b0d, type: 3}
+  - {fileID: 4142685122462078992, guid: 25ef4ee79068c3b41bb877c8dbf1eb2a, type: 3}
+  - {fileID: 7248686988661642443, guid: 40a8d26f2b66b30479ee15fcd2ed028b, type: 3}
+  - {fileID: 7134023343393096900, guid: 7ee79c8bce3b80f4e9a6ed912035b071, type: 3}
+  - {fileID: 8140711943953196644, guid: 671b6a39be5d2714983789ce3ad05591, type: 3}
