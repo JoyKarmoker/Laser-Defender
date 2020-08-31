@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
     [SerializeField] float shakeIntensity;
     [SerializeField] float shakeTime;
 
-
+    PlayerBulletSpawner playerBulletSpawner;
     ObjectPooler objectPooler;
     SpriteFlash spriteFlash;
     audio_Manager myAudioManager;
@@ -85,6 +85,7 @@ public class Player : MonoBehaviour
 
         health = gameSession.GetHealth();
         objectPooler = ObjectPooler.ObjectPullerInstance;
+        playerBulletSpawner = PlayerBulletSpawner.playerBulletSpawnerInstance;
 
         xpCapsuleToLevelDownEatenByPlayer = 0;
         XpCapsuleEatenByPlayer = 0;
@@ -127,9 +128,10 @@ public class Player : MonoBehaviour
     {
         while(true)
         {
-            GameObject laser = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(transform.position.x, transform.position.y+offsetFromY), Quaternion.identity);
-            laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
-            myAudioManager.play("PlayerShootSFX");
+            playerBulletSpawner.SpawnBullet(this.gameObject.transform, 3);
+            /*GameObject laser = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(transform.position.x, transform.position.y+offsetFromY), Quaternion.identity);
+            laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);*/
+            myAudioManager.play("PlayerShootSFX"); //The shotting sfx should be handeled in player bulle
             yield return new WaitForSeconds(projectileFiringPeriod);
         }
         
@@ -392,6 +394,7 @@ public class Player : MonoBehaviour
     private void MoveToPreviousLevel()
     {
         //Set the animator to go previous level
+        playerCurrentShipLevel--;
     }
     void OffPlayerNormalShooting(float shootingOffTime)
     {
