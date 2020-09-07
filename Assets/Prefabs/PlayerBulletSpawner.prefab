@@ -45,7 +45,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laserPrefab: {fileID: 1563411393893841052, guid: 4f5beb4a4a2fcde43a678bdd6ead8c0b,
     type: 3}
+  thikLaserPrefabForLvl5AndAbove: {fileID: 2711169931234070242, guid: c8d6233201350d646b1106d403161a68,
+    type: 3}
+  diagonalLaserPrefab: {fileID: 625161825651375274, guid: e348f80a7f193624aa7f6b26bd32adaa,
+    type: 3}
+  leftBotPrefab: {fileID: 3638821267251329716, guid: 924c92b1615127648bbecaa73888ec61,
+    type: 3}
+  rightBotPrefab: {fileID: 2473690100385777318, guid: 35286c83fa2f04f4bb052777c3aa38ca,
+    type: 3}
   projectileSpeed: 10
   level1OffsetFromY: 1.1
-  level2OffsetFromX: 0.3
+  level2OffsetFromX: 0.1
   level2OffsetFromY: 0.6
+  level3OffsetFromX: 0.15
+  level3OffsetFromY: 0.5
+  level3RotationOfProjectileInZ: 10
+  level3ProjectileSpeedInX: 3
+  level4OffsetFromX: 0.2
+  level5OffsetFromY: 1.2

@@ -1,11 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Player : MonoBehaviour
+public class PlayerShipTwo : MonoBehaviour
 {
-    //Configuration Parameters
     [Header("Player")]
 
     [SerializeField] Color flashColor;
@@ -14,7 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] float playerSpeed = 10f;
     [Tooltip("The amount of how many lvls does the ship has")]
     [SerializeField] float playerShipLevels;
-    [SerializeField] float padding = 2f;    
+    [SerializeField] float padding = 2f;
 
     int health;
 
@@ -55,7 +53,7 @@ public class Player : MonoBehaviour
     [SerializeField] float shakeIntensity;
     [SerializeField] float shakeTime;
 
-    PlayerBulletSpawner playerBulletSpawner;
+    PlayerShipTwoBulletSpawner playershipTwoBulletSpawner;
     //ObjectPooler objectPooler;
     SpriteFlash spriteFlash;
     audio_Manager myAudioManager;
@@ -84,7 +82,7 @@ public class Player : MonoBehaviour
 
         health = gameSession.GetHealth();
         //objectPooler = ObjectPooler.ObjectPullerInstance;
-        playerBulletSpawner = PlayerBulletSpawner.playerBulletSpawnerInstance;
+        playershipTwoBulletSpawner = PlayerShipTwoBulletSpawner.playershipTwoBulletSpawnerInstance;
 
         xpCapsuleToLevelDownEatenByPlayer = 0;
         XpCapsuleEatenByPlayer = 0;
@@ -92,7 +90,7 @@ public class Player : MonoBehaviour
         normalFiringOff = false;
         homingMissileOn = false;
         laserTime = laserLastingTime;
-      
+
     }
 
     // Update is called once per frame
@@ -111,12 +109,12 @@ public class Player : MonoBehaviour
 
     private void Fire()
     {
-        if(Input.GetButtonDown("Fire1") && !normalFiringOff)
+        if (Input.GetButtonDown("Fire1") && !normalFiringOff)
         {
             fireCouritine = StartCoroutine(FireCountinously());
         }
 
-        if(Input.GetButtonUp("Fire1"))
+        if (Input.GetButtonUp("Fire1"))
         {
             StopCoroutine(fireCouritine);
         }
@@ -125,31 +123,31 @@ public class Player : MonoBehaviour
 
     IEnumerator FireCountinously()
     {
-        while(true)
+        while (true)
         {
-            playerBulletSpawner.SpawnBullet(this.gameObject.transform, playerCurrentShipLevel);
-            if(playerCurrentShipLevel == 9 || playerCurrentShipLevel == 10)
+            playershipTwoBulletSpawner.SpawnBullet(this.gameObject.transform, 6);
+            if (playerCurrentShipLevel == 9 || playerCurrentShipLevel == 10)
             {
-                playerBulletSpawner.SpawnBot(transform);
+                playershipTwoBulletSpawner.SpawnBot(transform);
             }
-            
+
             /*GameObject laser = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(transform.position.x, transform.position.y+offsetFromY), Quaternion.identity);
             laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);*/
             myAudioManager.play("PlayerShootSFX"); //The shotting sfx should be handeled in player bulle
             yield return new WaitForSeconds(projectileFiringPeriod);
-            
+
         }
-        
+
     }
 
 
     private void Move()
     {
         var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * playerSpeed;
-        var newXPos = Mathf.Clamp( transform.position.x + deltaX, xMin, xMax);
+        var newXPos = Mathf.Clamp(transform.position.x + deltaX, xMin, xMax);
 
         var deltaY = Input.GetAxis("Vertical") * Time.deltaTime * playerSpeed;
-        var newYPos = Mathf.Clamp( transform.position.y + deltaY, yMin, yMax);
+        var newYPos = Mathf.Clamp(transform.position.y + deltaY, yMin, yMax);
 
         transform.position = new Vector2(newXPos, newYPos);
     }
@@ -165,27 +163,27 @@ public class Player : MonoBehaviour
         {
             ProcessHit(damageDealer);
         }
-        else if(other.tag == "HomingMissileCapsule")
+        else if (other.tag == "HomingMissileCapsule")
         {
             Debug.Log("Homing Missile Hit");
             other.gameObject.SetActive(false);
             HomingMissileCapsuleEaten();
 
         }
-        else if(other.tag == "PlayerShootingOffCapsule")
+        else if (other.tag == "PlayerShootingOffCapsule")
         {
             Debug.Log("Player Shooting Off Capsule Hit");
             other.gameObject.SetActive(false);
             float shootingOffTime = Random.Range(minTimeShootingOff, maxTimeShootingOff);
             OffPlayerNormalShooting(shootingOffTime);
         }
-        else if(other.tag == "XPDecreasingCapsule")
+        else if (other.tag == "XPDecreasingCapsule")
         {
             Debug.Log("Xp Decreasing Capsule Hit");
             XpDownCapsuleEaten();
             other.gameObject.SetActive(false);
         }
-        else if(other.tag == "LevelDownCapsule")
+        else if (other.tag == "LevelDownCapsule")
         {
             Debug.Log("Level Down capsule hit");
             if (playerCurrentShipLevel > 0) //If player can go previous level
@@ -207,14 +205,14 @@ public class Player : MonoBehaviour
             isLaserActive = true;
         }
 
-        else if(other.tag == "XPCapsule") //If player Collides with Xp Cpsule
+        else if (other.tag == "XPCapsule") //If player Collides with Xp Cpsule
         {
             Debug.Log("Xp Capsule Hit");
             XpCapsuleEaten();
             other.gameObject.SetActive(false);
         }
 
-        else if(other.tag == "ProtectionCapsule") //If player Collides with Protection Cpsule
+        else if (other.tag == "ProtectionCapsule") //If player Collides with Protection Cpsule
         {
             Debug.Log("Protection Capsule Hit");
             SafeForSeconds(secProtectionCapsuleLasts);
@@ -234,15 +232,15 @@ public class Player : MonoBehaviour
         }
 
         return;
-        
+
     }
 
     // this method is called when player eats laser beam capsule 
     private void LaserLastingCounter()
     {
         laserLastingTime -= Time.deltaTime;
-        
-        if(laserLastingTime <= 0)
+
+        if (laserLastingTime <= 0)
         {
             isLaserActive = false;
             laserLastingTime = laserTime;
@@ -254,7 +252,7 @@ public class Player : MonoBehaviour
 
     private void ProcessHit(DamageDealer damageDealer)
     {
-        if(!protectionCapsuleEaten) //If there is no effect of protection capsule
+        if (!protectionCapsuleEaten) //If there is no effect of protection capsule
         {
             //decrease health
             health = health - damageDealer.GetDamage();
@@ -268,15 +266,15 @@ public class Player : MonoBehaviour
 
             //shake screen
             if (health > 0)
-                CinemachineShake.Instance.ShakeCamera(shakeIntensity,shakeTime);
+                CinemachineShake.Instance.ShakeCamera(shakeIntensity, shakeTime);
             else
-                CinemachineShake.Instance.ShakeCamera(shakeIntensity*2, shakeTime*5f);
+                CinemachineShake.Instance.ShakeCamera(shakeIntensity * 2, shakeTime * 5f);
 
             //flash sprite
             spriteFlash.Flash(flashColor);
 
-            
-        }       
+
+        }
         damageDealer.Hit();
     }
 
@@ -284,7 +282,7 @@ public class Player : MonoBehaviour
     {
         float tmpSpeed = playerSpeed;
         ///Destroy(Game Object);
-        animator.SetBool("Dead",true);
+        animator.SetBool("Dead", true);
         /*
             This is for watching ads if the user sees add the game will resume from where it left off
             When the player dies set the collider to false and set the player speed to 0 and set normalFiringoff to true;
@@ -297,7 +295,7 @@ public class Player : MonoBehaviour
         myAudioManager.play("PlayerDeathSFX");
 
     }
-    
+
     /*
         This Method is called when Xp Capsule hits the player.
         if the number of xp capule eaten by player is more than the numbers of capsule needed to go to next level
@@ -309,8 +307,8 @@ public class Player : MonoBehaviour
         //TODO:xpSlider.value = XpCapsuleEatenByPlayer;
         if (XpCapsuleEatenByPlayer >= xpCapsuleToNextLevel)
         {
-            
-            if(HasNextLvl())
+
+            if (HasNextLvl())
             {
                 XpCapsuleEatenByPlayer = 0; //Now the capsule is eaten by player is 0, so it can restrat to calute when to go next level
                 //TODO:xpSlider.value = XpCapsuleEatenByPlayer;
@@ -352,24 +350,24 @@ public class Player : MonoBehaviour
         //protectionLayer.SetActive(true);
         animator.SetBool("Protection On", true);
         Coroutine protectionCoroutine = StartCoroutine(ProtectionOnForPlayer(time));
-      // StopCoroutine(protectionCoroutine);
-       
+        // StopCoroutine(protectionCoroutine);
+
 
     }
 
     IEnumerator ProtectionOnForPlayer(float time)
     {
-       
+
         yield return new WaitForSeconds(time);
         protectionCapsuleEaten = false;
         animator.SetBool("Protection On", false);
         //protectionLayer.SetActive(false);
-        
+
     }
 
     public bool HasNextLvl()
     {
-        if(playerCurrentShipLevel < playerShipLevels)
+        if (playerCurrentShipLevel < playerShipLevels)
         {
             return true;
         }
@@ -393,7 +391,7 @@ public class Player : MonoBehaviour
 
         //flash sprite
         spriteFlash.Flash(spriteChangeColor);
-       
+
     }
 
     private void MoveToPreviousLevel()
@@ -405,7 +403,7 @@ public class Player : MonoBehaviour
     {
         normalFiringOff = true;
         StartCoroutine(PlayerShootingOff(shootingOffTime));
-        
+
     }
     IEnumerator PlayerShootingOff(float shootingOffTime)
     {
@@ -416,7 +414,7 @@ public class Player : MonoBehaviour
 
     void HomingMissileCapsuleEaten()
     {
-        
+
         /*
             Now for homingMissileLasts seconds Normal shooting for player will off and player will instantite 
             homing missile prefab which will have homing behaviour attached with it
@@ -424,7 +422,7 @@ public class Player : MonoBehaviour
          
         */
         //Stopping normal Shotting for player by calling themethod
-        if(!normalFiringOff) //If only normal firing is off to check we dont call the method while it is running
+        if (!normalFiringOff) //If only normal firing is off to check we dont call the method while it is running
         {
             StartHomingMissile();
         }
@@ -451,11 +449,11 @@ public class Player : MonoBehaviour
 
     IEnumerator FireHomingMissile()
     {
-        while(normalFiringOff)
+        while (normalFiringOff)
         {
             //Debug.Log("Fire");
             GameObject homingMissile = Instantiate(homingMissilePrefab, new Vector2(transform.position.x, transform.position.y + homingMissileOffsetFromY), Quaternion.identity);
-           // homingMissile.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+            // homingMissile.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
             myAudioManager.play("PlayerShootSFX");
             yield return new WaitForSeconds(homingMissileFiringPeriod);
         }
