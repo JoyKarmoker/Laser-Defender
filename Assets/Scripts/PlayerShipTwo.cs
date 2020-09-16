@@ -66,7 +66,7 @@ public class PlayerShipTwo : MonoBehaviour
     float yMin;
     float yMax;
 
-    int playerCurrentShipLevel = 1;
+    int playerCurrentShipLevel = 10;
 
 
     // Start is called before the first frame update
@@ -125,8 +125,8 @@ public class PlayerShipTwo : MonoBehaviour
     {
         while (true)
         {
-            playershipTwoBulletSpawner.SpawnBullet(this.gameObject.transform, 6);
-            if (playerCurrentShipLevel == 9 || playerCurrentShipLevel == 10)
+            playershipTwoBulletSpawner.SpawnBullet(this.gameObject.transform, playerCurrentShipLevel);
+            if (playerCurrentShipLevel == 10)
             {
                 playershipTwoBulletSpawner.SpawnBot(transform);
             }

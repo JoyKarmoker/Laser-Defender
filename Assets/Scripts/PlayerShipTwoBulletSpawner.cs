@@ -12,6 +12,7 @@ public class PlayerShipTwoBulletSpawner : MonoBehaviour
     [SerializeField] GameObject diagonalLaserPrefab;
     [SerializeField] GameObject leftBotPrefab;
     [SerializeField] GameObject rightBotPrefab;
+    [SerializeField] GameObject roundLaserPrefab;
     [SerializeField] float projectileSpeed = 10f;
     [SerializeField] float level1OffsetFromX = 0.1f;
     [SerializeField] float level1OffsetFromY = 0.6f;
@@ -193,138 +194,81 @@ public class PlayerShipTwoBulletSpawner : MonoBehaviour
                     rightLaser3.GetComponent<Rigidbody2D>().velocity = new Vector2(level2ProjectileSpeedInX, projectileSpeed);
                 //Adjust the shooting sfx here currently it is handelded in player script
                 break;
-                 /*case 7:
-                     //Top Row Bullets
-                     GameObject centralLaser1 = objectPooler.SpawnFromPool(thikLaserPrefabForLvl5AndAbove.ToString(), new Vector2(playerPosition.position.x, playerPosition.position.y + (3 * level5OffsetFromY)), Quaternion.identity);
-                     centralLaser1.transform.eulerAngles = new Vector3(0f, 0f, 0f); //Setting the rotatio to 0
-                     centralLaser1.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+                case 7:
+                   GameObject laser = objectPooler.SpawnFromPool(roundLaserPrefab.ToString(), new Vector2(playerPosition.position.x, playerPosition.position.y + level1OffsetFromY), Quaternion.identity);
+                   laser.transform.eulerAngles = new Vector3(0f, 0f, 0f); //Setting the rotation to 0
+                   laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+                   
+                   laser = objectPooler.SpawnFromPool(roundLaserPrefab.ToString(), new Vector2(playerPosition.position.x, playerPosition.position.y + 2*level1OffsetFromY), Quaternion.identity);
+                   laser.transform.eulerAngles = new Vector3(0f, 0f, 0f); //Setting the rotation to 0
+                   laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+                   //Adjust the shooting sfx here currently it is handelded in player script
+               
+                    break;
+                case 8:
+                    //Top Row Bullets
+                    laser = objectPooler.SpawnFromPool(roundLaserPrefab.ToString(), new Vector2(playerPosition.position.x, playerPosition.position.y + level1OffsetFromY), Quaternion.identity);
+                    laser.transform.eulerAngles = new Vector3(0f, 0f, 0f); //Setting the rotation to 0
+                    laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+                    laser = objectPooler.SpawnFromPool(roundLaserPrefab.ToString(), new Vector2(playerPosition.position.x, playerPosition.position.y + 2 * level1OffsetFromY), Quaternion.identity);
+                    laser.transform.eulerAngles = new Vector3(0f, 0f, 0f); //Setting the rotation to 0
+                    laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+                    leftLaser2 = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(playerPosition.position.x - (2 * level2OffsetFromX), playerPosition.position.y + level2OffsetFromY), Quaternion.identity);
+                    leftLaser2.transform.eulerAngles = new Vector3(0f, 0f, level2RotationOfProjectileInZ); //Setting the rotation
+                    leftLaser2.GetComponent<Rigidbody2D>().velocity = new Vector2(-level2ProjectileSpeedInX, projectileSpeed);
+                    rightLaser2 = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(playerPosition.position.x + (2 * level2OffsetFromX), playerPosition.position.y + level2OffsetFromY), Quaternion.identity);
+                    rightLaser2.transform.eulerAngles = new Vector3(0f, 0f, -level2RotationOfProjectileInZ); //Setting the rotation
+                    rightLaser2.GetComponent<Rigidbody2D>().velocity = new Vector2(level2ProjectileSpeedInX, projectileSpeed);
+                break;
 
-                     //Middle Row Bullets
-                     GameObject centralLaser2 = objectPooler.SpawnFromPool(thikLaserPrefabForLvl5AndAbove.ToString(), new Vector2(playerPosition.position.x, playerPosition.position.y + (2 * level5OffsetFromY)), Quaternion.identity);
-                     centralLaser2.transform.eulerAngles = new Vector3(0f, 0f, 0f); //Setting the rotatio to 0
-                     centralLaser2.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
-                     leftLaser = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(playerPosition.position.x - (3 * level1OffsetFromX), playerPosition.position.y + (2 * level5OffsetFromY)), Quaternion.identity);
-                     leftLaser.transform.eulerAngles = new Vector3(0f, 0f, 0f); //Setting the rotatio to 0
-                     leftLaser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
-                     rightLaser = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(playerPosition.position.x + (3 * level1OffsetFromX), playerPosition.position.y + (2 * level5OffsetFromY)), Quaternion.identity);
-                     rightLaser.transform.eulerAngles = new Vector3(0f, 0f, 0f); //Setting the rotatio to 0
-                     rightLaser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+                case 9:
+                //Top Row Bullets
+                    laser = objectPooler.SpawnFromPool(roundLaserPrefab.ToString(), new Vector2(playerPosition.position.x, playerPosition.position.y + level1OffsetFromY), Quaternion.identity);
+                    laser.transform.eulerAngles = new Vector3(0f, 0f, 0f); //Setting the rotation to 0
+                    laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+                    laser = objectPooler.SpawnFromPool(roundLaserPrefab.ToString(), new Vector2(playerPosition.position.x, playerPosition.position.y + 2 * level1OffsetFromY), Quaternion.identity);
+                    laser.transform.eulerAngles = new Vector3(0f, 0f, 0f); //Setting the rotation to 0
+                    laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
 
-                     //Bottom Row Bullets
-                    GameObject laser = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(playerPosition.position.x, playerPosition.position.y + level1OffsetFromY), Quaternion.identity);
+                //Left Side
+                leftLaser2 = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(playerPosition.position.x - (2 * level2OffsetFromX), playerPosition.position.y + level2OffsetFromY), Quaternion.identity);
+                    leftLaser2.transform.eulerAngles = new Vector3(0f, 0f, level2RotationOfProjectileInZ); //Setting the rotation
+                    leftLaser2.GetComponent<Rigidbody2D>().velocity = new Vector2(-level2ProjectileSpeedInX, projectileSpeed);
+                    leftLaser3 = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(playerPosition.position.x - level2OffsetFromX - level5OffsetFromX, playerPosition.position.y + level2OffsetFromY), Quaternion.identity);
+                    leftLaser3.transform.eulerAngles = new Vector3(0f, 0f, level2RotationOfProjectileInZ); //Setting the rotation
+                    leftLaser3.GetComponent<Rigidbody2D>().velocity = new Vector2(-level2ProjectileSpeedInX, projectileSpeed);
+
+                //RightSide
+                    rightLaser2 = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(playerPosition.position.x + (2 * level2OffsetFromX), playerPosition.position.y + level2OffsetFromY), Quaternion.identity);
+                    rightLaser2.transform.eulerAngles = new Vector3(0f, 0f, -level2RotationOfProjectileInZ); //Setting the rotation
+                    rightLaser2.GetComponent<Rigidbody2D>().velocity = new Vector2(level2ProjectileSpeedInX, projectileSpeed);
+                    rightLaser3 = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(playerPosition.position.x + level2OffsetFromX + level5OffsetFromX, playerPosition.position.y + level2OffsetFromY), Quaternion.identity);
+                    rightLaser3.transform.eulerAngles = new Vector3(0f, 0f, -level2RotationOfProjectileInZ); //Setting the rotation
+                    rightLaser3.GetComponent<Rigidbody2D>().velocity = new Vector2(level2ProjectileSpeedInX, projectileSpeed);
+
+
+                //Adjust the shooting sfx here currently it is handelded in player script
+                break;
+
+                case 10:
+                     laser = objectPooler.SpawnFromPool(roundLaserPrefab.ToString(), new Vector2(playerPosition.position.x, playerPosition.position.y + level1OffsetFromY), Quaternion.identity);
                      laser.transform.eulerAngles = new Vector3(0f, 0f, 0f); //Setting the rotation to 0
                      laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
-                     leftLaser = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(playerPosition.position.x - (2 * level1OffsetFromX), playerPosition.position.y + level1OffsetFromY), Quaternion.identity);
-                     leftLaser.transform.eulerAngles = new Vector3(0f, 0f, 0f); //Setting the rotatio to 0
-                     leftLaser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
-                     rightLaser = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(playerPosition.position.x + (2 * level1OffsetFromX), playerPosition.position.y + level1OffsetFromY), Quaternion.identity);
-                     rightLaser.transform.eulerAngles = new Vector3(0f, 0f, 0f); //Setting the rotatio to 0
-                     rightLaser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
-                     leftLaser1 = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(playerPosition.position.x - (4 * level1OffsetFromX), playerPosition.position.y + level1OffsetFromY), Quaternion.identity);
-                     leftLaser1.transform.eulerAngles = new Vector3(0f, 0f, 0f); //Setting the rotatio to 0
-                     leftLaser1.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
-                     rightLaser1 = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(playerPosition.position.x + (4 * level1OffsetFromX), playerPosition.position.y + level1OffsetFromY), Quaternion.identity);
-                     rightLaser1.transform.eulerAngles = new Vector3(0f, 0f, 0f); //Setting the rotatio to 0
-                     rightLaser1.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
-
-                     //Adjust the shooting sfx here currently it is handelded in player script
-                     break;
-                 case 8:
-                     //Top Row Bullets
-                     centralLaser1 = objectPooler.SpawnFromPool(thikLaserPrefabForLvl5AndAbove.ToString(), new Vector2(playerPosition.position.x, playerPosition.position.y + (3 * level5OffsetFromY)), Quaternion.identity);
-                     centralLaser1.transform.eulerAngles = new Vector3(0f, 0f, 0f); //Setting the rotatio to 0
-                     centralLaser1.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
-
-                     //Middle Row Bullets
-                     centralLaser2 = objectPooler.SpawnFromPool(thikLaserPrefabForLvl5AndAbove.ToString(), new Vector2(playerPosition.position.x, playerPosition.position.y + (2 * level5OffsetFromY)), Quaternion.identity);
-                     centralLaser2.transform.eulerAngles = new Vector3(0f, 0f, 0f); //Setting the rotatio to 0
-                     centralLaser2.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
-                     leftLaser = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(playerPosition.position.x - (3 * level1OffsetFromX), playerPosition.position.y + (2 * level5OffsetFromY)), Quaternion.identity);
-                     leftLaser.transform.eulerAngles = new Vector3(0f, 0f, 0f); //Setting the rotatio to 0
-                     leftLaser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
-                     rightLaser = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(playerPosition.position.x + (3 * level1OffsetFromX), playerPosition.position.y + (2 * level5OffsetFromY)), Quaternion.identity);
-                     rightLaser.transform.eulerAngles = new Vector3(0f, 0f, 0f); //Setting the rotatio to 0
-                     rightLaser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
-
-                     //Bottom Row Bullets
-                     laser = objectPooler.SpawnFromPool(thikLaserPrefabForLvl5AndAbove.ToString(), new Vector2(playerPosition.position.x, playerPosition.position.y + level1OffsetFromY), Quaternion.identity);
-                     laser.transform.eulerAngles = new Vector3(0f, 0f, 0f); //Setting the rotation to 0
-                     laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
-                     leftLaser = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(playerPosition.position.x - (3 * level1OffsetFromX), playerPosition.position.y + level1OffsetFromY), Quaternion.identity);
-                     leftLaser.transform.eulerAngles = new Vector3(0f, 0f, 0f); //Setting the rotatio to 0
-                     leftLaser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
-                     rightLaser = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(playerPosition.position.x + (3 * level1OffsetFromX), playerPosition.position.y + level1OffsetFromY), Quaternion.identity);
-                     rightLaser.transform.eulerAngles = new Vector3(0f, 0f, 0f); //Setting the rotatio to 0
-                     rightLaser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
-                     leftLaser1 = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(playerPosition.position.x - (4 * level1OffsetFromX), playerPosition.position.y + level1OffsetFromY), Quaternion.identity);
-                     leftLaser1.transform.eulerAngles = new Vector3(0f, 0f, 0f); //Setting the rotatio to 0
-                     leftLaser1.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
-                     rightLaser1 = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(playerPosition.position.x + (4 * level1OffsetFromX), playerPosition.position.y + level1OffsetFromY), Quaternion.identity);
-                     rightLaser1.transform.eulerAngles = new Vector3(0f, 0f, 0f); //Setting the rotatio to 0
-                     rightLaser1.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
-
-                     //Diagonal Bullets
-                     GameObject leftDiagonalLaser = objectPooler.SpawnFromPool(diagonalLaserPrefab.ToString(), new Vector2(playerPosition.position.x - (3 * level2OffsetFromX), playerPosition.position.y + level2OffsetFromY), Quaternion.identity);
-                     leftDiagonalLaser.transform.eulerAngles = new Vector3(0f, 0f, level2RotationOfProjectileInZ); //Setting the rotation
-                     leftDiagonalLaser.GetComponent<Rigidbody2D>().velocity = new Vector2(-level2ProjectileSpeedInX, projectileSpeed);
-
-                     GameObject rightDiagaonalLaser = objectPooler.SpawnFromPool(diagonalLaserPrefab.ToString(), new Vector2(playerPosition.position.x + (3 * level2OffsetFromX), playerPosition.position.y + level2OffsetFromY), Quaternion.identity);
-                     rightDiagaonalLaser.transform.eulerAngles = new Vector3(0f, 0f, -level2RotationOfProjectileInZ); //Setting the rotation
-                     rightDiagaonalLaser.GetComponent<Rigidbody2D>().velocity = new Vector2(level2ProjectileSpeedInX, projectileSpeed);
-                     //Adjust the shooting sfx here currently it is handelded in player script
-                     break;
-
-                 case 9:
-                     //Top Row Bullets
-                     centralLaser1 = objectPooler.SpawnFromPool(thikLaserPrefabForLvl5AndAbove.ToString(), new Vector2(playerPosition.position.x, playerPosition.position.y + (2 * level5OffsetFromY)), Quaternion.identity);
-                     centralLaser1.transform.eulerAngles = new Vector3(0f, 0f, 0f); //Setting the rotatio to 0
-                     centralLaser1.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
-
-                     centralLaser2 = objectPooler.SpawnFromPool(thikLaserPrefabForLvl5AndAbove.ToString(), new Vector2(playerPosition.position.x, playerPosition.position.y + (level5OffsetFromY)), Quaternion.identity);
-                     centralLaser2.transform.eulerAngles = new Vector3(0f, 0f, 0f); //Setting the rotatio to 0
-                     centralLaser2.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
-
-                     //Circle bots
-
-
-                     //Adjust the shooting sfx here currently it is handelded in player script
-                     break;
-                 case 10:
-                     //Top row
-                     centralLaser1 = objectPooler.SpawnFromPool(thikLaserPrefabForLvl5AndAbove.ToString(), new Vector2(playerPosition.position.x, playerPosition.position.y + (2 * level5OffsetFromY)), Quaternion.identity);
-                     centralLaser1.transform.eulerAngles = new Vector3(0f, 0f, 0f); //Setting the rotatio to 0
-                     centralLaser1.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
-                     leftLaser = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(playerPosition.position.x - (3 * level1OffsetFromX), playerPosition.position.y + (2 * level5OffsetFromY)), Quaternion.identity);
-                     leftLaser.transform.eulerAngles = new Vector3(0f, 0f, 0f); //Setting the rotatio to 0
-                     leftLaser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
-                     rightLaser = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(playerPosition.position.x + (3 * level1OffsetFromX), playerPosition.position.y + (2 * level5OffsetFromY)), Quaternion.identity);
-                     rightLaser.transform.eulerAngles = new Vector3(0f, 0f, 0f); //Setting the rotatio to 0
-                     rightLaser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
-
-                     //Bottom Laser
-                     centralLaser2 = objectPooler.SpawnFromPool(thikLaserPrefabForLvl5AndAbove.ToString(), new Vector2(playerPosition.position.x, playerPosition.position.y + (level5OffsetFromY)), Quaternion.identity);
-                     centralLaser2.transform.eulerAngles = new Vector3(0f, 0f, 0f); //Setting the rotatio to 0
-                     centralLaser2.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
-                     leftLaser = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(playerPosition.position.x - (3 * level1OffsetFromX), playerPosition.position.y + (level5OffsetFromY)), Quaternion.identity);
-                     leftLaser.transform.eulerAngles = new Vector3(0f, 0f, 0f); //Setting the rotatio to 0
-                     leftLaser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
-                     rightLaser = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(playerPosition.position.x + (3 * level1OffsetFromX), playerPosition.position.y + (level5OffsetFromY)), Quaternion.identity);
-                     rightLaser.transform.eulerAngles = new Vector3(0f, 0f, 0f); //Setting the rotatio to 0
-                     rightLaser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
-
-                     //Diagonal laser
-                     leftLaser2 = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(playerPosition.position.x - level2OffsetFromX, playerPosition.position.y + level2OffsetFromY), Quaternion.identity);
+                    laser = objectPooler.SpawnFromPool(roundLaserPrefab.ToString(), new Vector2(playerPosition.position.x, playerPosition.position.y + 2 * level1OffsetFromY), Quaternion.identity);
+                    laser.transform.eulerAngles = new Vector3(0f, 0f, 0f); //Setting the rotation to 0
+                    laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+                leftLaser2 = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(playerPosition.position.x - (2 * level2OffsetFromX), playerPosition.position.y + level2OffsetFromY), Quaternion.identity);
                      leftLaser2.transform.eulerAngles = new Vector3(0f, 0f, level2RotationOfProjectileInZ); //Setting the rotation
                      leftLaser2.GetComponent<Rigidbody2D>().velocity = new Vector2(-level2ProjectileSpeedInX, projectileSpeed);
-                     rightLaser2 = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(playerPosition.position.x + level2OffsetFromX, playerPosition.position.y + level2OffsetFromY), Quaternion.identity);
+                     rightLaser2 = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(playerPosition.position.x + (2 * level2OffsetFromX), playerPosition.position.y + level2OffsetFromY), Quaternion.identity);
                      rightLaser2.transform.eulerAngles = new Vector3(0f, 0f, -level2RotationOfProjectileInZ); //Setting the rotation
-                     rightLaser2.GetComponent<Rigidbody2D>().velocity = new Vector2(level2ProjectileSpeedInX, projectileSpeed);
+                     rightLaser2.GetComponent<Rigidbody2D>().velocity = new Vector2(level2ProjectileSpeedInX, projectileSpeed);                
 
                      //Circle bots
 
 
                      //Adjust the shooting sfx here currently it is handelded in player script
-                     break;*/
+                     break;
         }
 
 

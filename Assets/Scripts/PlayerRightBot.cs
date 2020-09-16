@@ -106,6 +106,7 @@ public class PlayerRightBot : MonoBehaviour
         {
             //ProcessHit(damageDealer);
             PlayerBulletSpawner.rightBot = 0;
+            PlayerShipTwoBulletSpawner.rightBot = 0;
             Destroy(gameObject);
             other.gameObject.SetActive(false);
 

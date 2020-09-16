@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2921991764932553603
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2921991764932553601}
+  - component: {fileID: 2921991764932553602}
+  m_Layer: 0
+  m_Name: CapsuleSpawner 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2921991764932553601
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2921991764932553603}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.05, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2921991764932553602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2921991764932553603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d9dfc61066ccec4e8f6497056b0614c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  capsulePrefabArray:
+  - {fileID: 2842503470322777703, guid: 45d90e623862cc94abe4765018607bb7, type: 3}
+  - {fileID: 7982817188714518382, guid: 9b201df4e4f613b40acfb184ab05b3f5, type: 3}
+  - {fileID: 105853899814922335, guid: 139c539fd44c84044bae674d49f5df87, type: 3}
+  - {fileID: 3377392449552496858, guid: f2c234a852b21374fb5412c3b375dfc0, type: 3}
+  - {fileID: 165820448499330150, guid: ba67b0e84ffa67a4b8ba5c64927d4e37, type: 3}
+  - {fileID: 4653991354282375776, guid: 911e3c5092305684eb68f6a91c48ef00, type: 3}
+  - {fileID: 4862479998411782127, guid: ee93a5d4aa4528240b5a931341e14ba2, type: 3}
+  - {fileID: 4529942532976412461, guid: d9f1d155807c2884aa80a4de680503ab, type: 3}
+  - {fileID: 7406741248305079631, guid: 128c723c46e214044ac9a5abb3d90d7a, type: 3}
+  weightofCapsulesSerially: 1900000014000000120000000e0000000700000006000000050000000300000002000000
+  capsuleSpawnProbabilty: 40
