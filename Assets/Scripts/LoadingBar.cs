@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 public class LoadingBar : MonoBehaviour
 {
-
+	[SerializeField] Animator animator;
 	public GameObject loadingSceneCanvas;
 	public TextMeshProUGUI loadingText;
 	[SerializeField] string[] sentences;
@@ -58,8 +58,16 @@ public class LoadingBar : MonoBehaviour
 			loadingText.text += letter;
 			yield return new WaitForSecondsRealtime(typingSpeed);
 		}
+		animator.SetTrigger("Fade");
+		StartCoroutine(WaitAndLoadStartMenu(sceneIndex));
+		audio_Manager.instance.play("main bg", true);
 
-		SceneManager.LoadScene(sceneIndex);
+
+	}
+	IEnumerator WaitAndLoadStartMenu(int sceneIndex)
+	{
+		yield return new WaitForSeconds(5f);
+		level_loader.Instance.loadNextLevel();
 
 	}
 

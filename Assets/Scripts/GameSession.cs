@@ -8,7 +8,7 @@ public class GameSession : MonoBehaviour
     [SerializeField] GameObject[] healthBars;
     [SerializeField] FinalScore finalScore;
     public int score = 0;
-    int health = 5;
+    int health = 6;
 
 
     private void Awake()
@@ -20,9 +20,12 @@ public class GameSession : MonoBehaviour
 
     private void Start()
     {
-        foreach (var item in healthBars)
+        if (healthBars != null)
         {
-            item.SetActive(true);
+            foreach (var item in healthBars)
+            {
+                item.SetActive(true);
+            }
         }
     }
     private void SetUpSingleTon()
@@ -72,13 +75,39 @@ public class GameSession : MonoBehaviour
             healthBars[--health].SetActive(false);     
         else
             healthBars[health].SetActive(false);
-       
+
     }
     public void ResetGame()
     {
         Destroy(gameObject);
     }
 
+    /*private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            ES3.Save("myInt", score);
+            ES3.Save("myfloat", 12.3f);
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            int s = ES3.Load<int>("myInt",0);
+            float f = ES3.Load<float>("myfloat", 0);
+
+            Debug.LogError(s);
+            Debug.LogError(f);
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+            ES3.DeleteKey("myInt");
+
+        if (Input.GetKeyDown(KeyCode.D))
+            ES3.DeleteFile("Glitch.xo");
+
+        if (Input.GetKeyDown(KeyCode.P))
+            score += 50;
+    }*/
 
 
 }

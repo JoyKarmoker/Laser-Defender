@@ -145,7 +145,7 @@ public class Formation : MonoBehaviour
         CreateFormation();
         foreach(Vector2 pos in gridList)
         {
-            Handles.Label(GetVector(num), num.ToString());
+            //Handles.Label(GetVector(num), num.ToString());
             num++;
         }
     }

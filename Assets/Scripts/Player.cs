@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,29 +23,29 @@ public class Player : MonoBehaviour
     [SerializeField] float maxTimeShootingOff = 10f;
     [SerializeField] float secProtectionCapsuleLasts;
     [SerializeField] int xpCapsuleToLeveldown = 5;
-    [SerializeField] float minTimeHomingMissileLasts = 2f;
-    [SerializeField] float maxTimeHomingMissileLasts = 10f;
-    [SerializeField] float homingMissileFiringPeriod = 0.5f;
-    [SerializeField] GameObject homingMissilePrefab;
-    [SerializeField] float homingMissileOffsetFromY = 1.1f;
+    [SerializeField] float minTimeActualHomingMissileLasts = 2f;
+    [SerializeField] float maxTimeActualHomingMissileLasts = 10f;
+    [SerializeField] float ActualHomingMissileFiringPeriod = 0.5f;
+    [SerializeField] GameObject ActualHomingMissilePrefab;
+    [SerializeField] float ActualHomingMissileOffsetFromY = 1.1f;
 
     int xpCapsuleToNextLevel = 5;    //Numbers of Xp Capsule Needed for the player to go next level 
     private int XpCapsuleEatenByPlayer = 0;
     private int xpCapsuleToLevelDownEatenByPlayer = 0;
     private bool protectionCapsuleEaten = false; // This is will be true if player eats protection capsule and after protection capsule effect is finished it will be false again
     bool normalFiringOff = false;
-    bool homingMissileOn = false;
+    bool ActualHomingMissileOn = false;
 
-
-
-    //TODO:
-    /* [Header("UI Section")]
-     [SerializeField] Slider xpSlider;*/
+     [Header("UI Section")]
+     //[SerializeField] GameObject xpSliders;
+     Slider xpSlider1, xpSlider2;
+     [SerializeField] GameObject resurrectionPanel;
 
     [Header("Projectile")]
+    [SerializeField] GameObject laserPrefab;
     [SerializeField] GameObject longLaserPrefab;
     [SerializeField] float projectileSpeed = 10f;
-    [SerializeField] float projectileFiringPeriod = 0.15f;
+    [SerializeField] float projectileFiringPeriod = 0.1f;
     [SerializeField] float offsetFromY = 1.1f;
     [SerializeField] float laserLastingTime = 5f;
     float laserTime;
@@ -55,13 +55,13 @@ public class Player : MonoBehaviour
     [SerializeField] float shakeIntensity;
     [SerializeField] float shakeTime;
 
-    PlayerBulletSpawner playerBulletSpawner;
-    //ObjectPooler objectPooler;
+
+    ObjectPooler objectPooler;
     SpriteFlash spriteFlash;
-    audio_Manager myAudioManager;
     Coroutine fireCouritine;
     GameSession gameSession;
     Animator animator;
+    Rigidbody2D rb;
 
     float xMin;
     float xMax;
@@ -74,24 +74,25 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteFlash = GetComponent<SpriteFlash>();
 
         SetUpMoveBoundaries();
 
         gameSession = FindObjectOfType<GameSession>();
-        myAudioManager = FindObjectOfType<audio_Manager>();
 
         health = gameSession.GetHealth();
-        //objectPooler = ObjectPooler.ObjectPullerInstance;
-        playerBulletSpawner = PlayerBulletSpawner.playerBulletSpawnerInstance;
+        objectPooler = ObjectPooler.ObjectPullerInstance;
 
         xpCapsuleToLevelDownEatenByPlayer = 0;
         XpCapsuleEatenByPlayer = 0;
         protectionCapsuleEaten = false;
         normalFiringOff = false;
-        homingMissileOn = false;
+        ActualHomingMissileOn = false;
         laserTime = laserLastingTime;
+        //xpSlider1 = xpSliders.transform.GetChild(0).GetComponent<Slider>();
+        //xpSlider2 = xpSliders.transform.GetChild(1).GetComponent<Slider>();
       
     }
 
@@ -127,17 +128,9 @@ public class Player : MonoBehaviour
     {
         while(true)
         {
-            playerBulletSpawner.SpawnBullet(this.gameObject.transform, playerCurrentShipLevel);
-            if(playerCurrentShipLevel == 9 || playerCurrentShipLevel == 10)
-            {
-                playerBulletSpawner.SpawnBot(transform);
-            }
-            
-            /*GameObject laser = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(transform.position.x, transform.position.y+offsetFromY), Quaternion.identity);
-            laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);*/
-            myAudioManager.play("PlayerShootSFX"); //The shotting sfx should be handeled in player bulle
+            GameObject laser = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(transform.position.x, transform.position.y+offsetFromY), Quaternion.identity);
+            laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
             yield return new WaitForSeconds(projectileFiringPeriod);
-            
         }
         
     }
@@ -165,18 +158,18 @@ public class Player : MonoBehaviour
         {
             ProcessHit(damageDealer);
         }
-        else if(other.tag == "HomingMissileCapsule")
+        else if(other.tag == "ActualHomingMissileCapsule")
         {
-            Debug.Log("Homing Missile Hit");
+            Debug.Log("ActualHoming Missile Hit");
             other.gameObject.SetActive(false);
-            HomingMissileCapsuleEaten();
+            ActualHomingMissileCapsuleEaten();
 
         }
         else if(other.tag == "PlayerShootingOffCapsule")
         {
             Debug.Log("Player Shooting Off Capsule Hit");
             other.gameObject.SetActive(false);
-            float shootingOffTime = Random.Range(minTimeShootingOff, maxTimeShootingOff);
+            float shootingOffTime = UnityEngine.Random.Range(minTimeShootingOff, maxTimeShootingOff);
             OffPlayerNormalShooting(shootingOffTime);
         }
         else if(other.tag == "XPDecreasingCapsule")
@@ -227,7 +220,6 @@ public class Player : MonoBehaviour
             if (HasNextLvl()) //If there is any next level
             {
                 XpCapsuleEatenByPlayer = 0;
-                //xpSlider.value = XpCapsuleEatenByPlayer;
                 MoveToNextLvl();
             }
             other.gameObject.SetActive(false);
@@ -294,8 +286,12 @@ public class Player : MonoBehaviour
         playerSpeed = 0f;
         this.gameObject.GetComponent<Collider2D>().enabled = false;
         normalFiringOff = true;
-        myAudioManager.play("PlayerDeathSFX");
 
+    }
+    public void OpenRessurectionPanel()
+    {
+        resurrectionPanel.SetActive(true);
+        //Time.timeScale = 0f;
     }
     
     /*
@@ -306,14 +302,12 @@ public class Player : MonoBehaviour
     public void XpCapsuleEaten()
     {
         XpCapsuleEatenByPlayer = XpCapsuleEatenByPlayer + 1;
-        //TODO:xpSlider.value = XpCapsuleEatenByPlayer;
         if (XpCapsuleEatenByPlayer >= xpCapsuleToNextLevel)
         {
             
             if(HasNextLvl())
             {
                 XpCapsuleEatenByPlayer = 0; //Now the capsule is eaten by player is 0, so it can restrat to calute when to go next level
-                //TODO:xpSlider.value = XpCapsuleEatenByPlayer;
                 MoveToNextLvl();
             }
         }
@@ -327,13 +321,13 @@ public class Player : MonoBehaviour
     public void XpDownCapsuleEaten()
     {
         xpCapsuleToLevelDownEatenByPlayer = xpCapsuleToLevelDownEatenByPlayer + 1;
-        //TODO:xpSlider.value = XpCapsuleEatenByPlayer;
         if (xpCapsuleToLevelDownEatenByPlayer >= xpCapsuleToLeveldown)
         {
             if (playerCurrentShipLevel > 0) //If player can go previous level
             {
+
                 xpCapsuleToLevelDownEatenByPlayer = 0; //Now the capsule is eaten by player is 0, so it can restrat to calute when to go next level
-                //TODO:xpSlider.value = XpCapsuleEatenByPlayer;
+                
                 MoveToPreviousLevel();
             }
         }
@@ -349,12 +343,8 @@ public class Player : MonoBehaviour
     {
         //Have to turn off taking damage for the given time in argument
         protectionCapsuleEaten = true;
-        //protectionLayer.SetActive(true);
         animator.SetBool("Protection On", true);
-        Coroutine protectionCoroutine = StartCoroutine(ProtectionOnForPlayer(time));
-      // StopCoroutine(protectionCoroutine);
-       
-
+        Coroutine protectionCoroutine = StartCoroutine(ProtectionOnForPlayer(time));       
     }
 
     IEnumerator ProtectionOnForPlayer(float time)
@@ -363,7 +353,6 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(time);
         protectionCapsuleEaten = false;
         animator.SetBool("Protection On", false);
-        //protectionLayer.SetActive(false);
         
     }
 
@@ -399,7 +388,18 @@ public class Player : MonoBehaviour
     private void MoveToPreviousLevel()
     {
         //Set the animator to go previous level
+
+        //update current ship level
         playerCurrentShipLevel--;
+
+        //lvl up in animator
+        animator.SetInteger("Ship Level", playerCurrentShipLevel);
+
+        // enable protection for 2 and half seconds
+        SafeForSeconds(2.5f);
+
+        //flash sprite
+        spriteFlash.Flash(spriteChangeColor);
     }
     void OffPlayerNormalShooting(float shootingOffTime)
     {
@@ -414,50 +414,50 @@ public class Player : MonoBehaviour
         normalFiringOff = false;
     }
 
-    void HomingMissileCapsuleEaten()
+    void ActualHomingMissileCapsuleEaten()
     {
         
         /*
-            Now for homingMissileLasts seconds Normal shooting for player will off and player will instantite 
+            Now for ActualHomingMissileLasts seconds Normal shooting for player will off and player will instantite 
             homing missile prefab which will have homing behaviour attached with it
-            After homingMissileLasts seconds,  homing missile will off and normal firing wil start;
+            After ActualHomingMissileLasts seconds,  homing missile will off and normal firing wil start;
          
         */
         //Stopping normal Shotting for player by calling themethod
         if(!normalFiringOff) //If only normal firing is off to check we dont call the method while it is running
         {
-            StartHomingMissile();
+            StartActualHomingMissile();
         }
     }
-    void StartHomingMissile()
+    void StartActualHomingMissile()
     {
         normalFiringOff = true;
         //Debug.Log("Homing Firing Started");
-        StartCoroutine(FireHomingMissile()); //Start Homing Missile
+        StartCoroutine(FireActualHomingMissile()); //Start Homing Missile
         StartCoroutine(StopNormalFiring()); //Stop Normal Firing
 
     }
 
     IEnumerator StopNormalFiring()
     {
-        float homingMissileLasts = Random.Range(minTimeHomingMissileLasts, maxTimeHomingMissileLasts);
-        //Debug.Log("Homing Missile Lasts for " + homingMissileLasts + " second");
+        float ActualHomingMissileLasts = UnityEngine.Random.Range(minTimeActualHomingMissileLasts, maxTimeActualHomingMissileLasts);
+        //Debug.Log("Homing Missile Lasts for " + ActualHomingMissileLasts + " second");
         StopCoroutine(fireCouritine);
-        yield return new WaitForSeconds(homingMissileLasts);
-        StopCoroutine(FireHomingMissile());
+        yield return new WaitForSeconds(ActualHomingMissileLasts);
+        StopCoroutine(FireActualHomingMissile());
         normalFiringOff = false;
         //Debug.Log("Homing Fire Off");
     }
 
-    IEnumerator FireHomingMissile()
+    IEnumerator FireActualHomingMissile()
     {
         while(normalFiringOff)
         {
             //Debug.Log("Fire");
-            GameObject homingMissile = Instantiate(homingMissilePrefab, new Vector2(transform.position.x, transform.position.y + homingMissileOffsetFromY), Quaternion.identity);
-           // homingMissile.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
-            myAudioManager.play("PlayerShootSFX");
-            yield return new WaitForSeconds(homingMissileFiringPeriod);
+            GameObject ActualHomingMissile = objectPooler.SpawnFromPool(ActualHomingMissilePrefab.ToString(), new Vector2(transform.position.x, transform.position.y + ActualHomingMissileOffsetFromY), Quaternion.identity);
+
+           // ActualHomingMissile.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+            yield return new WaitForSeconds(ActualHomingMissileFiringPeriod);
         }
 
     }

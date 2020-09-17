@@ -133,7 +133,6 @@ public class PlayerShipTwo : MonoBehaviour
 
             /*GameObject laser = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(transform.position.x, transform.position.y+offsetFromY), Quaternion.identity);
             laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);*/
-            myAudioManager.play("PlayerShootSFX"); //The shotting sfx should be handeled in player bulle
             yield return new WaitForSeconds(projectileFiringPeriod);
 
         }
@@ -292,7 +291,6 @@ public class PlayerShipTwo : MonoBehaviour
         playerSpeed = 0f;
         this.gameObject.GetComponent<Collider2D>().enabled = false;
         normalFiringOff = true;
-        myAudioManager.play("PlayerDeathSFX");
 
     }
 
@@ -454,7 +452,6 @@ public class PlayerShipTwo : MonoBehaviour
             //Debug.Log("Fire");
             GameObject homingMissile = Instantiate(homingMissilePrefab, new Vector2(transform.position.x, transform.position.y + homingMissileOffsetFromY), Quaternion.identity);
             // homingMissile.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
-            myAudioManager.play("PlayerShootSFX");
             yield return new WaitForSeconds(homingMissileFiringPeriod);
         }
 

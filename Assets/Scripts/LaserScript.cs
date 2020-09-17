@@ -15,8 +15,6 @@ public class LaserScript : MonoBehaviour
 
     DamageDealer damageDealer;
 
-    public float blah;
-
     // Define an "infinite" size, not too big but enough to go off screen
     [SerializeField] float maxLaserSize = 20f;
 

@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
@@ -50,7 +47,6 @@ public class Enemy : MonoBehaviour
     
     //Cached Ref
     GameSession gameSession;
-    audio_Manager myAudioManager;
     EnemySpawner enemySpawner;
 
     ObjectPooler objectPooler;
@@ -65,7 +61,6 @@ public class Enemy : MonoBehaviour
         spriteFlash = GetComponent<SpriteFlash>();
         shotCounter = Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
         gameSession = FindObjectOfType<GameSession>();
-        myAudioManager = FindObjectOfType<audio_Manager>();
         objectPooler = ObjectPooler.ObjectPullerInstance;
         capsuleSpawner = CapsuleSpawner.CapsuleSpawnerInstance;
         enemySpawner = FindObjectOfType<EnemySpawner>();
@@ -228,12 +223,13 @@ public class Enemy : MonoBehaviour
     {
         //flash sprite
         spriteFlash.Flash(flashColor);
+
         health = health - damageDealer.GetDamage();
         damageDealer.Hit();
         if (health <= 0)
         {
             //shake screen
-            //CinemachineShake.Instance.ShakeCamera(3f, 0.2f);
+            CinemachineShake.Instance.ShakeCamera(3f, 0.2f);
 
             Die();
         }
@@ -256,13 +252,18 @@ public class Enemy : MonoBehaviour
             enemySpawner.spawnedEnemys.Remove(this.gameObject);
         }
 
+        if(enemySpawner.spawnedEnemys.Count == 0)
+        {
+            enemySpawner.StartSuperWave();
+        }
+
         //Set back Transform to  parrent to world if it the transform is a child of formation
         if(transform.parent != null)
         {
             transform.SetParent(transform.parent.parent);
         }   
 
-        //gameSession.AddToScore(scoreValue);
+        gameSession.AddToScore(scoreValue);
         capsuleSpawner.SpawnCapsule(gameObject);
 
         //Destroy(gameObject);

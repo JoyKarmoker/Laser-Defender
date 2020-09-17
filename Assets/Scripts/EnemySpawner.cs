@@ -12,6 +12,8 @@ public class EnemySpawner : MonoBehaviour
     int posInMediumEnemyFormation = 0;
     int posInBossEnemyFormation = 0;
     ObjectPooler objectPooler;
+    //[HideInInspector] public bool spawningWaves = false;
+    //[HideInInspector]public int totalEnemys = 0;
 
     [HideInInspector]public static List<GameObject> enemyFormationList = new List<GameObject>();
     [System.Serializable]
@@ -32,6 +34,8 @@ public class EnemySpawner : MonoBehaviour
         public GameObject EnemyPrefab;
     }
 
+    public int superWave = 3;
+    int currentSuperWave = 0;
     public List<Wave> waveList = new List<Wave>();
     [HideInInspector] public List<GameObject> spawnedEnemys = new List<GameObject>();
     
@@ -44,16 +48,34 @@ public class EnemySpawner : MonoBehaviour
         Invoke("CheckEnemyStates", 1f);
     }
 
-
+    //When all the enemys are destroyed this will be called by the enemy script to start a new Super Wave
+    public void StartSuperWave()
+    {
+       
+        if(currentSuperWave<superWave)
+        {
+            Debug.Log("Start Super Wave Called");
+            StartCoroutine(SpawnAllWaves());
+        }
+    }
 
     private IEnumerator SpawnAllWaves()
     {
+        currentWave = 0;
+        posInSmallEnemyFormation = 0;
+        posInMediumEnemyFormation = 0;
+        posInBossEnemyFormation = 0;
+        currentSuperWave++;
+        //spawningWaves = true;
+       // Debug.Log("Spawing Waves = " + spawningWaves);
         while (currentWave < totalWaves)
         {
             yield return StartCoroutine(SpawnAllEnemiesInCurrentWave(waveList[currentWave]));
             currentWave++;
         }
-
+        //spawningWaves = false;
+        
+       // Debug.Log("Spawing Waves = " + spawningWaves);
     }
 
     private IEnumerator SpawnAllEnemiesInCurrentWave(Wave currentWave)
@@ -90,6 +112,7 @@ public class EnemySpawner : MonoBehaviour
             else
             {
                 //GameObject newEnemy = Instantiate(currentWave.EnemyPrefab, transform.position, Quaternion.identity) as GameObject; //Instantiating the Enemy Game Object
+                //totalEnemys++;
                 GameObject newEnemy = objectPooler.SpawnFromPool(currentWave.EnemyPrefab.ToString(), transform.position, Quaternion.identity); //Instantiatiating The Game Object from Object Pooler
                 Enemy enemyBehaviour = newEnemy.GetComponent<Enemy>(); //Getting the Enemy Script from Enemy Game Object               
                 enemyBehaviour.SpawnSetup(currentWave.pathPrefab.GetComponent<Path>(), posInFormation, currentWave.enemyFormationPrefab.GetComponent<Formation>(), currentWave.enemySpeed, currentWave.enemyRotationSpeed);
