@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] float secAfterEnemyStartSpawn = 3f;
+    public float secAfterEnemyStartSpawn = 3f;
     int currentWave = 0;
     int totalWaves;
     int posInFormation = 0;
@@ -12,7 +12,7 @@ public class EnemySpawner : MonoBehaviour
     int posInMediumEnemyFormation = 0;
     int posInBossEnemyFormation = 0;
     ObjectPooler objectPooler;
-    
+
 
     [HideInInspector]public static List<GameObject> enemyFormationList = new List<GameObject>();
     [System.Serializable]
@@ -46,6 +46,7 @@ public class EnemySpawner : MonoBehaviour
     
     IEnumerator Start()
     {
+        
         objectPooler = ObjectPooler.ObjectPullerInstance;
         //totalWaves = waveList.Count;
         yield return new WaitForSeconds(secAfterEnemyStartSpawn);
@@ -57,11 +58,13 @@ public class EnemySpawner : MonoBehaviour
     //When all the enemys are destroyed this will be called by the enemy script to start a new Super Wave
     public void StartSuperWave()
     {
-       
-        if(currentSuperWave<superWaveList.Count)
-        {
+        
+        //enemyStartSpawnTime = enemyStartSpawnTime - Time.deltaTime;
+        if (currentSuperWave<superWaveList.Count)
+        {          
             Debug.Log("Start Super Wave Called");
-            StartCoroutine(SpawnAllWaves());
+            StartCoroutine(SpawnAllWaves());           
+            
         }
     }
 

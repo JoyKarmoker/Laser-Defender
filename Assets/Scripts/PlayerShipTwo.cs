@@ -4,11 +4,21 @@ using UnityEngine;
 
 public class PlayerShipTwo : MonoBehaviour
 {
+    public enum PlayerStates
+    {
+        FLY_TO_POS, //First State
+        MOVEANDFIRE,//Second State
+    }
+   
+    //Configuration Parameters
     [Header("Player")]
-
     [SerializeField] Color flashColor;
     [SerializeField] Color spriteChangeColor;
 
+    [HideInInspector] public PlayerStates playerStates;
+    Vector2 destinationPos;
+    [SerializeField] float destinationPosY = -7f;
+    [SerializeField] float playerInSpeed = 3f;
     [SerializeField] float playerSpeed = 10f;
     [Tooltip("The amount of how many lvls does the ship has")]
     [SerializeField] float playerShipLevels;
@@ -19,7 +29,7 @@ public class PlayerShipTwo : MonoBehaviour
     [Header("Capsule Requirements")]
     [SerializeField] float minTimeShootingOff = 2f;
     [SerializeField] float maxTimeShootingOff = 10f;
-    [SerializeField] float secProtectionCapsuleLasts;
+    [SerializeField] float secProtectionCapsuleLasts = 3f;
     [SerializeField] int xpCapsuleToLeveldown = 5;
     [SerializeField] float minTimeHomingMissileLasts = 2f;
     [SerializeField] float maxTimeHomingMissileLasts = 10f;
@@ -72,6 +82,8 @@ public class PlayerShipTwo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerStates = PlayerStates.FLY_TO_POS;
+        destinationPos = new Vector2(0, destinationPosY);
         animator = GetComponent<Animator>();
         spriteFlash = GetComponent<SpriteFlash>();
 
@@ -96,8 +108,19 @@ public class PlayerShipTwo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
-        Fire();
+        switch (playerStates)
+        {
+            case PlayerStates.FLY_TO_POS:
+                SafeForSeconds(secProtectionCapsuleLasts);
+                GoToPoint(destinationPos);
+                break;
+            case PlayerStates.MOVEANDFIRE:
+                Move();
+                Fire();
+                break;
+        }
+        // Move();
+        // Fire();
     }
 
     //handles laser
@@ -107,6 +130,18 @@ public class PlayerShipTwo : MonoBehaviour
             LaserLastingCounter();
     }
 
+    void GoToPoint(Vector2 destinationPoint)
+    {
+        var distance = Vector2.Distance(transform.position, destinationPoint);
+        if (distance >= 0.01f)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, destinationPoint, playerInSpeed * Time.deltaTime);
+        }
+        else
+        {
+            playerStates = PlayerStates.MOVEANDFIRE;
+        }
+    }
     private void Fire()
     {
         if (Input.GetButtonDown("Fire1") && !normalFiringOff)

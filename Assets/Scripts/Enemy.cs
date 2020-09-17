@@ -254,7 +254,9 @@ public class Enemy : MonoBehaviour
 
         if(enemySpawner.spawnedEnemys.Count == 0)
         {
-            enemySpawner.StartSuperWave();
+            //enemySpawner.StartSuperWave();
+            float secToWait = enemySpawner.secAfterEnemyStartSpawn; //Time o wait for new super wave spawn
+            enemySpawner.Invoke("StartSuperWave", secToWait);
         }
 
         //Set back Transform to  parrent to world if it the transform is a child of formation
