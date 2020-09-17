@@ -12,8 +12,7 @@ public class EnemySpawner : MonoBehaviour
     int posInMediumEnemyFormation = 0;
     int posInBossEnemyFormation = 0;
     ObjectPooler objectPooler;
-    //[HideInInspector] public bool spawningWaves = false;
-    //[HideInInspector]public int totalEnemys = 0;
+    
 
     [HideInInspector]public static List<GameObject> enemyFormationList = new List<GameObject>();
     [System.Serializable]
@@ -34,17 +33,24 @@ public class EnemySpawner : MonoBehaviour
         public GameObject EnemyPrefab;
     }
 
-    public int superWave = 3;
+    [System.Serializable]
+    public class SuperWave
+    {
+        public List<Wave> waveList = new List<Wave>();
+    }
+    public List<SuperWave> superWaveList = new List<SuperWave>();
     int currentSuperWave = 0;
-    public List<Wave> waveList = new List<Wave>();
+    //public int superWave = 3;
+    //public List<Wave> waveList = new List<Wave>();
     [HideInInspector] public List<GameObject> spawnedEnemys = new List<GameObject>();
     
     IEnumerator Start()
     {
         objectPooler = ObjectPooler.ObjectPullerInstance;
-        totalWaves = waveList.Count;
+        //totalWaves = waveList.Count;
         yield return new WaitForSeconds(secAfterEnemyStartSpawn);
-        yield return StartCoroutine(SpawnAllWaves());
+        StartSuperWave();
+        //yield return StartCoroutine(SpawnAllWaves());
         Invoke("CheckEnemyStates", 1f);
     }
 
@@ -52,7 +58,7 @@ public class EnemySpawner : MonoBehaviour
     public void StartSuperWave()
     {
        
-        if(currentSuperWave<superWave)
+        if(currentSuperWave<superWaveList.Count)
         {
             Debug.Log("Start Super Wave Called");
             StartCoroutine(SpawnAllWaves());
@@ -65,17 +71,14 @@ public class EnemySpawner : MonoBehaviour
         posInSmallEnemyFormation = 0;
         posInMediumEnemyFormation = 0;
         posInBossEnemyFormation = 0;
-        currentSuperWave++;
-        //spawningWaves = true;
-       // Debug.Log("Spawing Waves = " + spawningWaves);
-        while (currentWave < totalWaves)
+        
+        while (currentWave < superWaveList[currentSuperWave].waveList.Count)
         {
-            yield return StartCoroutine(SpawnAllEnemiesInCurrentWave(waveList[currentWave]));
+            yield return StartCoroutine(SpawnAllEnemiesInCurrentWave(superWaveList[currentSuperWave].waveList[currentWave]));
+            //yield return StartCoroutine(SpawnAllEnemiesInCurrentWave(waveList[currentWave]));
             currentWave++;
         }
-        //spawningWaves = false;
-        
-       // Debug.Log("Spawing Waves = " + spawningWaves);
+        currentSuperWave++;
     }
 
     private IEnumerator SpawnAllEnemiesInCurrentWave(Wave currentWave)
