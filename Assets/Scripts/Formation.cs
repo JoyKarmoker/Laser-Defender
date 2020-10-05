@@ -68,7 +68,7 @@ public class Formation : MonoBehaviour
         startPos = transform.position;
         currentPosX = transform.position.x;
         EnemySpawner.enemyFormationList.Add(this.gameObject);
-        //CreateFormation();
+        CreateFormation();
     }
 
     private void Update()
@@ -121,6 +121,16 @@ public class Formation : MonoBehaviour
         StartCoroutine(ActivateSpread());
     }
 
+    public void StopActivateSpread()
+    {
+        if (spreadStarted)
+        {
+            StopCoroutine(ActivateSpread());
+            spreadStarted = false;
+            canSpread = false;
+        }
+           
+    }
     IEnumerator ActivateSpread()
     { 
         if(spreadStarted)
@@ -139,7 +149,7 @@ public class Formation : MonoBehaviour
         //canDive = true;
         Invoke("SetDiving", Random.Range(minTimeBetweenEnemyDive, maxTimeBetweenEnemyDive));
     }
-    private void OnDrawGizmos()
+    /*private void OnDrawGizmos()
     {
         int num = 0;
         CreateFormation();
@@ -148,7 +158,7 @@ public class Formation : MonoBehaviour
             //Handles.Label(GetVector(num), num.ToString());
             num++;
         }
-    }
+    }*/
 
     private void CreateFormation()
     {
@@ -173,10 +183,12 @@ public class Formation : MonoBehaviour
         return (Vector2)gameObject.transform.position + (Vector2)gridList[posInFormation];
     }
 
-    void SetDiving()
+    public void SetDiving()
     {
-        if(enemyInThisFormation.Count > 0)
+        Debug.Log("Setting dive in formation");
+        if (enemyInThisFormation.Count > 0)
         {
+            Debug.Log("Setting dive in formation count greater than 0");
             int choosenDivePathIndex = Random.Range(0, divePathList.Count);
             int choosenEnemyPathIndex = Random.Range(0, enemyInThisFormation.Count);
 

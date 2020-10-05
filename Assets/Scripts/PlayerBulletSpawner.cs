@@ -7,6 +7,16 @@ public class PlayerBulletSpawner : MonoBehaviour
     public static PlayerBulletSpawner playerBulletSpawnerInstance;
     ObjectPooler objectPooler;
     [SerializeField] GameObject laserPrefab;
+    [SerializeField] GameObject shipOnelevel1laserPrefab;
+    [SerializeField] GameObject shipOnelevel2laserPrefab;
+    [SerializeField] GameObject shipOnelevel3laserPrefab;
+    [SerializeField] GameObject shipOnelevel4laserPrefab;
+    [SerializeField] GameObject shipOnelevel5laserPrefab;
+    [SerializeField] GameObject shipOnelevel6laserPrefab;
+    [SerializeField] GameObject shipOnelevel7laserPrefab;
+    [SerializeField] GameObject shipOnelevel8laserPrefab;
+    [SerializeField] GameObject shipOnelevel9laserPrefab;
+    [SerializeField] GameObject shipOnelevel10laserPrefab;
     [SerializeField] GameObject thikLaserPrefabForLvl5AndAbove;
     [SerializeField] GameObject diagonalLaserPrefab;
     [SerializeField] GameObject leftBotPrefab;

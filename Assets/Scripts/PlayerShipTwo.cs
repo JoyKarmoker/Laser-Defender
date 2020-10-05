@@ -17,6 +17,8 @@ public class PlayerShipTwo : MonoBehaviour
 
     [HideInInspector] public PlayerStates playerStates;
     Vector2 destinationPos;
+    [SerializeField] GameObject playerShipOne;
+    [SerializeField] GameObject playerShipThree;
     [SerializeField] float destinationPosY = -7f;
     [SerializeField] float playerInSpeed = 3f;
     [SerializeField] float playerSpeed = 10f;
@@ -76,12 +78,13 @@ public class PlayerShipTwo : MonoBehaviour
     float yMin;
     float yMax;
 
-    int playerCurrentShipLevel = 10;
+    int playerCurrentShipLevel;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        playerCurrentShipLevel = 6;
         playerStates = PlayerStates.FLY_TO_POS;
         destinationPos = new Vector2(0, destinationPosY);
         animator = GetComponent<Animator>();
@@ -117,6 +120,7 @@ public class PlayerShipTwo : MonoBehaviour
             case PlayerStates.MOVEANDFIRE:
                 Move();
                 Fire();
+                ChangePlayer();
                 break;
         }
         // Move();
@@ -140,6 +144,22 @@ public class PlayerShipTwo : MonoBehaviour
         else
         {
             playerStates = PlayerStates.MOVEANDFIRE;
+        }
+    }
+    private void ChangePlayer()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            Debug.Log("1 was pressed.");
+            Instantiate(playerShipOne);
+            Destroy(this.gameObject);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            Instantiate(playerShipThree);
+            Destroy(this.gameObject);
+            Debug.Log("3 was pressed.");
         }
     }
     private void Fire()

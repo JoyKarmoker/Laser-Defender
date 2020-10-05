@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
 
     [HideInInspector] public PlayerStates playerStates;
     Vector2 destinationPos;
+    [SerializeField] GameObject playerShipTwo;
+    [SerializeField] GameObject playerShipThree;
     [SerializeField] float destinationPosY = -7f;
     [SerializeField] float playerInSpeed = 3f;
     [SerializeField] float playerSpeed = 10f;
@@ -120,6 +122,7 @@ public class Player : MonoBehaviour
             case PlayerStates.MOVEANDFIRE:
                 Move();
                 Fire();
+                ChangePlayer();
                 break;
         }
        // Move();
@@ -143,6 +146,23 @@ public class Player : MonoBehaviour
         else
         {
             playerStates = PlayerStates.MOVEANDFIRE;
+        }
+    }
+
+    private void ChangePlayer()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            Debug.Log("2 was pressed.");
+            Instantiate(playerShipTwo);
+            Destroy(this.gameObject);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            Debug.Log("3 was pressed.");
+            Instantiate(playerShipThree);
+            Destroy(this.gameObject);
         }
     }
     private void Fire()

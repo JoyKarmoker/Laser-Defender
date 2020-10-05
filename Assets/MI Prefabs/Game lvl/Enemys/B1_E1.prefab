@@ -104,10 +104,11 @@ MonoBehaviour:
   flashColor: {r: 0, g: 0, b: 0, a: 0}
   health: 100
   enemyStates: 0
-  projectile: {fileID: 0}
+  projectile: {fileID: 5179212724898402520, guid: 2acd2c93825cd1145a33d5062efe42f0,
+    type: 3}
   shotCounter: 0
   minTimeBetweenShots: 0.2
-  maxTimeBetweenShots: 10
+  maxTimeBetweenShots: 1
   projectileSpeed: 10
   deathVFX: {fileID: 6299911066840748044, guid: d374494ebecd84e419c93d7180167653,
     type: 3}

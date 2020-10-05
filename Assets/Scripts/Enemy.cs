@@ -205,7 +205,7 @@ public class Enemy : MonoBehaviour
 
     private void Fire()
     {
-
+        
         //GameObject laser = Instantiate(projectile, transform.position, Quaternion.identity) as GameObject;
         GameObject laser = objectPooler.SpawnFromPool(projectile.ToString(), transform.position, Quaternion.identity);
         laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -projectileSpeed);
@@ -255,8 +255,11 @@ public class Enemy : MonoBehaviour
         if(enemySpawner.spawnedEnemys.Count == 0)
         {
             //enemySpawner.StartSuperWave();
-            float secToWait = enemySpawner.secAfterEnemyStartSpawn; //Time o wait for new super wave spawn
+            float secToWait = enemySpawner.secAfterEnemyStartSpawn; //Time to wait for new super wave spawn
+            enemySpawner.inFormation = false;
             enemySpawner.Invoke("StartSuperWave", secToWait);
+            enemySpawner.Invoke("CheckEnemyStates", 1f);
+            
         }
 
         //Set back Transform to  parrent to world if it the transform is a child of formation

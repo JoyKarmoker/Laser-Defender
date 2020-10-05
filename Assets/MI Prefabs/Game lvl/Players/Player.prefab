@@ -346,9 +346,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50fffdbb83cb3d440b9cadb9458fe30a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStates: 0
   flashColor: {r: 1, g: 0.12481483, b: 0, a: 0}
   spriteChangeColor: {r: 1, g: 1, b: 1, a: 0}
+  playerStates: 0
+  playerShipTwo: {fileID: 4357041698239650653, guid: a40b58f823f2fb04facee6cbc199dd58,
+    type: 3}
+  playerShipThree: {fileID: 4357041698239650653, guid: a40b58f823f2fb04facee6cbc199dd58,
+    type: 3}
   destinationPosY: -7
   playerInSpeed: 3
   playerSpeed: 10

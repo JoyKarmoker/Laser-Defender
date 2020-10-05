@@ -11,6 +11,7 @@ public class EnemySpawner : MonoBehaviour
     int posInSmallEnemyFormation = 0;
     int posInMediumEnemyFormation = 0;
     int posInBossEnemyFormation = 0;
+    public bool inFormation;
     ObjectPooler objectPooler;
 
 
@@ -52,7 +53,7 @@ public class EnemySpawner : MonoBehaviour
         yield return new WaitForSeconds(secAfterEnemyStartSpawn);
         StartSuperWave();
         //yield return StartCoroutine(SpawnAllWaves());
-        Invoke("CheckEnemyStates", 1f);
+       // Invoke("CheckEnemyStates", 1f);
     }
 
     //When all the enemys are destroyed this will be called by the enemy script to start a new Super Wave
@@ -61,12 +62,27 @@ public class EnemySpawner : MonoBehaviour
         
         //enemyStartSpawnTime = enemyStartSpawnTime - Time.deltaTime;
         if (currentSuperWave<superWaveList.Count)
-        {          
-            Debug.Log("Start Super Wave Called");
-            StartCoroutine(SpawnAllWaves());           
+        {
+            //inFormation = false;
             
+            StartCoroutine(SpawnAllWaves());
+            Invoke("CheckEnemyStates", 1f);
+
         }
     }
+
+    /*private IEnumerator StartSuperWave()
+    {
+        if (currentSuperWave < superWaveList.Count)
+        {
+            //inFormation = false;
+            spawnedEnemys.Clear();
+            StartCoroutine(SpawnAllWaves());
+            yield return new WaitForSeconds(secAfterEnemyStartSpawn);
+            //Invoke("CheckEnemyStates", 1f);
+
+        }
+    }*/
 
     private IEnumerator SpawnAllWaves()
     {
@@ -74,13 +90,15 @@ public class EnemySpawner : MonoBehaviour
         posInSmallEnemyFormation = 0;
         posInMediumEnemyFormation = 0;
         posInBossEnemyFormation = 0;
-        
+        spawnedEnemys.Clear();
+
         while (currentWave < superWaveList[currentSuperWave].waveList.Count)
         {
             yield return StartCoroutine(SpawnAllEnemiesInCurrentWave(superWaveList[currentSuperWave].waveList[currentWave]));
             //yield return StartCoroutine(SpawnAllEnemiesInCurrentWave(waveList[currentWave]));
             currentWave++;
         }
+        //Invoke("CheckEnemyStates", 1f);
         currentSuperWave++;
     }
 
@@ -88,6 +106,11 @@ public class EnemySpawner : MonoBehaviour
     {
         //total number of eneyms that can fit in this wave
         int totalEnemysInThisFormation = currentWave.enemyFormationPrefab.GetComponent<Formation>().gridSizeX * currentWave.enemyFormationPrefab.GetComponent<Formation>().gridSizeY;
+        int totalFormatationInThisScene = enemyFormationList.Count;
+        for (int i = 0; i < totalFormatationInThisScene; i++)
+        {
+            enemyFormationList[i].GetComponent<Formation>().StopActivateSpread();
+        }
         if (currentWave.enemyFormationPrefab.tag == "SmallEnemyFormation")
         {
             posInFormation = posInSmallEnemyFormation;         
@@ -141,19 +164,28 @@ public class EnemySpawner : MonoBehaviour
         {
            posInBossEnemyFormation = posInFormation;
         }
+
         yield return new WaitForSeconds(currentWave.secToWaitForNextWave);
+        /*int totalFormatationInThisScene = enemyFormationList.Count;
+        for (int i = 0; i < totalFormatationInThisScene; i++)
+        {
+            Debug.Log("Spread Started");
+            enemyFormationList[i].GetComponent<Formation>().StartActivateSpread();
+        }*/
     }
 
     void CheckEnemyStates()
     {
-        bool inFormation = false;
+        inFormation = false;
         int totalSpawnedEnemys = spawnedEnemys.Count;
         for (int i = (totalSpawnedEnemys-1); i >=0; i--)
         {
             if(spawnedEnemys[i].GetComponent<Enemy>().enemyStates != Enemy.EnemyStates.IDLE)
             {
+                Debug.Log("Checking State");
                 inFormation = false;
                 Invoke("CheckEnemyStates", 1f);
+               // break;
                 return;
             }
         }
@@ -165,6 +197,7 @@ public class EnemySpawner : MonoBehaviour
             int totalFormatationInThisScene = enemyFormationList.Count;
             for (int i = 0; i <totalFormatationInThisScene; i++)
             {
+                Debug.Log("Spread Started");
                 enemyFormationList[i].GetComponent<Formation>().StartActivateSpread();
             }
             CancelInvoke("CheckEnemyStates");
