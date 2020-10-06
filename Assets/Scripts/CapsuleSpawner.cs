@@ -45,6 +45,7 @@ public class CapsuleSpawner : MonoBehaviour
             {
                 if (randomNumber <= weightofCapsulesSerially[i])
                 {
+                    Debug.Log("Capsule to spawn index " + capsuleToSpwanIndex);
                     capsuleToSpwanIndex = i;
                     break;
                 }

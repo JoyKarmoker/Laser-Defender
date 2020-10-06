@@ -49,4 +49,5 @@ MonoBehaviour:
   - {fileID: 105853899814922335, guid: 139c539fd44c84044bae674d49f5df87, type: 3}
   - {fileID: 3377392449552496858, guid: f2c234a852b21374fb5412c3b375dfc0, type: 3}
   - {fileID: 165820448499330150, guid: ba67b0e84ffa67a4b8ba5c64927d4e37, type: 3}
+  weightofCapsulesSerially: 1e00000014000000120000000c0000000a000000
   capsuleSpawnProbabilty: 40

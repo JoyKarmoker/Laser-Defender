@@ -182,7 +182,6 @@ public class EnemySpawner : MonoBehaviour
         {
             if(spawnedEnemys[i].GetComponent<Enemy>().enemyStates != Enemy.EnemyStates.IDLE)
             {
-                Debug.Log("Checking State");
                 inFormation = false;
                 Invoke("CheckEnemyStates", 1f);
                // break;
@@ -197,7 +196,6 @@ public class EnemySpawner : MonoBehaviour
             int totalFormatationInThisScene = enemyFormationList.Count;
             for (int i = 0; i <totalFormatationInThisScene; i++)
             {
-                Debug.Log("Spread Started");
                 enemyFormationList[i].GetComponent<Formation>().StartActivateSpread();
             }
             CancelInvoke("CheckEnemyStates");

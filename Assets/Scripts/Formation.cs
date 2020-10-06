@@ -185,10 +185,8 @@ public class Formation : MonoBehaviour
 
     public void SetDiving()
     {
-        Debug.Log("Setting dive in formation");
         if (enemyInThisFormation.Count > 0)
         {
-            Debug.Log("Setting dive in formation count greater than 0");
             int choosenDivePathIndex = Random.Range(0, divePathList.Count);
             int choosenEnemyPathIndex = Random.Range(0, enemyInThisFormation.Count);
 

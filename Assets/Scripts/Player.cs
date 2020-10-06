@@ -66,7 +66,7 @@ public class Player : MonoBehaviour
     [SerializeField] float shakeIntensity;
     [SerializeField] float shakeTime;
 
-
+    PlayerBulletSpawner playerBulletSpawner;
     ObjectPooler objectPooler;
     SpriteFlash spriteFlash;
     Coroutine fireCouritine;
@@ -85,6 +85,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //playerCurrentShipLevel = 1;
         playerStates = PlayerStates.FLY_TO_POS;
         destinationPos = new Vector2(0, destinationPosY);
         rb = GetComponent<Rigidbody2D>();
@@ -98,6 +99,7 @@ public class Player : MonoBehaviour
         health = gameSession.GetHealth();
         objectPooler = ObjectPooler.ObjectPullerInstance;
 
+        playerBulletSpawner = PlayerBulletSpawner.playerBulletSpawnerInstance;
         xpCapsuleToLevelDownEatenByPlayer = 0;
         XpCapsuleEatenByPlayer = 0;
         protectionCapsuleEaten = false;
@@ -183,8 +185,13 @@ public class Player : MonoBehaviour
     {
         while(true)
         {
-            GameObject laser = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(transform.position.x, transform.position.y+offsetFromY), Quaternion.identity);
-            laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+            playerBulletSpawner.SpawnBullet(this.gameObject.transform, playerCurrentShipLevel);
+            if (playerCurrentShipLevel == 10 || playerCurrentShipLevel == 9)
+            {
+                playerBulletSpawner.SpawnBot(transform);
+            }
+            /*GameObject laser = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(transform.position.x, transform.position.y+offsetFromY), Quaternion.identity);
+            laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);*/
             yield return new WaitForSeconds(projectileFiringPeriod);
         }
         

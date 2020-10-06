@@ -75,7 +75,6 @@ public class PlayerLeftBot : MonoBehaviour
         tmp = tmp - Time.deltaTime;
         if (tmp <= 0f)
         {
-            Debug.Log("firing");
             for (int i = 0; i < numberOfProjectiles; i++)
             {
                 float angle = i * Mathf.PI * 2 / numberOfProjectiles;
