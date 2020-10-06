@@ -78,13 +78,13 @@ public class PlayerShipTwo : MonoBehaviour
     float yMin;
     float yMax;
 
-    int playerCurrentShipLevel;
+    int playerCurrentShipLevel = 1;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        playerCurrentShipLevel = 6;
+        playerCurrentShipLevel = 10;
         playerStates = PlayerStates.FLY_TO_POS;
         destinationPos = new Vector2(0, destinationPosY);
         animator = GetComponent<Animator>();
