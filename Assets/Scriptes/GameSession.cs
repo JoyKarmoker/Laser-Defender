@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class GameSession : MonoBehaviour
 {
-    int score = 0;
-    int health = 3;
-    
+
+
+    public int score = 0;
+    int health = 6;
+
 
     private void Awake()
     {
+       
         SetUpSingleTon();
+        
     }
+
 
     private void SetUpSingleTon()
     {
@@ -22,6 +27,7 @@ public class GameSession : MonoBehaviour
         }
         else
         {
+            
             DontDestroyOnLoad(gameObject);
         }
     }
@@ -34,6 +40,8 @@ public class GameSession : MonoBehaviour
     public void AddToScore(int scoreValue)
     {
         score = score + scoreValue;
+
+
     }
 
     public int GetHealth()
@@ -41,9 +49,17 @@ public class GameSession : MonoBehaviour
         return health;
     }
 
+    public void SetHealth(int health)
+    {
+        this.health = health;
+      
+    }
+
     public void DecreaseHealth()
     {
-        health = health - 1;
+        if (health > 0)
+            --health;
+
     }
     public void ResetGame()
     {

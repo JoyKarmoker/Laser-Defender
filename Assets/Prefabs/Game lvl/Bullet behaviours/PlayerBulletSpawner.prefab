@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5309229011426184121
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4104523725175472106}
+  - component: {fileID: 7743021803914522586}
+  m_Layer: 0
+  m_Name: PlayerBulletSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4104523725175472106
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5309229011426184121}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7743021803914522586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5309229011426184121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 825650b6087785b4582015f2d99c1687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laserPrefab: {fileID: 1563411393893841052, guid: 4f5beb4a4a2fcde43a678bdd6ead8c0b,
+    type: 3}
+  shipOnelevel1laserPrefab: {fileID: 573173026124338108, guid: 65009fd279d3e0f4786430b9f3e9a376,
+    type: 3}
+  shipOnelevel2laserPrefab: {fileID: 6238519865151215027, guid: 65538209854cb194ba76727476af9e7d,
+    type: 3}
+  shipOnelevel3laserPrefab: {fileID: 8452174428928837674, guid: ae8c52622f92df7429e2ef53a4501f86,
+    type: 3}
+  shipOnelevel4laserPrefab: {fileID: 5551079251566210046, guid: 8e9a3fe4a739a8240abf859de4ec5891,
+    type: 3}
+  shipOnelevel5laserPrefab: {fileID: 7078830843191066325, guid: 1d4a8bf5cb6364d4da08443e33038362,
+    type: 3}
+  shipOnelevel6laserPrefab: {fileID: 4213213518401329461, guid: 41dfa5a195196f840868493f6e7389fd,
+    type: 3}
+  shipOnelevel7laserPrefab: {fileID: 1032931917801325913, guid: 1e3a47c377576a5428b10dfa9428ea4c,
+    type: 3}
+  shipOnelevel8laserPrefab: {fileID: 2941756716634621958, guid: c259e2fa1e0f81148a141c049122f22c,
+    type: 3}
+  shipOnelevel9laserPrefab: {fileID: 229882626397277125, guid: 36d4dfe8fc3806e44ba13c8ef62c7da1,
+    type: 3}
+  shipOnelevel10laserPrefab: {fileID: 2383663648770320238, guid: d5fa4cc5ab1b8c54cb204d1744260e0f,
+    type: 3}
+  thikLaserPrefabForLvl5AndAbove: {fileID: 2711169931234070242, guid: c8d6233201350d646b1106d403161a68,
+    type: 3}
+  diagonalLaserPrefab: {fileID: 625161825651375274, guid: e348f80a7f193624aa7f6b26bd32adaa,
+    type: 3}
+  leftBotPrefab: {fileID: 3638821267251329716, guid: 924c92b1615127648bbecaa73888ec61,
+    type: 3}
+  rightBotPrefab: {fileID: 2473690100385777318, guid: 35286c83fa2f04f4bb052777c3aa38ca,
+    type: 3}
+  projectileSpeed: 10
+  level1OffsetFromY: 1.1
+  level2OffsetFromX: 0.1
+  level2OffsetFromY: 0.6
+  level3OffsetFromX: 0.15
+  level3OffsetFromY: 0.5
+  level3RotationOfProjectileInZ: 10
+  level3ProjectileSpeedInX: 3
+  level4OffsetFromX: 0.2
+  level5OffsetFromY: 1.2
