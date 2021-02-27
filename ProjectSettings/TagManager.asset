@@ -3,7 +3,63 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - LaserBeamCapsule
+  - LevelUpPlayerCapsule
+  - ProtectionCapsule
+  - XPCapsule
+  - XPDecreasingCapsule
+  - LevelDownCapsule
+  - PlayerShootingOffCapsule
+  - HomingMissileCapsule
+  - Enemy
+  - BossEnemyFormation
+  - MediumEnemyFormation
+  - SmallEnemyFormation
+  - Ship3Button
+  - Ship2Button
+  - Ship1Button
+  - Ship1Card1
+  - Ship1Card2
+  - Ship1Card3
+  - Ship1Card4
+  - Ship1Card5
+  - Ship1Card6
+  - Ship1Card7
+  - Ship1Card8
+  - Ship1Card9
+  - Ship1Card10
+  - Ship2Card1
+  - Ship2Card2
+  - Ship2Card3
+  - Ship2Card4
+  - Ship2Card5
+  - Ship2Card6
+  - Ship2Card7
+  - Ship2Card8
+  - Ship2Card9
+  - Ship2Card10
+  - Ship3Card1
+  - Ship3Card2
+  - Ship3Card3
+  - Ship3Card4
+  - Ship3Card5
+  - Ship3Card6
+  - Ship3Card7
+  - Ship3Card8
+  - Ship1HM
+  - Ship1Laser
+  - Ship1Protection
+  - Ship2HM
+  - Ship3HM
+  - Ship2Laser
+  - Ship3Laser
+  - Ship2Protection
+  - Ship3Protection
+  - CoinPurchase1
+  - CoinPurchase2
+  - CoinPurchase3
+  - CoinPurchase4
   layers:
   - Default
   - TransparentFX
