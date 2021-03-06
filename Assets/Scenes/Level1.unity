@@ -1320,6 +1320,11 @@ PrefabInstance:
       propertyPath: gameSession
       value: 
       objectReference: {fileID: 955456461}
+    - target: {fileID: 7884389362446851243, guid: a318616f51dbfbd4982f5f74f1ff71ef,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -21.999878
+      objectReference: {fileID: 0}
     - target: {fileID: 8098006738981978036, guid: a318616f51dbfbd4982f5f74f1ff71ef,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1830,6 +1835,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Small Enemy Formation
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761680994834747459, guid: 5abd8cd872a58af419b077a822631eb9,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5abd8cd872a58af419b077a822631eb9, type: 3}

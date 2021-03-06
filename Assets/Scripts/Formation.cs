@@ -149,16 +149,17 @@ public class Formation : MonoBehaviour
         //canDive = true;
         Invoke("SetDiving", Random.Range(minTimeBetweenEnemyDive, maxTimeBetweenEnemyDive));
     }
-    /*private void OnDrawGizmos()
+    
+    private void OnDrawGizmos()
     {
         int num = 0;
         CreateFormation();
         foreach(Vector2 pos in gridList)
         {
-            //Handles.Label(GetVector(num), num.ToString());
+            Handles.Label(GetVector(num), num.ToString());
             num++;
         }
-    }*/
+    }
 
     private void CreateFormation()
     {

@@ -363,6 +363,7 @@ public class Player : MonoBehaviour
      */
     public void XpCapsuleEaten()
     {
+        Debug.Log("XP Capsule eaten by player");
         XpCapsuleEatenByPlayer = XpCapsuleEatenByPlayer + 1;
         if (XpCapsuleEatenByPlayer >= xpCapsuleToNextLevel)
         {
