@@ -398,7 +398,7 @@ PrefabInstance:
     - target: {fileID: 7988680734496413192, guid: 117012340bf8cf54885c2c1e00db7026,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7988680734496413192, guid: 117012340bf8cf54885c2c1e00db7026,
         type: 3}
@@ -1024,6 +1024,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 145248903788518845, guid: 6b8fca3f05844a1439ec946c48bf6d88,
+        type: 3}
+      propertyPath: orthographic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 145248903788518845, guid: 6b8fca3f05844a1439ec946c48bf6d88,
+        type: 3}
+      propertyPath: field of view
+      value: 83
+      objectReference: {fileID: 0}
     - target: {fileID: 145248903788518846, guid: 6b8fca3f05844a1439ec946c48bf6d88,
         type: 3}
       propertyPath: m_Name
@@ -1155,7 +1165,7 @@ PrefabInstance:
     - target: {fileID: 3602960324949460471, guid: a318616f51dbfbd4982f5f74f1ff71ef,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3602960324949460471, guid: a318616f51dbfbd4982f5f74f1ff71ef,
         type: 3}
@@ -1391,6 +1401,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cinemachines
       objectReference: {fileID: 0}
+    - target: {fileID: 6597556836283327002, guid: 33d6080c791ee3a4b978925741204738,
+        type: 3}
+      propertyPath: m_Lens.FieldOfView
+      value: 83
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33d6080c791ee3a4b978925741204738, type: 3}
 --- !u!1001 &8706746671709880911
@@ -1563,6 +1578,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003377234058605991, guid: a4b3d32de6339504380dbd39b0a5cbe9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4b3d32de6339504380dbd39b0a5cbe9, type: 3}

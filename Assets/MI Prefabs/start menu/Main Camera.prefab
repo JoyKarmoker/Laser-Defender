@@ -59,7 +59,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 83
   orthographic: 1
   orthographic size: 5
   m_Depth: -1
@@ -100,6 +100,7 @@ MonoBehaviour:
   l_loader: {fileID: 0}
   lvlImages:
   - {fileID: 21300000, guid: 296eaa1cd0d185948bbf68ec8985ce14, type: 3}
+  - {fileID: 21300000, guid: ef4370d949cf65d42bcf95969bfa2dd7, type: 3}
   - {fileID: 21300000, guid: 9b9cd083ed4ec8248829a52afbb775ca, type: 3}
   - {fileID: 21300000, guid: ccd66746e3f01394dbe7c4267aedcd42, type: 3}
   - {fileID: 21300000, guid: e517617442b68d94997289d4ae4b5a6f, type: 3}

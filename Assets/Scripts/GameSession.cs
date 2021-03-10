@@ -7,6 +7,8 @@ public class GameSession : MonoBehaviour
 
     [SerializeField] GameObject[] healthBars;
     [SerializeField] FinalScore finalScore;
+    public static GameSession instance;
+    [HideInInspector] public int selectedShip;
     public int score = 0;
     int health = 6;
 
@@ -30,16 +32,16 @@ public class GameSession : MonoBehaviour
     }
     private void SetUpSingleTon()
     {
-        int numberOfGameSessions = FindObjectsOfType<GameSession>().Length;
-        if (numberOfGameSessions > 1)
-        {
-            Destroy(gameObject);
-        }
+        if (instance == null)
+            instance = this;
         else
         {
-            
-            DontDestroyOnLoad(gameObject);
+            Destroy(gameObject);
+            return;
         }
+
+        DontDestroyOnLoad(gameObject);
+
     }
 
     public int GetScore()

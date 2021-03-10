@@ -16,7 +16,7 @@ public class ButtonClickEvent : MonoBehaviour
 
     void playSound()
     {
-        AudioManager.instance.play("button", false);
+        AudioManager.instance.play(AllStringConstants.BUTTONCLICK_SOUND, false);
     }
 
 }

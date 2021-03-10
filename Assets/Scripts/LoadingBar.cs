@@ -67,7 +67,7 @@ public class LoadingBar : MonoBehaviour
 	IEnumerator WaitAndLoadStartMenu(int sceneIndex)
 	{
 		yield return new WaitForSeconds(5f);
-		LevelLoader.Instance.loadNextLevel();
+		LevelLoader.instance.loadNextLevel();
 
 	}
 

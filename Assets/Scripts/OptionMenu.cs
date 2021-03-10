@@ -20,7 +20,7 @@ public class OptionMenu : MonoBehaviour
 
     public void setMyVolume(float volume)
     {
-        myAudioMixer.SetFloat("volume",volume);
+        myAudioMixer.SetFloat(AllStringConstants.MASTER_VOLUME_MIXER,volume);
     }
     public void MusicToggle()
     {
@@ -30,7 +30,7 @@ public class OptionMenu : MonoBehaviour
         {
 
             ToggleMusic.transform.GetChild(0).gameObject.SetActive(true);
-            myAudioMixer.SetFloat("volume", previousVolume);
+            myAudioMixer.SetFloat(AllStringConstants.MASTER_VOLUME_MIXER, previousVolume);
 
         }
         else
@@ -40,7 +40,7 @@ public class OptionMenu : MonoBehaviour
 
             previousVolume = GetMasterLevel();
 
-            myAudioMixer.SetFloat("volume", -80f);
+            myAudioMixer.SetFloat(AllStringConstants.MASTER_VOLUME_MIXER, -80f);
             
         }
         
@@ -48,7 +48,7 @@ public class OptionMenu : MonoBehaviour
     public float GetMasterLevel()
     {
         float value;
-        bool result = myAudioMixer.GetFloat("volume", out value);
+        bool result = myAudioMixer.GetFloat(AllStringConstants.MASTER_VOLUME_MIXER, out value);
         if (result)
         {
             return value;
@@ -64,35 +64,36 @@ public class OptionMenu : MonoBehaviour
         bool isSFXToggleon = ToggleSFX.GetComponent<Toggle>().isOn;
         if(isSFXToggleon)
         {
-            my_SFX_AudioMixer.SetFloat("sfxVolume", 0f);
+            my_SFX_AudioMixer.SetFloat(AllStringConstants.SFX_VOLUME_MIXER, 0f);
         }
         else
         {
-            my_SFX_AudioMixer.SetFloat("sfxVolume", -80f);
+            my_SFX_AudioMixer.SetFloat(AllStringConstants.SFX_VOLUME_MIXER, -80f);
         }
     } 
     public void VBRToggle()
     {
         bool isVBRToggleon = ToggleVBR.GetComponent<Toggle>().isOn;
-       /* if(isVBRToggleon)
+
+        if(isVBRToggleon)
         {
-            my_SFX_AudioMixer.SetFloat("sfxVolume", 0f);
+            ES3.Save<bool>(AllStringConstants.VIBRATION_STATUS, true);
         }
         else
         {
-            my_SFX_AudioMixer.SetFloat("sfxVolume", -80f);
-        }*/
+            ES3.Save<bool>(AllStringConstants.VIBRATION_STATUS, false);
+        }
     }
 
 
     public void RateUsButton()
     {
         #if UNITY_ANDROID  
-            Application.OpenURL("market://details?id=com.cseru.VirusDodger"); 
+            Application.OpenURL(AllStringConstants.RATE_US_INFO_ANDROID);
 
-        #elif UNITY_IPHONE
-            Application.OpenURL("itms-apps://itunes.apple.com/app/idYOUR_ID"); 
+#elif UNITY_IPHONE
+            Application.OpenURL(AllStringConstants.RATE_US_INFO_IOS); 
     
-        #endif
+#endif
     }
 }

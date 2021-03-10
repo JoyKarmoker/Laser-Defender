@@ -11,6 +11,7 @@ public class ShopManager : MonoBehaviour
 {
 
     [SerializeField] int coinAvailable;
+    [SerializeField] int crystalAvailable;
     [SerializeField] GameObject[] ShipPurchaseButtons;
     [SerializeField] GameObject[] ShipCardButtons;
     [SerializeField] GameObject[] PropsButtons;
@@ -22,8 +23,8 @@ public class ShopManager : MonoBehaviour
     private void Start()
     {
 
-        ES3.Save<int>("Coins", coinAvailable);
-        ES3.Save<int>("Crystals", coinAvailable);
+        ES3.Save<int>(AllStringConstants.COINS_AVAILABILITY_STATUS, coinAvailable);
+        ES3.Save<int>(AllStringConstants.CRYSTALS_AVAILABILITY_STATUS, coinAvailable);
         ShipPurchaseButtonsActionsOnStart();
         ShipCardButtonsActionOnStart();
         PropsButonsActionOnStart();
@@ -92,11 +93,13 @@ public class ShopManager : MonoBehaviour
                 PropsButtons[i].transform.GetChild(0).GetChild(1).gameObject.SetActive(false); // arrow 
                 PropsButtons[i].transform.GetChild(1).GetChild(1).GetComponent<UIShiny>().enabled = false;
                 PropsButtons[i].transform.GetChild(2).gameObject.SetActive(true); // max out panel
+                PropsButtons[i].transform.GetChild(0).GetChild(2).GetChild(1).GetComponent<Animation>().enabled = false;
             }
 
             PropsButtons[i].transform.GetChild(0).GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = GameDataManager.GetPropsCostData(curentLevel, PropsButtons[i].tag).ToString();
             PropsButtons[i].transform.GetChild(0).GetChild(2).GetChild(1).GetComponent<TextMeshProUGUI>().text = "+ " +
                     (GameDataManager.GetPropsPowerData(curentLevel + 1, PropsButtons[i].tag) - GameDataManager.GetPropsPowerData(curentLevel, PropsButtons[i].tag)).ToString();
+            
 
             int thisPropIndexInPropsPanel = PropsButtons[i].transform.GetSiblingIndex();
             PropsButtons[i].transform.parent.parent.GetChild(thisPropIndexInPropsPanel + 1).GetChild(2).GetComponent<TextMeshProUGUI>().text =
@@ -123,54 +126,63 @@ public class ShopManager : MonoBehaviour
     {
         // ship purchase button clicked
         GameObject clickedButton =  EventSystem.current.currentSelectedGameObject;
-        //check the price and available coin
-        int price = Convert.ToInt32(clickedButton.GetComponentInChildren<TextMeshProUGUI>().text);
-        coinAvailable = ES3.Load<int>("Coins", 0);
-        if (coinAvailable >= price)
+        //check if its coin or crystal and do transaction
+        TextMeshProUGUI txt = clickedButton.GetComponentInChildren<TextMeshProUGUI>();
+        int val = UpdateCoinsAndCrystalsStatus(txt);
+        
+        if(val == 1)
         {
-            coinAvailable -= price;
+            //update Goods
+            UpdateGoodsValueOnUI();
+
             //save info
             ES3.Save<bool>(clickedButton.gameObject.tag, true);
-            //if coin available show buy message disable this button and show upgrade button
+            ES3.Save<bool>(clickedButton.transform.parent.parent.GetChild(4).GetChild(5).GetChild(0).tag, true); // card 1 of tha ship..
+            // show buy message, disable this button and show upgrade button
             clickedButton.transform.parent.GetChild(1).gameObject.SetActive(true); // next button
             clickedButton.SetActive(false); // this button
-            clickedButton.transform.parent.parent.GetChild(7).gameObject.SetActive(true); // enable congrats panel
-            //play Audio
+            clickedButton.transform.parent.parent.GetChild(5).gameObject.SetActive(true); // enable congrats panel
+                                                                                          //play Audio
             PlayShipPurchaseAudio();
         }
-        
-        //else move to shop page 4
-        else
-        {
-            PlayErrorAudio();
-            clickedButton.transform.parent.parent.gameObject.SetActive(false); // disable current page
-            clickedButton.transform.parent.parent.parent.GetChild(4).gameObject.SetActive(true); // enable shop page
-        }
+
+         //else move to shop page 4
+         else
+         {
+             PlayErrorAudio();
+             clickedButton.transform.parent.parent.gameObject.SetActive(false); // disable current page
+             clickedButton.transform.parent.parent.parent.GetChild(6).gameObject.SetActive(true); // enable shop page
+         }
+         
 
 
-        
 
     }
-
-
 
     //called when ship lvl unlock button clicked
     public void OnShipLevelUnlockButtonClick()
     {
         // ship lvl unlock button clicked
         GameObject clickedButton = EventSystem.current.currentSelectedGameObject;
-        //check the price and available coin
-        int price = Convert.ToInt32(clickedButton.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text);
-        coinAvailable = ES3.Load<int>("Coins", 0);
-        if (coinAvailable >= price)
+
+        //check if its coin or crystal and do transaction
+        TextMeshProUGUI txt = clickedButton.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        int val = UpdateCoinsAndCrystalsStatus(txt);
+
+        if (val == 1)
         {
-            coinAvailable -= price;
+            //update Goods
+            UpdateGoodsValueOnUI();
+            
+            //update info
             ES3.Save<bool>(clickedButton.transform.parent.gameObject.tag, true);
 
             //if coin available  disable this button
             clickedButton.SetActive(false);
+
             //remove uishine from parent
             Destroy(clickedButton.transform.parent.GetComponent<UIShiny>());
+
             //set alpha to 100 of parent
             clickedButton.transform.parent.GetComponent<Image>().color = new Color(clickedButton.transform.parent.GetComponent<Image>().color.r,
                 clickedButton.transform.parent.GetComponent<Image>().color.g, clickedButton.transform.parent.GetComponent<Image>().color.b, 100f);
@@ -180,6 +192,7 @@ public class ShopManager : MonoBehaviour
             int availableCardIndex = clickedButton.transform.parent.parent.childCount;
 
             int currentCardIndex = clickedButton.transform.parent.GetSiblingIndex();
+
             if (currentCardIndex + 1 < availableCardIndex)
             {
                 clickedButton.transform.parent.parent.GetChild(currentCardIndex + 1).GetChild(1).GetComponent<UIEffect>().enabled = false;
@@ -199,7 +212,8 @@ public class ShopManager : MonoBehaviour
         {
             PlayErrorAudio();
             clickedButton.transform.parent.parent.parent.gameObject.SetActive(false); // disable current page
-            clickedButton.transform.parent.parent.parent.parent.parent.GetChild(4).gameObject.SetActive(true); // enable shop page
+            clickedButton.transform.parent.parent.parent.parent.gameObject.SetActive(false); // disable main ship page
+            clickedButton.transform.parent.parent.parent.parent.parent.GetChild(6).gameObject.SetActive(true); // enable shop page
         }
     }
 
@@ -217,13 +231,14 @@ public class ShopManager : MonoBehaviour
         //props upgrade  button clicked
         GameObject clickedButton = EventSystem.current.currentSelectedGameObject;
 
-        //check the price and available coin as well as if we can upgrade more or not?
-        int price = Convert.ToInt32(clickedButton.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text);
-        coinAvailable = ES3.Load<int>("Coins",0);
-        if (coinAvailable >= price)
+        //check if its coin or crystal and do transaction
+        TextMeshProUGUI txt = clickedButton.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        int val = UpdateCoinsAndCrystalsStatus(txt);
+
+        if (val == 1)
         {
-            //minus the coin
-            coinAvailable -= price;
+            //update Goods
+            UpdateGoodsValueOnUI();
 
             //save the next level info
             GameObject propsInfo = clickedButton.transform.parent.parent.gameObject;
@@ -259,6 +274,7 @@ public class ShopManager : MonoBehaviour
                 clickedButton.GetComponent<UIShiny>().enabled = false; // this btn
                 clickedButton.transform.parent.GetChild(1).gameObject.SetActive(false); // arrow 
                 clickedButton.transform.parent.parent.GetChild(1).GetChild(1).GetComponent<UIShiny>().enabled = false;
+                clickedButton.transform.parent.GetChild(2).GetChild(1).GetComponent<Animation>().enabled = false;
             }
 
             // else: update next updateable text
@@ -275,9 +291,10 @@ public class ShopManager : MonoBehaviour
             //play error audio
             PlayErrorAudio();
             clickedButton.transform.parent.parent.parent.gameObject.SetActive(false); // disable current page
+            clickedButton.transform.parent.parent.parent.parent.GetChild(6).gameObject.SetActive(true); // enable disabled back button 
             clickedButton.transform.parent.parent.parent.parent.gameObject.SetActive(false); // disable upgrade page
             clickedButton.transform.parent.parent.parent.parent.parent.gameObject.SetActive(false); // disable ship main page
-            clickedButton.transform.parent.parent.parent.parent.parent.parent.GetChild(4).gameObject.SetActive(true); // enable shop page
+            clickedButton.transform.parent.parent.parent.parent.parent.parent.GetChild(6).gameObject.SetActive(true); // enable shop page
         }
     }
     IEnumerator BarProgress(Slider slider, int level)
@@ -299,23 +316,23 @@ public class ShopManager : MonoBehaviour
     {
         // coin purchase button clicked
         GameObject clickedButton = EventSystem.current.currentSelectedGameObject;
-        if (clickedButton.tag == "CoinPurchase1")
+
+        if (clickedButton.tag == AllStringConstants.GOODS1_COINS)
         {
             //check the price and available coin
             int price = 60;
-            coinAvailable = ES3.Load<int>("Crystals", 0);
-            if (coinAvailable >= price)
+            crystalAvailable = ES3.Load<int>(AllStringConstants.CRYSTALS_AVAILABILITY_STATUS, 0);
+            if (crystalAvailable >= price)
             {
-                coinAvailable -= price;
+                crystalAvailable -= price;
 
-                //update crystal info
-                ES3.Save<int>("Crystals", coinAvailable);
-                //update crystals on UI
-                Crystals.text = coinAvailable.ToString();
+                ES3.Save<int>(AllStringConstants.CRYSTALS_AVAILABILITY_STATUS, crystalAvailable);
+                //update Goods
+                UpdateGoodsValueOnUI();
 
-                int avaiableCoin = ES3.Load<int>("Coins", coinAvailable);
+                int avaiableCoin = ES3.Load<int>(AllStringConstants.COINS_AVAILABILITY_STATUS, 0);
                 //update coins
-                ES3.Save<int>("Coins", avaiableCoin + 1000);
+                ES3.Save<int>(AllStringConstants.COINS_AVAILABILITY_STATUS, avaiableCoin + 1000);
 
                 //play anim..
                 StartCoroutine(PlayAnimation(clickedButton.transform.parent.GetComponent<Animation>()));
@@ -324,23 +341,22 @@ public class ShopManager : MonoBehaviour
             else
                 StartCoroutine(PlayAnimation(Crystals.transform.parent.gameObject.GetComponent<Animation>()));// coin not available animation...
         }
-        else if (clickedButton.tag == "CoinPurchase2")
+        else if (clickedButton.tag == AllStringConstants.GOODS2_COINS)
         {
             //check the price and available coin
             int price = 500;
-            coinAvailable = ES3.Load<int>("Crystals", 0);
-            if (coinAvailable >= price)
+            crystalAvailable = ES3.Load<int>(AllStringConstants.CRYSTALS_AVAILABILITY_STATUS, 0);
+            if (crystalAvailable >= price)
             {
-                coinAvailable -= price;
+                crystalAvailable -= price;
 
-                //update crystal info
-                ES3.Save<int>("Crystals", coinAvailable);
-                //update crystals on UI
-                Crystals.text = coinAvailable.ToString();
+                ES3.Save<int>(AllStringConstants.CRYSTALS_AVAILABILITY_STATUS, crystalAvailable);
+                //update Goods
+                UpdateGoodsValueOnUI();
 
-                int avaiableCoin = ES3.Load<int>("Coins", coinAvailable);
+                int avaiableCoin = ES3.Load<int>(AllStringConstants.COINS_AVAILABILITY_STATUS, 0);
                 //update coins
-                ES3.Save<int>("Coins", avaiableCoin + 10000);
+                ES3.Save<int>(AllStringConstants.COINS_AVAILABILITY_STATUS, avaiableCoin + 10000);
 
                 //play anim..
                 StartCoroutine(PlayAnimation(clickedButton.transform.parent.GetComponent<Animation>()));
@@ -349,11 +365,11 @@ public class ShopManager : MonoBehaviour
             else
                 StartCoroutine(PlayAnimation(Crystals.transform.parent.gameObject.GetComponent<Animation>()));// coin not available animation...
         }
-        else if (clickedButton.tag == "CoinPurchase3")
+        else if (clickedButton.tag == AllStringConstants.GOODS3_CRYSTALS)
         {
             //TODO:: // perfom in app purchase api works
         }
-        else if (clickedButton.tag == "CoinPurchase4")
+        else if (clickedButton.tag == AllStringConstants.GOODS4_CRYSTALS)
         {
             //TODO:: // perfom in app purchase api works
         }
@@ -386,7 +402,7 @@ public class ShopManager : MonoBehaviour
             ConfidentialButon[i].interactable = false;
         }
         
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
 
         for (int i = 0; i < ConfidentialButon.Length; i++)
         {
@@ -395,17 +411,63 @@ public class ShopManager : MonoBehaviour
 
 
     }
+
+    //updates coins and crystal values on UI
+    void UpdateGoodsValueOnUI()
+    {
+        Coins.text = ES3.Load<int>(AllStringConstants.COINS_AVAILABILITY_STATUS, 0).ToString();
+        Crystals.text = ES3.Load<int>(AllStringConstants.CRYSTALS_AVAILABILITY_STATUS, 0).ToString();
+    }
+
+
+    /// <summary>
+    /// check for price. if affordable then do transaction..
+    /// </summary>
+    /// <param name="txt"></param>
+    /// <returns></returns>
+    private int UpdateCoinsAndCrystalsStatus(TextMeshProUGUI txt)
+    {
+        // check the price
+        int price = Convert.ToInt32(txt.text);
+
+        if (txt.tag == AllStringConstants.IT_IS_COIN)
+        {
+            coinAvailable = ES3.Load<int>(AllStringConstants.COINS_AVAILABILITY_STATUS, 0);
+
+            if (coinAvailable >= price)
+            {
+                coinAvailable -= price;
+                ES3.Save<int>(AllStringConstants.COINS_AVAILABILITY_STATUS, coinAvailable);
+            }
+            else
+                return 0;
+
+        }
+        else if (txt.tag == AllStringConstants.IT_IS_CRYSTAL)
+        {
+            crystalAvailable = ES3.Load<int>(AllStringConstants.CRYSTALS_AVAILABILITY_STATUS, 0);
+
+            if (crystalAvailable >= price)
+            {
+                crystalAvailable -= price;
+                ES3.Save<int>(AllStringConstants.CRYSTALS_AVAILABILITY_STATUS, crystalAvailable);
+            }
+            else
+                return 0;
+        }
+        return 1;
+    }
     #region AudioMethods
     //plays the audio when ship is purchased
     public void PlayShipPurchaseAudio()
     {
-        AudioManager.instance.play("congratulations", false);
+        AudioManager.instance.play(AllStringConstants.CONGRATULATIONS_SOUND, false);
     }
 
     //plays when not enough money or has an error
     public void PlayErrorAudio()
     {
-        AudioManager.instance.play("error", false);
+        AudioManager.instance.play(AllStringConstants.ERROR_SOUND, false);
     }
 
     #endregion

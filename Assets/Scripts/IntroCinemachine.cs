@@ -7,6 +7,8 @@ using System;
 
 public class IntroCinemachine : MonoBehaviour
 {
+    [SerializeField] GameObject portal;
+    [SerializeField] GameObject cam;
     Rigidbody2D rb;
     [SerializeField] float multiplier;
     [SerializeField] GameObject dialogue1;
@@ -47,7 +49,7 @@ public class IntroCinemachine : MonoBehaviour
             {
                 if (doFade)
                 {
-                    StartCoroutine(FadeIn());
+                    LevelLoader.instance.StartWhiteCrossfadeTransition();
                     doFade = false;
                 }
 
@@ -61,47 +63,34 @@ public class IntroCinemachine : MonoBehaviour
 
             if (transform.position.y >= 490f)
             {
+                
                 rb.velocity = Vector2.zero;
                 multiplier = 0;
                 isSpeedUpOn = false;
-                Invoke("PopUpDialogue", 2.5f);
+                StartCoroutine(SetupPortal());
+                //Invoke("PopUpDialogue", 2.5f);
             }
         }
     }
 
-    IEnumerator FadeIn()
+
+    IEnumerator SetupPortal()
     {
 
-        float currenttime = 0f;
-        while (currenttime < 2f)
-        {
-            currenttime += Time.deltaTime;
-            cinemachineStoryboard.m_Alpha = currenttime/2;
-            yield return null;
-        }
-        if (cinemachineStoryboard.m_Alpha > 1f)
-        {
-            cinemachineStoryboard.m_Alpha = 1;
-            StartCoroutine(FadeOut());
-        }
+        yield return new WaitForSeconds(1f);
+        portal.SetActive(true);
+        cam.GetComponent<RipplePostProcessor>().SetPosition(new Vector3(98.5f, 91f, 0));
+
+        yield return new WaitForSeconds(5f);
+        LevelLoader.instance.StartSpikeTransition();
+        yield return new WaitForSeconds(1f);
+        cam.GetComponent<RipplePostProcessor>().enabled = false;
+
+        yield return new WaitForSeconds(5f);
+        portal.SetActive(false);
+        LevelLoader.instance.StartSpikeTransition();
     }
-    IEnumerator FadeOut()
-    {
-
-        float currenttime = 0.7f;
-        while (currenttime > 0f)
-        {
-            currenttime -= Time.deltaTime;
-
-            cinemachineStoryboard.m_Alpha = currenttime/0.7f;
-            yield return null;
-        }
-        if (cinemachineStoryboard.m_Alpha < 0f)
-            cinemachineStoryboard.m_Alpha = 0;
-    }
-
-   
-
+    
     void PopUpDialogue()
     {
         Time.timeScale = 0f;

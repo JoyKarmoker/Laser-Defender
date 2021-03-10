@@ -58,8 +58,12 @@ TagManager:
   - Ship3Protection
   - CoinPurchase1
   - CoinPurchase2
+  - CrystalPurchase1
+  - CrystalPurchase2
   - CoinPurchase3
   - CoinPurchase4
+  - ItsCoin
+  - ItsCrystal
   layers:
   - Default
   - TransparentFX

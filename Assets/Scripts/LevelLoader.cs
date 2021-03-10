@@ -6,13 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
-    public static LevelLoader Instance { get; private set; }
+    public static LevelLoader instance { get; private set; }
 
-    public Animator my_animator;
+    public Animator crossfadeAnimatorBlack;
+    public Animator crossfadeAnimatorWhite;
+    public Animator spikeAnimator;
     public float transitionTime = 1f;
     private void Awake()
     {
-        Instance = this;
+        instance = this;
     }
 
     //loads next level with fade anim
@@ -28,7 +30,7 @@ public class LevelLoader : MonoBehaviour
 
     IEnumerator Load_Level(int sceneIndex)
     {        
-        my_animator.SetTrigger("fade");
+        crossfadeAnimatorBlack.SetTrigger(AllStringConstants.CROSSFADE_BLACK);
      
 
         yield return new WaitForSeconds(transitionTime);
@@ -44,6 +46,16 @@ public class LevelLoader : MonoBehaviour
             StartCoroutine(Load_Level(index + 1));
         else
             StartCoroutine(Load_Level(index+2));
+    }
+
+    public void StartSpikeTransition()
+    {
+        spikeAnimator.SetTrigger(AllStringConstants.SPIKE_TRANSITION_START);
+    }
+
+    public void StartWhiteCrossfadeTransition()
+    {
+        crossfadeAnimatorWhite.SetTrigger(AllStringConstants.CROSSFADE_WHITE);
     }
 
 }

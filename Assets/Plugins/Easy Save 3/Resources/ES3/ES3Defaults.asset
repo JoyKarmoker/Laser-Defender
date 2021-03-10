@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settings:
     _location: 0
-    path: Glitch.xo
-    encryptionType: 1
-    compressionType: 1
-    encryptionPassword: '#laser_defender@space_shooter!'
+    path: SaveFile.es3
+    encryptionType: 0
+    compressionType: 0
+    encryptionPassword: password
     directory: 0
-    format: 1
+    format: 0
     prettyPrint: 1
     bufferSize: 2048
     saveChildren: 1
@@ -34,10 +34,10 @@ MonoBehaviour:
     - Cinemachine
     - UIEffect
     - AssetUsageDetector.Editor
-    showAdvancedSettings: 1
+    showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1
   addAllPrefabsToManager: 1
   logDebugInfo: 0
-  logWarnings: 0
+  logWarnings: 1
   logErrors: 1
