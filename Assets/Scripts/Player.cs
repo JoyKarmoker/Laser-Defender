@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     [Header("Player")]   
     [SerializeField] Color flashColor;
     [SerializeField] Color spriteChangeColor;
+    [SerializeField] int playerShipNumber;
 
     [HideInInspector] public PlayerStates playerStates;
     Vector2 destinationPos;
@@ -67,6 +68,7 @@ public class Player : MonoBehaviour
     [SerializeField] float shakeTime;
 
     PlayerBulletSpawner playerBulletSpawner;
+    PlayerShipTwoBulletSpawner playershipTwoBulletSpawner;
     ObjectPooler objectPooler;
     SpriteFlash spriteFlash;
     Coroutine fireCouritine;
@@ -100,6 +102,7 @@ public class Player : MonoBehaviour
         objectPooler = ObjectPooler.ObjectPullerInstance;
 
         playerBulletSpawner = PlayerBulletSpawner.playerBulletSpawnerInstance;
+        playershipTwoBulletSpawner = PlayerShipTwoBulletSpawner.playershipTwoBulletSpawnerInstance;
         xpCapsuleToLevelDownEatenByPlayer = 0;
         XpCapsuleEatenByPlayer = 0;
         protectionCapsuleEaten = false;
@@ -184,18 +187,36 @@ public class Player : MonoBehaviour
 
     IEnumerator FireCountinously()
     {
-        while(true)
+        if (playerShipNumber == 1)
         {
-            playerBulletSpawner.SpawnBullet(this.gameObject.transform, playerCurrentShipLevel);
-            if (playerCurrentShipLevel == 10 || playerCurrentShipLevel == 9)
+            while (true)
             {
-                playerBulletSpawner.SpawnBot(transform);
+                playerBulletSpawner.SpawnBullet(this.gameObject.transform, playerCurrentShipLevel);
+                if (playerCurrentShipLevel == 10 || playerCurrentShipLevel == 9)
+                {
+                    playerBulletSpawner.SpawnBot(transform);
+                }
+                /*GameObject laser = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(transform.position.x, transform.position.y+offsetFromY), Quaternion.identity);
+                laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);*/
+                yield return new WaitForSeconds(projectileFiringPeriod);
             }
-            /*GameObject laser = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(transform.position.x, transform.position.y+offsetFromY), Quaternion.identity);
-            laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);*/
-            yield return new WaitForSeconds(projectileFiringPeriod);
         }
-        
+        else if (playerShipNumber == 2)
+        {
+            while (true)
+            {
+                playershipTwoBulletSpawner.SpawnBullet(this.gameObject.transform, playerCurrentShipLevel);
+                if (playerCurrentShipLevel == 10)
+                {
+                    playershipTwoBulletSpawner.SpawnBot(transform);
+                }
+
+                /*GameObject laser = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(transform.position.x, transform.position.y+offsetFromY), Quaternion.identity);
+                laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);*/
+                yield return new WaitForSeconds(projectileFiringPeriod);
+
+            }
+        }
     }
 
 
@@ -252,14 +273,18 @@ public class Player : MonoBehaviour
         }
         else if (other.tag == "LaserBeamCapsule") //If player Collides with Laser Beam Capsule
         {
+            normalFiringOff = true; //Turning normal firing off for a specific time
             Debug.Log("Laser Capsule Hit");
             other.gameObject.SetActive(false);
+            StopCoroutine(fireCouritine);
 
             //Activate laser
-            //         laser can destroy every thing mind it
-            //run a timer for laser
             longLaserPrefab.SetActive(true);
             isLaserActive = true;
+            // laser can destroy every thing mind it
+            //run a timer for laser
+            StartCoroutine(LaserLastingCounter());
+            
         }
 
         else if(other.tag == "XPCapsule") //If player Collides with Xp Cpsule
@@ -292,16 +317,28 @@ public class Player : MonoBehaviour
     }
 
     // this method is called when player eats laser beam capsule 
-    private void LaserLastingCounter()
+    IEnumerator LaserLastingCounter()
     {
-        laserLastingTime -= Time.deltaTime;
-        
-        if(laserLastingTime <= 0)
+        /*while(true)
         {
-            isLaserActive = false;
-            laserLastingTime = laserTime;
-            longLaserPrefab.SetActive(false);
-        }
+            laserLastingTime -= Time.deltaTime;
+            if (laserLastingTime <= 0)
+            {
+                isLaserActive = false;
+                laserLastingTime = laserTime;
+                longLaserPrefab.SetActive(false);
+                break;
+            }
+
+        }*/
+
+
+        yield return new WaitForSeconds(laserLastingTime);
+        isLaserActive = false;
+        normalFiringOff = false;
+        longLaserPrefab.SetActive(false);
+        
+
     }
 
     #endregion
@@ -345,7 +382,7 @@ public class Player : MonoBehaviour
             if player watches the ad set the collider to true and set the player speed to where it was that means
             set the player speed to tmp spped and make normalFiringOff to false
         */
-        playerSpeed = 0f;
+                playerSpeed = 0f;
         this.gameObject.GetComponent<Collider2D>().enabled = false;
         normalFiringOff = true;
 

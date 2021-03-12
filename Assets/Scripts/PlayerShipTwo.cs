@@ -14,6 +14,7 @@ public class PlayerShipTwo : MonoBehaviour
     [Header("Player")]
     [SerializeField] Color flashColor;
     [SerializeField] Color spriteChangeColor;
+    [SerializeField] int playerShipNumber;
 
     [HideInInspector] public PlayerStates playerStates;
     Vector2 destinationPos;
@@ -66,6 +67,7 @@ public class PlayerShipTwo : MonoBehaviour
     [SerializeField] float shakeTime;
 
     PlayerShipTwoBulletSpawner playershipTwoBulletSpawner;
+    PlayerBulletSpawner playerBulletSpawner;
     //ObjectPooler objectPooler;
     SpriteFlash spriteFlash;
     AudioManager myAudioManager;
@@ -84,7 +86,7 @@ public class PlayerShipTwo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerCurrentShipLevel = 10;
+        //playerCurrentShipLevel = 10;
         playerStates = PlayerStates.FLY_TO_POS;
         destinationPos = new Vector2(0, destinationPosY);
         animator = GetComponent<Animator>();
@@ -98,6 +100,7 @@ public class PlayerShipTwo : MonoBehaviour
         health = gameSession.GetHealth();
         //objectPooler = ObjectPooler.ObjectPullerInstance;
         playershipTwoBulletSpawner = PlayerShipTwoBulletSpawner.playershipTwoBulletSpawnerInstance;
+        playerBulletSpawner = PlayerBulletSpawner.playerBulletSpawnerInstance;
 
         xpCapsuleToLevelDownEatenByPlayer = 0;
         XpCapsuleEatenByPlayer = 0;
@@ -178,19 +181,37 @@ public class PlayerShipTwo : MonoBehaviour
 
     IEnumerator FireCountinously()
     {
-        while (true)
+        if(playerShipNumber == 1)
         {
-            playershipTwoBulletSpawner.SpawnBullet(this.gameObject.transform, playerCurrentShipLevel);
-            if (playerCurrentShipLevel == 10)
+            while (true)
             {
-                playershipTwoBulletSpawner.SpawnBot(transform);
+                playerBulletSpawner.SpawnBullet(this.gameObject.transform, playerCurrentShipLevel);
+                if (playerCurrentShipLevel == 10 || playerCurrentShipLevel == 9)
+                {
+                    playerBulletSpawner.SpawnBot(transform);
+                }
+                /*GameObject laser = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(transform.position.x, transform.position.y+offsetFromY), Quaternion.identity);
+                laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);*/
+                yield return new WaitForSeconds(projectileFiringPeriod);
             }
-
-            /*GameObject laser = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(transform.position.x, transform.position.y+offsetFromY), Quaternion.identity);
-            laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);*/
-            yield return new WaitForSeconds(projectileFiringPeriod);
-
         }
+        else if(playerShipNumber == 2)
+        {
+            while (true)
+            {
+                playershipTwoBulletSpawner.SpawnBullet(this.gameObject.transform, playerCurrentShipLevel);
+                if (playerCurrentShipLevel == 10)
+                {
+                    playershipTwoBulletSpawner.SpawnBot(transform);
+                }
+
+                /*GameObject laser = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(transform.position.x, transform.position.y+offsetFromY), Quaternion.identity);
+                laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);*/
+                yield return new WaitForSeconds(projectileFiringPeriod);
+
+            }
+        }
+
 
     }
 

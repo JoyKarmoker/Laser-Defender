@@ -14,14 +14,14 @@ GameObject:
   - component: {fileID: 651230687558407937}
   - component: {fileID: 4181998552575533787}
   - component: {fileID: 4897410585296826632}
-  - component: {fileID: 4357041698239650654}
+  - component: {fileID: 631344595}
   m_Layer: 8
   m_Name: Player Ship Two
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4357041698239650466
 Transform:
   m_ObjectHideFlags: 0
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_Size: {x: 1.6353846, y: 1.8338462}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!70 &7531809555663264179
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashDuration: 0.1
---- !u!114 &4357041698239650654
+--- !u!114 &631344595
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,16 +166,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 4357041698239650653}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47eff3f1cc0caf0488ff1d10d10d6e07, type: 3}
+  m_Script: {fileID: 11500000, guid: 50fffdbb83cb3d440b9cadb9458fe30a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   flashColor: {r: 0, g: 0, b: 0, a: 0}
   spriteChangeColor: {r: 0, g: 0, b: 0, a: 0}
+  playerShipNumber: 2
   playerStates: 0
-  playerShipOne: {fileID: 9187425348893170653, guid: 80a094c10845e3349ae2deabcc4bd84a,
-    type: 3}
-  playerShipThree: {fileID: 9187425348893170653, guid: 80a094c10845e3349ae2deabcc4bd84a,
-    type: 3}
+  playerShipTwo: {fileID: 0}
+  playerShipThree: {fileID: 0}
   destinationPosY: -7
   playerInSpeed: 3
   playerSpeed: 10
@@ -187,12 +186,13 @@ MonoBehaviour:
   xpCapsuleToLeveldown: 5
   minTimeHomingMissileLasts: 2
   maxTimeHomingMissileLasts: 10
-  homingMissileFiringPeriod: 0.5
-  homingMissilePrefab: {fileID: 0}
-  homingMissileOffsetFromY: 1.1
-  longLaserPrefab: {fileID: 0}
+  HomingMissileFiringPeriod: 0.5
+  HomingMissilePrefab: {fileID: 0}
+  HomingMissileOffsetFromY: 1.1
+  resurrectionPanel: {fileID: 0}
+  laserPrefab: {fileID: 0}
   projectileSpeed: 10
-  projectileFiringPeriod: 0.15
+  projectileFiringPeriod: 0.1
   offsetFromY: 1.1
   laserLastingTime: 5
   shakeIntensity: 0

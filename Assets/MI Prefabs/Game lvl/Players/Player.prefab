@@ -348,6 +348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashColor: {r: 1, g: 0.12481483, b: 0, a: 0}
   spriteChangeColor: {r: 1, g: 1, b: 1, a: 0}
+  playerShipNumber: 1
   playerStates: 0
   playerShipTwo: {fileID: 4357041698239650653, guid: a40b58f823f2fb04facee6cbc199dd58,
     type: 3}
@@ -371,7 +372,6 @@ MonoBehaviour:
   resurrectionPanel: {fileID: 0}
   laserPrefab: {fileID: 1563411393893841052, guid: 4f5beb4a4a2fcde43a678bdd6ead8c0b,
     type: 3}
-  longLaserPrefab: {fileID: 9104929345724262448}
   projectileSpeed: 10
   projectileFiringPeriod: 0.1
   offsetFromY: 1.1
