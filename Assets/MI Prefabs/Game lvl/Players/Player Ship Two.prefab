@@ -241,9 +241,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 826a574355d6b154cba0c1b4d9329b43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserStart: {fileID: 0}
-  laserMiddle: {fileID: 0}
-  laserEnd: {fileID: 0}
+  laserStart: {fileID: 3898581560015791226, guid: df7a237dbc44775499a76f22c3a2740c,
+    type: 3}
+  laserMiddle: {fileID: 6249708231549287679, guid: 33aaea15dab27164caad1029a894ee4a,
+    type: 3}
+  laserEnd: {fileID: 1836902224942622184, guid: 5fb96f9f57bc4d94b96a233bbb6c3640,
+    type: 3}
   maxLaserSize: 20
 --- !u!114 &4897410585942312240
 MonoBehaviour:

@@ -136,11 +136,11 @@ public class Player : MonoBehaviour
     }
 
     //handles laser
-    private void FixedUpdate()
+    /*private void FixedUpdate()
     {
         if (isLaserActive)
             LaserLastingCounter();
-    }
+    }*/
 
     void GoToPoint(Vector2 destinationPoint)
     {
