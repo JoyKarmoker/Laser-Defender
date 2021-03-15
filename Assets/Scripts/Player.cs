@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     [SerializeField] float playerInSpeed = 3f;
     [SerializeField] float playerSpeed = 10f;
     [Tooltip("The amount of how many lvls does the ship has")]
-    [SerializeField] float playerShipLevels;
+    [SerializeField] int playerShipLevels;
     [SerializeField] float padding = 2f;    
 
     int health;
@@ -276,7 +276,7 @@ public class Player : MonoBehaviour
             normalFiringOff = true; //Turning normal firing off for a specific time
             Debug.Log("Laser Capsule Hit");
             other.gameObject.SetActive(false);
-            StopCoroutine(fireCouritine);
+            //StopCoroutine(fireCouritine);
 
             //Activate laser
             longLaserPrefab.SetActive(true);
@@ -332,7 +332,7 @@ public class Player : MonoBehaviour
 
         }*/
 
-
+        StopCoroutine(fireCouritine);
         yield return new WaitForSeconds(laserLastingTime);
         isLaserActive = false;
         normalFiringOff = false;
