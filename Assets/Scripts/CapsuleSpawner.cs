@@ -45,7 +45,7 @@ public class CapsuleSpawner : MonoBehaviour
             {
                 if (randomNumber <= weightofCapsulesSerially[i])
                 {
-                    Debug.Log("Capsule to spawn index " + capsuleToSpwanIndex);
+                    //Debug.Log("Capsule to spawn index " + capsuleToSpwanIndex);
                     capsuleToSpwanIndex = i;
                     break;
                 }
@@ -55,8 +55,8 @@ public class CapsuleSpawner : MonoBehaviour
                 }
                 
             }
-            //GameObject randomCapsule = capsulePrefabArray[capsuleToSpwanIndex];
-             GameObject randomCapsule = capsulePrefabArray[4]; //This line is for checking individual capsules
+            GameObject randomCapsule = capsulePrefabArray[capsuleToSpwanIndex];
+            // GameObject randomCapsule = capsulePrefabArray[1]; //This line is for checking individual capsules
             GameObject capsule = objectPooler.SpawnFromPool(randomCapsule.ToString(), enemy.transform.position, Quaternion.identity);
             Rigidbody2D rigidbody = capsule.GetComponent<Rigidbody2D>();
             rigidbody.velocity = new Vector2(0, -capsuleSpeed);

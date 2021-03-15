@@ -369,6 +369,8 @@ MonoBehaviour:
   HomingMissilePrefab: {fileID: 648870231598246078, guid: 086d0798cc419e44d984ad6d24cc073b,
     type: 3}
   HomingMissileOffsetFromY: 1.1
+  BelowBar: {fileID: 0}
+  UpperBar: {fileID: 0}
   resurrectionPanel: {fileID: 0}
   laserPrefab: {fileID: 1563411393893841052, guid: 4f5beb4a4a2fcde43a678bdd6ead8c0b,
     type: 3}
