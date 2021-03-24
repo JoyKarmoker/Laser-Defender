@@ -60,6 +60,8 @@ TagManager:
   - CoinPurchase2
   - CoinPurchase3
   - CoinPurchase4
+  - ActualHomingMissileCapsule
+  - LaserHead
   layers:
   - Default
   - TransparentFX

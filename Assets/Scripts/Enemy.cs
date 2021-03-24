@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using System;
+using System.Collections;
 
 public class Enemy : MonoBehaviour
 {
@@ -59,7 +61,7 @@ public class Enemy : MonoBehaviour
         animator = GetComponent<Animator>();
 
         spriteFlash = GetComponent<SpriteFlash>();
-        shotCounter = Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
+        shotCounter = UnityEngine.Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
         gameSession = FindObjectOfType<GameSession>();
         objectPooler = ObjectPooler.ObjectPullerInstance;
         capsuleSpawner = CapsuleSpawner.CapsuleSpawnerInstance;
@@ -199,7 +201,7 @@ public class Enemy : MonoBehaviour
         if(shotCounter <= 0f)
         {
             Fire();
-            shotCounter = Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
+            shotCounter = UnityEngine.Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
         }
     }
 
@@ -214,17 +216,28 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+
         DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
-        if (!damageDealer) return;
-        ProcessHit(damageDealer);
+        if (damageDealer)
+        {
+            ProcessHit(damageDealer);
+        }
+
+        LaserDamage laserDamage = other.gameObject.GetComponent<LaserDamage>();
+        if(laserDamage)
+        {
+            ProcessLagerHit(laserDamage);
+        }
+        
     }
 
     private void ProcessHit(DamageDealer damageDealer)
     {
         //flash sprite
         spriteFlash.Flash(flashColor);
-
-        health = health - damageDealer.GetDamage();
+        
+         health = health - damageDealer.GetDamage();
+       
         damageDealer.Hit();
         if (health <= 0)
         {
@@ -235,6 +248,16 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void ProcessLagerHit(LaserDamage laserDamage)
+    {
+        Invoke("ContinousDamage", 1); //Unfinished work
+        
+    }
+    private void ContinousDamage()
+    {
+        Debug.Log("Damaging"); //Unfinished work
+
+    }
     private void Die()
     {
         //Report to formation to tell it that this enemy is dead

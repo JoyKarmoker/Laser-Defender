@@ -11,8 +11,17 @@ public class DamageDealer : MonoBehaviour
         return damage;
     }
 
+    public bool IsLaser()
+    {
+        return true;
+    }
     public void Hit()
     {
-        gameObject.SetActive(false);
+        if(!(gameObject.tag=="LaserHead"))
+        {
+            gameObject.SetActive(false);
+        }
+        
+
     }
 }
