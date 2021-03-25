@@ -250,7 +250,6 @@ public class Enemy : MonoBehaviour
 
     private void ProcessLagerHit(LaserDamage laserDamage)
     {
-        //Unfinished work
         StartCoroutine(ContinousDamage(laserDamage));
         
     }
@@ -259,7 +258,7 @@ public class Enemy : MonoBehaviour
        int numberofSecondsforDamage = 10;
         for(int i = 0; i<numberofSecondsforDamage; i++)
         {
-            Debug.Log("Laser Damaging");
+            //Debug.Log("Laser Damaging");
             health = health - laserDamage.GetDamage();
             if (health <= 0)
             {
