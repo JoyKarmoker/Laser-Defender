@@ -9551,7 +9551,6 @@ GameObject:
   - component: {fileID: 1366463060255923600}
   - component: {fileID: 3409956251266073091}
   - component: {fileID: 3389675366652084863}
-  - component: {fileID: -1827370962148779430}
   - component: {fileID: 8301271478590836310}
   m_Layer: 0
   m_Name: Laser head
@@ -9642,19 +9641,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &-1827370962148779430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1836902224942622184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57a4e420799c5084087d2316b552f6a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 5
 --- !u!114 &8301271478590836310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9667,4 +9653,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47d2f70e1a567fa43aa2f996b2ea8c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 100
+  damage: 5

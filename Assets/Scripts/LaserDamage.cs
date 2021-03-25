@@ -4,21 +4,12 @@ using UnityEngine;
 
 public class LaserDamage : MonoBehaviour
 {
-    [SerializeField] int damage = 100;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] int damage = 5;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public int GetDamaege()
+    public int GetDamage()
     {
         return damage;
     }
+
+
 }

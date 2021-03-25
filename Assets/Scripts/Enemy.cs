@@ -250,12 +250,26 @@ public class Enemy : MonoBehaviour
 
     private void ProcessLagerHit(LaserDamage laserDamage)
     {
-        Invoke("ContinousDamage", 1); //Unfinished work
+        //Unfinished work
+        StartCoroutine(ContinousDamage(laserDamage));
         
     }
-    private void ContinousDamage()
+    IEnumerator ContinousDamage(LaserDamage laserDamage)
     {
-        Debug.Log("Damaging"); //Unfinished work
+       int numberofSecondsforDamage = 10;
+        for(int i = 0; i<numberofSecondsforDamage; i++)
+        {
+            Debug.Log("Laser Damaging");
+            health = health - laserDamage.GetDamage();
+            if (health <= 0)
+            {
+                //shake screen
+                CinemachineShake.Instance.ShakeCamera(3f, 0.2f);
+
+                Die();
+            }
+            yield return new WaitForSeconds(0.1f);
+        }     
 
     }
     private void Die()
