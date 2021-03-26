@@ -62,6 +62,7 @@ TagManager:
   - CoinPurchase4
   - ActualHomingMissileCapsule
   - LaserHead
+  - DestroyablePlanetInStoryScene
   layers:
   - Default
   - TransparentFX

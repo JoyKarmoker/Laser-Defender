@@ -18,7 +18,11 @@ public class StorySceneEnemyLaser : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if((other.gameObject.tag == "DestroyablePlanetInStoryScene"))
+        {
+            Destroy(gameObject);
+        }
         //gameObject.SetActive(false);
-        Destroy(gameObject);
+        
     }
 }

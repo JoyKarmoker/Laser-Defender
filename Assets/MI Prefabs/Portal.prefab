@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6449325239502478721}
   - component: {fileID: 6449325239502478722}
-  - component: {fileID: 6449325239502478720}
+  - component: {fileID: -7390408696634292333}
   - component: {fileID: 6449325239502478723}
   m_Layer: 0
   m_Name: Portal
@@ -59,7 +59,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &6449325239502478720
+--- !u!50 &-7390408696634292333
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -71,7 +71,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_Mass: 0.07
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -79,7 +79,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!114 &6449325239502478723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,5 +92,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31d92343a53b69e4d8af09b468517484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleChange: {x: 0.05, y: 0.05, z: 0.05}
-  scaleDownCounter: 0.01
+  percentScaleChange: 10
+  scaleDownCounter: 0.15
