@@ -2,18 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Portal : MonoBehaviour
+public class ScaleUpPortal : MonoBehaviour
 {
-
     //[SerializeField] Vector3 scaleChange = new Vector3(0.05f, 0.05f, 0.05f);
     [SerializeField] float percentScaleChange = 10f;
-    [SerializeField] float scaleDownCounter = 0.1f;
+    [SerializeField] float scaleUpCounter = 0.1f;
 
     float tmp;
     // Start is called before the first frame update
     void Start()
     {
-        tmp = scaleDownCounter;
+        tmp = scaleUpCounter;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -25,23 +24,22 @@ public class Portal : MonoBehaviour
     private void CountDownAndScaleDown(Collider2D collision)
     {
         Vector3 objectSize = collision.GetComponent<Transform>().localScale;
-        scaleDownCounter = scaleDownCounter - Time.deltaTime; //Scale down every 'scaleDownCounter' second by 'percentScaleChange' percent
-        if (scaleDownCounter <= 0f)
+        scaleUpCounter = scaleUpCounter - Time.deltaTime; //Scale down every 'scaleDownCounter' second by 'percentScaleChange' percent
+        if (scaleUpCounter <= 0f)
         {
             //Debug.Log("On trigger stay");
-            if(objectSize.x > 0)
+            if (objectSize.x < 1)
             {
                 //objectSize = objectSize - scaleChange;
-                objectSize = objectSize - objectSize * (percentScaleChange / 100);
-                if(objectSize.x >= 0f && objectSize.x <= 1f)
+                objectSize = objectSize + objectSize * (percentScaleChange / 100);
+                if (objectSize.x >= 0f && objectSize.x <= 1f)
                 {
                     collision.GetComponent<Transform>().localScale = objectSize;
                 }
-                
 
             }
-            
-            scaleDownCounter = tmp;
+
+            scaleUpCounter = tmp;
         }
     }
 
@@ -51,7 +49,7 @@ public class Portal : MonoBehaviour
         //collision.GetComponent<Transform>().localScale = new Vector3(1f, 1f, 1f);
     }
 
-   IEnumerator GradualScaleUp(Collider2D collision)
+    IEnumerator GradualScaleUp(Collider2D collision)
     {
         Vector3 objectSize = collision.GetComponent<Transform>().localScale; //Scale up every 'scaleDownCounter' second by 'percentScaleChange' percent
         while (objectSize.x <= 1)

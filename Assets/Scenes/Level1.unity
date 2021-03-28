@@ -1058,12 +1058,12 @@ PrefabInstance:
     - target: {fileID: 5907365903568031919, guid: 461d6beef6f4ee74e8eb8bf97a80ea68,
         type: 3}
       propertyPath: capsulePrefabArray.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5907365903568031919, guid: 461d6beef6f4ee74e8eb8bf97a80ea68,
         type: 3}
       propertyPath: weightofCapsulesSerially.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5907365903568031919, guid: 461d6beef6f4ee74e8eb8bf97a80ea68,
         type: 3}
@@ -1096,12 +1096,12 @@ PrefabInstance:
     - target: {fileID: 5907365903568031919, guid: 461d6beef6f4ee74e8eb8bf97a80ea68,
         type: 3}
       propertyPath: weightofCapsulesSerially.Array.data[0]
-      value: 40
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 5907365903568031919, guid: 461d6beef6f4ee74e8eb8bf97a80ea68,
         type: 3}
       propertyPath: weightofCapsulesSerially.Array.data[1]
-      value: 32
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5907365903568031919, guid: 461d6beef6f4ee74e8eb8bf97a80ea68,
         type: 3}

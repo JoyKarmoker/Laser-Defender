@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -7390408696634292333}
   - component: {fileID: 6449325239502478723}
   m_Layer: 0
-  m_Name: Portal
+  m_Name: Scale Down Portal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,5 +92,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31d92343a53b69e4d8af09b468517484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  percentScaleChange: 10
-  scaleDownCounter: 0.15
+  percentScaleChange: 15
+  scaleDownCounter: 0.1
