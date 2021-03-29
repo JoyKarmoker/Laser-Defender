@@ -13,9 +13,11 @@ public class IntroCinemachine : MonoBehaviour
     [SerializeField] float multiplier;
     [SerializeField] GameObject dialogue1;
     [SerializeField] DialougeManager dialougeManager;
+    [SerializeField] GameObject explosionVFX;
+    [SerializeField] GameObject explosionPlanet;
+    [SerializeField] Animator ConversationAnimator;
+    [SerializeField] StorySceneEnemy[] planetDestroyerEnemies;
     bool isSpeedUpOn;
-    CinemachineStoryboard cinemachineStoryboard;
-
 
 
     bool doFade = true;
@@ -23,7 +25,6 @@ public class IntroCinemachine : MonoBehaviour
     // Start is called before the first frame update
     IEnumerator Start()
     {
-        cinemachineStoryboard = GetComponent<CinemachineStoryboard>();
         GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 0.5f;
         
         isSpeedUpOn = false;
@@ -79,16 +80,37 @@ public class IntroCinemachine : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
         portal.SetActive(true);
+        yield return new WaitForSeconds(1f);
         cam.GetComponent<RipplePostProcessor>().SetPosition(new Vector3(98.5f, 91f, 0));
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4f);
         LevelLoader.instance.StartSpikeTransition();
         yield return new WaitForSeconds(1f);
         cam.GetComponent<RipplePostProcessor>().enabled = false;
+        gameObject.transform.position = new Vector3(50, 50, transform.position.z); // planet explosion scene.. 
+        explosionVFX.SetActive(true);
+        
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4.5f);
+        explosionVFX.transform.GetChild(0).gameObject.SetActive(false);
+        explosionVFX.transform.GetChild(1).gameObject.SetActive(false);
+        explosionPlanet.SetActive(false);
+        foreach (var item in planetDestroyerEnemies)
+        {
+            item.TurnOffFiring();
+        }
+
+        yield return new WaitForSeconds(1f);
         portal.SetActive(false);
         LevelLoader.instance.StartSpikeTransition();
+
+        yield return new WaitForSeconds(1f);
+        GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 0;
+        gameObject.transform.position = new Vector3(50, 0, transform.position.z); // start conversation scene.. 
+        ConversationAnimator.Play(AllStringConstants.CONVERSATION_ANIM);
+
+        yield return new WaitForSeconds(7f);
+        PopUpDialogue();
     }
     
     void PopUpDialogue()

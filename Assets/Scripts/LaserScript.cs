@@ -8,10 +8,12 @@ public class LaserScript : MonoBehaviour
     public GameObject laserStart;
     public GameObject laserMiddle;
     public GameObject laserEnd;
+    [SerializeField] LayerMask enemyLayer;
 
     private GameObject start;
     private GameObject middle;
     private GameObject end;
+    
 
     DamageDealer damageDealer;
 
@@ -58,7 +60,7 @@ public class LaserScript : MonoBehaviour
 
         // Raycast at the top as our sprite has been design for that
         Vector2 laserDirection = this.transform.up;
-        RaycastHit2D hit = Physics2D.Raycast(this.transform.position + new Vector3(0,1,0), laserDirection, maxLaserSize);
+        RaycastHit2D hit = Physics2D.Raycast(this.transform.position + new Vector3(0,1,0), laserDirection, maxLaserSize, enemyLayer);
 
 
         if (hit.collider != null)

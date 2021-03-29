@@ -120,6 +120,7 @@ public static class AllStringConstants
     public const string CROSSFADE_BLACK = "fade";
     public const string CROSSFADE_WHITE = "fadeInWhite";
     public const string SPIKE_TRANSITION_START = "cover";
+    public const string CONVERSATION_ANIM = "story conversation entry";
 
     #endregion
 

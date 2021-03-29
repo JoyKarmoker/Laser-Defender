@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     [Header("Player")]   
     [SerializeField] Color flashColor;
     [SerializeField] Color spriteChangeColor;
+    [SerializeField] int playerShipNumber;
 
     [HideInInspector] public PlayerStates playerStates;
     Vector2 destinationPos;
@@ -24,7 +25,7 @@ public class Player : MonoBehaviour
     [SerializeField] float playerInSpeed = 3f;
     [SerializeField] float playerSpeed = 10f;
     [Tooltip("The amount of how many lvls does the ship has")]
-    [SerializeField] float playerShipLevels;
+    [SerializeField] int playerShipLevels;
     [SerializeField] float padding = 2f;    
 
     int health;
@@ -39,8 +40,12 @@ public class Player : MonoBehaviour
     [SerializeField] float HomingMissileFiringPeriod = 0.5f;
     [SerializeField] GameObject HomingMissilePrefab;
     [SerializeField] float HomingMissileOffsetFromY = 1.1f;
+    [SerializeField] Slider BelowBar;
+    [SerializeField] Slider UpperBar;
+    Slider currentWorkingBar;
 
-    int xpCapsuleToNextLevel = 5;    //Numbers of Xp Capsule Needed for the player to go next level 
+    int maxValueOfBothSlider = 1;
+    int xpCapsuleToNextLevel;    //Numbers of Xp Capsule Needed for the player to go next level 
     private int XpCapsuleEatenByPlayer = 0;
     private int xpCapsuleToLevelDownEatenByPlayer = 0;
     private bool protectionCapsuleEaten = false; // This is will be true if player eats protection capsule and after protection capsule effect is finished it will be false again
@@ -67,6 +72,7 @@ public class Player : MonoBehaviour
     [SerializeField] float shakeTime;
 
     PlayerBulletSpawner playerBulletSpawner;
+    PlayerShipTwoBulletSpawner playershipTwoBulletSpawner;
     ObjectPooler objectPooler;
     SpriteFlash spriteFlash;
     Coroutine fireCouritine;
@@ -100,6 +106,7 @@ public class Player : MonoBehaviour
         objectPooler = ObjectPooler.ObjectPullerInstance;
 
         playerBulletSpawner = PlayerBulletSpawner.playerBulletSpawnerInstance;
+        playershipTwoBulletSpawner = PlayerShipTwoBulletSpawner.playershipTwoBulletSpawnerInstance;
         xpCapsuleToLevelDownEatenByPlayer = 0;
         XpCapsuleEatenByPlayer = 0;
         protectionCapsuleEaten = false;
@@ -107,6 +114,8 @@ public class Player : MonoBehaviour
         HomingMissileOn = false;
         laserTime = laserLastingTime;
         longLaserPrefab = transform.GetChild(1).gameObject;
+        xpCapsuleToNextLevel = maxValueOfBothSlider;
+        currentWorkingBar = BelowBar;
         //xpSlider1 = xpSliders.transform.GetChild(0).GetComponent<Slider>();
         //xpSlider2 = xpSliders.transform.GetChild(1).GetComponent<Slider>();
       
@@ -133,11 +142,11 @@ public class Player : MonoBehaviour
     }
 
     //handles laser
-    private void FixedUpdate()
+    /*private void FixedUpdate()
     {
         if (isLaserActive)
             LaserLastingCounter();
-    }
+    }*/
 
     void GoToPoint(Vector2 destinationPoint)
     {
@@ -184,18 +193,36 @@ public class Player : MonoBehaviour
 
     IEnumerator FireCountinously()
     {
-        while(true)
+        if (playerShipNumber == 1)
         {
-            playerBulletSpawner.SpawnBullet(this.gameObject.transform, playerCurrentShipLevel);
-            if (playerCurrentShipLevel == 10 || playerCurrentShipLevel == 9)
+            while (true)
             {
-                playerBulletSpawner.SpawnBot(transform);
+                playerBulletSpawner.SpawnBullet(this.gameObject.transform, playerCurrentShipLevel);
+                if (playerCurrentShipLevel == 10 || playerCurrentShipLevel == 9)
+                {
+                    playerBulletSpawner.SpawnBot(transform);
+                }
+                /*GameObject laser = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(transform.position.x, transform.position.y+offsetFromY), Quaternion.identity);
+                laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);*/
+                yield return new WaitForSeconds(projectileFiringPeriod);
             }
-            /*GameObject laser = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(transform.position.x, transform.position.y+offsetFromY), Quaternion.identity);
-            laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);*/
-            yield return new WaitForSeconds(projectileFiringPeriod);
         }
-        
+        else if (playerShipNumber == 2)
+        {
+            while (true)
+            {
+                playershipTwoBulletSpawner.SpawnBullet(this.gameObject.transform, playerCurrentShipLevel);
+                if (playerCurrentShipLevel == 10)
+                {
+                    playershipTwoBulletSpawner.SpawnBot(transform);
+                }
+
+                /*GameObject laser = objectPooler.SpawnFromPool(laserPrefab.ToString(), new Vector2(transform.position.x, transform.position.y+offsetFromY), Quaternion.identity);
+                laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);*/
+                yield return new WaitForSeconds(projectileFiringPeriod);
+
+            }
+        }
     }
 
 
@@ -252,14 +279,18 @@ public class Player : MonoBehaviour
         }
         else if (other.tag == "LaserBeamCapsule") //If player Collides with Laser Beam Capsule
         {
+            normalFiringOff = true; //Turning normal firing off for a specific time
             Debug.Log("Laser Capsule Hit");
             other.gameObject.SetActive(false);
+            //StopCoroutine(fireCouritine);
 
             //Activate laser
-            //         laser can destroy every thing mind it
-            //run a timer for laser
             longLaserPrefab.SetActive(true);
             isLaserActive = true;
+            // laser can destroy every thing mind it
+            //run a timer for laser
+            StartCoroutine(LaserLastingCounter());
+            
         }
 
         else if(other.tag == "XPCapsule") //If player Collides with Xp Cpsule
@@ -292,16 +323,28 @@ public class Player : MonoBehaviour
     }
 
     // this method is called when player eats laser beam capsule 
-    private void LaserLastingCounter()
+    IEnumerator LaserLastingCounter()
     {
-        laserLastingTime -= Time.deltaTime;
-        
-        if(laserLastingTime <= 0)
+        /*while(true)
         {
-            isLaserActive = false;
-            laserLastingTime = laserTime;
-            longLaserPrefab.SetActive(false);
-        }
+            laserLastingTime -= Time.deltaTime;
+            if (laserLastingTime <= 0)
+            {
+                isLaserActive = false;
+                laserLastingTime = laserTime;
+                longLaserPrefab.SetActive(false);
+                break;
+            }
+
+        }*/
+
+        StopCoroutine(fireCouritine);
+        yield return new WaitForSeconds(laserLastingTime);
+        isLaserActive = false;
+        normalFiringOff = false;
+        longLaserPrefab.SetActive(false);
+        
+
     }
 
     #endregion
@@ -345,7 +388,7 @@ public class Player : MonoBehaviour
             if player watches the ad set the collider to true and set the player speed to where it was that means
             set the player speed to tmp spped and make normalFiringOff to false
         */
-        playerSpeed = 0f;
+                playerSpeed = 0f;
         this.gameObject.GetComponent<Collider2D>().enabled = false;
         normalFiringOff = true;
 
@@ -363,7 +406,9 @@ public class Player : MonoBehaviour
      */
     public void XpCapsuleEaten()
     {
+        Debug.Log("XP Capsule eaten by player");
         XpCapsuleEatenByPlayer = XpCapsuleEatenByPlayer + 1;
+        currentWorkingBar.value = (currentWorkingBar.value + 1);
         if (XpCapsuleEatenByPlayer >= xpCapsuleToNextLevel)
         {
             
@@ -382,7 +427,22 @@ public class Player : MonoBehaviour
  */
     public void XpDownCapsuleEaten()
     {
-        xpCapsuleToLevelDownEatenByPlayer = xpCapsuleToLevelDownEatenByPlayer + 1;
+        if(playerCurrentShipLevel > 1)
+        {
+            XpCapsuleEatenByPlayer = XpCapsuleEatenByPlayer - 1;
+            currentWorkingBar.value = currentWorkingBar.value - 1;
+            if (currentWorkingBar.value <= 0) //If the bar reaches 0 that means it have to go the previous level
+            {
+                if (playerCurrentShipLevel > 0)
+                {
+                    MoveToPreviousLevel();
+                }
+            }
+        }
+
+
+
+        /*xpCapsuleToLevelDownEatenByPlayer = xpCapsuleToLevelDownEatenByPlayer + 1;
         if (xpCapsuleToLevelDownEatenByPlayer >= xpCapsuleToLeveldown)
         {
             if (playerCurrentShipLevel > 0) //If player can go previous level
@@ -392,7 +452,7 @@ public class Player : MonoBehaviour
                 
                 MoveToPreviousLevel();
             }
-        }
+        }*/
     }
 
     /*
@@ -435,6 +495,30 @@ public class Player : MonoBehaviour
     {
         //update current ship level
         playerCurrentShipLevel++;
+        
+        
+        //Updating the xpbar for current Level
+        float exp = Mathf.Ceil(playerCurrentShipLevel /2.0f);
+        maxValueOfBothSlider = (int)Mathf.Pow(2, (exp - 1));
+        Debug.Log("Maxium value of sliders "+ maxValueOfBothSlider);
+        BelowBar.maxValue = maxValueOfBothSlider;
+        UpperBar.maxValue = maxValueOfBothSlider;
+        
+        if(playerCurrentShipLevel %2 == 0) //If player is in even level like 2, 4, 6, 8, 10
+        {
+            BelowBar.value = maxValueOfBothSlider;
+            UpperBar.value = UpperBar.minValue;
+            currentWorkingBar = UpperBar;
+        }
+
+        else //if Player is in odd level 1, 3, 5, 7, 9
+        {
+            UpperBar.value = 0;
+            BelowBar.value = BelowBar.minValue;
+            currentWorkingBar = BelowBar;
+        }
+        xpCapsuleToNextLevel = maxValueOfBothSlider;
+
 
         //lvl up in animator
         animator.SetInteger("Ship Level", playerCurrentShipLevel);
@@ -453,6 +537,39 @@ public class Player : MonoBehaviour
 
         //update current ship level
         playerCurrentShipLevel--;
+
+        //Updating the xpbar for current Level
+        float exp = Mathf.Ceil(playerCurrentShipLevel / 2.0f);
+        maxValueOfBothSlider = (int)Mathf.Pow(2, (exp - 1));
+        Debug.Log("Maxium value of sliders " + maxValueOfBothSlider);
+
+        if(maxValueOfBothSlider > 1)
+        {
+            BelowBar.maxValue = maxValueOfBothSlider;
+            UpperBar.maxValue = maxValueOfBothSlider;
+        }
+
+        else
+        {
+            BelowBar.maxValue = 1;
+            UpperBar.maxValue = 1;
+        }
+
+        if (playerCurrentShipLevel % 2 == 0) //If player is in even level like 2, 4, 6, 8, 10
+        {
+            BelowBar.value = maxValueOfBothSlider;
+            UpperBar.value = 0;
+            currentWorkingBar = UpperBar;
+        }
+
+        else //if Player is in odd level 1, 3, 5, 7, 9
+        {
+            UpperBar.value = 0;
+            BelowBar.value = 0;
+            currentWorkingBar = BelowBar;
+        }
+        XpCapsuleEatenByPlayer = 0;
+        xpCapsuleToNextLevel = maxValueOfBothSlider;
 
         //lvl up in animator
         animator.SetInteger("Ship Level", playerCurrentShipLevel);
