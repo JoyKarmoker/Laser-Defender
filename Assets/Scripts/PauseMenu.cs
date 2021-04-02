@@ -10,13 +10,20 @@ public class PauseMenu : MonoBehaviour
     public static bool gameIsPaused = false;
     public GameObject paseMenuUI;
     [SerializeField] GameSession gameSession;
+    Animator animator;
 
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
-     public void Pause()
+    public void Pause()
     {
         Time.timeScale = 0f;
         paseMenuUI.SetActive(true);
-        
+
+        animator.updateMode = AnimatorUpdateMode.UnscaledTime;
+        animator.Play(AllStringConstants.OPEN_DARK_PANEL_ANIM);
         gameIsPaused = true;
     }
 
@@ -25,15 +32,17 @@ public class PauseMenu : MonoBehaviour
         paseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
+        animator.Play(AllStringConstants.OPEN_IDLE_ANIM);
+        animator.updateMode = AnimatorUpdateMode.Normal;
     }
     public void loadMainMenu()
     {
-        SceneManager.LoadScene(1);
+        LevelLoader.instance.loadSelectedLevel(1);
         Time.timeScale = 1f;
     }
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        LevelLoader.instance.loadSelectedLevel(SceneManager.GetActiveScene().buildIndex);
         gameSession.score = 0;
         gameSession.SetHealth(6);
         Time.timeScale = 1f;

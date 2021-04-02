@@ -388,7 +388,8 @@ public class Player : MonoBehaviour
             if player watches the ad set the collider to true and set the player speed to where it was that means
             set the player speed to tmp spped and make normalFiringOff to false
         */
-                playerSpeed = 0f;
+        
+        playerSpeed = 0f;
         this.gameObject.GetComponent<Collider2D>().enabled = false;
         normalFiringOff = true;
 

@@ -128,6 +128,10 @@ public static class AllStringConstants
 
     #region Player
 
+    public const string OPEN_DARK_PANEL_ANIM = "DarkenPanel";
+    public const string OPEN_IDLE_ANIM = "Idle";
+    
+
     #endregion
 
     #region Enemy

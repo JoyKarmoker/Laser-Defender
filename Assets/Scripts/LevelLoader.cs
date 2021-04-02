@@ -22,6 +22,7 @@ public class LevelLoader : MonoBehaviour
     {
         StartCoroutine(Load_Level(SceneManager.GetActiveScene().buildIndex + 1));
     }
+
     //loads selected level with fade anim
     public void loadSelectedLevel(int sceneIndex)
     {

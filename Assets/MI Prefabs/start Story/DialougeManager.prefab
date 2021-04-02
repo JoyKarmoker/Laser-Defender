@@ -46,6 +46,6 @@ MonoBehaviour:
   textDisplay: {fileID: 0}
   sentences:
   - It seems earth is under attack@@ WE gotta save the planet
-  typingSpeed: 0.05
+  typingSpeed: 0.03
   continueText: {fileID: 0}
   MaxDubbleTapTime: 1

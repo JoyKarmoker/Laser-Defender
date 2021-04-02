@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8958783207286739598}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.7546997, y: 8.237, z: -1}
-  m_LocalScale: {x: 2.1608036, y: 2.1608036, z: 2.1608036}
+  m_LocalPosition: {x: 4.4, y: 6.9, z: -2}
+  m_LocalScale: {x: 1.6011122, y: 1.6011122, z: 1.6011122}
   m_Children: []
   m_Father: {fileID: 8958783208096063976}
   m_RootOrder: 3
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 1
   m_SpriteSortPoint: 0
 --- !u!1 &8958783208096063979
 GameObject:
@@ -141,7 +141,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8958783208334166452}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.095300056, y: 502.807, z: -2}
+  m_LocalPosition: {x: -0.095300056, y: 501.6, z: -2}
   m_LocalScale: {x: 1.13, y: 1.13, z: 1.13}
   m_Children: []
   m_Father: {fileID: 8958783208096063976}
@@ -195,7 +195,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 1
   m_SpriteSortPoint: 0
 --- !u!95 &8958783208334166453
 Animator:
@@ -296,7 +296,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
-  m_MaskInteraction: 0
+  m_MaskInteraction: 1
   m_SpriteSortPoint: 0
 --- !u!1 &8958783209364473689
 GameObject:
@@ -323,7 +323,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8958783209364473689}
   m_LocalRotation: {x: -0, y: -0, z: -0.76924753, w: 0.6389509}
-  m_LocalPosition: {x: 0.0046999454, y: -18.293, z: -1}
+  m_LocalPosition: {x: 0.0046999454, y: -14.58, z: -1}
   m_LocalScale: {x: 167.23, y: 160.09105, z: 0}
   m_Children: []
   m_Father: {fileID: 8958783208096063976}
@@ -369,7 +369,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0b0e1c75fa99e84419790e7798263d43, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.9174528, b: 0.6367924, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -377,5 +377,5 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 1
   m_SpriteSortPoint: 0

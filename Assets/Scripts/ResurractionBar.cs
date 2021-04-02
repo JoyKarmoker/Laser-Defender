@@ -10,6 +10,7 @@ public class ResurractionBar : MonoBehaviour {
     [SerializeField] RectTransform edgeRectTransform;
     [SerializeField] RawImage barRawImage;
     [SerializeField] GameObject losePanel;
+    [SerializeField] Animator gameCanvasAnimator;
 
     private void Start()
     {
@@ -25,6 +26,10 @@ public class ResurractionBar : MonoBehaviour {
         if (fill.fillAmount <= 0)
         {
             losePanel.SetActive(true);
+
+            gameCanvasAnimator.updateMode = AnimatorUpdateMode.UnscaledTime;
+            gameCanvasAnimator.Play(AllStringConstants.OPEN_DARK_PANEL_ANIM);
+
             this.gameObject.SetActive(false);
         }
 

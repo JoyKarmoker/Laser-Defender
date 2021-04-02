@@ -11,6 +11,8 @@ public class IntroCinemachine : MonoBehaviour
     [SerializeField] GameObject cam;
     Rigidbody2D rb;
     [SerializeField] float multiplier;
+    [SerializeField] float shakeFreq;
+    [SerializeField] float shakeTime;
     [SerializeField] GameObject dialogue1;
     [SerializeField] DialougeManager dialougeManager;
     [SerializeField] GameObject explosionVFX;
@@ -68,14 +70,14 @@ public class IntroCinemachine : MonoBehaviour
                 rb.velocity = Vector2.zero;
                 multiplier = 0;
                 isSpeedUpOn = false;
-                StartCoroutine(SetupPortal());
+                StartCoroutine(SetupPortalAndPerformRestTasks());
                 //Invoke("PopUpDialogue", 2.5f);
             }
         }
     }
 
 
-    IEnumerator SetupPortal()
+    IEnumerator SetupPortalAndPerformRestTasks()
     {
 
         yield return new WaitForSeconds(1f);
@@ -87,14 +89,18 @@ public class IntroCinemachine : MonoBehaviour
         LevelLoader.instance.StartSpikeTransition();
         yield return new WaitForSeconds(1f);
         cam.GetComponent<RipplePostProcessor>().enabled = false;
+        GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 0;
         gameObject.transform.position = new Vector3(50, 50, transform.position.z); // planet explosion scene.. 
         explosionVFX.SetActive(true);
-        
 
-        yield return new WaitForSeconds(4.5f);
+        yield return new WaitForSeconds(4);
+        CinemachineShake.Instance.ShakeCamera(shakeFreq, shakeTime);
+
+        yield return new WaitForSeconds(0.5f);
         explosionVFX.transform.GetChild(0).gameObject.SetActive(false);
         explosionVFX.transform.GetChild(1).gameObject.SetActive(false);
         explosionPlanet.SetActive(false);
+
         foreach (var item in planetDestroyerEnemies)
         {
             item.TurnOffFiring();
@@ -105,7 +111,7 @@ public class IntroCinemachine : MonoBehaviour
         LevelLoader.instance.StartSpikeTransition();
 
         yield return new WaitForSeconds(1f);
-        GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 0;
+        
         gameObject.transform.position = new Vector3(50, 0, transform.position.z); // start conversation scene.. 
         ConversationAnimator.Play(AllStringConstants.CONVERSATION_ANIM);
 

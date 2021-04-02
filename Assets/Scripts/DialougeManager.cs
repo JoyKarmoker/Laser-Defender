@@ -39,6 +39,8 @@ public class DialougeManager : MonoBehaviour
                 textDisplay.text += letter;
             yield return new WaitForSecondsRealtime(typingSpeed);
         }
+
+        yield return new WaitForSecondsRealtime(1);
         continueText.SetActive(true);
         isTapEnabled = true;
     }
