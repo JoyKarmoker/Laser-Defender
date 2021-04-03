@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4826063561987542991}
   - component: {fileID: 63141378184305046}
+  - component: {fileID: 787967504}
   m_Layer: 0
   m_Name: Audio Manager
   m_TagString: Untagged
@@ -52,11 +53,11 @@ MonoBehaviour:
     pinch: 1
     loop: 1
     source: {fileID: 0}
-  - name: button
-    clip: {fileID: 8300000, guid: 7fdd7abb7938d994b91ceb2d1a5b61be, type: 3}
+  - name: click
+    clip: {fileID: 8300000, guid: 6a60ed10526cd6d4fa64bf86965fa01e, type: 3}
     masterMixtureGroup: {fileID: 24300002, guid: 03c548c1db7bd79488271b532a555f20,
       type: 2}
-    volume: 0.8
+    volume: 1
     pinch: 1
     loop: 0
     source: {fileID: 0}
@@ -84,3 +85,55 @@ MonoBehaviour:
     pinch: 1
     loop: 0
     source: {fileID: 0}
+  - name: purchase
+    clip: {fileID: 8300000, guid: b6fd5391090a4cf44afb099fed6f3c13, type: 3}
+    masterMixtureGroup: {fileID: 24300002, guid: 03c548c1db7bd79488271b532a555f20,
+      type: 2}
+    volume: 1
+    pinch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: backtomainmenu
+    clip: {fileID: 8300000, guid: ae458cd47a803493d8149cae1e489620, type: 3}
+    masterMixtureGroup: {fileID: 24300002, guid: 03c548c1db7bd79488271b532a555f20,
+      type: 2}
+    volume: 1
+    pinch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: toggle
+    clip: {fileID: 8300000, guid: 0a8300c9e065a0346bc64fe1940bb80c, type: 3}
+    masterMixtureGroup: {fileID: 24300002, guid: 03c548c1db7bd79488271b532a555f20,
+      type: 2}
+    volume: 1
+    pinch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: play
+    clip: {fileID: 8300000, guid: 442236ed9689a411f93aa76b690d1e71, type: 3}
+    masterMixtureGroup: {fileID: 24300002, guid: 03c548c1db7bd79488271b532a555f20,
+      type: 2}
+    volume: 1
+    pinch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: shiplevelunlocked
+    clip: {fileID: 8300000, guid: d9c171832cd5c4023b8274b926f924a8, type: 3}
+    masterMixtureGroup: {fileID: 24300002, guid: 03c548c1db7bd79488271b532a555f20,
+      type: 2}
+    volume: 1
+    pinch: 1.2
+    loop: 0
+    source: {fileID: 0}
+--- !u!114 &787967504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5064394847453990396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7379c3e6542a241b58860b41fac47d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

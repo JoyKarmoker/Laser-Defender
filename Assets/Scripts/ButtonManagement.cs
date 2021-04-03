@@ -19,7 +19,6 @@ public class ButtonManagement : MonoBehaviour
     public void Mapclose()
     {
         map.GetComponentInChildren<ScrollRect>().verticalNormalizedPosition = 0;
-        gameObject.SetActive(false);
     }
 
     // calls when endless mode button pressed..

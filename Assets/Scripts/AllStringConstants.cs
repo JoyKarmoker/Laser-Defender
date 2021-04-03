@@ -142,7 +142,13 @@ public static class AllStringConstants
 
     public const string CONGRATULATIONS_SOUND = "congratulations";
     public const string ERROR_SOUND = "error";
-    public const string BUTTONCLICK_SOUND = "button";
+    public const string BUTTONCLICK_SOUND = "click";
+    public const string BACKTOMAINMENU_SOUND = "backtomainmenu";
+    public const string TOGGLE_SOUND = "toggle";
+    public const string PLAY_SOUND = "play";
+    public const string PROGRESS_SOUND = "progress bar";
+    public const string PURCHASE_SOUND = "purchase";
+    public const string SHIPLEVELUNLOCK_SOUND = "shiplevelunlocked";
 
     #endregion
 

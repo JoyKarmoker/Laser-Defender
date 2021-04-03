@@ -203,7 +203,7 @@ public class ShopManager : MonoBehaviour
             }
 
             //play Audio
-            PlayShipPurchaseAudio();
+            PlayShipUnlockPurchaseAudio();
 
         }
 
@@ -281,7 +281,7 @@ public class ShopManager : MonoBehaviour
             
 
             //play Audio
-            PlayShipPurchaseAudio();
+            PlayPropsUpgradeAudio();
 
         }
 
@@ -337,9 +337,15 @@ public class ShopManager : MonoBehaviour
                 //play anim..
                 StartCoroutine(PlayAnimation(clickedButton.transform.parent.GetComponent<Animation>()));
                 StartCoroutine(GoodsUpdate(Coins, 1000, avaiableCoin));
+
+                //play purchased audio..
+                PlayGoodsPurchasedAudio();
             }
             else
+            {
                 StartCoroutine(PlayAnimation(Crystals.transform.parent.gameObject.GetComponent<Animation>()));// coin not available animation...
+                PlayErrorAudio();
+            }
         }
         else if (clickedButton.tag == AllStringConstants.GOODS2_COINS)
         {
@@ -361,9 +367,15 @@ public class ShopManager : MonoBehaviour
                 //play anim..
                 StartCoroutine(PlayAnimation(clickedButton.transform.parent.GetComponent<Animation>()));
                 StartCoroutine(GoodsUpdate(Coins, 10000, avaiableCoin));
+
+                //play purchased audio..
+                PlayGoodsPurchasedAudio();
             }
             else
+            {
                 StartCoroutine(PlayAnimation(Crystals.transform.parent.gameObject.GetComponent<Animation>()));// coin not available animation...
+                PlayErrorAudio();
+            }
         }
         else if (clickedButton.tag == AllStringConstants.GOODS3_CRYSTALS)
         {
@@ -458,10 +470,29 @@ public class ShopManager : MonoBehaviour
         return 1;
     }
     #region AudioMethods
+
     //plays the audio when ship is purchased
     public void PlayShipPurchaseAudio()
     {
         AudioManager.instance.play(AllStringConstants.CONGRATULATIONS_SOUND, false);
+    }
+
+    //plays the audio when shiplevel is purchased
+    public void PlayShipUnlockPurchaseAudio()
+    {
+        AudioManager.instance.play(AllStringConstants.SHIPLEVELUNLOCK_SOUND, false);
+    }
+
+    //plays the audio when props is purchased
+    public void PlayPropsUpgradeAudio()
+    {
+        AudioManager.instance.play(AllStringConstants.PROGRESS_SOUND, false);
+    }
+
+    //plays the audio when goods are purchased
+    public void PlayGoodsPurchasedAudio()
+    {
+        AudioManager.instance.play(AllStringConstants.PURCHASE_SOUND, false);
     }
 
     //plays when not enough money or has an error
