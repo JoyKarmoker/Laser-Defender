@@ -220,6 +220,7 @@ public class Enemy : MonoBehaviour
         DamageDealer damageDealer = other.gameObject.GetComponent<DamageDealer>();
         if (damageDealer)
         {
+            
             ProcessHit(damageDealer);
         }
 
@@ -243,7 +244,6 @@ public class Enemy : MonoBehaviour
         {
             //shake screen
             CinemachineShake.Instance.ShakeCamera(3f, 0.2f);
-
             Die();
         }
     }
@@ -264,7 +264,6 @@ public class Enemy : MonoBehaviour
             {
                 //shake screen
                 CinemachineShake.Instance.ShakeCamera(3f, 0.2f);
-
                 Die();
             }
             yield return new WaitForSeconds(0.1f);
