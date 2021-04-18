@@ -84,7 +84,7 @@ public class Enemy : MonoBehaviour
                 break;
 
             case EnemyStates.DIVE:
-                MoveOnPath(pathToFollow);
+                //MoveOnPath(pathToFollow);
                 CountDownAndShoot();
                 break;
         }
@@ -200,7 +200,7 @@ public class Enemy : MonoBehaviour
         shotCounter = shotCounter - Time.deltaTime;
         if(shotCounter <= 0f)
         {
-            Fire();
+            //Fire();
             shotCounter = UnityEngine.Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
         }
     }

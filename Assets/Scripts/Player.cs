@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
 
     int maxValueOfBothSlider = 1;
     int xpCapsuleToNextLevel;    //Numbers of Xp Capsule Needed for the player to go next level 
-    private int XpCapsuleEatenByPlayer = 0;
+    private int XpDownCapsuleEatenByPlayer = 0;
     private int xpCapsuleToLevelDownEatenByPlayer = 0;
     private bool protectionCapsuleEaten = false; // This is will be true if player eats protection capsule and after protection capsule effect is finished it will be false again
     bool normalFiringOff = false;
@@ -108,7 +108,7 @@ public class Player : MonoBehaviour
         playerBulletSpawner = PlayerBulletSpawner.playerBulletSpawnerInstance;
         playershipTwoBulletSpawner = PlayerShipTwoBulletSpawner.playershipTwoBulletSpawnerInstance;
         xpCapsuleToLevelDownEatenByPlayer = 0;
-        XpCapsuleEatenByPlayer = 0;
+        XpDownCapsuleEatenByPlayer = 0;
         protectionCapsuleEaten = false;
         normalFiringOff = false;
         HomingMissileOn = false;
@@ -312,7 +312,7 @@ public class Player : MonoBehaviour
             Debug.Log("Level Up Capsule Hit");
             if (HasNextLvl()) //If there is any next level
             {
-                XpCapsuleEatenByPlayer = 0;
+                XpDownCapsuleEatenByPlayer = 0;
                 MoveToNextLvl();
             }
             other.gameObject.SetActive(false);
@@ -407,14 +407,14 @@ public class Player : MonoBehaviour
     public void XpCapsuleEaten()
     {
         Debug.Log("XP Capsule eaten by player");
-        XpCapsuleEatenByPlayer = XpCapsuleEatenByPlayer + 1;
+        //XpCapsuleEatenByPlayer = XpCapsuleEatenByPlayer + 1;
         currentWorkingBar.value = (currentWorkingBar.value + 1);
-        if (XpCapsuleEatenByPlayer >= xpCapsuleToNextLevel)
+        if (currentWorkingBar.value >= maxValueOfBothSlider)
         {
             
             if(HasNextLvl())
             {
-                XpCapsuleEatenByPlayer = 0; //Now the capsule is eaten by player is 0, so it can restrat to calute when to go next level
+                //XpCapsuleEatenByPlayer = 0; //Now the capsule is eaten by player is 0, so it can restrat to calute when to go next level
                 MoveToNextLvl();
             }
         }
@@ -429,30 +429,17 @@ public class Player : MonoBehaviour
     {
         if(playerCurrentShipLevel > 1)
         {
-            XpCapsuleEatenByPlayer = XpCapsuleEatenByPlayer - 1;
+            //XpCapsuleEatenByPlayer = XpCapsuleEatenByPlayer - 1;
+            XpDownCapsuleEatenByPlayer = XpDownCapsuleEatenByPlayer + 1;
             currentWorkingBar.value = currentWorkingBar.value - 1;
-            if (currentWorkingBar.value <= 0) //If the bar reaches 0 that means it have to go the previous level
+            if (XpDownCapsuleEatenByPlayer >= maxValueOfBothSlider) //If the bar reaches 0 that means it have to go the previous level
             {
-                if (playerCurrentShipLevel > 0)
-                {
-                    MoveToPreviousLevel();
-                }
+                MoveToPreviousLevel();
+                XpDownCapsuleEatenByPlayer = 0;
+                
             }
         }
 
-
-
-        /*xpCapsuleToLevelDownEatenByPlayer = xpCapsuleToLevelDownEatenByPlayer + 1;
-        if (xpCapsuleToLevelDownEatenByPlayer >= xpCapsuleToLeveldown)
-        {
-            if (playerCurrentShipLevel > 0) //If player can go previous level
-            {
-
-                xpCapsuleToLevelDownEatenByPlayer = 0; //Now the capsule is eaten by player is 0, so it can restrat to calute when to go next level
-                
-                MoveToPreviousLevel();
-            }
-        }*/
     }
 
     /*
@@ -495,30 +482,8 @@ public class Player : MonoBehaviour
     {
         //update current ship level
         playerCurrentShipLevel++;
-        
-        
-        //Updating the xpbar for current Level
-        float exp = Mathf.Ceil(playerCurrentShipLevel /2.0f);
-        maxValueOfBothSlider = (int)Mathf.Pow(2, (exp - 1));
-        Debug.Log("Maxium value of sliders "+ maxValueOfBothSlider);
-        BelowBar.maxValue = maxValueOfBothSlider;
-        UpperBar.maxValue = maxValueOfBothSlider;
-        
-        if(playerCurrentShipLevel %2 == 0) //If player is in even level like 2, 4, 6, 8, 10
-        {
-            BelowBar.value = maxValueOfBothSlider;
-            UpperBar.value = UpperBar.minValue;
-            currentWorkingBar = UpperBar;
-        }
 
-        else //if Player is in odd level 1, 3, 5, 7, 9
-        {
-            UpperBar.value = 0;
-            BelowBar.value = BelowBar.minValue;
-            currentWorkingBar = BelowBar;
-        }
-        xpCapsuleToNextLevel = maxValueOfBothSlider;
-
+        ManageXPBar(playerCurrentShipLevel);
 
         //lvl up in animator
         animator.SetInteger("Ship Level", playerCurrentShipLevel);
@@ -538,39 +503,8 @@ public class Player : MonoBehaviour
         //update current ship level
         playerCurrentShipLevel--;
 
-        //Updating the xpbar for current Level
-        float exp = Mathf.Ceil(playerCurrentShipLevel / 2.0f);
-        maxValueOfBothSlider = (int)Mathf.Pow(2, (exp - 1));
-        Debug.Log("Maxium value of sliders " + maxValueOfBothSlider);
-
-        if(maxValueOfBothSlider > 1)
-        {
-            BelowBar.maxValue = maxValueOfBothSlider;
-            UpperBar.maxValue = maxValueOfBothSlider;
-        }
-
-        else
-        {
-            BelowBar.maxValue = 1;
-            UpperBar.maxValue = 1;
-        }
-
-        if (playerCurrentShipLevel % 2 == 0) //If player is in even level like 2, 4, 6, 8, 10
-        {
-            BelowBar.value = maxValueOfBothSlider;
-            UpperBar.value = 0;
-            currentWorkingBar = UpperBar;
-        }
-
-        else //if Player is in odd level 1, 3, 5, 7, 9
-        {
-            UpperBar.value = 0;
-            BelowBar.value = 0;
-            currentWorkingBar = BelowBar;
-        }
-        XpCapsuleEatenByPlayer = 0;
-        xpCapsuleToNextLevel = maxValueOfBothSlider;
-
+        ManageXPBar(playerCurrentShipLevel);
+        
         //lvl up in animator
         animator.SetInteger("Ship Level", playerCurrentShipLevel);
 
@@ -579,6 +513,31 @@ public class Player : MonoBehaviour
 
         //flash sprite
         spriteFlash.Flash(spriteChangeColor);
+    }
+
+    private void ManageXPBar(int playerCurrentShipLevel)
+    {
+        //Updating the xpbar for current Level
+        float exp = Mathf.Ceil(playerCurrentShipLevel / 2.0f);
+        maxValueOfBothSlider = (int)Mathf.Pow(2, (exp - 1));
+        Debug.Log("Maxium value of sliders " + maxValueOfBothSlider);
+        BelowBar.maxValue = maxValueOfBothSlider;
+        UpperBar.maxValue = maxValueOfBothSlider;
+
+        if (playerCurrentShipLevel % 2 == 0) //If player is in even level like 2, 4, 6, 8, 10
+        {
+            BelowBar.value = maxValueOfBothSlider;
+            UpperBar.value = UpperBar.minValue;
+            currentWorkingBar = UpperBar;
+        }
+
+        else //if Player is in odd level 1, 3, 5, 7, 9
+        {
+            UpperBar.value = 0;
+            BelowBar.value = BelowBar.minValue;
+            currentWorkingBar = BelowBar;
+        }
+        //xpCapsuleToNextLevel = maxValueOfBothSlider;
     }
     void OffPlayerNormalShooting(float shootingOffTime)
     {

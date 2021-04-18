@@ -1514,7 +1514,7 @@ PrefabInstance:
     - target: {fileID: 7524409377204732292, guid: e5609a7e77d72234086bc7dd50c136cb,
         type: 3}
       propertyPath: superWaveList.Array.data[2].waveList.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7524409377204732292, guid: e5609a7e77d72234086bc7dd50c136cb,
         type: 3}
@@ -1801,6 +1801,48 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6002058018359583242, guid: dcb07e7edf66b2440b0e5943c40428d7,
         type: 3}
+    - target: {fileID: 7524409377204732292, guid: e5609a7e77d72234086bc7dd50c136cb,
+        type: 3}
+      propertyPath: superWaveList.Array.data[2].waveList.Array.data[2].enemySpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7524409377204732292, guid: e5609a7e77d72234086bc7dd50c136cb,
+        type: 3}
+      propertyPath: superWaveList.Array.data[2].waveList.Array.data[2].enemyRotationSpeed
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7524409377204732292, guid: e5609a7e77d72234086bc7dd50c136cb,
+        type: 3}
+      propertyPath: superWaveList.Array.data[2].waveList.Array.data[2].enemyAmount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7524409377204732292, guid: e5609a7e77d72234086bc7dd50c136cb,
+        type: 3}
+      propertyPath: superWaveList.Array.data[2].waveList.Array.data[2].enemySpawnInterval
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7524409377204732292, guid: e5609a7e77d72234086bc7dd50c136cb,
+        type: 3}
+      propertyPath: superWaveList.Array.data[2].waveList.Array.data[2].secToWaitForNextWave
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7524409377204732292, guid: e5609a7e77d72234086bc7dd50c136cb,
+        type: 3}
+      propertyPath: superWaveList.Array.data[2].waveList.Array.data[2].pathPrefab
+      value: 
+      objectReference: {fileID: 540045394719814524, guid: ef878470955a2f543a81b101dab90735,
+        type: 3}
+    - target: {fileID: 7524409377204732292, guid: e5609a7e77d72234086bc7dd50c136cb,
+        type: 3}
+      propertyPath: superWaveList.Array.data[2].waveList.Array.data[2].enemyFormationPrefab
+      value: 
+      objectReference: {fileID: 401788243}
+    - target: {fileID: 7524409377204732292, guid: e5609a7e77d72234086bc7dd50c136cb,
+        type: 3}
+      propertyPath: superWaveList.Array.data[2].waveList.Array.data[2].EnemyPrefab
+      value: 
+      objectReference: {fileID: 6002058018359583242, guid: dcb07e7edf66b2440b0e5943c40428d7,
+        type: 3}
     - target: {fileID: 7524409377204732293, guid: e5609a7e77d72234086bc7dd50c136cb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1874,6 +1916,91 @@ PrefabInstance:
         type: 3}
       propertyPath: maxTimeBetweenEnemyDive
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761680994834747457, guid: 5abd8cd872a58af419b077a822631eb9,
+        type: 3}
+      propertyPath: gridOffsetX
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761680994834747457, guid: 5abd8cd872a58af419b077a822631eb9,
+        type: 3}
+      propertyPath: gridList.Array.data[0].x
+      value: -0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761680994834747457, guid: 5abd8cd872a58af419b077a822631eb9,
+        type: 3}
+      propertyPath: gridList.Array.data[1].x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761680994834747457, guid: 5abd8cd872a58af419b077a822631eb9,
+        type: 3}
+      propertyPath: gridList.Array.data[2].x
+      value: -0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761680994834747457, guid: 5abd8cd872a58af419b077a822631eb9,
+        type: 3}
+      propertyPath: gridList.Array.data[3].x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761680994834747457, guid: 5abd8cd872a58af419b077a822631eb9,
+        type: 3}
+      propertyPath: gridList.Array.data[4].x
+      value: -1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761680994834747457, guid: 5abd8cd872a58af419b077a822631eb9,
+        type: 3}
+      propertyPath: gridList.Array.data[5].x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761680994834747457, guid: 5abd8cd872a58af419b077a822631eb9,
+        type: 3}
+      propertyPath: gridList.Array.data[6].x
+      value: -1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761680994834747457, guid: 5abd8cd872a58af419b077a822631eb9,
+        type: 3}
+      propertyPath: gridList.Array.data[7].x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761680994834747457, guid: 5abd8cd872a58af419b077a822631eb9,
+        type: 3}
+      propertyPath: gridList.Array.data[8].x
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761680994834747457, guid: 5abd8cd872a58af419b077a822631eb9,
+        type: 3}
+      propertyPath: gridList.Array.data[9].x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761680994834747457, guid: 5abd8cd872a58af419b077a822631eb9,
+        type: 3}
+      propertyPath: gridList.Array.data[10].x
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761680994834747457, guid: 5abd8cd872a58af419b077a822631eb9,
+        type: 3}
+      propertyPath: gridList.Array.data[11].x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761680994834747457, guid: 5abd8cd872a58af419b077a822631eb9,
+        type: 3}
+      propertyPath: gridList.Array.data[12].x
+      value: -2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761680994834747457, guid: 5abd8cd872a58af419b077a822631eb9,
+        type: 3}
+      propertyPath: gridList.Array.data[13].x
+      value: 2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761680994834747457, guid: 5abd8cd872a58af419b077a822631eb9,
+        type: 3}
+      propertyPath: gridList.Array.data[14].x
+      value: -2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7761680994834747457, guid: 5abd8cd872a58af419b077a822631eb9,
+        type: 3}
+      propertyPath: gridList.Array.data[15].x
+      value: 2.8
       objectReference: {fileID: 0}
     - target: {fileID: 7761680994834747458, guid: 5abd8cd872a58af419b077a822631eb9,
         type: 3}
