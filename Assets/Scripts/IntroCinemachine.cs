@@ -27,13 +27,22 @@ public class IntroCinemachine : MonoBehaviour
     // Start is called before the first frame update
     IEnumerator Start()
     {
+       
+
         GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 0.5f;
         
         isSpeedUpOn = false;
         rb = GetComponent<Rigidbody2D>();
+        AudioManager.instance.play(AllStringConstants.STORY_EARTH_SOUND, true, false);
 
         yield return new WaitForSeconds(3f);
         isSpeedUpOn = true;
+
+        yield return new WaitForSeconds(1f);
+        AudioManager.instance.play(AllStringConstants.STORY_DIVE_SOUND, false, true);
+        AudioManager.instance.Stop(AllStringConstants.STORY_EARTH_SOUND, true);
+
+
     }
 
     // Update is called once per frame
@@ -44,29 +53,39 @@ public class IntroCinemachine : MonoBehaviour
 
             rb.velocity = Vector2.up * multiplier;
 
-            if (transform.position.y >= 3f)
+            if (transform.position.y >= 3f && transform.position.y <=90)
             {
                 multiplier += 1 + Time.deltaTime;
+
             }
-            if (transform.position.y >= 90f)
+            else if (transform.position.y > 90f && transform.position.y <= 520f)
             {
+                multiplier += 1 + Time.deltaTime;
+
                 if (doFade)
                 {
                     LevelLoader.instance.StartWhiteCrossfadeTransition();
                     doFade = false;
+                
                 }
-
                 //
             }
-            if (transform.position.y >= 480.6f)
+            else if (transform.position.y > 520f && transform.position.y <= 530f)
             {
-                multiplier = 1;
                 
+                multiplier = 1;
+
+                if (!doFade && transform.position.y > 527f)
+                {
+                    AudioManager.instance.play(AllStringConstants.STORY_MUSIC_SOUND, false, true);
+                    doFade = true;
+                }
+
             }
 
-            if (transform.position.y >= 490f)
+            else if (transform.position.y > 530f)
             {
-                
+
                 rb.velocity = Vector2.zero;
                 multiplier = 0;
                 isSpeedUpOn = false;
@@ -82,18 +101,27 @@ public class IntroCinemachine : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
         portal.SetActive(true);
+        AudioManager.instance.play(AllStringConstants.STORY_PORTAL_SOUND, false, true);
         yield return new WaitForSeconds(1f);
         cam.GetComponent<RipplePostProcessor>().SetPosition(new Vector3(98.5f, 91f, 0));
 
-        yield return new WaitForSeconds(4f);
+        //StartCoroutine(StartExplosionSound());
+        yield return new WaitForSeconds(6f);
         LevelLoader.instance.StartSpikeTransition();
+        AudioManager.instance.play(AllStringConstants.STORY_SPIKETRANSITION_SOUND, false, true);
         yield return new WaitForSeconds(1f);
         cam.GetComponent<RipplePostProcessor>().enabled = false;
         GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 0;
         gameObject.transform.position = new Vector3(50, 50, transform.position.z); // planet explosion scene.. 
+        foreach (var item in planetDestroyerEnemies)
+        {
+            item.TurnOnFiring();
+        }
+
         explosionVFX.SetActive(true);
 
         yield return new WaitForSeconds(4);
+        AudioManager.instance.play(AllStringConstants.STORY_BLAST_SOUND, false, true);
         CinemachineShake.Instance.ShakeCamera(shakeFreq, shakeTime);
 
         yield return new WaitForSeconds(0.5f);
@@ -109,6 +137,7 @@ public class IntroCinemachine : MonoBehaviour
         yield return new WaitForSeconds(1f);
         portal.SetActive(false);
         LevelLoader.instance.StartSpikeTransition();
+        AudioManager.instance.play(AllStringConstants.STORY_SPIKETRANSITION_SOUND, false, true);
 
         yield return new WaitForSeconds(1f);
         
@@ -118,7 +147,7 @@ public class IntroCinemachine : MonoBehaviour
         yield return new WaitForSeconds(7f);
         PopUpDialogue();
     }
-    
+
     void PopUpDialogue()
     {
         Time.timeScale = 0f;

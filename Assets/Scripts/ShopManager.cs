@@ -278,9 +278,11 @@ public class ShopManager : MonoBehaviour
             }
 
             // else: update next updateable text
-            
+
 
             //play Audio
+            //play purchased audio..
+            PlayGoodsPurchasedAudio();
             PlayPropsUpgradeAudio();
 
         }
@@ -474,31 +476,31 @@ public class ShopManager : MonoBehaviour
     //plays the audio when ship is purchased
     public void PlayShipPurchaseAudio()
     {
-        AudioManager.instance.play(AllStringConstants.CONGRATULATIONS_SOUND, false);
+        AudioManager.instance.play(AllStringConstants.CONGRATULATIONS_SOUND, false, true);
     }
 
     //plays the audio when shiplevel is purchased
     public void PlayShipUnlockPurchaseAudio()
     {
-        AudioManager.instance.play(AllStringConstants.SHIPLEVELUNLOCK_SOUND, false);
+        AudioManager.instance.play(AllStringConstants.SHIPLEVELUNLOCK_SOUND, false, true);
     }
 
     //plays the audio when props is purchased
     public void PlayPropsUpgradeAudio()
     {
-        AudioManager.instance.play(AllStringConstants.PROGRESS_SOUND, false);
+        AudioManager.instance.play(AllStringConstants.PROGRESS_SOUND, false, true);
     }
 
     //plays the audio when goods are purchased
     public void PlayGoodsPurchasedAudio()
     {
-        AudioManager.instance.play(AllStringConstants.PURCHASE_SOUND, false);
+        AudioManager.instance.play(AllStringConstants.PURCHASE_SOUND, false, true);
     }
 
     //plays when not enough money or has an error
     public void PlayErrorAudio()
     {
-        AudioManager.instance.play(AllStringConstants.ERROR_SOUND, false);
+        AudioManager.instance.play(AllStringConstants.ERROR_SOUND, false, true);
     }
 
     #endregion

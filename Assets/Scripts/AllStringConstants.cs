@@ -27,9 +27,6 @@ public static class AllStringConstants
 
     public const string VIBRATION_STATUS = "IsVibrationOn";
 
-    public const string MASTER_VOLUME_MIXER = "volume";
-    public const string SFX_VOLUME_MIXER = "sfxVolume";
-
     public const string RATE_US_INFO_ANDROID = "market://details?id=com.company.productname";
     public const string RATE_US_INFO_IOS = "itms-apps://itunes.apple.com/app/idYOUR_ID";
 
@@ -140,6 +137,8 @@ public static class AllStringConstants
 
     #region Audios
 
+    public const string BG_SOUND = "main bg";
+    public const string GAMELEVEL_SOUND = "gamelevel bg";
     public const string CONGRATULATIONS_SOUND = "congratulations";
     public const string ERROR_SOUND = "error";
     public const string BUTTONCLICK_SOUND = "click";
@@ -149,6 +148,22 @@ public static class AllStringConstants
     public const string PROGRESS_SOUND = "progress bar";
     public const string PURCHASE_SOUND = "purchase";
     public const string SHIPLEVELUNLOCK_SOUND = "shiplevelunlocked";
+
+    public const string STORY_EARTH_SOUND = "story_earthquack";
+    public const string STORY_DIVE_SOUND = "story_dive";
+    public const string STORY_PORTAL_SOUND = "story_portal";
+    public const string STORY_SPIKETRANSITION_SOUND = "story_spiketransition";
+    public const string STORY_DIALOGUE_SOUND = "story_dialogue";
+    public const string STORY_BLAST_SOUND = "story_blast";
+    public const string STORY_MUSIC_SOUND = "story_music";
+
+    public const string FADE_IN = "fadein";
+    public const string FADE_OUT = "fadeout";
+
+    public const string ENEMY_LASER_1 = "enemyLaser_1";
+
+    public const string MASTER_AUDIOMIXER = "volume";
+    public const string SFX_AUDIOMIXER = "sfxVolume";
 
     #endregion
 

@@ -9,7 +9,8 @@ public class DialougeManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI textDisplay;
     [Header("@ is equal to line break")]
     [SerializeField] string[] sentences;
-    [SerializeField] float typingSpeed;
+    [SerializeField] float typingSpeedMin;
+    [SerializeField] float typingSpeedMax;
     [SerializeField] GameObject continueText;
     int index;
     bool isTapEnabled = false;
@@ -36,8 +37,11 @@ public class DialougeManager : MonoBehaviour
             if (letter == '@')
                 textDisplay.text += "\n";
             else
+            {
                 textDisplay.text += letter;
-            yield return new WaitForSecondsRealtime(typingSpeed);
+                AudioManager.instance.play(AllStringConstants.STORY_DIALOGUE_SOUND, false, true);
+            }
+            yield return new WaitForSecondsRealtime(Random.Range(typingSpeedMin, typingSpeedMax));
         }
 
         yield return new WaitForSecondsRealtime(1);
@@ -65,7 +69,7 @@ public class DialougeManager : MonoBehaviour
 
                 //Whatever you want after a dubble tap    
                 Time.timeScale = 1;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                LevelLoader.instance.loadSelectedLevel(SceneManager.GetActiveScene().buildIndex + 1, true);
 
 
                 TapCount = 0;

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4826063561987542991}
   - component: {fileID: 63141378184305046}
-  - component: {fileID: 787967504}
   m_Layer: 0
   m_Name: Audio Manager
   m_TagString: Untagged
@@ -44,12 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96e08ed4656a2d246943a76be6800245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isNotMainMenuLoadedForFirstTime: 0
   sounds:
   - name: main bg
     clip: {fileID: 8300000, guid: a716130e5ecf94cfa9514c1ae65a516b, type: 3}
     masterMixtureGroup: {fileID: 24300002, guid: 71d042d32d01dc441bc0a7f3912e5de2,
       type: 2}
-    volume: 0.2
+    volume: 1
     pinch: 1
     loop: 1
     source: {fileID: 0}
@@ -125,15 +125,88 @@ MonoBehaviour:
     pinch: 1.2
     loop: 0
     source: {fileID: 0}
---- !u!114 &787967504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5064394847453990396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7379c3e6542a241b58860b41fac47d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  - name: story_earthquack
+    clip: {fileID: 8300000, guid: 252ec56acc26c5246a95729d0bf3fa15, type: 3}
+    masterMixtureGroup: {fileID: 24300002, guid: 03c548c1db7bd79488271b532a555f20,
+      type: 2}
+    volume: 1
+    pinch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: story_dive
+    clip: {fileID: 8300000, guid: 7ff7ddf3207eeb740a4b47c0eba067c3, type: 3}
+    masterMixtureGroup: {fileID: 24300002, guid: 03c548c1db7bd79488271b532a555f20,
+      type: 2}
+    volume: 1
+    pinch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: story_portal
+    clip: {fileID: 8300000, guid: 019402d142110b84b8d792ad1adf125f, type: 3}
+    masterMixtureGroup: {fileID: 24300002, guid: 03c548c1db7bd79488271b532a555f20,
+      type: 2}
+    volume: 1
+    pinch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: story_spiketransition
+    clip: {fileID: 8300000, guid: 2a296126bed343440bb80dfc02c42258, type: 3}
+    masterMixtureGroup: {fileID: 24300002, guid: 03c548c1db7bd79488271b532a555f20,
+      type: 2}
+    volume: 1
+    pinch: 0.8
+    loop: 0
+    source: {fileID: 0}
+  - name: story_blast
+    clip: {fileID: 8300000, guid: 1fd31868d68903d4f9e2c4a3b7ef98f3, type: 3}
+    masterMixtureGroup: {fileID: 24300002, guid: 03c548c1db7bd79488271b532a555f20,
+      type: 2}
+    volume: 1
+    pinch: 1.1
+    loop: 0
+    source: {fileID: 0}
+  - name: story_dialogue
+    clip: {fileID: 8300000, guid: cea859e49fabe5449854a6d39f244afe, type: 3}
+    masterMixtureGroup: {fileID: 24300002, guid: 03c548c1db7bd79488271b532a555f20,
+      type: 2}
+    volume: 1
+    pinch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: story_music
+    clip: {fileID: 8300000, guid: a9bd40bf45521fa42a76683ea7ba171b, type: 3}
+    masterMixtureGroup: {fileID: 24300002, guid: 71d042d32d01dc441bc0a7f3912e5de2,
+      type: 2}
+    volume: 0.8
+    pinch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: enemyLaser_1
+    clip: {fileID: 8300000, guid: 025aa80ce83394dbb984ac462d965da6, type: 3}
+    masterMixtureGroup: {fileID: 24300002, guid: 03c548c1db7bd79488271b532a555f20,
+      type: 2}
+    volume: 1
+    pinch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: gamelevel bg
+    clip: {fileID: 8300000, guid: 32d36c25bc878498baecca74e4fb719f, type: 3}
+    masterMixtureGroup: {fileID: 24300002, guid: 03c548c1db7bd79488271b532a555f20,
+      type: 2}
+    volume: 1
+    pinch: 1
+    loop: 1
+    source: {fileID: 0}
+  levelBGClips:
+  - {fileID: 8300000, guid: 32d36c25bc878498baecca74e4fb719f, type: 3}
+  - {fileID: 8300000, guid: 59056f5a0de7d475aafd3a2a7a12b08a, type: 3}
+  - {fileID: 8300000, guid: 83a0a974ab25a4adfba3cbb3a1aaa76e, type: 3}
+  - {fileID: 8300000, guid: 2cc3962fef85b49c993d168c562e8650, type: 3}
+  - {fileID: 8300000, guid: 258e311ecdad0499f84da6b125e6177c, type: 3}
+  menuBGClips:
+  - {fileID: 8300000, guid: d72ed01aa34dc4a078b58117ac8827f2, type: 3}
+  - {fileID: 8300000, guid: a716130e5ecf94cfa9514c1ae65a516b, type: 3}
+  - {fileID: 8300000, guid: 0ba6ef1638d3a4bea93b34bbef0a123c, type: 3}
+  - {fileID: 8300000, guid: b15ff5a2e363844f495045993610505b, type: 3}
+  mainMixture: {fileID: 24100000, guid: 71d042d32d01dc441bc0a7f3912e5de2, type: 2}
+  sfxMixture: {fileID: 24100000, guid: 03c548c1db7bd79488271b532a555f20, type: 2}

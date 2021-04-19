@@ -59,7 +59,7 @@ public class ObjectPooler : MonoBehaviour
 
     }
 
-    public GameObject SpawnFromPool(string tag, Vector2 position, Quaternion rotation)
+    public GameObject SpawnFromPool(string tag, Vector3 position, Quaternion rotation)
     {
         if(!poolDictionary.ContainsKey(tag))
         {

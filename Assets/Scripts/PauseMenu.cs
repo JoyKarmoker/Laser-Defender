@@ -37,12 +37,12 @@ public class PauseMenu : MonoBehaviour
     }
     public void loadMainMenu()
     {
-        LevelLoader.instance.loadSelectedLevel(1);
+        LevelLoader.instance.loadSelectedLevel(1, true);
         Time.timeScale = 1f;
     }
     public void Restart()
     {
-        LevelLoader.instance.loadSelectedLevel(SceneManager.GetActiveScene().buildIndex);
+        LevelLoader.instance.loadSelectedLevel(SceneManager.GetActiveScene().buildIndex, true);
         gameSession.score = 0;
         gameSession.SetHealth(6);
         Time.timeScale = 1f;

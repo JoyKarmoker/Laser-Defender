@@ -17,10 +17,13 @@ public class OptionMenu : MonoBehaviour
 
     float previousVolume;
 
-
+    private void Start()
+    {
+        myAudioMixer.SetFloat(AllStringConstants.MASTER_AUDIOMIXER, -15f);
+    }
     public void setMyVolume(float volume)
     {
-        myAudioMixer.SetFloat(AllStringConstants.MASTER_VOLUME_MIXER,volume);
+        myAudioMixer.SetFloat(AllStringConstants.MASTER_AUDIOMIXER, volume);
     }
     public void MusicToggle()
     {
@@ -30,7 +33,7 @@ public class OptionMenu : MonoBehaviour
         {
 
             ToggleMusic.transform.GetChild(0).gameObject.SetActive(true);
-            myAudioMixer.SetFloat(AllStringConstants.MASTER_VOLUME_MIXER, previousVolume);
+            myAudioMixer.SetFloat(AllStringConstants.MASTER_AUDIOMIXER, previousVolume);
 
         }
         else
@@ -40,7 +43,7 @@ public class OptionMenu : MonoBehaviour
 
             previousVolume = GetMasterLevel();
 
-            myAudioMixer.SetFloat(AllStringConstants.MASTER_VOLUME_MIXER, -80f);
+            myAudioMixer.SetFloat(AllStringConstants.MASTER_AUDIOMIXER, -80f);
             
         }
         
@@ -48,7 +51,7 @@ public class OptionMenu : MonoBehaviour
     public float GetMasterLevel()
     {
         float value;
-        bool result = myAudioMixer.GetFloat(AllStringConstants.MASTER_VOLUME_MIXER, out value);
+        bool result = myAudioMixer.GetFloat(AllStringConstants.MASTER_AUDIOMIXER, out value);
         if (result)
         {
             return value;
@@ -64,11 +67,11 @@ public class OptionMenu : MonoBehaviour
         bool isSFXToggleon = ToggleSFX.GetComponent<Toggle>().isOn;
         if(isSFXToggleon)
         {
-            my_SFX_AudioMixer.SetFloat(AllStringConstants.SFX_VOLUME_MIXER, 0f);
+            my_SFX_AudioMixer.SetFloat(AllStringConstants.SFX_AUDIOMIXER, 0f);
         }
         else
         {
-            my_SFX_AudioMixer.SetFloat(AllStringConstants.SFX_VOLUME_MIXER, -80f);
+            my_SFX_AudioMixer.SetFloat(AllStringConstants.SFX_AUDIOMIXER, -80f);
         }
     } 
     public void VBRToggle()

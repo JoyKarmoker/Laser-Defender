@@ -30,6 +30,9 @@ public class ButtonManagement : MonoBehaviour
     //when play button pressed..
     public void OnPlayButtonPressed()
     {
+        //set isNotMainMenuLoadedForFirstTime to true..
+        AudioManager.instance.isNotMainMenuLoadedForFirstTime = true;
+
         int storymodeStatus = ES3.Load<int>(AllStringConstants.STORY_MODE_STATUS, 0);
         //Check if Endless mode unlocked..
         //storymodeStatus == 0 means locked

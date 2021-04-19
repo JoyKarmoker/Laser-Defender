@@ -234,6 +234,7 @@ GameObject:
   - component: {fileID: 5005079221196564283}
   - component: {fileID: 4061517316539546497}
   - component: {fileID: 9211288434819617371}
+  - component: {fileID: 7319282007851153223}
   m_Layer: 5
   m_Name: Coin resurrectBtn
   m_TagString: Untagged
@@ -379,6 +380,19 @@ MonoBehaviour:
     loop: 1
     loopDelay: 2
     updateMode: 0
+--- !u!114 &7319282007851153223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 317486175794888490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7379c3e6542a241b58860b41fac47d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonSoundType: 0
 --- !u!1 &411388203649594328
 GameObject:
   m_ObjectHideFlags: 0
@@ -808,6 +822,7 @@ GameObject:
   - component: {fileID: 211395373686920152}
   - component: {fileID: 8582611577076869786}
   - component: {fileID: 5890367741990133022}
+  - component: {fileID: 7319282007851153217}
   m_Layer: 5
   m_Name: RestartBtn
   m_TagString: Untagged
@@ -916,7 +931,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2477268375401899741}
-        m_MethodName: Restart
+        m_MethodName: resume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -926,6 +941,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7319282007851153217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 988915288011998076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7379c3e6542a241b58860b41fac47d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonSoundType: 0
 --- !u!1 &1118733358052524770
 GameObject:
   m_ObjectHideFlags: 0
@@ -1013,6 +1041,7 @@ GameObject:
   - component: {fileID: 5873029649363458263}
   - component: {fileID: 2825413166065435231}
   - component: {fileID: 1280182017374596385}
+  - component: {fileID: 7319282007851153214}
   m_Layer: 5
   m_Name: MainmenuBtn (1)
   m_TagString: Untagged
@@ -1144,6 +1173,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: -3, y: -3}
   m_UseGraphicAlpha: 1
+--- !u!114 &7319282007851153214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280182017374596384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7379c3e6542a241b58860b41fac47d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonSoundType: 1
 --- !u!1 &1303531666464434280
 GameObject:
   m_ObjectHideFlags: 0
@@ -1304,6 +1346,7 @@ GameObject:
   - component: {fileID: 3792071410452817710}
   - component: {fileID: 5955992794050079675}
   - component: {fileID: 8131779805833769958}
+  - component: {fileID: 7319282007851153218}
   m_Layer: 5
   m_Name: ResumeBtn
   m_TagString: Untagged
@@ -1422,6 +1465,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7319282007851153218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505465891341758021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7379c3e6542a241b58860b41fac47d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonSoundType: 0
 --- !u!1 &1542975320482327293
 GameObject:
   m_ObjectHideFlags: 0
@@ -2468,6 +2524,7 @@ GameObject:
   - component: {fileID: 6597418730916939595}
   - component: {fileID: 2434551036900755789}
   - component: {fileID: 6017422249196324769}
+  - component: {fileID: 7319282007851153216}
   m_Layer: 5
   m_Name: MainmenuBtn
   m_TagString: Untagged
@@ -2586,6 +2643,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &7319282007851153216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3193871695907308458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7379c3e6542a241b58860b41fac47d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonSoundType: 1
 --- !u!1 &3317836360404824958
 GameObject:
   m_ObjectHideFlags: 0
@@ -4085,6 +4155,7 @@ GameObject:
   - component: {fileID: 2133546438697469279}
   - component: {fileID: 8720549683716207490}
   - component: {fileID: 4654356281018062368}
+  - component: {fileID: 7319282007851153213}
   m_Layer: 5
   m_Name: NextLvlBtn
   m_TagString: Untagged
@@ -4191,7 +4262,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2477268375401899741}
-        m_MethodName: loadMainMenu
+        m_MethodName: resume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4199,7 +4270,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &4654356281018062368
 MonoBehaviour:
@@ -4216,6 +4287,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: -3, y: -3}
   m_UseGraphicAlpha: 1
+--- !u!114 &7319282007851153213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4654356281018062375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7379c3e6542a241b58860b41fac47d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonSoundType: 0
 --- !u!1 &4858964637984047387
 GameObject:
   m_ObjectHideFlags: 0
@@ -5254,6 +5338,7 @@ GameObject:
   - component: {fileID: 2984800325176742832}
   - component: {fileID: 6135683771562662448}
   - component: {fileID: 1249012349753035318}
+  - component: {fileID: 7319282007851153211}
   m_Layer: 5
   m_Name: backUI
   m_TagString: Untagged
@@ -5370,17 +5455,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: PlaySound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+--- !u!114 &7319282007851153211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5691552652453906619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7379c3e6542a241b58860b41fac47d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonSoundType: 3
 --- !u!1 &5756163274773780732
 GameObject:
   m_ObjectHideFlags: 0
@@ -5957,6 +6044,7 @@ GameObject:
   - component: {fileID: 6347078845428438021}
   - component: {fileID: 509529431257743940}
   - component: {fileID: 6446532196783432786}
+  - component: {fileID: 7319282007851153215}
   m_Layer: 5
   m_Name: RestartBtn (1)
   m_TagString: Untagged
@@ -6063,7 +6151,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2477268375401899741}
-        m_MethodName: Restart
+        m_MethodName: resume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6088,6 +6176,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: -3, y: -3}
   m_UseGraphicAlpha: 1
+--- !u!114 &7319282007851153215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6446532196783432785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7379c3e6542a241b58860b41fac47d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonSoundType: 0
 --- !u!1 &6582319329558766484
 GameObject:
   m_ObjectHideFlags: 0
@@ -6256,6 +6357,7 @@ GameObject:
   - component: {fileID: 3976449572266206005}
   - component: {fileID: 7118810321777039121}
   - component: {fileID: 1816850630077561535}
+  - component: {fileID: 7319282007851153222}
   m_Layer: 5
   m_Name: Cristal resurrectBtn
   m_TagString: Untagged
@@ -6401,6 +6503,19 @@ MonoBehaviour:
     loop: 1
     loopDelay: 2
     updateMode: 0
+--- !u!114 &7319282007851153222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6902718373777136911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7379c3e6542a241b58860b41fac47d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonSoundType: 0
 --- !u!1 &6946152659230057212
 GameObject:
   m_ObjectHideFlags: 0
@@ -6880,6 +6995,7 @@ GameObject:
   - component: {fileID: 7319282005902113206}
   - component: {fileID: 7319282005902113205}
   - component: {fileID: 7319282005902113204}
+  - component: {fileID: 7319282007851153221}
   m_Layer: 5
   m_Name: RestartBtn (1)
   m_TagString: Untagged
@@ -6986,7 +7102,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2477268375401899741}
-        m_MethodName: Restart
+        m_MethodName: resume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7011,6 +7127,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: -3, y: -3}
   m_UseGraphicAlpha: 1
+--- !u!114 &7319282007851153221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7319282005902113210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7379c3e6542a241b58860b41fac47d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonSoundType: 0
 --- !u!1 &7319282006002389984
 GameObject:
   m_ObjectHideFlags: 0
@@ -7573,6 +7702,7 @@ GameObject:
   - component: {fileID: 7319282006570490013}
   - component: {fileID: 7319282006570490012}
   - component: {fileID: 7319282006570489987}
+  - component: {fileID: 7319282007851153220}
   m_Layer: 5
   m_Name: MainmenuBtn (1)
   m_TagString: Untagged
@@ -7704,6 +7834,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: -3, y: -3}
   m_UseGraphicAlpha: 1
+--- !u!114 &7319282007851153220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7319282006570489985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7379c3e6542a241b58860b41fac47d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonSoundType: 1
 --- !u!1 &7319282006587086013
 GameObject:
   m_ObjectHideFlags: 0
@@ -9706,6 +9849,7 @@ GameObject:
   - component: {fileID: 7319282007955887233}
   - component: {fileID: 7319282007955887232}
   - component: {fileID: 7319282007955887239}
+  - component: {fileID: 7319282007851153219}
   m_Layer: 5
   m_Name: 2xcoinBtn
   m_TagString: Untagged
@@ -9850,6 +9994,19 @@ MonoBehaviour:
     loop: 1
     loopDelay: 0.5
     updateMode: 0
+--- !u!114 &7319282007851153219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7319282007955887237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7379c3e6542a241b58860b41fac47d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonSoundType: 0
 --- !u!1 &7489705747136615534
 GameObject:
   m_ObjectHideFlags: 0
@@ -9863,6 +10020,7 @@ GameObject:
   - component: {fileID: 5268885566011309375}
   - component: {fileID: 1324008097006757291}
   - component: {fileID: 4685991776821658697}
+  - component: {fileID: 7319282007851153212}
   m_Layer: 5
   m_Name: 2xcoinBtn
   m_TagString: Untagged
@@ -10007,6 +10165,19 @@ MonoBehaviour:
     loop: 1
     loopDelay: 0.5
     updateMode: 0
+--- !u!114 &7319282007851153212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7489705747136615534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7379c3e6542a241b58860b41fac47d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonSoundType: 0
 --- !u!1 &7572046636785305726
 GameObject:
   m_ObjectHideFlags: 0
@@ -11215,6 +11386,7 @@ GameObject:
   - component: {fileID: 1009462031141831401}
   - component: {fileID: 7720658965000882279}
   - component: {fileID: 5702310816360831068}
+  - component: {fileID: 7319282007851153224}
   m_Layer: 5
   m_Name: resurrectBtn
   m_TagString: Untagged
@@ -11360,6 +11532,19 @@ MonoBehaviour:
     loop: 1
     loopDelay: 2
     updateMode: 0
+--- !u!114 &7319282007851153224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8587166483621955049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7379c3e6542a241b58860b41fac47d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonSoundType: 0
 --- !u!1 &8697607315996056319
 GameObject:
   m_ObjectHideFlags: 0

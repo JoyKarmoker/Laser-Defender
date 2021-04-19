@@ -60,14 +60,14 @@ public class LoadingBar : MonoBehaviour
 		}
 		animator.SetTrigger("Fade");
 		StartCoroutine(WaitAndLoadStartMenu(sceneIndex));
-		AudioManager.instance.play("main bg", true);
+		AudioManager.instance.play(AllStringConstants.BG_SOUND, true, false);
 
 
 	}
 	IEnumerator WaitAndLoadStartMenu(int sceneIndex)
 	{
-		yield return new WaitForSeconds(5f);
-		LevelLoader.instance.loadNextLevel();
+		yield return new WaitForSeconds(2.5f);
+		LevelLoader.instance.loadSelectedLevel(SceneManager.GetActiveScene().buildIndex + 1, false);
 
 	}
 
