@@ -13,7 +13,7 @@ public class TypeOneWave : NewWave
     public float enemySpawnInterval = 1f;
 
     [Header("Prefabs")]
-    public GameObject pathPrefab;
+    public GameObject flyInPathPrefab;
     public GameObject enemyFormationPrefab; //In which Formation This waves enemy will sit
 
 
@@ -37,17 +37,17 @@ public class TypeOneWave : NewWave
         
     }
 
-    public IEnumerator SpawnAllEnemies()
+    public override IEnumerator SpawnAllEnemies()
     {
         for (int enemyCount = 0; enemyCount < totalEnemysInThisWave; enemyCount++)
         {
- 
+            Debug.Log("Spawn All Waves in type one wave");
             
                 GameObject newEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity) as GameObject; //Instantiating the Enemy Game Object
                 //totalEnemys++;
                 //GameObject newEnemy = objectPooler.SpawnFromPool(currentWave.EnemyPrefab.ToString(), transform.position, Quaternion.identity); //Instantiatiating The Game Object from Object Pooler
                 Enemy enemyBehaviour = newEnemy.GetComponent<Enemy>(); //Getting the Enemy Script from Enemy Game Object               
-                enemyBehaviour.SpawnSetup(pathPrefab.GetComponent<PathEnemy>(), enemyCount, enemyFormationPrefab.GetComponent<Formation>(), enemySpeed, enemyRotationSpeed);
+                enemyBehaviour.SpawnSetup(flyInPathPrefab.GetComponent<PathEnemy>(), enemyCount, enemyFormationPrefab.GetComponent<Formation>(), enemySpeed, enemyRotationSpeed);
                 //posInFormation++;
                 spawnedEnemys.Add(newEnemy);
                 yield return new WaitForSeconds(enemySpawnInterval);

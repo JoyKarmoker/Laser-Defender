@@ -85,6 +85,7 @@ public class PathEnemy : MonoBehaviour
                 Gizmos.DrawWireSphere(lineStart, 0.1f);
                 lineStart = lineEnd;
                 curvedPathPointList.Add(lineStart);
+                Debug.Log("Added curved path point list");
             }
 
         }
