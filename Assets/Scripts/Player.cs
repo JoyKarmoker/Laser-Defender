@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class Player : MonoBehaviour
 {
@@ -33,28 +34,42 @@ public class Player : MonoBehaviour
     [Header("Capsule Requirements")]
     [SerializeField] float minTimeShootingOff = 2f;
     [SerializeField] float maxTimeShootingOff = 10f;
+
     [SerializeField] float secProtectionCapsuleLasts = 3f;
-    [SerializeField] int xpCapsuleToLeveldown = 5;
+
     [SerializeField] float minTimeHomingMissileLasts = 2f;
     [SerializeField] float maxTimeHomingMissileLasts = 10f;
     [SerializeField] float HomingMissileFiringPeriod = 0.5f;
     [SerializeField] GameObject HomingMissilePrefab;
     [SerializeField] float HomingMissileOffsetFromY = 1.1f;
-    [SerializeField] Slider BelowBar;
-    [SerializeField] Slider UpperBar;
-    Slider currentWorkingBar;
 
-    int maxValueOfBothSlider = 1;
-    int xpCapsuleToNextLevel;    //Numbers of Xp Capsule Needed for the player to go next level 
-    private int XpDownCapsuleEatenByPlayer = 0;
-    private int xpCapsuleToLevelDownEatenByPlayer = 0;
+    int currentXPValue;
+    int xpValueNeededForNextLevel;    //Numbers of Xp Capsule Needed for the player to go next level 
+
     private bool protectionCapsuleEaten = false; // This is will be true if player eats protection capsule and after protection capsule effect is finished it will be false again
+
     bool normalFiringOff = false;
+
     bool HomingMissileOn = false;
 
     [Header("UI Section")]
-    //[SerializeField] GameObject xpSliders;
-    Slider xpSlider1, xpSlider2;
+    [SerializeField] Slider BelowBar;
+    [SerializeField] Slider UpperBar;
+
+    Color UpperBarFillColor;
+    Color BelowBarFillColor;
+
+    Image UpperBarFillImage;
+    Image BelowBarFillImage;
+
+    //whitish
+    Color32 UpperBar_UpgradeColor = new Color32(255,255,255,255);
+    Color32 BelowBar_UpgradeColor = new Color32(255, 255, 255, 255);
+
+    // redish
+    Color32 UpperBar_DowngradeColor = new Color32(250, 40, 40, 255);
+    Color32 BelowBar_DowngradeColor = new Color32(250, 40, 40, 255);
+
     [SerializeField] GameObject resurrectionPanel;
 
     [Header("Projectile")]
@@ -107,17 +122,28 @@ public class Player : MonoBehaviour
 
         playerBulletSpawner = PlayerBulletSpawner.playerBulletSpawnerInstance;
         playershipTwoBulletSpawner = PlayerShipTwoBulletSpawner.playershipTwoBulletSpawnerInstance;
-        xpCapsuleToLevelDownEatenByPlayer = 0;
-        XpDownCapsuleEatenByPlayer = 0;
+
         protectionCapsuleEaten = false;
         normalFiringOff = false;
         HomingMissileOn = false;
         laserTime = laserLastingTime;
         longLaserPrefab = transform.GetChild(1).gameObject;
-        xpCapsuleToNextLevel = maxValueOfBothSlider;
-        currentWorkingBar = BelowBar;
-        //xpSlider1 = xpSliders.transform.GetChild(0).GetComponent<Slider>();
-        //xpSlider2 = xpSliders.transform.GetChild(1).GetComponent<Slider>();
+
+
+        #region XP Start Section
+
+        UpperBar.maxValue = 2;
+        BelowBar.maxValue = 2;
+        BelowBar.value = 1;
+        UpperBar.value = 0;
+
+        UpperBarFillImage = UpperBar.transform.GetChild(0).GetComponent<Image>();
+        BelowBarFillImage = BelowBar.transform.GetChild(0).GetComponent<Image>();
+
+        UpperBarFillColor = UpperBarFillImage.color;
+        BelowBarFillColor = BelowBarFillImage.color;
+
+        #endregion
 
     }
 
@@ -165,14 +191,12 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            Debug.Log("2 was pressed.");
             Instantiate(playerShipTwo);
             Destroy(this.gameObject);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            Debug.Log("3 was pressed.");
             Instantiate(playerShipThree);
             Destroy(this.gameObject);
         }
@@ -250,37 +274,20 @@ public class Player : MonoBehaviour
         }
         else if (other.tag == "HomingMissileCapsule")
         {
-            Debug.Log("Homing Missile Hit");
             other.gameObject.SetActive(false);
             HomingMissileCapsuleEaten();
 
         }
         else if (other.tag == "PlayerShootingOffCapsule")
         {
-            Debug.Log("Player Shooting Off Capsule Hit");
             other.gameObject.SetActive(false);
             float shootingOffTime = UnityEngine.Random.Range(minTimeShootingOff, maxTimeShootingOff);
             OffPlayerNormalShooting(shootingOffTime);
         }
-        else if (other.tag == "XPDecreasingCapsule")
-        {
-            Debug.Log("Xp Decreasing Capsule Hit");
-            XpDownCapsuleEaten();
-            other.gameObject.SetActive(false);
-        }
-        else if (other.tag == "LevelDownCapsule")
-        {
-            Debug.Log("Level Down capsule hit");
-            if (playerCurrentShipLevel > 1) //If player can go previous level
-            {
-                MoveToPreviousLevel();
-            }
-            other.gameObject.SetActive(false);
-        }
+       
         else if (other.tag == "LaserBeamCapsule") //If player Collides with Laser Beam Capsule
         {
             normalFiringOff = true; //Turning normal firing off for a specific time
-            Debug.Log("Laser Capsule Hit");
             other.gameObject.SetActive(false);
             //StopCoroutine(fireCouritine);
 
@@ -295,28 +302,34 @@ public class Player : MonoBehaviour
 
         else if (other.tag == "XPCapsule") //If player Collides with Xp Cpsule
         {
-            Debug.Log("Xp Capsule Hit");
             XpCapsuleEaten();
+            other.gameObject.SetActive(false);
+        }
+
+        else if (other.tag == "XPDecreasingCapsule")
+        {
+            XpDownCapsuleEaten();
+            other.gameObject.SetActive(false);
+        }
+
+        else if (other.tag == "LevelDownCapsule")
+        {
+            LevelDownCapsuleEaten();
+            other.gameObject.SetActive(false);
+        }
+        else if (other.tag == "LevelUpPlayerCapsule") //If player Collides with Level Up Player Cpsule
+        {
+            LevelUpCapsuleEaten();
             other.gameObject.SetActive(false);
         }
 
         else if (other.tag == "ProtectionCapsule") //If player Collides with Protection Cpsule
         {
-            Debug.Log("Protection Capsule Hit");
             SafeForSeconds(secProtectionCapsuleLasts);
             other.gameObject.SetActive(false);
         }
 
-        else if (other.tag == "LevelUpPlayerCapsule") //If player Collides with Level Up Player Cpsule
-        {
-            Debug.Log("Level Up Capsule Hit");
-            if (HasNextLvl()) //If there is any next level
-            {
-                XpDownCapsuleEatenByPlayer = 0;
-                MoveToNextLvl();
-            }
-            other.gameObject.SetActive(false);
-        }
+       
 
         return;
 
@@ -405,18 +418,29 @@ public class Player : MonoBehaviour
      */
     public void XpCapsuleEaten()
     {
-        Debug.Log("XP Capsule eaten by player");
-        //XpCapsuleEatenByPlayer = XpCapsuleEatenByPlayer + 1;
-        currentWorkingBar.value = (currentWorkingBar.value + 1);
-        if (currentWorkingBar.value >= maxValueOfBothSlider)
+        if (playerCurrentShipLevel < playerShipLevels) // looks for if ship is upgeadable or not.. 
         {
+            currentXPValue += 1; // increase xp by one value
 
-            if (HasNextLvl())
+            int nextShipLevel = playerCurrentShipLevel + 1;
+
+            xpValueNeededForNextLevel = nextShipLevel - ((nextShipLevel / 2) + (nextShipLevel % 2)); // that much xp is needed for next level..
+
+            StartCoroutine(ManageXPBar(true));
+
+            if (currentXPValue >= xpValueNeededForNextLevel)
             {
-                //XpCapsuleEatenByPlayer = 0; //Now the capsule is eaten by player is 0, so it can restrat to calute when to go next level
-                MoveToNextLvl();
+                if (HasNextLvl())
+                {
+                    MoveToNext_OR_PreviousLvl(true);
+                }
             }
+
+
+
         }
+        
+
     }
 
     /*
@@ -428,16 +452,380 @@ public class Player : MonoBehaviour
     {
         if (playerCurrentShipLevel > 1)
         {
-            //XpCapsuleEatenByPlayer = XpCapsuleEatenByPlayer - 1;
-            XpDownCapsuleEatenByPlayer = XpDownCapsuleEatenByPlayer + 1;
-            currentWorkingBar.value = currentWorkingBar.value - 1;
-            if (XpDownCapsuleEatenByPlayer >= maxValueOfBothSlider) //If the bar reaches 0 that means it have to go the previous level
+            currentXPValue -= 1;
+
+            xpValueNeededForNextLevel = playerCurrentShipLevel - ((playerCurrentShipLevel / 2) + (playerCurrentShipLevel % 2));
+
+            StartCoroutine(ManageXPBar(false));
+            
+            if (currentXPValue < 0)
             {
-                MoveToPreviousLevel();
-                XpDownCapsuleEatenByPlayer = 0;
+                MoveToNext_OR_PreviousLvl(false);
+
+                currentXPValue = xpValueNeededForNextLevel - 1;
+            }
+
+        }
+
+
+    }
+
+    IEnumerator ManageXPBar(bool doIncrement) // doIncrement true means xp up capsule eaten. else xp down
+    {
+        if (doIncrement)
+        {
+            // if current Ship level is odd then, update lower xp bar with currentXpValue 
+
+            if ((playerCurrentShipLevel ) % 2 != 0)
+            {
+                // scale up and down a bit.. 
+                BelowBar.transform.DORewind();
+                BelowBar.transform.DOPunchScale(new Vector3(-0.05f, 0.5075f, 1), .25f, 5, 0.3f);
+
+                // applies hit color effect
+                BelowBarFillImage.color = BelowBar_UpgradeColor;
+
+                float currentTime = 0f;
+                float currentBarValue = BelowBar.value;
+
+                while (currentTime < 0.3f)
+                {
+                    currentTime += Time.deltaTime;
+
+                    // updates xp bar value
+                    BelowBar.value = Mathf.Clamp01( (currentTime/0.3f) ) + currentBarValue;
+
+                    //backs to original fill color
+                    BelowBarFillImage.color = Color.Lerp(BelowBar_UpgradeColor, BelowBarFillColor, (currentTime / 0.3f));
+
+                    yield return null;
+                }
+
+
+                if (BelowBar.value >= BelowBar.maxValue)
+                {
+                    // scale up and down a bit.. 
+                    UpperBar.transform.DORewind();
+                    UpperBar.transform.DOPunchScale(new Vector3(-0.065f, 0.5875f, 1), .25f, 5, 0.3f);
+
+                    // applies hit color effect
+                    UpperBarFillImage.color = UpperBar_UpgradeColor;
+
+                    BelowBar.value = BelowBar.maxValue;
+                    UpperBar.value = 0;
+
+                    float tmpCurrentTime = 0f;
+                    currentBarValue = UpperBar.value;
+
+                    while (tmpCurrentTime < 0.3f)
+                    {
+                        tmpCurrentTime += Time.deltaTime;
+
+                        // updates xp bar value
+                        UpperBar.value = Mathf.Clamp01((tmpCurrentTime / 0.3f)) + currentBarValue;
+
+                        //backs to original fill color
+                        UpperBarFillImage.color = Color.Lerp(UpperBar_UpgradeColor, UpperBarFillColor, (tmpCurrentTime / 0.3f));
+
+                        yield return null;
+                    }
+                   
+                }
+
+            }
+            else // else if current Ship level is even then, update upper xp bar with currentXpValue 
+            {
+                UpperBar.transform.DORewind();
+                UpperBar.transform.DOPunchScale(new Vector3(-0.065f, 0.5875f, 1), .25f, 5, 0.3f);
+
+                UpperBarFillImage.color = UpperBar_UpgradeColor;
+
+                float currentTime = 0f;
+                float currentBarValue = UpperBar.value;
+
+                while (currentTime < 0.3f)
+                {
+                    currentTime += Time.deltaTime;
+
+                    UpperBar.value = Mathf.Clamp01((currentTime / 0.3f)) + currentBarValue;
+
+                    UpperBarFillImage.color = Color.Lerp(UpperBar_UpgradeColor, UpperBarFillColor, (currentTime / 0.3f));
+
+                    yield return null;
+                }
+               
+                if(UpperBar.value >= UpperBar.maxValue)
+                {
+                    BelowBar.transform.DORewind();
+                    BelowBar.transform.DOPunchScale(new Vector3(-0.05f, 0.5075f, 1), .25f, 5, 0.3f);
+
+                    BelowBarFillImage.color = BelowBar_UpgradeColor;
+
+                    UpperBar.maxValue += 1;
+                    BelowBar.maxValue += 1;
+                    UpperBar.value = 0;
+                    BelowBar.value = 0;
+
+                    float tmpCurrentTime = 0f;
+                    currentBarValue = BelowBar.value;
+
+                    while (tmpCurrentTime < 0.3f)
+                    {
+                        tmpCurrentTime += Time.deltaTime;
+                        BelowBar.value = Mathf.Clamp01((tmpCurrentTime / 0.3f)) + currentBarValue;
+
+                        BelowBarFillImage.color = Color.Lerp(BelowBar_UpgradeColor, BelowBarFillColor, (tmpCurrentTime / 0.3f));
+
+                        yield return null;
+                    }
+
+
+                }
 
             }
         }
+        else
+        {
+            // if current Ship level is odd then, update lower xp bar with currentXpValue 
+
+            if ((playerCurrentShipLevel) % 2 != 0)
+            {
+                BelowBar.transform.DORewind();
+                BelowBar.transform.DOPunchScale(new Vector3(-0.05f, 0.5075f, 1), .25f, 5, 0.3f);
+
+                BelowBarFillImage.color = BelowBar_DowngradeColor;
+
+                float currentTime = 0f;
+                float currentBarValue = BelowBar.value;
+
+                while (currentTime < 0.3f)
+                {
+                    currentTime += Time.deltaTime;
+                    BelowBar.value = currentBarValue - Mathf.Clamp01((currentTime / 0.3f));
+
+                    BelowBarFillImage.color = Color.Lerp(BelowBar_DowngradeColor, BelowBarFillColor, (currentTime / 0.3f));
+
+                    yield return null;
+                }
+                
+
+                if(BelowBar.value <= 0)
+                {
+                    UpperBar.transform.DORewind();
+                    UpperBar.transform.DOPunchScale(new Vector3(-0.065f, 0.5875f, 1), .25f, 5, 0.3f);
+
+                    UpperBarFillImage.color = UpperBar_DowngradeColor;
+
+                    UpperBar.maxValue = xpValueNeededForNextLevel + 1;
+                    BelowBar.maxValue = xpValueNeededForNextLevel + 1;
+                    UpperBar.value = UpperBar.maxValue;
+                    BelowBar.value = BelowBar.maxValue;
+
+                    float tmpCurrentTime = 0f;
+                    currentBarValue = UpperBar.value;
+
+                    while (tmpCurrentTime < 0.3f)
+                    {
+                        tmpCurrentTime += Time.deltaTime;
+
+                        UpperBar.value = currentBarValue - Mathf.Clamp01((tmpCurrentTime / 0.3f));
+
+                        UpperBarFillImage.color = Color.Lerp(UpperBar_DowngradeColor, UpperBarFillColor, (tmpCurrentTime / 0.3f));
+
+                        yield return null;
+                    }
+                    
+                }
+
+            }
+            else // else if current Ship level is even then, update upper xp bar with currentXpValue 
+            {
+                UpperBar.transform.DORewind();
+                UpperBar.transform.DOPunchScale(new Vector3(-0.065f, 0.5875f, 1), .25f, 5, 0.3f);
+
+                UpperBarFillImage.color = UpperBar_DowngradeColor;
+
+                float currentTime = 0f;
+                float currentBarValue = UpperBar.value;
+
+                while (currentTime < 0.3f)
+                {
+                    currentTime += Time.deltaTime;
+
+                    UpperBar.value = currentBarValue - Mathf.Clamp01((currentTime / 0.3f));
+
+                    UpperBarFillImage.color = Color.Lerp(UpperBar_DowngradeColor, UpperBarFillColor, (currentTime / 0.3f));
+
+                    yield return null;
+                }
+               
+
+                if(UpperBar.value <= 0)
+                {
+                    BelowBar.transform.DORewind();
+                    BelowBar.transform.DOPunchScale(new Vector3(-0.05f, 0.5075f, 1), .25f, 5, 0.3f);
+
+                    BelowBarFillImage.color = BelowBar_DowngradeColor;
+
+                    UpperBar.value = 0;
+                    BelowBar.value = BelowBar.maxValue;
+
+                    float tmpCurrentTime = 0f;
+                    currentBarValue = BelowBar.value;
+
+                    while (tmpCurrentTime < 0.3f)
+                    {
+                        tmpCurrentTime += Time.deltaTime;
+                        BelowBar.value = currentBarValue - Mathf.Clamp01((tmpCurrentTime / 0.3f));
+
+                        BelowBarFillImage.color = Color.Lerp(BelowBar_DowngradeColor, BelowBarFillColor, (tmpCurrentTime / 0.3f));
+
+                        yield return null;
+                    }
+                  
+                }
+
+            }
+        }
+        
+
+    }
+
+    private void LevelUpCapsuleEaten()
+    {
+        // update ship level
+        if (HasNextLvl())
+        {
+            MoveToNext_OR_PreviousLvl(true);
+
+            currentXPValue = 0;
+
+            int nextShipLevel = playerCurrentShipLevel + 1;
+
+            xpValueNeededForNextLevel = nextShipLevel - ((nextShipLevel / 2) + (nextShipLevel % 2));
+
+            BelowBar.maxValue = xpValueNeededForNextLevel + 1;
+            UpperBar.maxValue = xpValueNeededForNextLevel + 1;
+
+            BelowBar.transform.DORewind();
+            BelowBar.transform.DOPunchScale(new Vector3(-0.05f, 0.5075f, 1), .2f, 7, 0.4f);
+
+            UpperBar.transform.DORewind();
+            UpperBar.transform.DOPunchScale(new Vector3(-0.065f, 0.5875f, 1), .2f, 7, 0.4f);
+
+            BelowBarFillImage.color = BelowBar_UpgradeColor;
+            UpperBarFillImage.color = UpperBar_UpgradeColor;
+
+            StartCoroutine(ApplyXPEffectForLevelUPDownCapsule(BelowBar_UpgradeColor, UpperBar_UpgradeColor));
+
+            if (playerCurrentShipLevel % 2 == 0)
+            {
+                BelowBar.value = BelowBar.maxValue;
+                UpperBar.value = 1;
+            }
+            else
+            {
+                UpperBar.value = 0;
+                BelowBar.value = 1;
+            }
+        }
+
+        
+    }
+
+    private void LevelDownCapsuleEaten()
+    {
+
+        xpValueNeededForNextLevel = playerCurrentShipLevel - ((playerCurrentShipLevel / 2) + (playerCurrentShipLevel % 2));
+
+        if (playerCurrentShipLevel > 1)
+        {
+            // update ship level
+            MoveToNext_OR_PreviousLvl(false);
+
+            BelowBar.maxValue = xpValueNeededForNextLevel + 1;
+            UpperBar.maxValue = xpValueNeededForNextLevel + 1;
+
+            currentXPValue = xpValueNeededForNextLevel - 1;
+
+            BelowBar.transform.DORewind();
+            BelowBar.transform.DOPunchScale(new Vector3(-0.05f, 0.5075f, 1), .2f, 7, 0.4f);
+
+            UpperBar.transform.DORewind();
+            UpperBar.transform.DOPunchScale(new Vector3(-0.065f, 0.5875f, 1), .2f, 7, 0.4f);
+
+            BelowBarFillImage.color = BelowBar_DowngradeColor;
+            UpperBarFillImage.color = UpperBar_DowngradeColor;
+
+            StartCoroutine(ApplyXPEffectForLevelUPDownCapsule(BelowBar_DowngradeColor, UpperBar_DowngradeColor));
+
+            if (playerCurrentShipLevel % 2 == 0)
+            {
+                BelowBar.value = xpValueNeededForNextLevel + 1;
+                UpperBar.value = xpValueNeededForNextLevel;
+            }
+            else
+            {
+
+                UpperBar.value = 0;
+                BelowBar.value = xpValueNeededForNextLevel;
+            }
+        }
+
+        
+    }
+
+    IEnumerator ApplyXPEffectForLevelUPDownCapsule(Color up_Down_color_below, Color up_Down_color_upper)
+    {
+        float currentTime = 0f;
+
+        while (currentTime < 0.2f)
+        {
+            currentTime += Time.deltaTime;
+
+            //backs to original fill color
+            BelowBarFillImage.color = Color.Lerp(up_Down_color_below, BelowBarFillColor, (currentTime / 0.2f));
+            UpperBarFillImage.color = Color.Lerp(up_Down_color_upper, UpperBarFillColor, (currentTime / 0.2f));
+
+            yield return null;
+        }
+    }
+    public bool HasNextLvl()
+    {
+        if (playerCurrentShipLevel < playerShipLevels)
+        {
+            return true;
+        }
+
+        else
+        {
+            return false;
+        }
+    }
+
+    public void MoveToNext_OR_PreviousLvl(bool doUpgrage)
+    {
+        if (doUpgrage)
+        {
+            //update current ship level
+            playerCurrentShipLevel++;
+
+            currentXPValue = 0;
+        }
+        else
+        {
+            //update current ship level
+            playerCurrentShipLevel--;
+        }
+
+        //lvl up in animator
+        animator.SetInteger("Ship Level", playerCurrentShipLevel);
+
+        // enable protection for 2 and half seconds
+        SafeForSeconds(2.5f);
+
+        //flash sprite
+        spriteFlash.Flash(spriteChangeColor);
 
     }
 
@@ -462,81 +850,6 @@ public class Player : MonoBehaviour
         protectionCapsuleEaten = false;
         animator.SetBool("Protection On", false);
 
-    }
-
-    public bool HasNextLvl()
-    {
-        if (playerCurrentShipLevel < playerShipLevels)
-        {
-            return true;
-        }
-
-        else
-        {
-            return false;
-        }
-    }
-
-    public void MoveToNextLvl()
-    {
-        //update current ship level
-        playerCurrentShipLevel++;
-
-        ManageXPBar(playerCurrentShipLevel);
-
-        //lvl up in animator
-        animator.SetInteger("Ship Level", playerCurrentShipLevel);
-
-        // enable protection for 2 and half seconds
-        SafeForSeconds(2.5f);
-
-        //flash sprite
-        spriteFlash.Flash(spriteChangeColor);
-
-    }
-
-    private void MoveToPreviousLevel()
-    {
-        //Set the animator to go previous level
-
-        //update current ship level
-        playerCurrentShipLevel--;
-
-        ManageXPBar(playerCurrentShipLevel);
-
-        //lvl up in animator
-        animator.SetInteger("Ship Level", playerCurrentShipLevel);
-
-        // enable protection for 2 and half seconds
-        SafeForSeconds(2.5f);
-
-        //flash sprite
-        spriteFlash.Flash(spriteChangeColor);
-    }
-
-    private void ManageXPBar(int playerCurrentShipLevel)
-    {
-        //Updating the xpbar for current Level
-        float exp = Mathf.Ceil(playerCurrentShipLevel / 2.0f);
-        maxValueOfBothSlider = (int)Mathf.Pow(2, (exp - 1));
-        Debug.Log("Maxium value of sliders " + maxValueOfBothSlider);
-        BelowBar.maxValue = maxValueOfBothSlider;
-        UpperBar.maxValue = maxValueOfBothSlider;
-
-        if (playerCurrentShipLevel % 2 == 0) //If player is in even level like 2, 4, 6, 8, 10
-        {
-            BelowBar.value = maxValueOfBothSlider;
-            UpperBar.value = UpperBar.minValue;
-            currentWorkingBar = UpperBar;
-        }
-
-        else //if Player is in odd level 1, 3, 5, 7, 9
-        {
-            UpperBar.value = 0;
-            BelowBar.value = BelowBar.minValue;
-            currentWorkingBar = BelowBar;
-        }
-        //xpCapsuleToNextLevel = maxValueOfBothSlider;
     }
     void OffPlayerNormalShooting(float shootingOffTime)
     {
@@ -569,7 +882,6 @@ public class Player : MonoBehaviour
     void StartHomingMissile()
     {
         normalFiringOff = true;
-        //Debug.Log("Homing Firing Started");
         StartCoroutine(FireHomingMissile()); //Start Homing Missile
         StartCoroutine(StopNormalFiring()); //Stop Normal Firing
 
@@ -578,18 +890,15 @@ public class Player : MonoBehaviour
     IEnumerator StopNormalFiring()
     {
         float HomingMissileLasts = UnityEngine.Random.Range(minTimeHomingMissileLasts, maxTimeHomingMissileLasts);
-        //Debug.Log("Homing Missile Lasts for " + HomingMissileLasts + " second");
         StopCoroutine(fireCouritine);
         yield return new WaitForSeconds(HomingMissileLasts);
         StopCoroutine(FireHomingMissile());
         normalFiringOff = false;
-        //Debug.Log("Homing Fire Off");
     }
     IEnumerator FireHomingMissile()
     {
         while (normalFiringOff)
         {
-            //Debug.Log("Fire");
             GameObject HomingMissile = objectPooler.SpawnFromPool(HomingMissilePrefab.ToString(), new Vector2(transform.position.x, transform.position.y + HomingMissileOffsetFromY), Quaternion.identity);
 
             // HomingMissile.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);

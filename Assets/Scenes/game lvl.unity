@@ -876,6 +876,46 @@ PrefabInstance:
       propertyPath: resurrectionPanel
       value: 
       objectReference: {fileID: 3732459994277125794}
+    - target: {fileID: 9187425348893170208, guid: 80a094c10845e3349ae2deabcc4bd84a,
+        type: 3}
+      propertyPath: UpperBarHitColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187425348893170208, guid: 80a094c10845e3349ae2deabcc4bd84a,
+        type: 3}
+      propertyPath: UpperBarHitColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187425348893170208, guid: 80a094c10845e3349ae2deabcc4bd84a,
+        type: 3}
+      propertyPath: UpperBarHitColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187425348893170208, guid: 80a094c10845e3349ae2deabcc4bd84a,
+        type: 3}
+      propertyPath: BelowBarHitColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187425348893170208, guid: 80a094c10845e3349ae2deabcc4bd84a,
+        type: 3}
+      propertyPath: BelowBarHitColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187425348893170208, guid: 80a094c10845e3349ae2deabcc4bd84a,
+        type: 3}
+      propertyPath: BelowBarHitColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187425348893170208, guid: 80a094c10845e3349ae2deabcc4bd84a,
+        type: 3}
+      propertyPath: BelowBarHitColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187425348893170208, guid: 80a094c10845e3349ae2deabcc4bd84a,
+        type: 3}
+      propertyPath: UpperBarHitColor.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9187425348893170210, guid: 80a094c10845e3349ae2deabcc4bd84a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1279,6 +1319,56 @@ PrefabInstance:
       propertyPath: gameSession
       value: 
       objectReference: {fileID: 184740275}
+    - target: {fileID: 4858964637984047386, guid: a318616f51dbfbd4982f5f74f1ff71ef,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858964637984047386, guid: a318616f51dbfbd4982f5f74f1ff71ef,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858964638112825068, guid: a318616f51dbfbd4982f5f74f1ff71ef,
+        type: 3}
+      propertyPath: m_WholeNumbers
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858964638112825068, guid: a318616f51dbfbd4982f5f74f1ff71ef,
+        type: 3}
+      propertyPath: m_MaxValue
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858964638112825068, guid: a318616f51dbfbd4982f5f74f1ff71ef,
+        type: 3}
+      propertyPath: m_Value
+      value: 1.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858964638506171864, guid: a318616f51dbfbd4982f5f74f1ff71ef,
+        type: 3}
+      propertyPath: m_WholeNumbers
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858964638506171864, guid: a318616f51dbfbd4982f5f74f1ff71ef,
+        type: 3}
+      propertyPath: m_MaxValue
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858964638506171864, guid: a318616f51dbfbd4982f5f74f1ff71ef,
+        type: 3}
+      propertyPath: m_Value
+      value: 1.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858964638953973303, guid: a318616f51dbfbd4982f5f74f1ff71ef,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858964638953973303, guid: a318616f51dbfbd4982f5f74f1ff71ef,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5890367741990133022, guid: a318616f51dbfbd4982f5f74f1ff71ef,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -1288,6 +1378,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Game Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6491422376746082194, guid: a318616f51dbfbd4982f5f74f1ff71ef,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -128.2002
+      objectReference: {fileID: 0}
+    - target: {fileID: 7888122399562067673, guid: a318616f51dbfbd4982f5f74f1ff71ef,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8173694450273180326, guid: a318616f51dbfbd4982f5f74f1ff71ef,
         type: 3}
