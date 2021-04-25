@@ -46,8 +46,8 @@ public class TypeOneWave : NewWave
                 GameObject newEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity) as GameObject; //Instantiating the Enemy Game Object
                 //totalEnemys++;
                 //GameObject newEnemy = objectPooler.SpawnFromPool(currentWave.EnemyPrefab.ToString(), transform.position, Quaternion.identity); //Instantiatiating The Game Object from Object Pooler
-                Enemy enemyBehaviour = newEnemy.GetComponent<Enemy>(); //Getting the Enemy Script from Enemy Game Object               
-                enemyBehaviour.SpawnSetup(flyInPathPrefab.GetComponent<PathEnemy>(), enemyCount, enemyFormationPrefab.GetComponent<Formation>(), enemySpeed, enemyRotationSpeed);
+                TypeOneEnemy enemyBehaviour = newEnemy.GetComponent<TypeOneEnemy>(); //Getting the Enemy Script from Enemy Game Object               
+                enemyBehaviour.SpawnSetup(flyInPathPrefab.GetComponent<Path>(), enemyCount, enemyFormationPrefab.GetComponent<Formation>(), enemySpeed, enemyRotationSpeed);
                 //posInFormation++;
                 spawnedEnemys.Add(newEnemy);
                 yield return new WaitForSeconds(enemySpawnInterval);

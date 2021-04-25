@@ -49,7 +49,7 @@ MonoBehaviour:
   enemyRotationSpeed: 10
   totalEnemysInThisWave: 0
   enemySpawnInterval: 1
-  flyInPathPrefab: {fileID: 4857050253303460381, guid: 49643145bcd95ea4983293d67dae70ea,
+  flyInPathPrefab: {fileID: 4648755942693744205, guid: c44b0e1273f97b74788b27087957ae4e,
     type: 3}
   enemyFormationPrefab: {fileID: 7761680994834747459, guid: 5abd8cd872a58af419b077a822631eb9,
     type: 3}

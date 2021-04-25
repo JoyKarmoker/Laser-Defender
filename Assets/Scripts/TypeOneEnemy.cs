@@ -8,13 +8,13 @@ public class TypeOneEnemy : MonoBehaviour
     [SerializeField] float reachDistance = 0.2f;
     [SerializeField] float rotationOffsetInPath = 90f; //Adjustment for rotation of enemy
     [SerializeField] float rotationOffsetInFormation = -90f; //Adjustment Of enemy rotation in Formation
-    [SerializeField] bool useCurvedPath = true;
+    [SerializeField] bool useCurvedPath = false;
 
     float speed = 10f;
     float rotationSpeed = 10f;
     int currentWayPointId = 0;
     float distance; //current Distance to Next Point
-    PathEnemy pathToFollow;
+    public Path pathToFollow;
 
     [Header("Enemy")]
     [SerializeField] Color flashColor;
@@ -73,7 +73,7 @@ public class TypeOneEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //MoveOnPath(pathToFollow);
         switch (enemyStates)
         {
             case EnemyStates.FLY_IN:
@@ -118,11 +118,12 @@ public class TypeOneEnemy : MonoBehaviour
         }
     }
 
-    void MoveOnPath(PathEnemy path)
+    private void MoveOnPath(Path path)
     {
         if (useCurvedPath)
         {
             int totalPointsInPath = path.curvedPathPointList.Count;
+            //int totalPointsInPath = 10;
 
             distance = Vector2.Distance(path.curvedPathPointList[currentWayPointId], transform.position);
             transform.position = Vector2.MoveTowards(transform.position, path.curvedPathPointList[currentWayPointId], speed * Time.deltaTime);
@@ -146,18 +147,18 @@ public class TypeOneEnemy : MonoBehaviour
             if (currentWayPointId >= totalPointsInPath)
             {
                 currentWayPointId = 0;
-                enemyStates = EnemyStates.TO_FORMATION;
+                //enemyStates = EnemyStates.TO_FORMATION;
             }
         }
         else
         {
-            distance = Vector2.Distance(path.straightPathPointList[currentWayPointId].position, transform.position);
-            transform.position = Vector2.MoveTowards(transform.position, path.straightPathPointList[currentWayPointId].position, speed * Time.deltaTime);
-            int totalPointsInPath = path.straightPathPointList.Count;
+            distance = Vector2.Distance(path.pathPointList[currentWayPointId].position, transform.position);
+            transform.position = Vector2.MoveTowards(transform.position, path.pathPointList[currentWayPointId].position, speed * Time.deltaTime);
+            int totalPointsInPath = path.pathPointList.Count;
 
             //Rotation of enemy
 
-            Vector2 direction = (Vector2)path.straightPathPointList[currentWayPointId].position - (Vector2)transform.position;
+            Vector2 direction = (Vector2)path.pathPointList[currentWayPointId].position - (Vector2)transform.position;
 
             if (direction != Vector2.zero)
             {
@@ -174,14 +175,15 @@ public class TypeOneEnemy : MonoBehaviour
             if (currentWayPointId >= totalPointsInPath)
             {
                 currentWayPointId = 0;
-                enemyStates = EnemyStates.TO_FORMATION;
+                //enemyStates = EnemyStates.TO_FORMATION;
             }
         }
     }
 
 
-    public void SpawnSetup(PathEnemy path, int pos, Formation formation, float speed, float rotationSpeed)
+    public void SpawnSetup(Path path, int pos, Formation formation, float speed, float rotationSpeed)
     {
+        Debug.Log("Spawn setup");
         pathToFollow = path;
         posInFormation = pos;
         this.formation = formation;

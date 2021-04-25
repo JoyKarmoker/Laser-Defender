@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     [SerializeField] float destinationPosY = -7f;
     [SerializeField] float playerInSpeed = 3f;
     [SerializeField] float playerSpeed = 10f;
+    [SerializeField] float playerTouchSpeed = 0.1f;
     [Tooltip("The amount of how many lvls does the ship has")]
     [SerializeField] int playerShipLevels;
     [SerializeField] float padding = 2f;    
@@ -51,6 +52,7 @@ public class Player : MonoBehaviour
     private bool protectionCapsuleEaten = false; // This is will be true if player eats protection capsule and after protection capsule effect is finished it will be false again
     bool normalFiringOff = false;
     bool HomingMissileOn = false;
+    private Touch touch;
 
      [Header("UI Section")]
      //[SerializeField] GameObject xpSliders;
@@ -228,6 +230,8 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
+
+        //Button Input
         var deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * playerSpeed;
         var newXPos = Mathf.Clamp( transform.position.x + deltaX, xMin, xMax);
 
@@ -235,6 +239,17 @@ public class Player : MonoBehaviour
         var newYPos = Mathf.Clamp( transform.position.y + deltaY, yMin, yMax);
 
         transform.position = new Vector2(newXPos, newYPos);
+
+        //Touch Input
+        if(Input.touchCount > 0)
+        {
+            touch = Input.GetTouch(0);
+            if(touch.phase == TouchPhase.Moved)
+            {
+                transform.position = new Vector2(transform.position.x + touch.deltaPosition.x * playerTouchSpeed, transform.position.y + touch.deltaPosition.y* playerTouchSpeed);
+            }
+        }
+
     }
 
 
