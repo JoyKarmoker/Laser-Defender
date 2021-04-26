@@ -217,19 +217,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   protectionSparkVFX: {fileID: 6880931861001905797, guid: 376f063380c50234ba6e351cae5dfa38,
     type: 3}
---- !u!114 &1883604400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9104929345724262448}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57a4e420799c5084087d2316b552f6a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 100
 --- !u!1 &9187425348893170653
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,6 +344,7 @@ MonoBehaviour:
   destinationPosY: -7
   playerInSpeed: 3
   playerSpeed: 10
+  playerTouchSpeed: 0.01
   playerShipLevels: 10
   padding: 2
   minTimeShootingOff: 2
@@ -468,6 +456,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1836902224942622184, guid: 5fb96f9f57bc4d94b96a233bbb6c3640,
         type: 3}
+    - target: {fileID: 8657351346752029142, guid: e8e5c200bc0344440bb0bf11f221d2cf,
+        type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 8657351346752029143, guid: e8e5c200bc0344440bb0bf11f221d2cf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -525,12 +518,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8e5c200bc0344440bb0bf11f221d2cf, type: 3}
---- !u!1 &9104929345724262448 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8657351346752029141, guid: e8e5c200bc0344440bb0bf11f221d2cf,
-    type: 3}
-  m_PrefabInstance: {fileID: 467850794432670181}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9104929345724262450 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8657351346752029143, guid: e8e5c200bc0344440bb0bf11f221d2cf,

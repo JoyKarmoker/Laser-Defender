@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     [SerializeField] float destinationPosY = -7f;
     [SerializeField] float playerInSpeed = 3f;
     [SerializeField] float playerSpeed = 10f;
-    [SerializeField] float playerTouchSpeed = 0.1f;
+    [SerializeField] float playerTouchSpeed = 0.01f;
     [Tooltip("The amount of how many lvls does the ship has")]
     [SerializeField] int playerShipLevels;
     [SerializeField] float padding = 2f;    

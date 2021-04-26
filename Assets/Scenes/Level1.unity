@@ -2101,6 +2101,11 @@ PrefabInstance:
       propertyPath: UpperBar
       value: 
       objectReference: {fileID: 1233854909}
+    - target: {fileID: 9187425348893170208, guid: 80a094c10845e3349ae2deabcc4bd84a,
+        type: 3}
+      propertyPath: playerTouchSpeed
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 9187425348893170210, guid: 80a094c10845e3349ae2deabcc4bd84a,
         type: 3}
       propertyPath: m_LocalPosition.x
