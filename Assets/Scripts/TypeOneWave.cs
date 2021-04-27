@@ -19,9 +19,15 @@ public class TypeOneWave : NewWave
 
     int totalPositionInTeFormation;
     [HideInInspector] public List<GameObject> spawnedEnemys = new List<GameObject>();
+    ObjectPooler objectPooler;
     // Start is called before the first frame update
     void Start()
     {
+        objectPooler = ObjectPooler.ObjectPullerInstance;
+        if(objectPooler)
+        {
+            Debug.Log("Found Object Pooler");
+        }
         totalPositionInTeFormation = enemyFormationPrefab.GetComponent<Formation>().gridSizeX * enemyFormationPrefab.GetComponent<Formation>().gridSizeY;
         if(totalEnemysInThisWave > totalPositionInTeFormation)
         {
@@ -39,13 +45,18 @@ public class TypeOneWave : NewWave
 
     public override IEnumerator SpawnAllEnemies()
     {
+        Debug.Log("Spawning waves");
         for (int enemyCount = 0; enemyCount < totalEnemysInThisWave; enemyCount++)
         {
-            Debug.Log("Spawn All Waves in type one wave");
+            Debug.Log("Spawning all enemys in type one wave");
             
                 GameObject newEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity) as GameObject; //Instantiating the Enemy Game Object
+                if(newEnemy)
+            {
+                Debug.Log("Found Enemy");
+            }
                 //totalEnemys++;
-                //GameObject newEnemy = objectPooler.SpawnFromPool(currentWave.EnemyPrefab.ToString(), transform.position, Quaternion.identity); //Instantiatiating The Game Object from Object Pooler
+                //GameObject newEnemy = objectPooler.SpawnFromPool(enemyPrefab.ToString(), transform.position, Quaternion.identity); //Instantiatiating The Game Object from Object Pooler
                 TypeOneEnemy enemyBehaviour = newEnemy.GetComponent<TypeOneEnemy>(); //Getting the Enemy Script from Enemy Game Object               
                 enemyBehaviour.SpawnSetup(flyInPathPrefab.GetComponent<Path>(), enemyCount, enemyFormationPrefab.GetComponent<Formation>(), enemySpeed, enemyRotationSpeed);
                 //posInFormation++;

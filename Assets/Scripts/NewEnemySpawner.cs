@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class NewEnemySpawner : MonoBehaviour
 {
-     
+
     public List<NewWave> newWaveList = new List<NewWave>();
     int currentWave;
+    //[HideInInspector] public List<GameObject> spawnedEnemys = new List<GameObject>();
 
 
     // Start is called before the first frame update
@@ -32,6 +33,7 @@ public class NewEnemySpawner : MonoBehaviour
 
         while (currentWave < newWaveList.Count)
         {
+            Debug.Log("Spawning new enemy");
             yield return StartCoroutine(newWaveList[currentWave].SpawnAllEnemies());
             //yield return StartCoroutine(SpawnAllEnemiesInCurrentWave(waveList[currentWave]));
             currentWave++;

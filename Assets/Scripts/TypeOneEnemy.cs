@@ -28,7 +28,7 @@ public class TypeOneEnemy : MonoBehaviour
         FLY_IN, //First State
         TO_FORMATION,//Second State
         IDLE,
-        DIVE
+        //DIVE
     }
 
     public EnemyStates enemyStates;
@@ -146,8 +146,8 @@ public class TypeOneEnemy : MonoBehaviour
 
             if (currentWayPointId >= totalPointsInPath)
             {
-                currentWayPointId = 0;
-                //enemyStates = EnemyStates.TO_FORMATION;
+                //currentWayPointId = 0;
+                enemyStates = EnemyStates.TO_FORMATION;
             }
         }
         else
@@ -174,8 +174,8 @@ public class TypeOneEnemy : MonoBehaviour
 
             if (currentWayPointId >= totalPointsInPath)
             {
-                currentWayPointId = 0;
-                //enemyStates = EnemyStates.TO_FORMATION;
+                //currentWayPointId = 0;
+                enemyStates = EnemyStates.TO_FORMATION;
             }
         }
     }
@@ -183,7 +183,7 @@ public class TypeOneEnemy : MonoBehaviour
 
     public void SpawnSetup(Path path, int pos, Formation formation, float speed, float rotationSpeed)
     {
-        Debug.Log("Spawn setup");
+        //Debug.Log("Spawn setup");
         pathToFollow = path;
         posInFormation = pos;
         this.formation = formation;

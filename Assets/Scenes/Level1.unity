@@ -2086,11 +2086,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 9104929345724262451, guid: 80a094c10845e3349ae2deabcc4bd84a,
-        type: 3}
-      propertyPath: enemyLayer.m_Bits
-      value: 512
-      objectReference: {fileID: 0}
     - target: {fileID: 9187425348893170208, guid: 80a094c10845e3349ae2deabcc4bd84a,
         type: 3}
       propertyPath: BelowBar
@@ -2101,11 +2096,6 @@ PrefabInstance:
       propertyPath: UpperBar
       value: 
       objectReference: {fileID: 1233854909}
-    - target: {fileID: 9187425348893170208, guid: 80a094c10845e3349ae2deabcc4bd84a,
-        type: 3}
-      propertyPath: playerTouchSpeed
-      value: 0.01
-      objectReference: {fileID: 0}
     - target: {fileID: 9187425348893170210, guid: 80a094c10845e3349ae2deabcc4bd84a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2166,8 +2156,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1883604400, guid: 80a094c10845e3349ae2deabcc4bd84a, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80a094c10845e3349ae2deabcc4bd84a, type: 3}
 --- !u!1001 &2000316054
 PrefabInstance:

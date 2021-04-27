@@ -45,3 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newWaveList:
   - {fileID: 4087345841063437596, guid: 8873bd090f4c66c4ebf6544a3e17c2bd, type: 3}
+  spawnedEnemys: []
