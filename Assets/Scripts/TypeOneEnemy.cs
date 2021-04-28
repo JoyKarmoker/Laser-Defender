@@ -32,8 +32,8 @@ public class TypeOneEnemy : MonoBehaviour
     }
 
     public EnemyStates enemyStates;
-    int posInFormation;
-    Formation formation;
+    int posInFormation; //Position of This in enemy in formation
+    public Formation formation; //In Which Formation this enemy will be (Public for testing purpose)
 
     /*
     [Header("Projectile")]
@@ -112,9 +112,9 @@ public class TypeOneEnemy : MonoBehaviour
             transform.SetParent(formation.gameObject.GetComponentInParent<Transform>());
             transform.eulerAngles = Vector2.zero; //Set rotation
             //Setting the spreading configs
-            formation.enemyInThisFormation.Add(new Formation.FormationSpread(posInFormation, transform.localPosition.x, transform.localPosition.y, this.gameObject));
+            //formation.enemyInThisFormation.Add(new Formation.FormationSpread(posInFormation, transform.localPosition.x, transform.localPosition.y, this.gameObject));
 
-            enemyStates = EnemyStates.IDLE;
+            //enemyStates = EnemyStates.IDLE;
         }
     }
 
@@ -251,16 +251,16 @@ public class TypeOneEnemy : MonoBehaviour
     private void Die()
     {
         //Report to formation to tell it that this enemy is dead
-        for (int i = 0; i < formation.enemyInThisFormation.Count; i++)
+        /*for (int i = 0; i < formation.enemyInThisFormation.Count; i++)
         {
             if (formation.enemyInThisFormation[i].index == posInFormation)
             {
                 formation.enemyInThisFormation.Remove(formation.enemyInThisFormation[i]);
             }
-        }
+        }*/
 
         //Report to spawn Manager to tell that this enemy is dead
-        for (int i = 0; i < enemySpawner.spawnedEnemys.Count; i++)
+        /*for (int i = 0; i < enemySpawner.spawnedEnemys.Count; i++)
         {
             enemySpawner.spawnedEnemys.Remove(this.gameObject);
         }
@@ -273,7 +273,7 @@ public class TypeOneEnemy : MonoBehaviour
             enemySpawner.Invoke("StartSuperWave", secToWait);
             enemySpawner.Invoke("CheckEnemyStates", 1f);
 
-        }
+        }*/
 
         //Set back Transform to  parrent to world if it the transform is a child of formation
         if (transform.parent != null)

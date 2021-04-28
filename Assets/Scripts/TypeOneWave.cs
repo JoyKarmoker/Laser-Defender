@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TypeOneWave : NewWave
+public class TypeOneWave : Wave
 {
     //public GameObject enemyFormationPrefab; 
     
@@ -34,7 +34,7 @@ public class TypeOneWave : NewWave
             totalEnemysInThisWave = totalPositionInTeFormation; //If the total number of enemies is greater than the total position of formation
         }
 
-        enemyFormationPrefab.GetComponent<Formation>().StopActivateSpread();
+        //enemyFormationPrefab.GetComponent<Formation>().StopActivateSpread();
     }
 
     // Update is called once per frame

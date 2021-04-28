@@ -38,9 +38,9 @@ public class Formation : MonoBehaviour
     float curSpread;
     int spreadDir = 1;
 
-    [HideInInspector] public List<FormationSpread> enemyInThisFormation = new List<FormationSpread>();
-    [System.Serializable]
-    public class FormationSpread
+    
+    //[System.Serializable]
+    /*public class FormationSpread
     {
         public int index;
         public float xPos;
@@ -60,20 +60,20 @@ public class Formation : MonoBehaviour
             target = new Vector2(_xPos + (+xPos * 0.3f), _yPos);
         }
 
-    }  
-    
+    }
+    [HideInInspector] public List<FormationSpread> enemyInThisFormation = new List<FormationSpread>();*/
 
     private void Start()
     {
         startPos = transform.position;
         currentPosX = transform.position.x;
-        EnemySpawner.enemyFormationList.Add(this.gameObject);
+        //EnemySpawner.enemyFormationList.Add(this.gameObject);
         CreateFormation();
     }
 
     private void Update()
     {
-        if(!canSpread && !spreadStarted)
+        /*if(!canSpread && !spreadStarted)
         {
             currentPosX = currentPosX + Time.deltaTime * speed * direction;
             if (currentPosX >= maxMoveOffsetX)
@@ -107,7 +107,7 @@ public class Formation : MonoBehaviour
                     enemyInThisFormation[i].enemy.transform.position = Vector2.Lerp((Vector2)transform.position + (Vector2)enemyInThisFormation[i].start, (Vector2)transform.position + enemyInThisFormation[i].target, curSpread);
                 }
             }
-        }
+        }*/
 
         /*if(canDive)
         {
@@ -115,8 +115,23 @@ public class Formation : MonoBehaviour
             canDive = false;
         }*/
 
+        currentPosX = currentPosX + Time.deltaTime * speed * direction;
+        if (currentPosX >= maxMoveOffsetX)
+        {
+            direction = direction * (-1);
+            currentPosX = maxMoveOffsetX;
+        }
+
+        else if (currentPosX <= (-maxMoveOffsetX))
+        {
+            direction = direction * (-1);
+            currentPosX = (-maxMoveOffsetX);
+        }
+
+        transform.position = new Vector2(currentPosX, startPos.y);
+
     }
-    public void StartActivateSpread()
+    /*public void StartActivateSpread()
     {
         StartCoroutine(ActivateSpread());
     }
@@ -148,7 +163,7 @@ public class Formation : MonoBehaviour
         canSpread = true;
         //canDive = true;
         Invoke("SetDiving", Random.Range(minTimeBetweenEnemyDive, maxTimeBetweenEnemyDive));
-    }
+    }*/
     
     private void OnDrawGizmos()
     {
@@ -184,7 +199,7 @@ public class Formation : MonoBehaviour
         return (Vector2)gameObject.transform.position + (Vector2)gridList[posInFormation];
     }
 
-    public void SetDiving()
+    /*public void SetDiving()
     {
         if (enemyInThisFormation.Count > 0)
         {
@@ -201,5 +216,5 @@ public class Formation : MonoBehaviour
             CancelInvoke("SetDiving");
             return;
         }
-    }
+    }*/
 }

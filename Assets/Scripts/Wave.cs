@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewWave : MonoBehaviour
+public class Wave : MonoBehaviour
 {
     public GameObject enemyPrefab;
 
