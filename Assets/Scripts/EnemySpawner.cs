@@ -33,7 +33,7 @@ public class EnemySpawner : MonoBehaviour
 
         while (currentWave < waveList.Count)
         {
-            Debug.Log("Spawning new enemy");
+            Debug.Log("Spawning new Wave");
             yield return StartCoroutine(waveList[currentWave].SpawnAllEnemies());
             //yield return StartCoroutine(SpawnAllEnemiesInCurrentWave(waveList[currentWave]));
             currentWave++;

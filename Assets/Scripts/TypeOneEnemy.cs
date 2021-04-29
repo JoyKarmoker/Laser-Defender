@@ -4,21 +4,22 @@ using System.Collections;
 
 public class TypeOneEnemy : MonoBehaviour
 {
+    [Header("Enemy")]
+    [SerializeField] Color flashColor;
+    [SerializeField] float health = 100;
+    [SerializeField] float speed = 10f;
+    [SerializeField] float rotationSpeed = 10f;
+
     [Header("Path Info")]
     [SerializeField] float reachDistance = 0.2f;
     [SerializeField] float rotationOffsetInPath = 90f; //Adjustment for rotation of enemy
     [SerializeField] float rotationOffsetInFormation = -90f; //Adjustment Of enemy rotation in Formation
-    [SerializeField] bool useCurvedPath = false;
+    [SerializeField] bool useCurvedPath = true;
 
-    float speed = 10f;
-    float rotationSpeed = 10f;
+
     int currentWayPointId = 0;
     float distance; //current Distance to Next Point
     public Path pathToFollow;
-
-    [Header("Enemy")]
-    [SerializeField] Color flashColor;
-    [SerializeField] float health = 100;
     Animator animator;
     int scoreValue = 20;
 
@@ -33,7 +34,7 @@ public class TypeOneEnemy : MonoBehaviour
 
     public EnemyStates enemyStates;
     int posInFormation; //Position of This in enemy in formation
-    public Formation formation; //In Which Formation this enemy will be (Public for testing purpose)
+    Formation formation; //In Which Formation this enemy will be (Public for testing purpose)
 
     /*
     [Header("Projectile")]
@@ -68,6 +69,8 @@ public class TypeOneEnemy : MonoBehaviour
         objectPooler = ObjectPooler.ObjectPullerInstance;
         capsuleSpawner = CapsuleSpawner.CapsuleSpawnerInstance;
         enemySpawner = FindObjectOfType<EnemySpawner>();
+        GameObject typeOneEnemyFormationObject = GameObject.Find("Type One Enemy Formation");
+        formation = typeOneEnemyFormationObject.GetComponent<Formation>();
     }
 
     // Update is called once per frame
@@ -95,11 +98,13 @@ public class TypeOneEnemy : MonoBehaviour
     void MoveToFormation()
     {
         // Debug.Log("Pos in Formation " + posInFormation);
-        transform.position = Vector2.MoveTowards(transform.position, formation.GetVector(posInFormation), speed * Time.deltaTime);
+        //transform.position = Vector2.MoveTowards(transform.position, formation.GetVector(posInFormation), speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, formation.gridList[posInFormation], speed * Time.deltaTime);
         //Rotation of enemy
-        Vector2 direction = formation.GetVector(posInFormation) - (Vector2)transform.position;
+        //Vector2 direction = formation.GetVector(posInFormation) - (Vector2)transform.position;
+        Vector2 direction = formation.gridList[posInFormation] - (Vector2)transform.position;
 
-        if (direction != Vector2.zero)
+        /*if (direction != Vector2.zero)
         {
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             Quaternion target = Quaternion.Euler(new Vector3(0, 0, angle + rotationOffsetInFormation));
@@ -115,7 +120,7 @@ public class TypeOneEnemy : MonoBehaviour
             //formation.enemyInThisFormation.Add(new Formation.FormationSpread(posInFormation, transform.localPosition.x, transform.localPosition.y, this.gameObject));
 
             //enemyStates = EnemyStates.IDLE;
-        }
+        }*/
     }
 
     private void MoveOnPath(Path path)
@@ -181,15 +186,15 @@ public class TypeOneEnemy : MonoBehaviour
     }
 
 
-    public void SpawnSetup(Path path, int pos, Formation formation, float speed, float rotationSpeed)
+    public void SetPositionInFormation(int pos)
     {
         //Debug.Log("Spawn setup");
-        pathToFollow = path;
+        //pathToFollow = path;
         posInFormation = pos;
-        this.formation = formation;
-        this.speed = speed;
-        this.rotationSpeed = rotationSpeed;
-        enemyStates = EnemyStates.FLY_IN;
+        //this.formation = formation;
+        //this.speed = speed;
+        //this.rotationSpeed = rotationSpeed;
+        //enemyStates = EnemyStates.FLY_IN;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

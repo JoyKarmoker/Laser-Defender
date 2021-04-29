@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1838272570400703786
+--- !u!1 &5876634830369097371
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,56 +8,54 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1838272570400703784}
-  - component: {fileID: 1838272570400703785}
+  - component: {fileID: 5876634830369097370}
+  - component: {fileID: 5876634830369097369}
   m_Layer: 0
-  m_Name: Boss Enemy Formation
-  m_TagString: BossEnemyFormation
+  m_Name: Type One Enemy Formation
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1838272570400703784
+--- !u!4 &5876634830369097370
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1838272570400703786}
+  m_GameObject: {fileID: 5876634830369097371}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 11, z: 0}
+  m_LocalPosition: {x: 0, y: 6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1838272570400703785
+--- !u!114 &5876634830369097369
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1838272570400703786}
+  m_GameObject: {fileID: 5876634830369097371}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dea08fd0fab94934689b3f950bfc1698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridSizeX: 2
+  gridSizeX: 4
   gridSizeY: 2
-  gridOffsetX: 1.5
+  gridOffsetX: 1
   gridOffsetY: 1
-  div: 2
+  div: 4
   gridList:
-  - {x: -1.5, y: 0}
-  - {x: 1.5, y: 0}
-  - {x: -4.5, y: 0}
-  - {x: 4.5, y: 0}
+  - {x: -1, y: 6}
+  - {x: 1, y: 6}
+  - {x: -1, y: 7}
+  - {x: 1, y: 7}
+  - {x: -3, y: 6}
+  - {x: 3, y: 6}
+  - {x: -3, y: 7}
+  - {x: 3, y: 7}
   maxMoveOffsetX: 2
   speed: 2
-  divePathList:
-  - {fileID: 6944559870432817141, guid: 448fe0afb6dad2c4593abc6f8714292f, type: 3}
-  - {fileID: 8265452628296846293, guid: 4b0ff58a0c361dd419be2941bf7f2ead, type: 3}
-  minTimeBetweenEnemyDive: 1
-  maxTimeBetweenEnemyDive: 3
-  enemyInThisFormation: []
