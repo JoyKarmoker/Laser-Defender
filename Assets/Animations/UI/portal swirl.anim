@@ -19,31 +19,6 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 30.66, y: 37.27, z: 360}
-        inSlope: {x: 0, y: 0, z: -1200.8014}
-        outSlope: {x: 0, y: 0, z: -1200.8014}
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.23378193}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.13649423}
-      - serializedVersion: 3
-        time: 0.5
-        value: {x: 30.66, y: 37.27, z: 0}
-        inSlope: {x: 0, y: 0, z: -564.73285}
-        outSlope: {x: 0, y: 0, z: -564.73285}
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.14511502}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.10369438}
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    path: Map elements Holder/GameObject/content/arrows/Image (9)/RawImage
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
         value: {x: -35.63, y: -32.809002, z: 0}
         inSlope: {x: 0, y: 0, z: 822.05005}
         outSlope: {x: 0, y: 0, z: 822.05005}
@@ -63,182 +38,33 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (1)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (1)
   - curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 25, y: -46.1, z: 360}
-        inSlope: {x: 0, y: 0, z: -766.8985}
-        outSlope: {x: 0, y: 0, z: -766.8985}
+        value: {x: 30.66, y: 37.27, z: 360}
+        inSlope: {x: 0, y: 0, z: -1200.8014}
+        outSlope: {x: 0, y: 0, z: -1200.8014}
         tangentMode: 0
         weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.12212642}
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.23378193}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.13649423}
       - serializedVersion: 3
         time: 0.5
-        value: {x: 25, y: -46.1, z: 0}
-        inSlope: {x: 0, y: 0, z: -727.5256}
-        outSlope: {x: 0, y: 0, z: -727.5256}
+        value: {x: 30.66, y: 37.27, z: 0}
+        inSlope: {x: 0, y: 0, z: -564.73285}
+        outSlope: {x: 0, y: 0, z: -564.73285}
         tangentMode: 0
         weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.08045983}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.14511502}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.10369438}
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (2)
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: {x: 25, y: -46.1, z: 0}
-        inSlope: {x: 0, y: 0, z: 564.0918}
-        outSlope: {x: 0, y: 0, z: 564.0918}
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.09339424}
-      - serializedVersion: 3
-        time: 0.5
-        value: {x: 25, y: -46.1, z: 360}
-        inSlope: {x: 0, y: 0, z: 881.8885}
-        outSlope: {x: 0, y: 0, z: 881.8885}
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.11947751}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (3)
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: {x: 25, y: -46.1, z: 360}
-        inSlope: {x: 0, y: 0, z: -1034.399}
-        outSlope: {x: 0, y: 0, z: -1034.399}
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.079225935}
-      - serializedVersion: 3
-        time: 0.5
-        value: {x: 25, y: -46.1, z: 0}
-        inSlope: {x: 0, y: 0, z: -602.4341}
-        outSlope: {x: 0, y: 0, z: -602.4341}
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.106883466}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (4)
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: {x: -7.9, y: -61.16, z: 0}
-        inSlope: {x: 0, y: 0, z: 645.8965}
-        outSlope: {x: 0, y: 0, z: 645.8965}
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.09969127}
-      - serializedVersion: 3
-        time: 0.5
-        value: {x: -7.9, y: -61.16, z: 360}
-        inSlope: {x: 0, y: 0, z: 945.9296}
-        outSlope: {x: 0, y: 0, z: 945.9296}
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.099012196}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (5)
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: {x: -46.15, y: -61.16, z: 360}
-        inSlope: {x: 0, y: 0, z: -1115.6398}
-        outSlope: {x: 0, y: 0, z: -1115.6398}
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.09969127}
-      - serializedVersion: 3
-        time: 0.5
-        value: {x: -46.15, y: -61.16, z: 0}
-        inSlope: {x: 0, y: 0, z: -773.2738}
-        outSlope: {x: 0, y: 0, z: -773.2738}
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.083269656}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (6)
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: {x: -46.15, y: -25.3, z: 0}
-        inSlope: {x: 0, y: 0, z: 677.08655}
-        outSlope: {x: 0, y: 0, z: 677.08655}
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.1815526}
-      - serializedVersion: 3
-        time: 0.5
-        value: {x: -46.15, y: -25.3, z: 360}
-        inSlope: {x: 0, y: 0, z: 998.89435}
-        outSlope: {x: 0, y: 0, z: 998.89435}
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.12892306}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (7)
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: {x: -46.15, y: -25.3, z: 360}
-        inSlope: {x: 0, y: 0, z: -812.9947}
-        outSlope: {x: 0, y: 0, z: -812.9947}
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.12960213}
-      - serializedVersion: 3
-        time: 0.5
-        value: {x: -46.15, y: -25.3, z: 0}
-        inSlope: {x: 0, y: 0, z: -793.80994}
-        outSlope: {x: 0, y: 0, z: -793.80994}
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.0958637}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (8)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (9)/RawImage
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -263,32 +89,190 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (9)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (9)
   - curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 8.7, y: -41.6, z: 360}
-        inSlope: {x: 0, y: 0, z: -725.6415}
-        outSlope: {x: 0, y: 0, z: -725.6415}
+        value: {x: -46.15, y: -25.3, z: 360}
+        inSlope: {x: 0, y: 0, z: -812.9947}
+        outSlope: {x: 0, y: 0, z: -812.9947}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.16940434}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.12960213}
       - serializedVersion: 3
         time: 0.5
-        value: {x: 8.7, y: -41.6, z: 0}
-        inSlope: {x: 0, y: 0, z: -621.5351}
-        outSlope: {x: 0, y: 0, z: -621.5351}
+        value: {x: -46.15, y: -25.3, z: 0}
+        inSlope: {x: 0, y: 0, z: -793.80994}
+        outSlope: {x: 0, y: 0, z: -793.80994}
         tangentMode: 0
         weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.15068907}
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.0958637}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (10)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (8)
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: -46.15, y: -25.3, z: 0}
+        inSlope: {x: 0, y: 0, z: 677.08655}
+        outSlope: {x: 0, y: 0, z: 677.08655}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.1815526}
+      - serializedVersion: 3
+        time: 0.5
+        value: {x: -46.15, y: -25.3, z: 360}
+        inSlope: {x: 0, y: 0, z: 998.89435}
+        outSlope: {x: 0, y: 0, z: 998.89435}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.12892306}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (7)
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: -46.15, y: -61.16, z: 360}
+        inSlope: {x: 0, y: 0, z: -1115.6398}
+        outSlope: {x: 0, y: 0, z: -1115.6398}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.09969127}
+      - serializedVersion: 3
+        time: 0.5
+        value: {x: -46.15, y: -61.16, z: 0}
+        inSlope: {x: 0, y: 0, z: -773.2738}
+        outSlope: {x: 0, y: 0, z: -773.2738}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.083269656}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (6)
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: -7.9, y: -61.16, z: 0}
+        inSlope: {x: 0, y: 0, z: 645.8965}
+        outSlope: {x: 0, y: 0, z: 645.8965}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.09969127}
+      - serializedVersion: 3
+        time: 0.5
+        value: {x: -7.9, y: -61.16, z: 360}
+        inSlope: {x: 0, y: 0, z: 945.9296}
+        outSlope: {x: 0, y: 0, z: 945.9296}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.099012196}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (5)
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 25, y: -46.1, z: 360}
+        inSlope: {x: 0, y: 0, z: -1034.399}
+        outSlope: {x: 0, y: 0, z: -1034.399}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.079225935}
+      - serializedVersion: 3
+        time: 0.5
+        value: {x: 25, y: -46.1, z: 0}
+        inSlope: {x: 0, y: 0, z: -602.4341}
+        outSlope: {x: 0, y: 0, z: -602.4341}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.106883466}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (4)
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 25, y: -46.1, z: 0}
+        inSlope: {x: 0, y: 0, z: 564.0918}
+        outSlope: {x: 0, y: 0, z: 564.0918}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.09339424}
+      - serializedVersion: 3
+        time: 0.5
+        value: {x: 25, y: -46.1, z: 360}
+        inSlope: {x: 0, y: 0, z: 881.8885}
+        outSlope: {x: 0, y: 0, z: 881.8885}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.11947751}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (3)
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 25, y: -46.1, z: 360}
+        inSlope: {x: 0, y: 0, z: -766.8985}
+        outSlope: {x: 0, y: 0, z: -766.8985}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.12212642}
+      - serializedVersion: 3
+        time: 0.5
+        value: {x: 25, y: -46.1, z: 0}
+        inSlope: {x: 0, y: 0, z: -727.5256}
+        outSlope: {x: 0, y: 0, z: -727.5256}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.08045983}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (2)
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -313,7 +297,34 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (11)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (11)
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 8.7, y: -41.6, z: 360}
+        inSlope: {x: 0, y: 0, z: -725.6415}
+        outSlope: {x: 0, y: 0, z: -725.6415}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.16940434}
+      - serializedVersion: 3
+        time: 0.5
+        value: {x: 8.7, y: -41.6, z: 0}
+        inSlope: {x: 0, y: 0, z: -621.5351}
+        outSlope: {x: 0, y: 0, z: -621.5351}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.15068907}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (10)
   m_PositionCurves: []
   m_ScaleCurves: []
   m_FloatCurves: []
@@ -326,84 +337,84 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 3490330536
+      path: 2710529768
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 192092272
+      path: 1488807313
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 543050675
+      path: 1767304416
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 960854770
+      path: 1884151201
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 1980034101
+      path: 4157981038
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 1864359284
+      path: 4006539311
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 1144164023
+      path: 3320030188
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 1563017206
+      path: 3707277997
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3669074745
+      path: 2478376042
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 3282735736
+      path: 2325886251
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 1539235037
+      path: 3168471700
       attribute: 4
       script: {fileID: 0}
       typeID: 4
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 1118170524
+      path: 2780838869
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -436,90 +447,6 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 30.66
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.5
-        value: 30.66
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.x
-    path: Map elements Holder/GameObject/content/arrows/Image (9)/RawImage
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 37.27
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.5
-        value: 37.27
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.y
-    path: Map elements Holder/GameObject/content/arrows/Image (9)/RawImage
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 360
-        inSlope: -1200.8014
-        outSlope: -1200.8014
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.23378193
-        outWeight: 0.13649423
-      - serializedVersion: 3
-        time: 0.5
-        value: 0
-        inSlope: -564.73285
-        outSlope: -564.73285
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.14511502
-        outWeight: 0.10369438
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.z
-    path: Map elements Holder/GameObject/content/arrows/Image (9)/RawImage
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
         value: -35.63
         inSlope: 0
         outSlope: 0
@@ -540,7 +467,8 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (1)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (1)
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -568,7 +496,8 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (1)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (1)
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -596,7 +525,8 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (1)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (1)
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -604,7 +534,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 25
+        value: 30.66
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -613,7 +543,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.5
-        value: 25
+        value: 30.66
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -624,7 +554,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (2)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (9)/RawImage
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -632,7 +562,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -46.1
+        value: 37.27
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -641,7 +571,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.5
-        value: -46.1
+        value: 37.27
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -652,7 +582,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (2)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (9)/RawImage
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -661,530 +591,26 @@ AnimationClip:
       - serializedVersion: 3
         time: 0
         value: 360
-        inSlope: -766.8985
-        outSlope: -766.8985
+        inSlope: -1200.8014
+        outSlope: -1200.8014
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.12212642
+        inWeight: 0.23378193
+        outWeight: 0.13649423
       - serializedVersion: 3
         time: 0.5
         value: 0
-        inSlope: -727.5256
-        outSlope: -727.5256
+        inSlope: -564.73285
+        outSlope: -564.73285
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.08045983
-        outWeight: 0.33333334
+        inWeight: 0.14511502
+        outWeight: 0.10369438
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (2)
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 25
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.5
-        value: 25
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.x
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (3)
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: -46.1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.5
-        value: -46.1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.y
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (3)
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 564.0918
-        outSlope: 564.0918
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.09339424
-      - serializedVersion: 3
-        time: 0.5
-        value: 360
-        inSlope: 881.8885
-        outSlope: 881.8885
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.11947751
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.z
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (3)
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 25
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.5
-        value: 25
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.x
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (4)
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: -46.1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.5
-        value: -46.1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.y
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (4)
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 360
-        inSlope: -1034.399
-        outSlope: -1034.399
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.079225935
-      - serializedVersion: 3
-        time: 0.5
-        value: 0
-        inSlope: -602.4341
-        outSlope: -602.4341
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.106883466
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.z
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (4)
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: -7.9
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.5
-        value: -7.9
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.x
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (5)
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: -61.16
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.5
-        value: -61.16
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.y
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (5)
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 645.8965
-        outSlope: 645.8965
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.09969127
-      - serializedVersion: 3
-        time: 0.5
-        value: 360
-        inSlope: 945.9296
-        outSlope: 945.9296
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.099012196
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.z
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (5)
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: -46.15
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.5
-        value: -46.15
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.x
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (6)
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: -61.16
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.5
-        value: -61.16
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.y
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (6)
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 360
-        inSlope: -1115.6398
-        outSlope: -1115.6398
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.09969127
-      - serializedVersion: 3
-        time: 0.5
-        value: 0
-        inSlope: -773.2738
-        outSlope: -773.2738
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.083269656
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.z
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (6)
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: -46.15
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.5
-        value: -46.15
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.x
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (7)
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: -25.3
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.5
-        value: -25.3
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.y
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (7)
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 677.08655
-        outSlope: 677.08655
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.1815526
-      - serializedVersion: 3
-        time: 0.5
-        value: 360
-        inSlope: 998.89435
-        outSlope: 998.89435
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.12892306
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.z
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (7)
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: -46.15
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.5
-        value: -46.15
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.x
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (8)
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: -25.3
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.5
-        value: -25.3
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.y
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (8)
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 360
-        inSlope: -812.9947
-        outSlope: -812.9947
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.12960213
-      - serializedVersion: 3
-        time: 0.5
-        value: 0
-        inSlope: -793.80994
-        outSlope: -793.80994
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.0958637
-        outWeight: 0.33333334
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: localEulerAnglesRaw.z
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (8)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (9)/RawImage
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -1212,7 +638,8 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (9)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (9)
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -1240,7 +667,8 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (9)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (9)
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -1268,7 +696,8 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (9)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (9)
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -1276,7 +705,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 8.7
+        value: -46.15
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1285,7 +714,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.5
-        value: 8.7
+        value: -46.15
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1296,7 +725,8 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (10)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (8)
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -1304,7 +734,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -41.6
+        value: -25.3
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1313,7 +743,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.5
-        value: -41.6
+        value: -25.3
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1324,7 +754,8 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (10)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (8)
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -1333,26 +764,549 @@ AnimationClip:
       - serializedVersion: 3
         time: 0
         value: 360
-        inSlope: -725.6415
-        outSlope: -725.6415
+        inSlope: -812.9947
+        outSlope: -812.9947
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.16940434
+        outWeight: 0.12960213
       - serializedVersion: 3
         time: 0.5
         value: 0
-        inSlope: -621.5351
-        outSlope: -621.5351
+        inSlope: -793.80994
+        outSlope: -793.80994
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.15068907
+        inWeight: 0.0958637
         outWeight: 0.33333334
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (10)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (8)
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -46.15
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.5
+        value: -46.15
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.x
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (7)
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -25.3
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.5
+        value: -25.3
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.y
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (7)
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 677.08655
+        outSlope: 677.08655
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.1815526
+      - serializedVersion: 3
+        time: 0.5
+        value: 360
+        inSlope: 998.89435
+        outSlope: 998.89435
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.12892306
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.z
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (7)
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -46.15
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.5
+        value: -46.15
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.x
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (6)
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -61.16
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.5
+        value: -61.16
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.y
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (6)
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 360
+        inSlope: -1115.6398
+        outSlope: -1115.6398
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.09969127
+      - serializedVersion: 3
+        time: 0.5
+        value: 0
+        inSlope: -773.2738
+        outSlope: -773.2738
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.083269656
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.z
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (6)
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -7.9
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.5
+        value: -7.9
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.x
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (5)
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -61.16
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.5
+        value: -61.16
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.y
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (5)
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 645.8965
+        outSlope: 645.8965
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.09969127
+      - serializedVersion: 3
+        time: 0.5
+        value: 360
+        inSlope: 945.9296
+        outSlope: 945.9296
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.099012196
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.z
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (5)
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 25
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.5
+        value: 25
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.x
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (4)
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -46.1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.5
+        value: -46.1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.y
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (4)
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 360
+        inSlope: -1034.399
+        outSlope: -1034.399
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.079225935
+      - serializedVersion: 3
+        time: 0.5
+        value: 0
+        inSlope: -602.4341
+        outSlope: -602.4341
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.106883466
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.z
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (4)
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 25
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.5
+        value: 25
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.x
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (3)
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -46.1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.5
+        value: -46.1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.y
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (3)
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 564.0918
+        outSlope: 564.0918
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.09339424
+      - serializedVersion: 3
+        time: 0.5
+        value: 360
+        inSlope: 881.8885
+        outSlope: 881.8885
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.11947751
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.z
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (3)
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 25
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.5
+        value: 25
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.x
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (2)
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -46.1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.5
+        value: -46.1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.y
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (2)
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 360
+        inSlope: -766.8985
+        outSlope: -766.8985
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.12212642
+      - serializedVersion: 3
+        time: 0.5
+        value: 0
+        inSlope: -727.5256
+        outSlope: -727.5256
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.08045983
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.z
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (2)
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -1380,7 +1334,8 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (11)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (11)
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -1408,7 +1363,8 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (11)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (11)
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -1436,7 +1392,95 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (11)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (11)
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 8.7
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.5
+        value: 8.7
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.x
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (10)
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -41.6
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.5
+        value: -41.6
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.y
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (10)
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 360
+        inSlope: -725.6415
+        outSlope: -725.6415
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.16940434
+      - serializedVersion: 3
+        time: 0.5
+        value: 0
+        inSlope: -621.5351
+        outSlope: -621.5351
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.15068907
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.z
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (10)
     classID: 224
     script: {fileID: 0}
   m_EulerEditorCurves:
@@ -1447,7 +1491,8 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (3)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (4)
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -1457,7 +1502,8 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (3)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (4)
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -1467,27 +1513,8 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (3)
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Map elements Holder/GameObject/content/arrows/Image (9)/RawImage
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Map elements Holder/GameObject/content/arrows/Image (9)/RawImage
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (4)
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -1497,17 +1524,8 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Map elements Holder/GameObject/content/arrows/Image (9)/RawImage
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (2)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (1)
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -1517,37 +1535,8 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (2)
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (2)
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (1)
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (1)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (1)
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -1557,27 +1546,8 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (1)
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (4)
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (4)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (1)
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -1587,17 +1557,8 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (4)
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (5)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (3)
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -1607,17 +1568,8 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (5)
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (5)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (3)
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -1627,17 +1579,8 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (6)
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (6)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (3)
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -1647,7 +1590,19 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (6)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (2)
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (2)
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -1657,17 +1612,8 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (7)
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (7)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (2)
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -1677,7 +1623,19 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (7)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (5)
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (5)
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -1687,17 +1645,8 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (8)
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (8)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (5)
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -1707,7 +1656,19 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (8)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (6)
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (6)
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -1717,17 +1678,8 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (9)
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (9)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (6)
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -1737,7 +1689,19 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (9)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (7)
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (7)
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -1747,17 +1711,8 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (10)
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (10)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (7)
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -1767,7 +1722,19 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (10)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (8)
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (8)
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -1777,17 +1744,8 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (11)
-    classID: 224
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.y
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (11)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (8)
     classID: 224
     script: {fileID: 0}
   - curve:
@@ -1797,7 +1755,126 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Map elements Holder/GameObject/content/arrows/Image (7)/RawImage (11)
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (9)
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (9)
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (9)
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (9)/RawImage
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (9)/RawImage
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (9)/RawImage
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (11)
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (11)
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (11)
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (10)
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (10)
+    classID: 224
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Panel/Map /Map elements Holder/GameObject/content/arrows/Image (7)/RawImage
+      (10)
     classID: 224
     script: {fileID: 0}
   m_HasGenericRootTransform: 0
