@@ -50,3 +50,4 @@ MonoBehaviour:
     secToWait: 1
   - enemy: {fileID: 687901863488730691, guid: 6ca06a2945d61654f90f9a28f78d28d5, type: 3}
     secToWait: 1
+  spawningPos: {x: 0, y: 17.5}

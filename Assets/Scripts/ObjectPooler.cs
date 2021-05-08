@@ -61,6 +61,8 @@ public class ObjectPooler : MonoBehaviour
 
     public GameObject SpawnFromPool(string tag, Vector2 position, Quaternion rotation)
     {
+        //GameObject objectToSpwan = poolDictionary[tag].Dequeue();
+        //Debug.Log("Inside Spawn from pool and tag is " + tag);
         if(!poolDictionary.ContainsKey(tag))
         {
             Debug.LogWarning("The Key Does not exist");
