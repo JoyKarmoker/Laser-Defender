@@ -1401,6 +1401,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5876634830369097369, guid: fd30f1aa98593be4d9fa7a19e5ebe75e,
+        type: 3}
+      propertyPath: gridOffsetY
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5876634830369097369, guid: fd30f1aa98593be4d9fa7a19e5ebe75e,
+        type: 3}
+      propertyPath: gridList.Array.data[2].y
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5876634830369097369, guid: fd30f1aa98593be4d9fa7a19e5ebe75e,
+        type: 3}
+      propertyPath: gridList.Array.data[3].y
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5876634830369097369, guid: fd30f1aa98593be4d9fa7a19e5ebe75e,
+        type: 3}
+      propertyPath: gridList.Array.data[6].y
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5876634830369097369, guid: fd30f1aa98593be4d9fa7a19e5ebe75e,
+        type: 3}
+      propertyPath: gridList.Array.data[7].y
+      value: 7.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5876634830369097370, guid: fd30f1aa98593be4d9fa7a19e5ebe75e,
         type: 3}
       propertyPath: m_LocalPosition.x

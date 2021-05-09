@@ -109,18 +109,18 @@ public class TypeOneEnemy : MonoBehaviour
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             Quaternion target = Quaternion.Euler(new Vector3(0, 0, angle + rotationOffsetInFormation));
             transform.rotation = Quaternion.Slerp(transform.rotation, target, rotationSpeed * Time.deltaTime);
-        }
+        }*/
 
-        //
-        if (Vector2.Distance(transform.position, formation.GetVector(posInFormation)) <= 0.0001f)
+        
+        if ((Vector2.Distance(transform.position, formation.gridList[posInFormation]) <= 0.0001f))
         {
             transform.SetParent(formation.gameObject.GetComponentInParent<Transform>());
             transform.eulerAngles = Vector2.zero; //Set rotation
             //Setting the spreading configs
             //formation.enemyInThisFormation.Add(new Formation.FormationSpread(posInFormation, transform.localPosition.x, transform.localPosition.y, this.gameObject));
 
-            //enemyStates = EnemyStates.IDLE;
-        }*/
+            enemyStates = EnemyStates.IDLE;
+        }
     }
 
     private void MoveOnPath(Path path)
