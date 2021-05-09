@@ -12,9 +12,10 @@ public class Wave : MonoBehaviour
     }
 
     public SpawnSetup[] spawnSetup;
-    
 
-    ObjectPooler objectPooler;
+
+    //ObjectPooler objectPooler;
+    EnemySpawner enemySpawner;
     int posInTypeOneSpawner = 0;
     Vector2 spawningPos = new Vector2(0.0f, 17.0f);
     // Start is called before the first frame update
@@ -23,10 +24,11 @@ public class Wave : MonoBehaviour
         //posInTypeOneSpawner = 0;
         //objectPooler = ObjectPooler.ObjectPullerInstance;
         Debug.Log("First Wave");
-        if (objectPooler)
+        /*if (objectPooler)
         {
             Debug.Log("Found Object Pooler");
-        }
+        }*/
+        enemySpawner = EnemySpawner.enemySpawnerInstance;
 
     }
 
@@ -34,7 +36,8 @@ public class Wave : MonoBehaviour
     public IEnumerator SpawnAllEnemies()
     {
         posInTypeOneSpawner = 0;
-        objectPooler = ObjectPooler.ObjectPullerInstance;
+        enemySpawner = EnemySpawner.enemySpawnerInstance;
+        //objectPooler = ObjectPooler.ObjectPullerInstance;
         for (int enemyCount = 0; enemyCount <spawnSetup.Length; enemyCount++)
         {
             //Debug.Log("Spawning all enemys in type one wave");
@@ -56,6 +59,7 @@ public class Wave : MonoBehaviour
             //enemyBehaviour.SpawnSetup(flyInPathPrefab.GetComponent<Path>(), enemyCount, enemyFormationPrefab.GetComponent<Formation>(), enemySpeed, enemyRotationSpeed);
             //posInFormation++;
             //spawnedEnemys.Add(newEnemy);
+            enemySpawner.AddSpawnedEnemy(); //When a enemy is spawned the number of enemy increases that are currently present in the scene
             yield return new WaitForSeconds(spawnSetup[enemyCount].secToWait);
 
         }

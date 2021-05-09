@@ -45,3 +45,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveList:
   - {fileID: 3003209310320618330, guid: 8873bd090f4c66c4ebf6544a3e17c2bd, type: 3}
+  - {fileID: 3003209310320618330, guid: 8873bd090f4c66c4ebf6544a3e17c2bd, type: 3}
+  - {fileID: 3003209310320618330, guid: 8873bd090f4c66c4ebf6544a3e17c2bd, type: 3}

@@ -68,7 +68,7 @@ public class TypeOneEnemy : MonoBehaviour
         gameSession = FindObjectOfType<GameSession>();
         objectPooler = ObjectPooler.ObjectPullerInstance;
         capsuleSpawner = CapsuleSpawner.CapsuleSpawnerInstance;
-        enemySpawner = FindObjectOfType<EnemySpawner>();
+        enemySpawner = EnemySpawner.enemySpawnerInstance;
         GameObject typeOneEnemyFormationObject = GameObject.Find("Type One Enemy Formation");
         formation = typeOneEnemyFormationObject.GetComponent<Formation>();
     }
@@ -290,10 +290,13 @@ public class TypeOneEnemy : MonoBehaviour
         capsuleSpawner.SpawnCapsule(gameObject);
 
         //Destroy(gameObject);
-        GameObject explosion = Instantiate(deathVFX, transform.position, transform.rotation);
-        Destroy(explosion, durationofExplotion);
-        this.gameObject.SetActive(false); //Setting this gameObject flase (Object Pooler Mechanism)
-                                          //myAudioManager.play("EnemyDeathSFX");
+        //GameObject explosion = Instantiate(deathVFX, transform.position, transform.rotation);
+        //Destroy(explosion, durationofExplotion);
+        //this.gameObject.SetActive(false); //Setting this gameObject flase (Object Pooler Mechanism)
+        //myAudioManager.play("EnemyDeathSFX");
+        /*todo: Distroy game object instead of seting it false */
+        enemySpawner.RemoveSpawnedEnemy();
+        Destroy(gameObject);
 
     }
 }
