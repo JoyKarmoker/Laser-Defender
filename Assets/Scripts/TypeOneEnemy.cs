@@ -22,6 +22,7 @@ public class TypeOneEnemy : MonoBehaviour
     public Path pathToFollow;
     Animator animator;
     int scoreValue = 20;
+    int posInSpreadFormation;
 
     //Enemy  State
     public enum EnemyStates
@@ -62,7 +63,6 @@ public class TypeOneEnemy : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        Debug.Log("Enemy Spawned");
         spriteFlash = GetComponent<SpriteFlash>();
         //shotCounter = UnityEngine.Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
         gameSession = FindObjectOfType<GameSession>();
@@ -98,28 +98,29 @@ public class TypeOneEnemy : MonoBehaviour
     void MoveToFormation()
     {
         // Debug.Log("Pos in Formation " + posInFormation);
-        //transform.position = Vector2.MoveTowards(transform.position, formation.GetVector(posInFormation), speed * Time.deltaTime);
-        transform.position = Vector2.MoveTowards(transform.position, formation.gridList[posInFormation], speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, formation.GetVector(posInFormation), speed * Time.deltaTime);
+        //transform.position = Vector2.MoveTowards(transform.position, formation.gridList[posInFormation], speed * Time.deltaTime);
         //Rotation of enemy
-        //Vector2 direction = formation.GetVector(posInFormation) - (Vector2)transform.position;
-        Vector2 direction = formation.gridList[posInFormation] - (Vector2)transform.position;
+        Vector2 direction = formation.GetVector(posInFormation) - (Vector2)transform.position;
+        //Vector2 direction = formation.gridList[posInFormation] - (Vector2)transform.position;
 
-        /*if (direction != Vector2.zero)
+        if (direction != Vector2.zero)
         {
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             Quaternion target = Quaternion.Euler(new Vector3(0, 0, angle + rotationOffsetInFormation));
             transform.rotation = Quaternion.Slerp(transform.rotation, target, rotationSpeed * Time.deltaTime);
-        }*/
+        }
 
         
 
         //If Player has reached its position on the formation
-        if ((Vector2.Distance(transform.position, formation.gridList[posInFormation]) <= 0.0001f))
+        if ((Vector2.Distance(transform.position, formation.GetVector(posInFormation)) <= 0.0001f))
         {
             transform.SetParent(formation.gameObject.GetComponentInParent<Transform>());
             transform.eulerAngles = Vector2.zero; //Set rotation
             //Setting the spreading configs
-            //formation.enemyInThisFormation.Add(new Formation.FormationSpread(posInFormation, transform.localPosition.x, transform.localPosition.y, this.gameObject));
+            posInSpreadFormation = formation.enemyInThisFormation.Count;
+            formation.enemyInThisFormation.Add(new Formation.FormationSpread(posInFormation, transform.localPosition.x, transform.localPosition.y, this.gameObject));
 
             enemyStates = EnemyStates.IDLE;
         }
@@ -291,13 +292,13 @@ public class TypeOneEnemy : MonoBehaviour
         gameSession.AddToScore(scoreValue);
         capsuleSpawner.SpawnCapsule(gameObject);
 
-        //Destroy(gameObject);
         //GameObject explosion = Instantiate(deathVFX, transform.position, transform.rotation);
         //Destroy(explosion, durationofExplotion);
         //this.gameObject.SetActive(false); //Setting this gameObject flase (Object Pooler Mechanism)
         //myAudioManager.play("EnemyDeathSFX");
         /*todo: Distroy game object instead of seting it false */
         enemySpawner.RemoveSpawnedEnemy();
+        //formation.enemyInThisFormation.RemoveAt(posInSpreadFormation);
         Destroy(gameObject);
 
     }

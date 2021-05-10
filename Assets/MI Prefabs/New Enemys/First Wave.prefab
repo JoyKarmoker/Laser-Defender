@@ -50,3 +50,9 @@ MonoBehaviour:
     secToWait: 1
   - enemy: {fileID: 687901863488730691, guid: a3a02492475c55f45a6d842d5689d3e3, type: 3}
     secToWait: 1
+  - enemy: {fileID: 687901863488730691, guid: a3a02492475c55f45a6d842d5689d3e3, type: 3}
+    secToWait: 1
+  - enemy: {fileID: 687901863488730691, guid: a3a02492475c55f45a6d842d5689d3e3, type: 3}
+    secToWait: 1
+  - enemy: {fileID: 687901863488730691, guid: a3a02492475c55f45a6d842d5689d3e3, type: 3}
+    secToWait: 1
