@@ -62,7 +62,7 @@ public class TypeOneEnemy : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-
+        Debug.Log("Enemy Spawned");
         spriteFlash = GetComponent<SpriteFlash>();
         //shotCounter = UnityEngine.Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
         gameSession = FindObjectOfType<GameSession>();
@@ -112,6 +112,8 @@ public class TypeOneEnemy : MonoBehaviour
         }*/
 
         
+
+        //If Player has reached its position on the formation
         if ((Vector2.Distance(transform.position, formation.gridList[posInFormation]) <= 0.0001f))
         {
             transform.SetParent(formation.gameObject.GetComponentInParent<Transform>());

@@ -48,6 +48,5 @@ MonoBehaviour:
     secToWait: 1
   - enemy: {fileID: 687901863488730691, guid: 6ca06a2945d61654f90f9a28f78d28d5, type: 3}
     secToWait: 1
-  - enemy: {fileID: 687901863488730691, guid: 6ca06a2945d61654f90f9a28f78d28d5, type: 3}
+  - enemy: {fileID: 687901863488730691, guid: a3a02492475c55f45a6d842d5689d3e3, type: 3}
     secToWait: 1
-  spawningPos: {x: 0, y: 17.5}
