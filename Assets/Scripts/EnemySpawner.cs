@@ -57,7 +57,6 @@ public class EnemySpawner : MonoBehaviour
         {
             if(enemyPrsentInScene <= 0)
             {
-                Debug.Log("Spawning new Wave");
                 StartCoroutine(waveList[currentWave].SpawnAllEnemies());
                 //yield return StartCoroutine(SpawnAllEnemiesInCurrentWave(waveList[currentWave]));
                 currentWave++;

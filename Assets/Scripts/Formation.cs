@@ -92,7 +92,6 @@ public class Formation : MonoBehaviour
             }
 
             int totalEnemy = enemyInThisFormation.Count;
-            Debug.Log("Total enemys " + totalEnemy);
             for (int i = 0; i < totalEnemy; i++)
             {
                 if (Vector2.Distance(enemyInThisFormation[i].enemy.transform.position, enemyInThisFormation[i].target) >= 0.001f)

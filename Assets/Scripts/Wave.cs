@@ -28,7 +28,7 @@ public class Wave : MonoBehaviour
         if(typeOneEnemyFormation)
         {
             typeOneEnemyFormation.enemyInThisFormation.Clear(); // Clearing the formation list
-            Debug.Log("Setting the spread od typeone enemy formation to false");
+            //Debug.Log("Setting the spread od typeone enemy formation to false");
             typeOneEnemyFormation.spreadStarted = false;
         }
 
@@ -39,10 +39,16 @@ public class Wave : MonoBehaviour
             GameObject newEnemy = Instantiate(spawnSetup[enemyCount].enemy, transform.position, Quaternion.identity) as GameObject; //Instantiating the Enemy Game Object
             
             TypeOneEnemy typeOneEnemy = newEnemy.GetComponent<TypeOneEnemy>();
+            TypeTwoEnemy typeTwoEnemy = newEnemy.GetComponent<TypeTwoEnemy>();
             if(typeOneEnemy)
             {
                 typeOneEnemy.SetPositionInFormation(posInTypeOneSpawner);
                 //Debug.Log("Pos In Type One Spawner  " + posInTypeOneSpawner);
+                posInTypeOneSpawner++;
+            }
+            else if(typeTwoEnemy)
+            {
+                typeTwoEnemy.SetPositionInFormation(posInTypeOneSpawner);
                 posInTypeOneSpawner++;
             }
             enemySpawner.AddSpawnedEnemy(); //When a enemy is spawned the number of enemy increases that are currently present in the scene
@@ -52,7 +58,7 @@ public class Wave : MonoBehaviour
         //Start THe Spreading of type one enemy formation
         if (typeOneEnemyFormation)
         {
-            Debug.Log("Setting the spread od typeone enemy formation to true");
+            //Debug.Log("Setting the spread od typeone enemy formation to true");
             typeOneEnemyFormation.spreadStarted = true;
         }
     }
