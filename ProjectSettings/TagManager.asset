@@ -64,6 +64,8 @@ TagManager:
   - CoinPurchase4
   - ItsCoin
   - ItsCrystal
+  - LaserHead
+  - SourceLaser
   layers:
   - Default
   - TransparentFX
@@ -77,7 +79,7 @@ TagManager:
   - Enemy
   - Player Laser
   - Enemy Laser
-  - 
+  - LaserObject
   - 
   - 
   - 
