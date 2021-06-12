@@ -58,7 +58,7 @@ public class Formation : MonoBehaviour
     {
         startPos = transform.position;
         currentPosX = transform.position.x;
-        CreateFormation();
+        //CreateFormation();
     }
 
     private void Update()
@@ -104,7 +104,7 @@ public class Formation : MonoBehaviour
 
     }
 
-    /*private void OnDrawGizmos()
+    private void OnDrawGizmos()
     {
         gridList.Clear();
         int num = 0;
@@ -123,9 +123,9 @@ public class Formation : MonoBehaviour
                 num++;
             }
         }
-    }*/
+    }
 
-    private void OnDrawGizmos()
+   /* private void OnDrawGizmos()
     {
         int num = 0;
         CreateFormation();
@@ -152,7 +152,7 @@ public class Formation : MonoBehaviour
                 num++;
             }
         }
-    }
+    }*/
 
     public Vector2 GetVector(int posInFormation)
     {
