@@ -121,6 +121,179 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &348784158
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4767913430165671554, guid: 147d0c94bcda1a142a6b077b52bf96e4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767913430165671554, guid: 147d0c94bcda1a142a6b077b52bf96e4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767913430165671554, guid: 147d0c94bcda1a142a6b077b52bf96e4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767913430165671554, guid: 147d0c94bcda1a142a6b077b52bf96e4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767913430165671554, guid: 147d0c94bcda1a142a6b077b52bf96e4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767913430165671554, guid: 147d0c94bcda1a142a6b077b52bf96e4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767913430165671554, guid: 147d0c94bcda1a142a6b077b52bf96e4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767913430165671554, guid: 147d0c94bcda1a142a6b077b52bf96e4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767913430165671554, guid: 147d0c94bcda1a142a6b077b52bf96e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767913430165671554, guid: 147d0c94bcda1a142a6b077b52bf96e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767913430165671554, guid: 147d0c94bcda1a142a6b077b52bf96e4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767913430165671582, guid: 147d0c94bcda1a142a6b077b52bf96e4,
+        type: 3}
+      propertyPath: positions.Array.data[0].x
+      value: -2.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767913430165671582, guid: 147d0c94bcda1a142a6b077b52bf96e4,
+        type: 3}
+      propertyPath: positions.Array.data[0].y
+      value: 3.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767913430165671582, guid: 147d0c94bcda1a142a6b077b52bf96e4,
+        type: 3}
+      propertyPath: positions.Array.data[1].y
+      value: 3.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767913430165671582, guid: 147d0c94bcda1a142a6b077b52bf96e4,
+        type: 3}
+      propertyPath: positions.Array.data[1].x
+      value: 4.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767913430165671583, guid: 147d0c94bcda1a142a6b077b52bf96e4,
+        type: 3}
+      propertyPath: m_Name
+      value: Enemy5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767913430165671583, guid: 147d0c94bcda1a142a6b077b52bf96e4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 147d0c94bcda1a142a6b077b52bf96e4, type: 3}
+--- !u!1001 &883895517
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1183458193564624066, guid: b16c520b930ec6b4bad17d3ef378ca80,
+        type: 3}
+      propertyPath: m_Name
+      value: Enemy9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1183458193564624070, guid: b16c520b930ec6b4bad17d3ef378ca80,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1183458193564624070, guid: b16c520b930ec6b4bad17d3ef378ca80,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1183458193564624070, guid: b16c520b930ec6b4bad17d3ef378ca80,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1183458193564624070, guid: b16c520b930ec6b4bad17d3ef378ca80,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1183458193564624070, guid: b16c520b930ec6b4bad17d3ef378ca80,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1183458193564624070, guid: b16c520b930ec6b4bad17d3ef378ca80,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1183458193564624070, guid: b16c520b930ec6b4bad17d3ef378ca80,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1183458193564624070, guid: b16c520b930ec6b4bad17d3ef378ca80,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1183458193564624070, guid: b16c520b930ec6b4bad17d3ef378ca80,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1183458193564624070, guid: b16c520b930ec6b4bad17d3ef378ca80,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1183458193564624070, guid: b16c520b930ec6b4bad17d3ef378ca80,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7079381598341620575, guid: b16c520b930ec6b4bad17d3ef378ca80,
+        type: 3}
+      propertyPath: moveVector.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7079381598341620575, guid: b16c520b930ec6b4bad17d3ef378ca80,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 2089476260}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b16c520b930ec6b4bad17d3ef378ca80, type: 3}
 --- !u!1 &1262165222
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,6 +377,482 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2089476259
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2089476260}
+  - component: {fileID: 2089476261}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2089476260
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089476259}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.37, y: 0.86, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2089476261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089476259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 849bb46138e237a4eb46a4c85d85744b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  secAfterEnemyStartSpawn: 3
+  inFormation: 0
+  superWaveList:
+  - waveList:
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+  - waveList:
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+  - waveList:
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+    - enemySpeed: 0
+      enemyRotationSpeed: 0
+      enemyAmount: 0
+      enemySpawnInterval: 0
+      secToWaitForNextWave: 0
+      pathPrefab: {fileID: 0}
+      enemyFormationPrefab: {fileID: 0}
+      EnemyPrefab: {fileID: 0}
+  - waveList: []
+  - waveList: []
+  spawnedEnemys: []
 --- !u!1001 &3294863768905432230
 PrefabInstance:
   m_ObjectHideFlags: 0

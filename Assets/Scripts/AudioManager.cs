@@ -7,7 +7,7 @@ public class AudioManager : MonoBehaviour
 {
     [HideInInspector]
     public bool isNotMainMenuLoadedForFirstTime = false;
-
+    
     public Sounds[] sounds;
     public AudioClip[] levelBGClips;
     public AudioClip[] menuBGClips;
@@ -90,7 +90,7 @@ public class AudioManager : MonoBehaviour
 
         while (track.source.volume <= track.volume && keepFadingIn)
         {
-            audioVolume += 0.03f;
+            audioVolume += 0.02f;
             track.source.volume = audioVolume;
             yield return new WaitForSeconds(0.1f);
         }

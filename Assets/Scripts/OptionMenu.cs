@@ -17,13 +17,10 @@ public class OptionMenu : MonoBehaviour
 
     float previousVolume;
 
-    private void Start()
-    {
-        myAudioMixer.SetFloat(AllStringConstants.MASTER_AUDIOMIXER, -15f);
-    }
+
     public void setMyVolume(float volume)
     {
-        myAudioMixer.SetFloat(AllStringConstants.MASTER_AUDIOMIXER, volume);
+        myAudioMixer.SetFloat(AllStringConstants.MASTER_AUDIOMIXER, Mathf.Log10(volume) * 20);
     }
     public void MusicToggle()
     {

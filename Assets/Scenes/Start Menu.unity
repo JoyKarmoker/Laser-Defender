@@ -1308,6 +1308,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 95781811}
+    - target: {fileID: 7398811105078571517, guid: e4b718e446bc40a44adbd48016926ee6,
+        type: 3}
+      propertyPath: m_MinValue
+      value: 0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398811105078571517, guid: e4b718e446bc40a44adbd48016926ee6,
+        type: 3}
+      propertyPath: m_MaxValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398811105078571517, guid: e4b718e446bc40a44adbd48016926ee6,
+        type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7398811105579948490, guid: e4b718e446bc40a44adbd48016926ee6,
         type: 3}
       propertyPath: m_LocalPosition.x

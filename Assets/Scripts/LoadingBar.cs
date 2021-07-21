@@ -58,7 +58,9 @@ public class LoadingBar : MonoBehaviour
 			loadingText.text += letter;
 			yield return new WaitForSecondsRealtime(typingSpeed);
 		}
+
 		animator.SetTrigger("Fade");
+
 		StartCoroutine(WaitAndLoadStartMenu(sceneIndex));
 		AudioManager.instance.play(AllStringConstants.BG_SOUND, true, false);
 
@@ -66,7 +68,7 @@ public class LoadingBar : MonoBehaviour
 	}
 	IEnumerator WaitAndLoadStartMenu(int sceneIndex)
 	{
-		yield return new WaitForSeconds(2.5f);
+		yield return new WaitForSeconds(4f);
 		LevelLoader.instance.loadSelectedLevel(SceneManager.GetActiveScene().buildIndex + 1, false);
 
 	}
