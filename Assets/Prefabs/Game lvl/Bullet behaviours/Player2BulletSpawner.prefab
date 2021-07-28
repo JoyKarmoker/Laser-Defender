@@ -77,11 +77,11 @@ MonoBehaviour:
     type: 3}
   projectileSpeed: 10
   level1OffsetFromX: 0.1
-  level1OffsetFromY: 1.1
+  level1OffsetFromY: 0.6
   level2OffsetFromX: 0.15
   level2OffsetFromY: 0.5
   level2RotationOfProjectileInZ: 10
   level2ProjectileSpeedInX: 3
-  level4OffsetFromX: 0.3
+  level4OffsetFromX: 0.2
   level5OffsetFromX: 0.5
   level5OffsetFromY: 1.5

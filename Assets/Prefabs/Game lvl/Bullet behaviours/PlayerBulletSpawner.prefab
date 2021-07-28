@@ -82,4 +82,4 @@ MonoBehaviour:
   level3RotationOfProjectileInZ: 10
   level3ProjectileSpeedInX: 3
   level4OffsetFromX: 0.2
-  level5OffsetFromY: 1.2
+  level5OffsetFromY: 1.5
