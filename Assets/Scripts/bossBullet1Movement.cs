@@ -4,20 +4,35 @@ using UnityEngine;
 
 public class bossBullet1Movement : MonoBehaviour
 {
-    Rigidbody rigidbody;
- //   Vector3 moveDirection;
-   // public Transform moveDirection;
+    Rigidbody2D rigidbody;
+    //Fire at a angel
     public float angel = 0f;
     public float speed;
- //   public GameObject target;
- //   private Vector3 _targetPosition;
-    // Start is called before the first frame update
+    public float bulletSpeedInX = 3f;
+    public bool straight = true;
+    public bool rightSided = false;
+    public bool leftSided = false;
+ 
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        rigidbody = GetComponent<Rigidbody2D>();
         if(bossMovement.bossStage == 3){
             angel = angel - 10;
         }
+        if(straight){
+         transform.eulerAngles = new Vector3(0f, 0f, angel);
+         rigidbody.velocity = new Vector2(0, -speed);
+        }
+        if(rightSided){
+         transform.eulerAngles = new Vector3(0f, 0f, angel);
+         rigidbody.velocity = new Vector2(bulletSpeedInX, -speed);  
+       
+        }
+        if(leftSided){
+         transform.eulerAngles = new Vector3(0f, 0f, -angel);
+         rigidbody.velocity = new Vector2(-bulletSpeedInX, -speed);
+        }
+
         //Vector3 position = transform.position;
        // position.y -= 1000;
        // moveDirection = Vector3.forward;
@@ -25,13 +40,13 @@ public class bossBullet1Movement : MonoBehaviour
        // 
        // Debug.Log(transform.up);
       //  var direction = Quaternion.Euler(0f, angel , 0f) * (moveDirection - transform.position);
-       Vector3 direction1 = Quaternion.AngleAxis(angel, Vector3.forward) * Vector3.right;
+       //Vector3 direction1 = Quaternion.AngleAxis(angel, Vector3.forward) * Vector3.right;
       //  _targetPosition = transform.position + direction1;
       // _targetPosition = moveDirection;
       //  float xcomponent = Mathf.Cos(angel * Mathf.PI/180) * speed;
       //  float ycomponent = Mathf.Sin(angel * Mathf.PI/180) * speed;
 
-        rigidbody.AddForce(direction1 * speed);
+     //   rigidbody.AddForce(direction1 * speed);
      // _targetPosition = moveDirection;
     }
     // Update is called once per frame

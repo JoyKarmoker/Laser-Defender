@@ -4,43 +4,66 @@ using UnityEngine;
 
 public class bossMovement : MonoBehaviour
 {
+    [Header("Stage1 Bullet")]
+    public GameObject[] bulletPrefab;
+
+    [Header("Stage2 Bullet")]
+    public GameObject[] bulletPrefab1;
+
+    [Header("Stage3 Bullet")]
+    public GameObject[] bulletPrefab2;
+
+    //Stage 2 and 3 movement positions
+    public Transform[] positions;
+
+    //Boss Movement speed
     public float speed;
-    public float t;
     bool switc = true;
     bool counter = true;
+
+    //Start time for bullet spawning
     public float bulletTime = 5f;
-    public GameObject bulletPrefab;
-    public GameObject bulletPrefab1;
-    public GameObject bulletPrefab2;
-    public GameObject bulletPrefab3;
-    public GameObject bulletPrefab4;
-    public GameObject bulletPrefab5;
-    public Transform[] positions;
     private Transform target;
-    private int wavepointIndex = 0;
+    private int wavepointIndex ;
     int count = 0;
+
+    //Deciding Boss stage
     public static int bossStage;
     public int stage = 1;
     Vector3 objHeight;
 
-    
+    //Get player position
+    [HideInInspector]
+    public Transform playerPos;
+
     void Start()
     {
        // bulletTime += Random.Range(0f,0.5f);
-       objHeight.y = GetComponent<MeshRenderer>().bounds.size.y/2;
+       //Boss1 height measure
+       objHeight.y = GetComponent<SpriteRenderer>().bounds.size.y/2;
+       objHeight.y = objHeight.y - 0.25f;
+       //Boss stage intialize 
        bossStage = stage;
        if(bossStage == 0){
            bossStage = 1;
        }
        target = positions[0];
+       //set the target for boss1 stage2 player follower bullet 
+       	if (playerPos == null) {
+			if (GameObject.FindWithTag ("Player")!=null)
+			{
+				playerPos = GameObject.FindWithTag ("Player").GetComponent<Transform>();
+			}
+		}
     }
 
     // Update is called once per frame
     void Update()
     {
+        wavepointIndex = 0;
         //Get into the scene
         if(counter){
-           transform.Translate(0, -speed * Time.deltaTime, 0f);
+           transform.Translate(0f, -speed * Time.deltaTime, 0f);
         }
         //Boss Movement selection
         if(transform.position.y <= 3.0f && bossStage == 1){
@@ -60,6 +83,11 @@ public class bossMovement : MonoBehaviour
         }
     }
 
+    public void SetTarget(Transform newTarget)
+	{
+		target = newTarget;
+	}
+
     void moveRight(){
         transform.Translate(speed*Time.deltaTime, 0, 0);
     }
@@ -73,11 +101,12 @@ public class bossMovement : MonoBehaviour
         } 
         count++;
     }
+    //Move Boss1 for stage1
    IEnumerator MoveObject(){
         yield return new WaitForSeconds(0.2f);
-        if(bulletTime < 0f){
-            yield return new WaitForSeconds(1f);
-        }
+      /*  if(bulletTime < 0f){
+            yield return new WaitForSeconds(0.2f);
+        }*/
          if(switc){
            moveRight();
         }
@@ -91,7 +120,7 @@ public class bossMovement : MonoBehaviour
             switc = true;
         }
     }
-
+    //Move Boss for stage 2 and 3
     IEnumerator Move(){
         yield return new WaitForSeconds(0.2f);
         Vector3 dir = target.position - transform.position;
@@ -102,32 +131,40 @@ public class bossMovement : MonoBehaviour
     }
 
      void GetNextWaypoint(){
-       if(wavepointIndex >=  positions.Length - 1){
+       int index = wavepointIndex;  
+       while(index == wavepointIndex){
+           wavepointIndex = Random.Range(0,positions.Length);
+       }
+      /* if(wavepointIndex >=  positions.Length - 1){
           wavepointIndex = 0;
        }
-       wavepointIndex++;
+       wavepointIndex++;*/
        target = positions[wavepointIndex];
    }
-
+    //spawn bullets for different stages
     IEnumerator Shoot(){
             yield return new WaitForSeconds(0.2f);
-            if(bossStage == 1 || bossStage == 3){
-            GameObject bullet1 = (GameObject) Instantiate(bulletPrefab, transform.position - objHeight, Quaternion.identity);
+            if(bossStage == 1){
+            GameObject bullet1 = (GameObject) Instantiate(bulletPrefab[0], transform.position - objHeight, Quaternion.identity);
+            GameObject bullet2 = (GameObject) Instantiate(bulletPrefab[1], transform.position - objHeight, Quaternion.identity);
+            GameObject bullet3 = (GameObject) Instantiate(bulletPrefab[2], transform.position - objHeight, Quaternion.identity);
+           
             }
             else if(bossStage == 2){
-             GameObject bullet4 = (GameObject) Instantiate(bulletPrefab3, transform.position - objHeight, Quaternion.identity);
+            GameObject bullet1 = (GameObject) Instantiate(bulletPrefab1[0], transform.position - objHeight, Quaternion.identity);
+            bullet1.GetComponent<boss1BulletStage2Movement>().ShootAtPlayer(playerPos);
+            GameObject bullet2 = (GameObject) Instantiate(bulletPrefab1[1], transform.position - objHeight, Quaternion.identity);
+            GameObject bullet3 = (GameObject) Instantiate(bulletPrefab1[2], transform.position - objHeight, Quaternion.identity);
             }
-            yield return new WaitForSeconds(0.05f);
-            GameObject bullet2 = (GameObject) Instantiate(bulletPrefab1, transform.position - objHeight, Quaternion.identity);
-            yield return new WaitForSeconds(0.05f);
-            GameObject bullet3 = (GameObject) Instantiate(bulletPrefab2, transform.position - objHeight, Quaternion.identity);
-            bulletTime = 2f;
+           
             if(bossStage == 3){
-            yield return new WaitForSeconds(0.05f);
-            GameObject bullet5 = (GameObject) Instantiate(bulletPrefab4, transform.position - objHeight, Quaternion.identity);
-            yield return new WaitForSeconds(0.05f);
-            GameObject bullet6 = (GameObject) Instantiate(bulletPrefab5, transform.position - objHeight, Quaternion.identity);  
+            GameObject bullet1 = (GameObject) Instantiate(bulletPrefab2[0], transform.position - objHeight, Quaternion.identity);
+            GameObject bullet2 = (GameObject) Instantiate(bulletPrefab2[1], transform.position - objHeight, Quaternion.identity);
+            GameObject bullet3 = (GameObject) Instantiate(bulletPrefab2[2], transform.position - objHeight, Quaternion.identity);
+            GameObject bullet4 = (GameObject) Instantiate(bulletPrefab2[3], transform.position - objHeight, Quaternion.identity);
+            GameObject bullet5 = (GameObject) Instantiate(bulletPrefab2[4], transform.position - objHeight, Quaternion.identity);  
             }
+            bulletTime = 2f;
             count = 0;
     }
     
