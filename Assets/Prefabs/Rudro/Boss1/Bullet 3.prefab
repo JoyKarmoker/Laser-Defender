@@ -116,9 +116,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25c41945c998efe45915296971c068a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotateSpeed: 120
+  rotateAmount: 0
   angel: 15
+  bullet4Speed: 70
   speed: 3
   bulletSpeedInX: 2
-  straight: 0
-  rightSided: 0
-  leftSided: 1
+  downstraight: 0
+  downrightSided: 1
+  downleftSided: 0
+  upstraight: 0
+  uprightSided: 0
+  upleftSided: 0
+  playerFollwer: 0
